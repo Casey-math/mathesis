@@ -1,0 +1,339 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{amssymb,amsmath,amsthm,amscd} %\input{epsf}
+\textwidth=18cm
+\textheight=26cm
+\oddsidemargin = -1truecm
+\topmargin =-2truecm
+\headsep =1truecm
+\reversemarginpar
+\marginparsep = -2cm
+\parindent = 0truecm
+
+\usepackage{xcolor}
+\usepackage[utf8]{inputenc}
+\usepackage{float}
+
+\usepackage{multicol}
+
+\usepackage{pgf,tikz,tkz-tab}
+\usetikzlibrary{arrows}
+\usepackage{pgfplots}
+% \pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+%\usepackage{psfrag}
+%\usepackage{graphicx}
+
+%\usepackage{epsfig}
+\usepackage{amsmath}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\T}{\mathbb{T}}
+\newcommand{\ms}{\medskip}
+\newcommand{\vfe}{\vfill\eject}
+
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\fou}{\mathcal{F}}
+\newcommand{\dist} {\rm dist}
+
+\newcommand{\im}{\mbox{Im}}
+\newcommand{\re}{\mbox{Re}}
+
+\newcommand{\abs}[1]{\vert #1 \vert}
+\newcommand{\absb}[1]{\bigl\vert #1 \bigr\vert}
+\newcommand{\absbig}[1]{\biggl\vert #1 \biggr\vert}
+\newcommand{\norm}[1]{\| #1 \|}
+\newcommand{\normb}[1]{\bigl\| #1 \bigr\|}
+\newcommand{\normbig}[1]{\biggl\| #1 \biggr\|}
+\newcommand{\parent}[1]{\bigl(#1\bigr)}
+\newcommand{\parentbig}[1]{\biggl(#1\biggr)}
+\newcommand{\set}[1]{\bigl\{#1\mathclose{}\bigr\}}
+\newcommand{\setbig}[1]{\biggl\{#1\mathclose{}\biggr\}}
+
+
+\newcommand{\bigo}[1]{O\mathopen{}\left(#1\right)}
+\newcommand{\japbrak}[1]{\langle#1\rangle}
+
+\newcommand{\interval}[4]{\mathopen{#1}#2\mathclose{}\mathpunct{},#3\mathclose{#4}}
+\newcommand{\intervaloo}[2]{\interval{]}{#1}{#2}{[}}
+\newcommand{\intervaloc}[2]{\interval{]}{#1}{#2}{]}}
+\newcommand{\intervalco}[2]{\interval{[}{#1}{#2}{[}}
+\newcommand{\intervalcc}[2]{\interval{[}{#1}{#2}{]}}
+
+
+\newcounter{ex}
+\setcounter{ex}{0}
+
+% \newcommand{\exo}{\stepcounter{ex} \vspace{0.2cm} \noindent
+% {\bf Exercice \arabic{ex}.} $\,$}
+
+% \newtheorem{exo}[ex]{\noindent \textbf{Exercice}}
+
+\newtheorem{exs}[ex]{Exercice}
+\renewcommand{\theexs}{}
+\newenvironment{exo}{\begin{exs}\rm}{\end{exs}\vspace{.1cm}}
+
+\newtheorem{exos}[ex]{\color{gray} Exercice}
+\renewcommand{\theexos}{}
+\newenvironment{exosup}{\begin{exos}\rm \color{gray}}{\end{exos}}
+ 
+
+\usepackage{enumitem}
+ \setenumerate{leftmargin=.6cm, topsep=.2cm, itemsep=.1cm}
+ \setlist{leftmargin=0cm}
+
+%Solution
+\newcommand{\solution}[1]{\par\noindent\textbf{\color{olive}Solution :} \textcolor{olive}{#1}}
+
+\begin{document}
+
+
+\setcounter{section}{0}
+
+
+\begin{tabular*}{\textwidth}{l @{\extracolsep{\fill}} cr}
+Mathématiques & \textbf{\Large{Feuille de TD 1}} & MEU353\\
+Université Paris-Saclay & & 2023-2024
+\end{tabular*}
+
+\ms
+\begin{center}
+\textbf{Rappels de Topologie}
+\end{center}
+\ms
+
+\begin{exo} \textbf{Convergence dans $\R^2$.}
+On consid\`ere $\R^2$, muni de la distance euclidienne. Donc si 
+$X = (x,y)$ et $X' = (x',y')$, $\dist(X,X') = \sqrt{|x-x'|^2 + |y-y'|^2}$.
+
+On se donne une suite $\{ X_k \}$ dans $\R^2$, avec $X_k = (x_k,y_k)$ pour $k \geq 0$, et
+un point $X = (x,y) \in \R^2$. 
+
+D\'emonter que $\lim_{k \to +\infty} X_k= X$ (dans $\R^2$ muni de la distance euclidienne) si et seulement si
+$\lim_{k \to +\infty} x_k = x$ et $\lim_{k \to +\infty} y_k= y$.
+\end{exo}
+
+
+\begin{exo}\textbf{Normes usuelles sur $\R^n$} Rappelons la définition des normes usuelles sur l'espace vectoriel $\R^n$, comme applications de $\R^n$ dans $\R^+$ : pour tout $x=(x_1,\dots,x_n)\in\R^n$,
+% \begin{align}
+% &d_{\infty}(x,y)=\max\{|x_1-y_1|,\dots,|x_n-y_n|\} ;\\
+% &d_1(x,y)=|x_1-y_1|+\dots+|x_n-y_n| ;\\
+% &d_2(x,y)=\sqrt{|x_1-y_1|^2+\dots+|x_n-y_n|^2},\\
+% \end{align}
+\begin{align*}
+&\|x\|_{\infty}=\max\{|x_1|,\dots,|x_n|\}, \\
+&\|x\|_{1}=|x_1|+\dots+|x_n|,\\
+&\|x\|_{2}=\sqrt{|x_1|^2+\dots+|x_n|^2},\\
+\end{align*}
+%,\ y=(y_1,\dots,y_n)\in\R^n.$
+\begin{enumerate}
+\item Montrer que $\|\cdot\|_{\infty},\ \|\cdot\|_{1}$ et $\|\cdot\|_{2}$ sont des normes dans $\R^n.$
+\item Montrer que ces trois normes sont équivalentes. 
+\item Donner les trois distances dans l'ensemble $\R^n$ induites par les normes $\|\cdot\|_{\infty},\ \|\cdot\|_{1}$ 
+et $\|\cdot\|_{2}$. On notera ces distances $d_{\infty},\ d_1$ et $d_2$.
+\item Dessiner deux points distincts dans $\R^2$ et représenter leur distance au sens de $d_1$, $d_2$ et $d_\infty$. 
+\item Dans $\R^2,$ représenter les boules fermées $\overline{B}_{d_1}(0,1)$, $\overline{B}_{d_2}(0,1)$ et $\overline{B}_{d_\infty}(0,1)$. 
+\end{enumerate}
+\end{exo}
+\begin{exo}\textbf{Représentation des formes linéaires.}
+Notons $(\cdot|\cdot)$ le produit scalaire euclidien dans $\R^n$. 
+\begin{enumerate}
+    \item Soit $L:\R^n\longrightarrow\R.$ Montrer que $L$ est linéaire \textit{si et seulement si} il existe un vecteur $v$ dans $\R^n$ tel que pour tout $x\in\R^n$, $L(x)=(v|x)$.
+     \item On munit $\R^n$ de la norme euclidienne. Quelle est alors, dans la question ci-dessus, la norme de $L$?
+\end{enumerate}
+\end{exo}
+
+\begin{exo}\textbf{Exemples concrets.} Considérons les sous-ensembles suivants de $\R^2$ :
+\begin{align*}
+A&=\{(x,x^3)\,:\,x< 1\},\\
+B&=\{(n,\frac{1}{n+1})\,:\,n\in\N\},\\
+%C&=\{(x,y)\in\R^2\,:\,x^2+y^2\le 1,\ x\ge0,\ y>0\},\\
+C&=\{(x,y)\in\R^2\,:\,y\ge x^2,\ y>x+1\}.
+%E&=\{(x,y)\in\R^2\,:\,x\ge y^2-4,\ |x|\le 2\}.
+\end{align*}
+\begin{enumerate}
+    \item Représenter dans le plan chacun de ces ensembles.
+    \item Lesquels de ces ensembles sont ferm\'es? ouverts?
+    \item Déterminer leur intérieur, leur frontière et leur adhérence. 
+    \item Lesquels de ces ensembles sont compacts ?
+\end{enumerate}  
+\end{exo}
+
+\vfe 
+
+\begin{exo}\textbf{Graphes.} On se donne une fonction $f : \R \to \R$
+et on note $G_f \subset \R^2$ le graphe de $f$. 
+\begin{enumerate}
+    \item Rappeler la d\'efinition de $G_f$.
+	    \solution{$G_f = \{(x,f(x)) | x \in \mathcal{D}_f\} \subset \R^2$}
+    \item Montrer que $G_f$ est ferm\'e si $f$ est continue. 
+	    \solution{Supposons $f$ continue, montrons que $G_f$ est fermé, utilisons la caractérisation séquentielle des fermés : Soit donc $(x_n,y_n)$ une suite de $G_f$ qui converge vers $(x,y)\in \R^2$, montrons que $(x,y)\in G_f$.\\
+		On a donc $(x_n,y_n)_n \in G_f,~ \forall n \in \N$, on a donc $y_n = f(x_n)$, donc $f(x_n) \to y$ quand $n \to + \infty$ et comme $f$ est continue, $f(x_n) \to f(x)$ quand $n \to \infty$, donc par unicité de a limite on a $f(x) = y \Rightarrow (x,y) \in G_f$.
+		}
+    \item La r\'eciproque est-elle vraie?
+	    \solution{faux, pourquoi ??}
+\end{enumerate}  
+\end{exo}
+
+
+\begin{exo}\textbf{Limites.} Soient $f:\R^2\longrightarrow\R$ la fonction définie par
+\begin{equation*}
+f(x,y)=
+\begin{cases}
+\sin(\frac{y^2}{x}),&\ x\neq0,\\
+0,&\ x=0,
+\end{cases}    
+\end{equation*}
+\begin{enumerate}
+\item Montrer que $f$ admet la même limite selon toutes les directions en $(0,0)$ mais que $f$ n'est pas continue en $(0,0)$. 
+\item Montrer que les fonctions suivantes, notées $g$ et $h$, sont continues au point $(0,0)$.
+\begin{equation*}
+g(x,y)=
+\begin{cases}
+\frac{x|y|}{\sqrt{x^2+y^2}},&\ (x,y)\neq(0,0),\\
+0,&\ (x,y)=(0,0),
+\end{cases}
+\quad 
+h(x,y)=
+\begin{cases}
+(x-y)\frac{x^2}{x^2+y^2},&\ (x,y)\neq(0,0),\\
+0,&\ (x,y)=(0,0).
+\end{cases}
+\end{equation*}
+\end{enumerate}
+\end{exo}
+
+
+\begin{exo} \textbf{Exemples de distances}\\
+\begin{enumerate}
+\item Rappeler la d\'efinition d'une norme et d'une distance. 
+V\'erifier que toute norme sur un espace vectoriel $E$ d\'efinit une distance
+sur $E \times E$. La suite donne des exemples de distances qui ne viennent pas 
+directement de normes.
+    \item V\'erifier que les applications suivantes sont bien des distances.
+    \begin{align*}
+    d_1&:\ (x,y)\in\R\times\R\mapsto \min(1,\abs{x-y})\,,\\
+    d_2&:\ (x,y)\in\R\times\R\mapsto\sqrt{\abs{x-y}}
+    \  \text{ (et que se passse-t-il avec $(x,y)\in\R\times\R\mapsto \abs{x-y}^2$?)}
+    \,,\\
+    d_3&:\ ((x_1,x_2),(y_1,y_2))\in\R^2\times\R^2 \mapsto \sqrt{\abs{x_1-y_1}}+\min(1,\abs{x_2-y_2})\,. 
+    \end{align*}
+    \item Vérifier que les ouverts pour la distance $d_1$ et $d_2$ (resp. $d_3$) sont les mêmes que les ouverts pour la distance usuelle sur $\R$ (resp. $\R^2$).
+\end{enumerate}
+\end{exo}
+
+
+
+\begin{exo} \textbf{Produit d'espaces métriques I}\\
+
+Soient $(E_1,d_1)$ et $(E_2,d_2)$ deux espaces métriques. 
+\begin{enumerate}
+\item Proposer (au moins) une distance $d$ sur l'espace produit $E_1\times E_2$.
+	\solution{On a par exemple pour $(x_1,x_2),(y_1,y_2) \in (E_1,d_1)\times(E_2,d_2)$ la distance définie comme le max des distance sur chacuns des espaces métriques : $\max \big( d_1(x_1,y_1), d_2(x_2,y_2) \big)$, on peut faire de même pour les deux autres distances classiques.}
+\item Montrer que pour toute suite $(x_k,y_k)\in (E_1\times E_2)^\N$, et pour tout $(x,y)\in E_1\times E_2$,
+\[
+(x_k,y_k) \underset{k\to\infty}{\longrightarrow} (x,y)\  \text{dans}\ (E_1\times E_2, d)
+\quad \textit{ssi}\quad 
+x_k \underset{k\to\infty}{\longrightarrow} x\  \text{dans}\ (E_1,d_1)\,,\ \text{et}\ y_k \underset{k\to\infty}{\longrightarrow} y\  \text{dans}\ (E_2,d_2)\,.
+\]
+		\solution{On peut raisonner ici par équivalence en prenant la norme 1 définie sur l'ensemble produit.}
+\end{enumerate}
+\end{exo}
+
+\begin{exo}\textbf{Fonction continue dans un espace métrique}\\
+
+Soit $f: (E_1,d_1)\to (E_2,d_2)$, et $x\in E_1$. 
+\begin{enumerate}
+    \item Montrer que $f$ est continue au point $x$ \textit{ssi} pour tout $\epsilon>0$, il existe $\delta>0$ tel que 
+\[
+f\parent{B_1(x,\delta)}\subset B_2\parent{f(x),\epsilon}\,.
+\]
+\item Montrer que $f$ est continue au point $x$ \textit{ssi} pour toute suite 
+$\{ x_k \}$ dans $E_1$ qui converge vers $x$ dans $E_1$, la suite $\{ f(x_k) \}$ converge vers $f(x)$ dans $E_2$.
+
+\end{enumerate}
+\end{exo}
+
+\begin{exo}\textbf{Équivalence des normes dans $\R^n$}\\
+
+Soit $N: \R^n\to \R^+$ une norme, et $\norm{\ }$ la norme Euclidienne sur $\R^n$, définie on le rappelle par 
+\[
+\norm{x} = \sqrt{\sum_{i=1}^n x_i^2}\,,\quad \text{pour}\ x=(x_i)_{1\leq i\leq n}\,.
+\]
+\begin{enumerate}
+\item Montrer qu'il existe une constante $M>0$ telle que pour tout $x\in\R^n$,
+\[
+N(x)\leq M\norm{x}\,.
+\]
+\item Montrer alors que $N: \R^n\longrightarrow \R_+$ est une fonction continue. \textit{Remarque: On déduit de cette question que toute norme sur $\R^n$ est une application continue}.
+\end{enumerate}
+ Soit maintenant $S=\set{x\in\R^n\mid \norm{x}=1}$.
+\begin{enumerate}[resume]
+    \item Montrer qu'il existe $m>0$ tel que $m\leq N(x)$ pour tout $x\in S$.
+    \item En déduire que pour tout $x\in\R^n$,
+    \[
+    m\norm{x}\leq N(x)\,.
+    \]
+    \item Soient $N$ et $N'$ deux normes sur $\R^n$. Montrer que $N$ et $N'$ sont \'equivalentes.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}\textbf{Caractérisation des ouverts de $\R$.}
+Munissons $\R$ de sa topologie la plus naturelle, \`a savoir celle qui vient de la valeur absolue $\abs{\ }$. 
+\begin{enumerate}
+    \item Justifier le fait que toute réunion dénombrable d'intervalles ouverts est encore un ouvert de $\R$.
+    \item Réciproquement, on va montrer que que tout ouvert de $\R$ peut s'écrire comme une réunion dénombrable d'intervalles ouverts. Considérons pour cela $\mathcal{U}$ un ouvert de $\R$.
+    \begin{enumerate}
+        \item Montrer que $\mathcal{U}$ est une réunion (pas forcément dénombrable) d'intervalles ouverts.
+        \item Utiliser la densité de $\Q$ dans $\R$ pour avoir une réunion dénombrable. 
+ Indication: On suppose $U \neq \R$. Pour $y\in \Q \cap U$, consid\'erer l'intervalle $I_y = ]y-d(y)/2, y+d(y)/2$, o\`u $d(y) = \rm{dist}(y, \R \setminus U)$.
+      
+    \end{enumerate}
+\end{enumerate}
+\
+\end{exo}
+
+\begin{exo}\textit{(Bonus)} \textbf{Produit d'espaces métriques II}\\
+
+Soit $(E_j,d_j)_{j\geq0}$ une famille dénombrable d'espaces métriques. Supposons que pour tout $j\geq0$,
+\begin{equation} \label{1}
+d_j(x_j,y_j)\leq1\quad \text{lorsque}\ (x_j,y_j)\in E_j\times E_j\,.
+\end{equation}
+%\[
+%d_j(x_j,y_j)\leq1\quad \text{lorsque}\ (x_j,y_j)\in E_j\times E_j\,.
+%\]
+\begin{enumerate}
+    \item Montrer que 
+    \[
+    d: \parent{(x_j),(y_j)}_{j\geq0}\in  \parent{\prod_{j\geq0}E_j}\times\parent{\prod_{j\geq0}E_j}\longmapsto \sum_{j\geq0}2^{-j}d_j(x_j,y_j)
+    \]
+est une distance sur $\displaystyle\prod_{j\geq0}E_j$. 
+\item Montrer que la suite $\set{(x_j^{(k)})}_k$ converge dans l'espace métrique produit $\parent{\prod_j E_j, d}$ \textit{ssi} chaque suite coordonnée $(x_j^{(k)})_k$ converge dans l'espace $(E_j,d_j)$.
+\item
+Que faire si l'on n'a pas \eqref{1} d'embl\'ee
+\end{enumerate}
+\end{exo}
+
+\begin{exo} \textit{(Bonus)} \textbf{Caractérisation des compacts de $\intervaloo{0}{1}$} \\
+\begin{enumerate}
+    \item Quels sont les sous-ensembles compacts de 
+    $[0,1]$? Ceux de $\intervaloo{0}{1}$ ? 
+\end{enumerate}
+
+\end{exo}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+

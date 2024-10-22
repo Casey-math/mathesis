@@ -1,0 +1,650 @@
+\input{../preambule}
+\usepackage{tikz}
+\usepackage[scr=rsfs]{mathalpha}
+\author{Anito KODAMA}
+
+\title{\textbf{Cours d'analyse de troisème année de Licence}}
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+\section*{Préambule}
+
+En mathématiques, la \textbf{mesure} et l'\textbf{intégrale} sont deux concepts fondamentaux, mais avec des objectifs et des définitions différents. Voici une comparaison succincte des deux notions :
+
+\subsection*{Mesure}
+La mesure est une fonction qui assigne une taille ou un volume à certains sous-ensembles d'un espace. Cela permet de généraliser des concepts tels que la longueur, l'aire ou le volume, même pour des ensembles complexes.
+
+\begin{itemize}
+    \item \textbf{Définition} : Une mesure assigne un nombre non négatif (ou infini) à un ensemble, représentant sa taille ou son volume.
+    \item \textbf{Exemple} : La mesure de Lebesgue sur un intervalle \([a, b] \subset \mathbb{R}\) est simplement la longueur \(b - a\).
+\end{itemize}
+
+\subsection*{Intégrale}
+L'intégrale est un concept utilisé pour accumuler ou sommer les valeurs d'une fonction sur un domaine. Elle permet de calculer des quantités comme l'aire sous une courbe ou la masse d'une distribution continue.
+
+\begin{itemize}
+    \item \textbf{Définition} : L'intégrale somme les valeurs d'une fonction pondérées par la mesure des sous-ensembles où la fonction prend ces valeurs.
+    \item \textbf{Exemple} : L'intégrale de Riemann d'une fonction continue sur un intervalle \([a, b]\) correspond à l'aire sous la courbe de la fonction sur cet intervalle.
+\end{itemize}
+
+\subsection*{Différences}
+\begin{itemize}
+    \item \textbf{But} :
+        \begin{itemize}
+            \item La mesure quantifie la taille d'un ensemble.
+            \item L'intégrale calcule la somme des valeurs d'une fonction pondérées par la mesure.
+        \end{itemize}
+    \item \textbf{Objectif} :
+        \begin{itemize}
+            \item La mesure permet de définir la taille de sous-ensembles.
+            \item L'intégrale permet d'évaluer des quantités globales sur ces ensembles.
+        \end{itemize}
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+\section{Chapitre 1 : Du néant nait la lumière}
+\subsection{Le corps des réels}
+\subsubsection{Borne sup et inf}
+
+\bd[définition verbale]
+Soit $E$ un ensemble ordonné et $A \subset E$. Si l'ensemble des majorants de A admet un plus petit élément, cet élément est appelé borne supérieure de $A$ et noté $Sup(A)$. Si l'ensemble des minorants de $A$ admet un plus grand élément, cet élément est appelé borne inférieure de $A$ et noté $Inf(A)$.
+\ed
+\medskip
+\bd[définition formelle] 
+Soit $A \subset \R$. Le réel $\alpha$ est la borne supérieure de $A$ si il vérifie : 
+\ben
+\item $\alpha$ majore $A$, \ie : $\forall x \in A, x \leq \alpha$ ;
+\item $\forall \epsilon > 0, ~ \exists x \in A, ~ \alpha-\epsilon < x$.
+\een
+\ed
+\medskip
+
+\begin{tikzpicture}[domain/.style={->,thick}, line/.style={thick}, point/.style={fill=black,circle,inner sep=1pt}]
+    % Dessin de la droite des réels
+    \draw[->] (-1,0) -- (5,0) node[anchor=north] {$\mathbb{R}$};
+    
+    % Points et lignes
+    \draw[dashed] (3, -0.3) -- (3, 0.3) node[anchor=south] {$\alpha$};
+    \draw[dashed] (1, -0.3) -- (1, 0.3) node[anchor=south] {$\alpha - \epsilon$};
+    \draw[dashed] (2, -0.3) -- (2, 0.3) node[anchor=south] {$x$};
+        
+   % \draw[fill=black] (2,0) circle (2pt) node[anchor=north] {$x$};
+\end{tikzpicture}
+
+\medskip
+
+\bw
+Toute partie majorée de $\Q$ n'admet pas nécessairement de borne supérieure. C'est cette lacune de $\Q$ qui est à la base d'une construction de $\R$ par la méthode dite des coupures.
+\ew
+
+\medskip
+
+\bp
+Toute partie non vide de $\R$ et majorée possède un sup. De même toute partie non vide de $\R$ et minorée possède un inf.
+\ep
+
+\bigskip
+
+\bd
+Soit $(U_n)$ une suite réelle $(U_n)$ converge vers $l\in\R$ si et seulement si : $$\forall \epsilon > 0, ~ \exists N \in \N, ~ \forall n > N, ~ \mid U_n - l \mid < \epsilon$$.
+\ed
+
+\medskip
+
+On dit qu'une suite stationne en $n_0 \in \N$, ou encore qu'elle est stationnaire si elle est constante à partir du rang $n_0$, c'est à dire si : $\forall n \geq n_0, u_n = u_{n_0}$.
+\bp
+Soit $E$ un ensemble ordonné. Les propriétés suivantes sont équivalentes : 
+\ben
+\item Toute suite croissante de $E$ est stationnaire.
+\item Il n'existe pas dans $E$ de suite strictement croissante.
+\item Toute partie non vide de $E$ admet un élément maximal.
+\een
+On dit alors que l'ensemble ordonné $E$ est noetherien.
+\ep
+\bpf 
+todo
+\epf
+
+\bp[Caractérisation séquentielle de la borne supérieure]
+Soit $A$ une partie non vide et majorée de $\R$. SOit $\alpha \in \R$. Les propriétés suivantes sont équivalentes : 
+\ben
+\item Le réel $\alpha$ est la borne supérieure de $A$ ;
+\item 
+\[
+\left\{
+\begin{aligned}
+    &\forall x \in A, \, x \leq \alpha \\
+    &\forall \epsilon > 0, \, \exists x \in A : \alpha - \epsilon < x
+\end{aligned}
+\right.
+\]
+\item 
+\[
+\left\{
+\begin{aligned}
+    &\forall x \in A, \, x \leq \alpha \\
+    &\exists (X_n)_{n \in \N} \in A^{\N}: \dessous{n \to \infty}{lim} X_n = \alpha.
+\end{aligned}
+\right.
+\]
+\een
+\ep
+
+\bpf
+Démontrons le cycle : 
+\bi
+\item (i) $\Rightarrow$ (ii)  Par définition, $\alpha - \epsilon$ n'est pas un majorant de $A$, \ie qu'il existe un élément $x \in A$ tel que $x > \alpha - \epsilon$, ce qui permet de démontrer (ii).
+\item (ii) $\Rightarrow$ (iii) Supposons que $\alpha$ vérifie les propriétés de (ii).\\
+Pour tout $n \in \N^*$, considérons $X_n \in A$ tel que $\alpha - \frac1n < X_n \leq \alpha$, dont l'existence est assurée par les hypothèses faites sur \alpha.\\
+Par le \textbf{théorème d'encadrement}, $(X_n)_{n\in\N^*}$, est une suite d'éléments de $A$ qui converge vers $\alpha$, ce qui permet de démontrer (iii).  
+\item (iii) \Rightarrow (i) Supposons que $\alpha$ vérifie les propriétés de (iii).\\
+Soit $M \in \R$ un majorant de $A$.\\
+Soit $(X_n)_{n\in \N} \in A^{\N}$ telle que $\dessous{n \to \infty}{lim} X_n = \alpha$, dont l'existence est assurée par les hypothèses faites sur $\alpha$.\\
+Comme $M$ est un majorant de $A$, on a $X_n \leq M$ pour tout $n\in \N$, don par passage à la limite, $\alpha \leq M$, ce qui permet de démontrer que $\alpha$ est la borne supérieure de $A$.
+
+\ei
+\epf
+
+\begin{center}
+\begin{tikzpicture}
+    % Dessiner la droite des réels
+    \draw[->] (-0.5,0) -- (3.5,0) node[anchor=north] {$\mathbb{R}$};
+    
+    % Points 0 et 1 exclus
+    \draw[fill=white] (0,0) circle (2pt) node[below] {$0$};
+    \draw[fill=white] (3,0) circle (2pt) node[below] {$1$};
+    
+    % Points d'une suite s'accumulant sur 1
+    \foreach \x in {0.5, 1.5, 2, 2.5, 2.8, 2.9, 2.95, 2.975} {
+        \draw[fill=black] (\x,0) circle (1.5pt);
+    }
+    
+    % Texte pour indiquer l'accumulation sur 1
+    \node at (1.5,0.5) {Accumulation sur $1$};
+\end{tikzpicture}
+\end{center}
+
+\subsection{Suites de Cauchy de $\R$}
+\bd[définition générale] Dans un espace métrique $X$, une suite $(U_n)$ est appelée suite de Cauchy si elle vérifie la condition : 
+$$\forall \epsilon > 0, ~ \exists N \in \N, ~ \forall n \geq N, ~ \forall p \geq N, ~ d(U_n, U_p) \leq \epsilon$$
+\ed
+
+\bd[définition du cours]
+Soit $(U_n)$ une suite réelle, on dit qu'elle est de Cauchy \ssi : 
+$$\forall \epsilon > 0, ~ \exists N \in \N, ~ \forall n,m > N \Rightarrow \mid U_n - U_m \mid < \epsilon$$
+\ed
+
+\bp
+Toute suite convergente est de Cauchy.
+\ep
+\bpf
+Supposons que $(U_n)$ converge vers $l\in X$, prenons $\epsilon > 0$. Il existe $N \in \N$ tel que $n\geq N \Rightarrow d(U_n, l) \leq \epsilon$.\\
+Si on prend $(p,q) \in \N \times \N$ tels que $p \geq N$ et $q \geq N$, alors on a $d(U_p,l) \leq \epsilon$ et $d(U_q,l) \leq \epsilon$, l'inégalité triangulaire nous donne : $d(U_p,U_q) \leq d(U_p,l) + (l,U_q) \leq 2\epsilon$. La suite $(U_n)$ est donc une suite de Cauchy.
+\epf
+
+\bp[même proposition pour les $\R$]
+Si $(U_n)$ est une suite $\R$ convergente vers $l\in \R$, alors $(U_n)$ est de Cauchy.
+\ep
+\bpf
+$\forall \epsilon > 0, ~ \exists N \in \N, ~ \forall n > N \Rightarrow \mid U_n - l \mid < \epsilon, ~ \forall m > N \Rightarrow \mid U_m - l \mid < \epsilon$ d'où $$\mid U_n - U_m \mid ~ = ~ \mid U_n -l +l - U_m \mid ~ \leq \mid U_n -l \mid + \mid U_m - l \mid ~ \leq ~ 2 \epsilon$$
+\epf
+
+\bp[$\R$ est complet]
+Toute suite réelle de Cauchy converge dans $\R$, on dit que $\R$ est complet.
+\ep
+
+\subsection{Propriété de Bolzano-Weierstrass}
+\bp
+Toute suite réelle bornée $(U_n)$ possède au moins une suite extraite convergente.
+\ep
+\subsubsection{Sous suite et extractrice}
+\bd[Extractrice]
+Soit $(U_n)$ une suite, et $\phi : \N \to \N$ une fonction strictement croissante. La suite $(U_{\phi(n)})$ s'appelle suite extraite ou sous suite de $(U_n)$. La fonction $\phi$ s'appelle alors extractrice.
+\ed
+
+\subsection{Suite de fonctions}
+\subsubsection{Convergence simple}
+\bd[CVS]
+Soit $I \subset \R$, $(f_n)$ une suite de fonctions définies sur $I$, et $f$ définie sur $I$. On dit que $(f_n)$ \textbf{converge simplement} vers $f$ sur $I$ si pour tout $x \in I$, la suite $(f_n(x))$ converge vers $f(x)$, \ie $$\forall x \in X, ~ \forall \epsilon > 0, ~ \exists N_{(x,\epsilon)} \in \N, ~ \forall n > N_{(x,\epsilon)} \Rightarrow \mid f_n(x) - f(x)\mid < \epsilon$$
+\ed
+
+\subsubsection{Convergence uniforme}
+\bd[CVU]
+Soit $I \subset \R$, $(f_n)$ une suite de fonctions définies sur $I$, et $f$ définie sur $I$. On dit que $(f_n)$ \textbf{converge uniformément} vers $f$ sur $I$ si : $$\forall \epsilon > 0, ~ \exists n_0 \in \N, ~ \forall x \in I, ~ \forall n \geq n_0, ~ \mid f_n(x) - f(x) \mid < \epsilon$$
+\ed 
+
+\subsection{Théorème des bornes atteintes}
+\bp[Théorème des bornes atteintes]
+Soit $f$ continue sur $[a,b]$ avec $a,b \in \R$ et $a<b$, alors $f$ possède un sup et un inf et \textbf{est bornée et atteint ses bornes}.
+\ep
+\subsubsection{Continuité et sa caractérisation séquentielle}
+\bd[Continuité]
+$f : X \to \R$ est continue en $x_0 \in X$ si $\dessous{x \to x_0}{lim} f(x) = f(x_0)$.
+\ed
+
+\bp[caractérisation séquentielle de la continuité]
+$f$ est continue en $a$ \ssi, pour toute suite $(x_n)$ qui converge vers $a$, alors $(f(x_n))$ converge vers $f(a)$.
+\ep
+
+\subsubsection{Continuité uniforme et son théorème de Heine}
+\bd[Continuité uniforme]
+Soit $I$ un intervalle et $f : I \to \R$. On dit que $f$ est \textbf{uniformément continue} sur $I$ si : $$\forall \epsilon > 0, ~ \exists \delta > 0, ~ \forall(x,y) \in I^2, ~ \mid x-y\mid < \delta \Rightarrow \mid f(x) - f(y) \mid < \epsilon.$$
+\ed 
+
+\bp[Théorème de Heine]
+Soit $f:[a,b]\to \R$ une fonction continue. Alors $f$ est uniformément continue. Plus généralement, une fonction $f:X\to Y$ où $X$ est un espace métrique compact et $Y$ est un espace métrique est uniformément continue.
+\ep 
+%%%%%%%%%%%%%%
+%Sommes de Darboux
+%%%%%%%%%%%%%%%
+\section{Chapitre 2 : Sommes de Darboux}
+\subsection{Préambule : Sommes de Riemann vs Sommes de Darboux}
+Les sommes de Darboux et de Riemann sont des méthodes utilisées pour approcher l'intégrale d'une fonction sur un intervalle. Bien qu'elles aient un objectif similaire, elles diffèrent dans la manière dont elles sont définies et calculées. Voici les principales différences entre les deux :
+
+\subsubsection{Sommes de Riemann}
+
+Les \textbf{sommes de Riemann} sont une méthode générale d'approximation de l'intégrale en divisant un intervalle $[a, b]$ en sous-intervalles et en utilisant des points à l'intérieur de ces sous-intervalles pour calculer l'aire sous la courbe. La somme de Riemann dépend du choix de ces points, ce qui peut varier, mais les trois types les plus courants sont :
+
+\begin{itemize}
+    \item \textbf{Somme de Riemann à gauche} : On prend la hauteur de la fonction à l'extrémité gauche de chaque sous-intervalle.
+    \item \textbf{Somme de Riemann à droite} : On prend la hauteur à l'extrémité droite de chaque sous-intervalle.
+    \item \textbf{Somme de Riemann centrée (ou médiane)} : On prend la hauteur de la fonction au milieu de chaque sous-intervalle.
+\end{itemize}
+
+La formule générale d'une somme de Riemann est la suivante :
+
+\[
+S = \sum_{i=1}^{n} f(c_i) \Delta x_i
+\]
+
+où $c_i$ est un point choisi dans chaque sous-intervalle $[x_i, x_{i+1}]$ et $\Delta x_i = x_{i+1} - x_i$ est la longueur de chaque sous-intervalle.
+
+Les sommes de Riemann peuvent varier selon le choix des points $c_i$, mais elles convergent vers l'intégrale de la fonction lorsque la taille maximale des sous-intervalles tend vers zéro.
+
+\subsubsection{Sommes de Darboux}
+
+Les \textbf{sommes de Darboux} sont une approche plus rigoureuse qui donne un encadrement de l'intégrale à l'aide de sommes inférieures et supérieures. Elles dépendent des \textbf{bornes inférieure} et \textbf{supérieure} de la fonction dans chaque sous-intervalle.
+
+\begin{itemize}
+    \item \textbf{Somme inférieure de Darboux} : Elle utilise la plus petite valeur de la fonction $f(x)$ sur chaque sous-intervalle $[x_i, x_{i+1}]$ pour calculer l'aire du rectangle associé. Cette somme sous-estime généralement l'intégrale.
+    \item \textbf{Somme supérieure de Darboux} : Elle utilise la plus grande valeur de la fonction $f(x)$ sur chaque sous-intervalle $[x_i, x_{i+1}]$, ce qui conduit à une surestimation de l'intégrale.
+\end{itemize}
+
+Les formules des sommes de Darboux sont les suivantes :
+
+\[
+S_{\text{inf}} = \sum_{i=1}^{n} m_i \Delta x_i
+\]
+
+\[
+S_{\text{sup}} = \sum_{i=1}^{n} M_i \Delta x_i
+\]
+
+où $m_i = \inf\{f(x) : x \in [x_i, x_{i+1}]\}$ et $M_i = \sup\{f(x) : x \in [x_i, x_{i+1}]\}$.
+
+Les sommes inférieure et supérieure de Darboux encadrent l'intégrale, et lorsque l'intervalle de subdivision devient plus fin, ces sommes convergent vers la même valeur, qui est l'intégrale.
+
+\subsubsection{Différences principales}
+
+\begin{itemize}
+    \item \textbf{Choix des points} :
+    \begin{itemize}
+        \item Dans les sommes de Riemann, on choisit un point $c_i$ arbitraire dans chaque sous-intervalle pour évaluer la fonction.
+        \item Dans les sommes de Darboux, on utilise les bornes inférieure et supérieure de la fonction sur chaque sous-intervalle, ce qui fixe les valeurs minimales et maximales sur chaque sous-intervalle.
+    \end{itemize}
+
+    \item \textbf{Encadrement vs approximation} :
+    \begin{itemize}
+        \item Les sommes de Darboux donnent un encadrement (avec une somme inférieure et une somme supérieure) qui garantit que l'intégrale est comprise entre ces deux sommes.
+        \item Les sommes de Riemann fournissent une approximation unique, mais qui peut varier selon le choix des points dans les sous-intervalles.
+    \end{itemize}
+
+    \item \textbf{Rigueur mathématique} :
+    \begin{itemize}
+        \item Les sommes de Darboux sont plus rigoureuses dans le sens où elles garantissent un encadrement strict de l'intégrale, ce qui est utile dans la démonstration du théorème fondamental de l'intégration.
+        \item Les sommes de Riemann, bien qu'elles puissent varier selon le choix des points, sont plus pratiques à utiliser et plus générales.
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Convergence}
+
+\begin{itemize}
+    \item Les \textbf{sommes de Riemann} convergent vers l'intégrale si la fonction est intégrable sur l'intervalle donné, quelle que soit la manière dont les points $c_i$ sont choisis, à condition que la taille des sous-intervalles tende vers zéro.
+    \item Les \textbf{sommes de Darboux} convergent également vers l'intégrale, et elles garantissent que l'intégrale est bien définie en encadrant la fonction entre la somme inférieure et la somme supérieure.
+\end{itemize}
+
+\subsection{Cours sur les sommes de Darboux}
+
+\bd[subdivision d'un segment]
+Soit $a$ et $b$ deux réels avec $a<b$. On appelle subdivision du segment $[a,b]$ toute suite finie $a_0=a<a_1<...<a_n=b$. Le pas de cette subdivision est le plus grand des $a_i+1−a_i$ pour $i=0,...,n−1$.
+
+\medskip
+
+Si $\sigma=(a_0,...,a_n)$ et $\sigma′=(b_0,...,b_p)$ sont deux subdivisions de $[a,b]$, on dit que $\sigma′$ est plus fine que $\sigma$ si, pour chaque $i\in \{1,...,n\}$, on peut trouver $j\in \{0,...,p\}$ tel que $b_j=a_i$, autrement dit si $\sigma′$ découpe plus l'intervalle $[a,b]$ que ne le fait $\sigma$.
+\ed
+
+\bigskip
+
+\bd[Sommes de Darboux]
+Soit $f:[a,b]\to \R$ une fonction bornée et $s:a=x_0<x_1<...<x_n=b$ une subdivision de $[a,b]$. Pour tout $i$ de $\{1,...,n \}$, on pose  
+$$m_i=\inf_{t\in[x_{i-1},x_i]}f(t)\textrm{ et }M_i=\sup_{t\in[x_{i-1},x_i]}f(t).$$
+Les réels 
+$$d(f,s)=\sum_{i=1}^n (x_i-x_{i-1})m_i\textrm{ et }D(f,s)=\sum_{i=1}^n (x_i-x_{i-1})M_i$$
+sont appelés \textbf{sommes de Darboux inférieure et supérieure} de $f$ pour la subdivision $s$.
+\ed
+
+Ces sommes ont été introduites par Gaston Darboux pour donner un critère pour qu'une fonction soit Riemann-intégrable. Posons en effet 
+$\left\{
+\begin{array}{rcl}
+d(f)&=&\sup\left\{d(f,s);\ s\textrm{ subdivision de }[a,b]\right\}\\
+D(f)&=&\inf\left\{D(f,s);\ s\textrm{ subdivision de }[a,b]\right\}.
+\end{array}\right.$
+
+Alors une fonction réelle bornée $f$ sur $[a,b]$ est Riemann-intégrable si et seulement si $d(f)=D(f)$. Dans ce cas, le réel commun est aussi l'intégrale de $f$ sur $[a,b]$.
+
+Soit $f : [a,b] \to \R$ :
+\bi
+\item $\{ D(f,s), ~ s ~ \text{subdivision de} [a,b] \}$ est minorée par n'importe quelle d(f,s), donc possède un inf noté $I^*$.
+\item $\{ d(f,s), ~ s ~ \text{subdivision de} [a,b] \}$ est majorée par n'importe quelle D(f,s), donc possède un sup noté $I_*$.
+\ei
+
+Ainsi $d(f,s) \leq I_* \leq I^* \leq D(f,s)$.
+
+\newpage
+
+\section{Chapitre 3 : Intégrales et primitives}
+\subsection{Fonctions Riemann intégrables}
+\bd[Fonction Riemann Intégrable]
+Soit $f : [a,b] \to \R$ avec $a<b, ~ a,b \in \R$ et $f$ bornée. \\ On dit que $f$ est Riemann intégrable  \ssi $I_* = I^*$ et $\int_a^b f(t)dt = I_* = I^*$.\\
+Dit autrement : $\forall \epsilon > 0, \exists$ une subdivision $\sigma$ telle que $\int_a^b f(t)dt - d(f,s) \leq \epsilon$ et $D(f,s) - \int_a^b f(t)dt \leq \epsilon$.
+
+On a aussi que $f$ est Riemann intégrable \ssi $\forall \epsilon > 0, ~ \exists \sigma$ une subdivision de $[a,b]$ telle que $D(f,s) - d(f,s) < \epsilon$.
+\ed
+
+\bn
+On note $\mathscr{I}([a,b],\R)$ l'ensemble des fonctions Riemann intégrables définies sur $[a,b]$ à valeur.
+\en
+
+\medskip
+
+\bp
+Soit $f$ une fonction définie sur $[a,b]$ avec $a<b$, bornée et croissante, alors $f$ est Riemann intégrable.
+\ep
+\bpf
+Prenons une subdivision quelconque de l'interval $[a,b]$ croissante, \ie $\forall x,y ~\text{ avec } x<y ~ \Rightarrow f(x) \leq f(y)$
+A FINIR
+\epf
+
+\bp
+$f : [a,b] \to \R, ~ a<b$, si $f$ est continue alors $f$ est Riemann intégrable.
+\ep
+\bpf
+todo
+\epf
+
+\bigskip
+
+\bp
+Si $f \in \mathscr{I}([a,b],\R)$ alors $F : x \to \int_a^x f(t)dt$ est \textbf{Lipschitzienne}.
+\ep
+
+\bigskip
+
+\bp[Linéarité]
+Soit $f,g$ deux fonctions Riemann intégrables sur le segment $[a,b]$ alors $f+\lambda g$ est Riemann intégrable, et $\int_a^b (f+\lambda g)(t)dt = \int_a^b f(t)dt + \lambda \int_a^b g(t) dt ~ \forall \lambda \in \R$.
+\ep
+
+\bigskip
+
+\bp[Croissance]
+Soit $f,g$ deux foncitons Riemann intégrables sur le segment $[a,b]$, si $f\leq g$ (comprendre $\forall t \in [a,b], ~ f(t) \leq g(t))$ alors $\int_a^b f(t)dt \leq \int_a^b g(t)dt$
+\ep
+
+\bigskip
+
+\bp[Relation de Chasles]
+On a aussi une sorte de relation de Chasles : 
+pour $a<b<c$, et $f$ une fonction Riemann intégrable sur le segment $[a,c]$ ; $$\int_a^c f(t)dt = \int_a^b f(t)dt + \int_b^c f(t)dt.$$
+\ep
+
+\bigskip
+
+\bd[Subdivision]
+On appelle subdivision de l'intervalle $[a,b]$ tout $(n+1)$-uplet $\sigma := (a_0,...,a_n)$ vérifiant $a:=a_0 < ... < a_n := b$.
+\ed
+
+\bigskip
+
+\bd[Fonction en escalier]
+Une fonction $f : [a,b] \to \R$ est en escalier s'il existe une subdivision $(a_0,...,a_n)$ de $[a,b]$ et des éléments $\lambda_1,...,\lambda_n$ de $\R$ tels que $$\forall i\in \{1,...,n\}, ~ \forall x \in ]a_{i-1},a_i[, ~ f(x) = \lambda_i.$$ 
+On note $\mathcal{E}([a,b],\R)$ l'ensemble des fonctions en escalier de $[a,b]$ dans $\R$.\\
+L'intégrale de $f$ relativement à une subdivision $\sigma$, provisoirement notée $I(f, \sigma)$, est définie par : $$I(f, \sigma) := \sum_{i=1}^n \lambda_i (a_i - a_{i-1}).$$
+\ed
+
+\bigskip
+
+\bn
+On a $\mathcal{E}([a,b],\R) \subset \mathscr{I}([a,b],\R).$
+\en
+
+\bigskip
+
+\bd[Fonction en escalier (Cours)]
+$f$ est une fonction en escalier définie sur le segment $[a,b]$ \ssi il existe une subdivision de cet intervalle $a=x_0 < x_1 < ... < x_n = b$ et $\exists c_0, c_1,..., c_{n-1} \in \R$ :
+$$f = \sum_{k=1}^n c_{k-1} \times \1_{]x_{k-1},x_k[} + \sum_{k=0}^n f(x_k) \times \1_{x_k} $$
+alors $$\int_a^b f(t)dt = \sum_{k=1}^n c_k(x_k - x_{k-1})$$.
+\ed
+
+\bigskip
+
+\bd[Fonctions réglées]
+Une fonction $f : [a,b] \to \K$ est réglée s'il existe une suite $(f_n)_{n \geq 1}$ de fonctions en escalier convergeant uniformément vers $f$.
+\ed
+
+\bigskip
+
+\bp
+Si une fonction $f : [a,b] \to \K$ est réglée, alors $f \in \mathscr{I}([a,b], \K)$.
+\ep
+
+\bigskip
+
+
+\bp
+Si $f$ est Riemann intégrable sur le segment $[a,b]$, alors $\mid f \mid$ est aussi Riemann intégrable et $\mid \int_a^b f(t) dt \mid \leq \int_a^b \mid f(t) \mid dt$. En effet on a bien $-\mid f\mid \leq f \leq \mid f \mid$, d'où par croissance de l'intégrale : $\int - \mid f(t) \mid dt \leq \int f(t) dt \leq \int \mid f(t) \mid dt$
+\ep
+
+\bigskip
+
+\bd[Lipshitzienne]
+Soit $F : \R \to \R$, $F$ est lipschitzienne \ssi $\exists k \in \R_+, ~ \forall x,~y \in \R$ on a $$ \mid F(x) - F(y) \mid \leq k \mid x- y \mid$$
+\ed
+
+\bigskip
+
+\bp
+Si $f$ est Riemann intégrable sur le segment $[a,b]$ alors $F$ (sa primitive $\int_a^x f(t)dt$) est Lipschitzienne.
+\ep
+
+\bpf
+Soit $x,y \in [a,b]$.
+On a : 
+\begin{align*}
+F(x) - F(y) &= \int_a^x f(t) \, dt - \int_a^y f(t) \, dt \\
+&= \int_a^x f(t) \, dt + \int_y^a f(t) \, dt \\
+&= \int_y^x f(t) \, dt 
+\end{align*}
+On a $\mid \int_y^x f(t) dt \mid \leq \int_y^x \mid f(t) \mid dt$ si $y<x$.\\
+\textbf{La fonction est Riemann intégrable donc elle est BORNEE !}, ainsi on a $\mid f(t) \mid \leq Sup_{t\in [a,b]} \mid f(t) \mid \in \R_+$. Donc $\mid F(x) - F(y) \mid \leq \int_y^x (Sup_{t \in [a,b]} \mid f(t)\mid) dt \leq Sup \mid f(t) \mid \times \mid x - y \mid$. Donc $F$ est bien k-lipschitzienne avec $k = Sup \mid f \mid$.
+\epf
+
+\bigskip
+
+\bd
+On appelle primitive de $f : [a,b] \to \R$ toute fonction $F : [a,b] \to \R$ dérivable et de dérivée $F'(x) = f(x), ~ \forall x \in [a,b]$.\\
+(NB : dérivable en $a$ \ie dérivable à droite de $a$ : $$\dessous{x \to a}{lim} \frac{F(x) - F(a)}{x-a} \in \R$$
+\ed
+
+\bigskip
+
+\bp[Théorème fondamental de l'analyse !]
+Soit $F : [a,b] \to \R$ une fonction dérivable et de dérivée $f : \forall x \in [a,b], ~ F'(x) = f(x)$. Si $f$ est Riemann intégrable, alors $\int_a^b f(t)dt = F(b)-F(a)$.
+\ep
+\bpf
+todo
+\epf
+
+\newpage
+
+\section{Primitives}
+\bd[Primitive]
+On appelle primitive de $f : [a,b] \to \R$ toute fonction $F : [a,b] \to \R$, dérivable et de dérivée $F'(x) = f(x), ~ \forall x \in [a,b]$.
+\ed
+
+\bn
+Pour info mais on le sait déjà dérivable en $a$ veut dire dérivable à droite de $a$ \ie : $$\dessous{x\to a}{lim} \frac{F(x)-F(a)}{x-a} \in \R$$
+\en
+
+\bp[Théorème fondamental de l'analyse]
+Soit $F : [a,b] \to \R$ une fonction dérivable et de dérivée $f$ telle que : $\forall x \in [a,b], ~ F'(x) = f(x)$. Si $f$ est Riemann intégrable, alors $\int_a^b f(t)dt = F(b) - F(a)$
+\ep
+
+\subsection{Technique de calcul de primitives}
+\bp
+Soit $f \in \mathscr{I}([a,b],\K)$. Alors $f$ est Riemann intégrable sur tout intervalle $[a,x]$, $x\in [a,b]$ et l'on pose $F(x) := \int_a^x f$ pour $x\in [a,b]$.
+\ben
+\item[(a)] $F$ est lipschitzienne de rapport $\|f\|_{sup}$ (\ie $\mid F(x) - F(y) \mid \leq \|f\|_{sup} \mid x - y \mid$) ;
+\item[(b)] Si $f$ est continue à droite en $c \in [a,b[$, alors $F$ est dérivable à droite en $c$ et $F_d'(c) = f(c)$, idem à gauche sur $]a,b]$.
+\een
+\ep
+De cette proposition on en déduit celle-ci :
+\bp
+Si $f$ est continue sur $[a,b]$, alors $f$ admet une primitive sur $[a,b]$, \ie une application $F : [a,b] \to \K$ telle que $F' = f$, et toute primitive $F$ de $f$ vérifie : $$\forall x \in [a,b], ~ F(x) = F(a) + \int_a^x f.$$
+\ep
+
+\bw
+Il existe des fonctions $f$ non Riemann intégrables (et donc a fortiori non continues) admettant des primitives.
+\ew
+\bp
+Si $F : [a,b] \to \K$ est dérivable (à droite) de dérivée (à droite) $F_d'$ Riemann intégrable sur $[a,b]$, alors $$F(b)-F(a) = \int_a^b F_d'.$$
+\ep
+
+\subsubsection{IPP}
+\subsubsection{Changement de variable}
+
+\subsubsection{Formules de la moyenne}
+\bp[Première formule de la moyenne]
+Soit $f \in \mathscr{C}([a,b], \R)$ et $g \in  \mathscr{I}([a,b],\R_+)$. Alors il existe $c \in [a,b]$ tel que $$\int_a^b fg = f(c) \times \int_a^b g.$$
+\ep
+
+Pour rappel : $\mathscr{C}(X,Y)$ est l'ensemble des fonctions continues de X dans Y.
+
+\bw
+Le résultat n'est pas vrai si $\K = \C$.
+\ew
+
+\bp[Seconde formule de la moyenne]
+Soit $f,~g \in \mathscr{I}([a,b],\R), ~ f$ positive et décroissante. Alors il existe $c \in [a,b]$ tel que $$\int_a^b fg = f(a_+) \times \int_a^c g.$$
+\ep
+\bpf
+On utilise la critère de Cauchy.
+\epf
+
+\subsection{Limite d'une suite de fonction intégrable}
+\bp
+Soit $(f_n)$ une suite de fonction continue (Riemann intégrable) sur le segment $[a,b]$, convergeant uniformément vers $f$ (forcément continue sur le segment (Riemann intégrable)). Alors $f$ est Riemann intégrable et $\dessous{n \to \infty}{lim} \int_a^b f_n(t)dt = \int_a^b f(t)dt$.
+\ep
+\bp[Intégrale et convergence uniforme]
+Soit $f_n)_{n\geq 1}$ une suite de fonctions de $\mathscr{I}([a,b],\R)$ qui converge uniformément vers $f$, \ie $\| f_n - f \|_{sup} \to 0$, alors $$f \in \mathscr{I}([a,b],\R) ~ \text{ et } ~ \int_a^b f = lim_n \int_a^b f_n.$$
+\ep
+
+\newpage
+
+\section{Quelques rappels de Topo}
+\subsection{Limite supérieure et limite inférieure}
+On muni $\bar{\R}$ d'une distance qui est compatible avec l'ordre de $\bar{\R}$ et qui en fait un espace métrique.
+\bd[Limite supérieure]
+Soit $(x_n)_{n \in \N}$ une suite d'éléments de $\bar{\R}$. On définit la limite supérieure de la suite $(x_n)_{n\in\N}$ par $$\bar{\dessous{n}{lim}} ~ x_n := \dessous{n \geq 0}{inf} \big(\dessous{k \geq n}{sup}~x_k\big
+	) \in \bar{\R}.$$
+\ed
+
+\bn
+Comme toute suite monotone de $\bar{\R}$ converge, on a immédiatement : $$\bar{\dessous{n}{lim}} ~ x_n := \dessous{n}{lim^{\downarrow}} \big(\dessous{k \geq n}{sup}~x_k\big).$$
+\en
+
+\newpage
+
+\section{Tribu de parties d'un ensemble}
+\subsection{Tribu et tribu borélienne}
+
+\bd[Tribu]
+Soit $X$ un ensemble. On appelle tribu (ou \sigma-algèbre) sur $X$ toute famille $\A$ de parties de $X$ vérifiant : 
+\ben
+\item[(i)] $\emptyset \in \A$ ;
+\item[(ii)] si $A \in \A$ alors $\bar{A} \in \A$ : stabilité par complémentaire ;
+\item[(iii)] si $(A_n)_{n\geq 1} \in \A^{\N^*}$, alors $\dessous{n\geq 1}{\bigcup} A_n \in \A$ : stabilité par union dénombrable.
+\een
+\ed
+\bn
+Le doublet $(X, \A)$ est appelé un espace mesurable au sens "susceptible de recevoir une mesure".
+\en
+
+\bigskip
+
+\bd[Tribu borélienne]
+La tribu borélienne sur un espace topologique $X$, notée $\mathcal{B}(X)$, est la plus petite $\sigma$-algèbre contenant tous les ouverts de $X$. Les éléments de cette tribu sont appelés les ensembles boréliens.
+
+Autrement dit, la tribu borélienne est la $\sigma$-algèbre engendrée par les ouverts de $X$, ce qui signifie qu'elle contient non seulement les ouverts, mais aussi toutes les unions dénombrables, intersections dénombrables et complémentaires d'ouverts.
+\ed
+
+\bigskip
+
+\bd[Axiomes d'une mesure]
+Une \textbf{mesure} sur un ensemble $X$ est une application $\mu$ définie sur une $\sigma$-algèbre $\mathcal{A}$ de parties de $X$, à valeurs dans $[0, \infty]$, qui vérifie les propriétés suivantes :
+
+1. \textbf{Positivité} : Pour tout $A \in \mathcal{A}$, $\mu(A) \geq 0$.
+
+2. \textbf{$\sigma$-additivité} : Pour toute suite $(A_n)_{n \in \mathbb{N}}$ d'ensembles disjoints deux à deux dans $\mathcal{A}$, on a :
+   \[
+   \mu\left( \bigcup_{n=1}^{\infty} A_n \right) = \sum_{n=1}^{\infty} \mu(A_n).
+   \]
+
+3. \textbf{Invariance par translation} (pour les mesures définies sur $\mathbb{R}^n$) : Pour tout ensemble mesurable $A \in \mathcal{A}$ et pour tout vecteur de translation $t \in \mathbb{R}^n$, on a :
+   \[
+   \mu(A + t) = \mu(A).
+   \]
+
+4. \textbf{Normalisation} : Pour tout $a,b \in \R, ~ a<b$ : $$\mu([a,b]) = b-a.$$
+\ed
+
+\bigskip
+
+\bp[Unicité]
+Il existe une unique mesure $\mu$ vérifiant ces quatres axiomes
+\ep
+
+\bigskip
+
+\bp[Ouverts de $\R$]
+Les intervalles ouverts de $\R$ sont mesurables
+\ep
+
+\bigskip
+
+\bp[Tribu Borélienne]
+Il existe une tribu qui est la plus petite possible conteant les intervalles ouverts de $\R$ : appelé la tribu des Boréliens.
+\ep
+
+\newpage
+
+\section{Fonctions mesurable}
+
+\bd[Fonctions mesurables]
+Supposons $\R$ muni d'une tribu $\textcal{B}$. Une fonction $f : (\R, \textcal{B}) \to (\R, \textcal{B})$ est dite mesurable \ssi $f^{-1}(E) \in \textcal{B}, ~ \forall E \in \textcal{B}$, avec $f^{-1}(E) = \{ x\in \R : f(x) \in E \}$
+\ed
+
+\end{document}

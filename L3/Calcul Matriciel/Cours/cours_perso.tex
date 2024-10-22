@@ -1,0 +1,180 @@
+\input{../../preambule}
+
+\title{Chapitre 1 - Calcul Matriciel}
+
+\begin{document}
+\maketitle
+\section{Produits scalaires réels et complexes}
+\subsection{Cas réel}
+\bd
+On se place dans un espace vectoriel réel ($\R$), appelons $E$. \\
+Un produit scalaire (PS) sur $E$ est une forme bilinéaire symétrique définie positive, \ie une application $p : E \times E \to \R$ vérifiant les trois propriétées suivantes : 
+	\ben 
+		\item Bilinéarité ;
+		\item Symétrie ; 
+		\item Positivité.
+	\een
+\ed
+\medskip
+\bn
+Le nom de produit scalaire évoque à la fois la bilinéarité et le fait que ses valeurs soient "scalaires", \ie appartiennent au corps de base (ici $\R$) de l'espace vectoriel $E$.
+\en
+\medskip
+Il est intéressant de se rappeler qu'un produit scalaire est entièrement déterminé par sa forme quadratique associée ; si $p$ est le produit scalaire sur $E$, on a $P : E \to \R$ sa forme quadratique, définie par : $P(x) = p(x,x), ~ (x \in E).$ En utilisant la bilinéarité et la symététrie on se ramène par "polarisation" au produit scalaire à partir de la forme quadratique.
+\medskip
+
+Une conséquence de la \textbf{positivité} du produit scalaire, est l'inégalité de Cauchy-Schwarz :
+\bp[Cauchy-Schwarz]
+Considérons un produit scalaire sur un espace vectoriel réel $E$. Alors, pour tout couple $(x,y)$ d'éléments de $E$, on a : $$p(x,y)^2 \leq p(x,x)p(y,y);$$
+On a égalité si et seulement si $(x,y)$ est lié.
+\ep
+\begin{proof}
+Une preuve simple consiste à prendre un scalaire et à développer : $$p(x+\lambda y, x + \lambda y).$$ Ne pas oublier le cas d'égalité !
+\end{proof}
+
+\bn
+De l'inégalité de Cauchy-Schwarz, on déduit l'existence d'une norme canoniquement associée à un produit scalaire :
+\en
+\bp[Norme canonique] 
+Soit $p$ un produit scalaire sur un espace vectoriel réel $E$. L'application $$\displaystyle x \mapsto N(x) = \sqrt{p(x,x)}$$
+est une norme sur $E$.
+\ep
+
+\bd
+\ben
+Soit $E$ un \ev réel :
+\item Si $E$ est  muni d'un produit scalaire $p$, on dit que $(E,p)$ est un \textbf{espace préhilbertien réel}.
+\item Si $E$ est de dimension finie, on dit que $(E,p)$ est un \textbf{espace euclidien}.
+\een
+\ed
+
+\bp[Théorème de Pythagore]
+Soit $E$ un espace préhilbertien réel. \textbf{Deux} éléments $x,y \in E$ sont orthogonaux si et seulement si : $$\|x+y\|^2 = \|x\|^2 + \| y \|^2.$$
+\ep
+\subsection{Cas complexe}
+\bd
+On considère cette fois le corps des complexes : \\
+Soit $E$ un \ev sur le corps $\C$. On appelle produit scalaire hermitien sur $E$ une forme : $$ p : E \times E \to \C, ~ (x,y) \mapsto \bps x \mid y \eps_{\C}$$
+\ben
+\item $p$ est $\C$-linéaire en $y$ (parfois en $x$) : $\bps x \mid \lambda y_1 + \alpha y_2 \eps = \lambda \bps x \mid y_1 \eps + \alpha \bps x \mid y_2 \eps$ ; 
+\item $p$ possède la symétrie hermitienne : $\bps x \mid y \eps = \bar{\bps y \mid x \eps }$ ;
+\item $p$ est définie positive : $\bps x \mid x \eps > 0$ pour tout $x \ne 0$.
+\een
+\ed
+\bw 
+Il résulte de cette définition que le produit scalaire hermitien est $antilinéaire$ (on dit aussi $\C$ - linéaire par rapport à la première variable.
+\ew
+\bw
+Sur $E = \C^n$ le produit scalaire hermitien "standard" est : $\displaystyle \sum_{j=1}^n \bar{z}_j t_j$ \big( \textbf{ou} parfois : $\displaystyle \sum_{j=1}^n z_j \bar{t}_j$ \big)
+\ew
+\bp[Inégalité de Cauchy-Schwarz]
+Soit $\bps.\mid.\eps_{\C}$ un produit scalaire hermitien sur un espace vectoriel complexe $E$. On a alors, pour tout couple $(x,y)$ d'éléments de $E$, 
+$$| \bps x \mid y \eps | ^2 \leq \bps x \mid x \eps \times \bps y \mid y \eps$$\\
+Avec égalité si et seulement si $(x,y)$ est lié.
+\ep
+\begin{proof}
+	idem que dans le cas réel.\\
+	Toujours bien penser au cas d'égalité.
+\end{proof}
+
+\bp[Norme induite]
+Soit $E$ un espace vectoriel complexe et soit  $\bps.\mid.\eps_{\C}$ un produit scalaire hermitien sur $E$. L'application $$x \mapsto \|x\| = \sqrt{\bps x \mid x\eps_{\C}}$$
+\ep
+\begin{proof}
+	\ben
+		\item Comme $\bps x \mid x\eps_{\C} = 0$ entraîne $x=0$, on a $\|x\|=0$ si et seulement si $x=0$ ;  
+		\item Comme $\bps x \mid x\eps_{\C} = |\lambda |^2\bps x \mid x\eps_{\C}$, on a $\|\lambda x \| = |\lambda| \|x\|$ ; 
+		\item Enfin on a $\|x + y \| ^2 = \bps x+y \mid x+y \eps_{\C} = \bps x \mid x\eps_{\C} + \bps y \mid y\eps_{\C} + \bps x \mid y\eps_{\C}\bps y \mid x\eps_{\C} = \|x\|^2 + \|y\| ^2 + \bps x \mid y\eps_{\C}\bps y \mid x\eps_{\C} = \|x\|^2 + \|y\|^2 + \bps x \mid y\eps_{\C}+\bar{\bps x \mid y\eps_{\C}} = \|x\|^2 + \| y \| ^2 + 2Re(\bps x \mid y\eps_{\C})$, on a $|Re(\bps x \mid y\eps_{\C})| \leq \bps x \mid x\eps_{\C}$, d'où, par Cauchy-Schwarz on a $\|x+y\|^2 \leq \|x\|^2 + \|y\|^2 + 2 \|x\| \|y\| \leq \|x\|^2 +\|y\|^2$.
+	\een
+\end{proof}
+
+\subsection{Matrice et produit scalaire}
+\bd
+Donnons quelques définitions de matrice :
+\ben
+	\item Soit $A \in \Mm_n(\R)$ on définie sa \textbf{transposée} :  $(A^t) \in  \Mm_n(\R)$ par $(A^t)_{ij} = A_{ij}$, pour tous $i,j \in\{1,...,n\}$.
+	\item Soit $A \in \Mm(\C)$ on définie son \textbf{adjointe} $A^* \in \Mm_n(\C)$ par $A^*_{i,j} = \bar{A_{i,j}}$ pour tous $i,j \in \{1,...,n\}$.
+	\item Soit $A \in \Mm_n(\R)$, on dit que $A$ est \textbf{symétrique} si $A = A^t$ (ou encore $A = A^*$).
+	\item Soit $A \in \Mm_n(\K)$, on dit que $A$ est \textbf{orthogonale} (ou unitaire) si $A^{-1} = A^*$.
+	\item Soit $A \in \Mm_n(\K)$, on dit que $A$ est \textbf{normale} si $AA^* = A^*A$.
+	\item Soit $A \in \Mm_n(\C)$, on dit que $A$ est auto-adjointe ou \textbf{hermitienne} si $A = A^*$. 
+	\item Soit $A \in \Mm_n(\R)$, on dit que $A$ est \textbf{définie positive} si $x^tAx > 0, ~ \forall x \in \R^n$ et $x\ne 0$.
+	\item Soit $A \in \Mm_n(\R)$, on dit que $A$ est \textbf{positive} si $x^tAx \geq 0, ~ \forall x \in \R^n$.
+	\item Soit $A \in \Mm_n(\C)$, on dit que $A$ est \textbf{définie positive} si $\bar{x}^tAx > 0, ~ \forall x \in \C^n$ et $x \ne 0$.
+	\item Soit $A \in \Mm_n(\C)$, on dit que $A$ est \textbf{positive} si $\bar{x}^t A x \geq 0, ~ \forall x \in \C^n$.
+\een
+\ed
+
+\medskip
+\bp[Caractérisation de la transposée par le produit scalaire réel]
+Soit $\bps.|.\eps$ le produit scalaire euclidien sur $\R^n$. Alors on a :\\
+$$\bps Au |v \eps = \bps u |A^t v \eps, ~ \forall u,v \in \R^n.$$
+$A^t$ est unique.
+\ep
+
+\medskip
+\bp[Caractérisation de l'adjointe par le produit scalaire hermitien ($\C$)]
+Soit $\bps.|.\eps_{\C}$ le produit scalaire hermitien canonique sur $\C^n$. Alors on a :
+$$\bps Au |v \eps_{\C} = \bps u | A^* v \eps_{\C}, ~ \forall u,v \in \C^n.$$
+$A^*$ est unique.
+\ep
+
+\medskip
+\bp[Cas réel]
+Soit $A \in \Mm_n(\R)$. Alors $A$ est \textbf{symétrique} si et seulement si $$\bps Au |v \eps = \bps u |A v \eps, ~ \forall u,v \in \R^n.$$
+\ep
+\medskip
+\bp[Cas complexe]
+Soit $A \in \Mm_n(\C)$. Alors $A$ est \textbf{hermitienne} si et seulement si : $$\bps Au |v \eps_{\C} = \bps u | A v \eps_{\C}, ~ \forall u,v \in \C^n.$$
+\ep
+\newpage
+\section{Réduction des matrices}
+\subsection{Théorie spéctrale des matrices}
+On suppose ici que les matrices sont carrées et qu'elles vivent dans $\C$ ou $\R$.
+\bd
+Quelques définitions à savoir : 
+\ben
+	\item Soit $A \in \Mm_n(\C)$. Le polynôme caractéristique de $A$ est défini sur $\C$ par $P_A(\lambda) = det (A - \lambda I )$, c'est un polynôme de degré égal à $n$, il admet donc $n$ racines dans $\C$, les racines sont appelé \textbf{valeurs propres} de $A$. La multiplicité d'une valeur propre est sa multiplicité en tant que racine de $P_A(\lambda)$.
+	\item Soit $\lambda$ une valeur propre de $A$. On appelle \textbf{sous-espace propre} associé à la valeur propre \lambda, et on note $E_{\lambda}$, le \sev défini par $E_{\lambda} = Ker(A-\lambda I_n)$.
+	\item Soit $A \in \Mm_n(\C)$. On appelle  \textbf{rayon spectral} de $A$, et on note $\rho(A)$, le maximum des modules des valeurs propres de $A$ : $\displaystyle \rho(A) := \max_{\lambda \in Sp(A)} |\lambda |$
+\een
+\ed
+
+\be 
+Déterminer la nature des valeurs propres d'une matrice hermitienne
+\ee
+
+\bp[Cayly-Hamilton]
+Soit $P_A(\lambda) = det(A - \lambda I_n)$, le polynôme caractéristique de $A$. On a $$P_A(A) = 0.$$
+\ep
+
+\bp
+Soit $A, B \in \Mm_n(\C)$ deux matrices semblables (\ie qu'il existe une matrice $P \in \Mm_n(\C)$ inversible telle que $A = PBP^{-1}$.\\
+Alors les valeurs propres de $A$ et de $B$ sont les mêmes \ie:  $$Sp(A) = Sp(B).$$
+\ep
+\bp[Nature des valeurs propres d'une matrice hermitienne (\ie $A = A^*$)]
+Soit $A \in \Mm_n(\R)$ \textbf{symétrique} ou bien $A \in \Mm_n(\C)$ \textbf{hermitienne}. \\
+On a : $$Sp(A) \subset \R.$$
+\ep
+\subsection{Trigonalisation des matrices}
+Il existe des classes de matrices particulièrement simples. Par exemple les matrices triangulaires supérieures \ie telles que $a_{i,j} = 0$ si $i>j$. Réduire une matrice c'est la transformer par un changement de base en une de ces formes particulières.
+\medskip
+\bd
+Une matrice $A$ est dite triangulisable s'il existe une matrice inversible $P$ et une matrice triangulaire $T$ telle que $$A = PTP^{-1}.$$
+\ed
+
+\bn
+On dit que les matrices $A$ et $T$ sont \textbf{semblables}.
+\en
+\medskip
+\bp
+Toute matrice $A \in \Mm_n(\C)$ est triangulisable.
+\ep
+\begin{proof}
+	Par récurrence sur $n$.
+\end{proof}
+
+\bp[Factorisation de Schur]
+Pour toute matrice $A \in \Mm_n(\C)$ il existe une matrice \textbf{unitaire} $U$ (\ie $U^{-1} = U^*$), telle que $U^{-1}AU$ soit triangulaire.
+\ep
+\end{document}

@@ -1,0 +1,199 @@
+\input{../../preambule}
+\title{Corrigé TD3 EDO}
+
+
+\begin{document}
+\maketitle
+\fbox{
+  \begin{minipage}{\textwidth}\ \\
+{\bf Théorème des bouts}.\\
+Soient $I=]a,b[\subseteq\R$ un intervalle (avec $a,\ b\in\R\cup\{-\infty,+\infty\}$), $f:I\times \R^n\longrightarrow\R^n$ une fonction continue et localement Lipschitzienne par rapport à sa deuxième variable, et $t_0\in I,$ $y_0\in \R^n$ donnés.
+
+  Soit $(J,y)$, avec $J\subseteq I$, la solution maximale du problème de Cauchy
+$$
+\begin{cases}
+  y'=f(t,y),\\
+  y(t_0)=y_0.
+\end{cases}
+$$
+
+On suppose que $J=]T^-,T^+[$. Alors on a que
+  \begin{enumerate}
+  \item si $T^+<b$, $\ \displaystyle{\lim_{t\to T^+}\|y(t)\|}=+\infty$ ;
+  \item si $T^->a$, $\ \displaystyle{\lim_{t\to T^-}\|y(t)\|}=+\infty$.
+  \end{enumerate}
+  {\bf Remarque}: ce théorème ne traite pas le cas d'une fonction $f:I\times U\longrightarrow\R^n$, avec $U$ un ouvert {\bf strictement inclus} dans $\R^n$ (donc différent de $\R^n$).
+\end{minipage}}
+\\
+\be[Application directe du théorème des bouts]
+Soit $f:]a,b[\times\R^n\longrightarrow\R^n$ ($a,\ b\in\R\cup\{-\infty,+\infty\}$) une fonction dans les conditions du théorème de Cauchy-Lipschitz.\\
+      Soit $(J,y)$ une solution maximale de l'EDO $y'=f(t,y)$. Supposons que $J$ est un intervalle de la forme $]T^-,T^+[$ (rappel : d'après le théorème de Cauchy-Lipschitz, la solution maximale est définie dans un intervalle ouvert de $]a,b[$), avec $T^-\geq a$ et $T^+\leq b$. Que peut-on dire de l'intervalle $J$ si :%(égal à $]a,b[$ donc $y$ solution globale, ou strictement inclus dans $]a,b[$, donc $y$ pas globale) si :
+        \begin{enumerate}
+        \item $y$ est bornée sur $J$ ?
+		\solution{$y$ est une solution maximale de $y' = f(t,y)$ sur un intervalle $J$ de la forme $]T_-, T^+[$, vu que $y$ est bornée sur $J$, $\ \displaystyle{\lim_{t\to T^{+/-}}\|y(t)\|}\ne+\infty$ donc par le lemme des bouts $T_- = a$ et $T^+ = b$ ie que $y$ est globale.}
+        \item $\|y(t)\|\leq |t|$, pour tout $t\in J$, ou, plus généralement, si $\|y(t)\|\leq g(t)$, où $g:\R\longrightarrow\R$ est une fonction continue ?
+		\solution{Si $T^+ \ne b$ alors $T^+$ est fini (\ie  $T^+ \ne \infty$) et donc comme $g$ est supposée continue, on a $\displaystyle {\lim_{t\to T^{+}}g(t) = g(T^+)}\in \R - \{\infty\}$. D'autre part, par le lemme des bouts comme $T^+ \ne b$, $\displaystyle {\lim_{t\to T^+}\|y(t)\|}=+\infty$  donc comme on a supposé $\|y    (t)\|\leq g(t)$ on a $\displaystyle {\lim_{t\to T^{+}}g(t) = \infty}$ ce qui est absurde.\\
+			\textit{Autre façon de dire les choses :} Supposons $T^+ < b$ \ie fini, $g$ est continue par hypothèse, donc elle est continue sur $[0,T^+]$ qui est un segment, donc $g$ est bornée, \ie $\exists M > 0$, tel que $\forall t \in [0, T^+], ~ \mid g(t) \mid < M$ donc comme $\|y        (t)\|\leq g(t)$, $y$ est bornée sur $]0,T^+[$, or par le lemme des bouts si $T^+ < b$ on a $\displaystyle {\lim_{t\to T^{+}}g(t) = \infty}$ ce qui est absurde.}
+         \item $\ \displaystyle{\lim_{t\to T^+}\|y(t)\|}=+\infty$ ou  $\ \displaystyle{\lim_{t\to T^-}\|y(t)\|}=+\infty$  ?
+		 \solution{Si nous pouvions conclure quelque chose de ces informations, le lemme des bouts aurait une réciproque, cependant, on ne peut rien conclure, en effet, il suffit de considérer les deux problèmes de Cauchy suivants comme contre exemples : 
+			$
+			\begin{cases}
+				  y'=y^2,\\
+				    y(0)=1
+			\end{cases}
+			$ et 
+			$
+			\begin{cases}
+  				y'=y,\\
+				y(0)=1.
+			\end{cases}
+			$ Donc pas de réciproque au lemme des bouts.}
+        \end{enumerate}
+\ee
+
+%%%%%%%%%%%%%%%
+%exo 2
+%%%%%%%%%%%%%%%
+
+\be
+Soit l'équation différentielle
+  \begin{equation}
+    \label{edoex2}
+    \frac{du}{dt}=\big(1+\cos(t)\big)u-u^3.
+  \end{equation}
+  \begin{enumerate}
+  \item Soient $t_0\in\R,\ u_0\in\R$. Justifier que le problème de Cauchy pour \eqref{edoex2}, de donnée initiale $u(t_0)=u_0$, admet une unique solution maximale.
+	  \solution{Le problème de Cauchy pour $(1)$ est de la forme :
+                        $\begin{cases}
+				u'=f(t,u),\\
+                                 u(t_0)=u_0
+                         \end{cases},$
+		  avec $f$ une fonction continue et localement lipschitzienne par rapport à $u$, donc par le théorème de Cauchy Lipschitz local, le problème de Cauchy admet une unique solution $u_s$ maximale et définie sur un intervalle $J = ]T_-, T^+[$ contenant $t_0$.
+		  }
+  \item Soit $(J,u)$ une solution maximale de \eqref{edoex2}. Supposons qu'il existe $t\in J$ tel que $u(t)=0$. Justifier que $u\equiv0$ sur $J$.
+	  \solution{Soit $(J,u)$ une solution maximale de l'EDO $u' = f(t,u)$. On va montrer que s'il existe $\bar{t}\in J$ tel que $u(\bar{t}) = 0$ alors $u(t) = 0 ~ \forall t \in J$. \\
+		  S'il existe $\bar{t} \in J$ tel que $u(\bar{t}) = 0$ mais que $u$ n'est pas identiquement nulle sur $J$, alors le problème de Cauchy 
+                        $\begin{cases}
+				z'=f(t,z),\\
+				 z(\bar{t})=0
+                         \end{cases},$
+admettrait deux solutions maximale distinctes, la fonction $u$ et la fonction $u_c \equiv 0$, ce qui contredit l'unicité assurée par le théorème de Cauchy.}
+  \item Soient $t_0\in\R$ et $u_0\neq0$. Considérons $(J,u)$ la solution maximale du problème de Cauchy pour \eqref{edoex2}, de donnée initiale $u(t_0)=u_0$. Montrer qu'il existent $C_1,\ C_2>0$ tel que 
+    $$
+u^2(t)\leq C_1e^{C_2 t},\ \ \textrm{pour\ tout\ }t\in J,\ t>t_0.
+$$
+Conclure que la solution $u$ est globale à droite, c'est-à-dire que $J$ est de la forme $]T^-,+\infty[$, avec $T^-\in\R\cup\{-\infty\}$.\\
+      
+   
+		  \solution{On veut faire apparaitre du $u^2$ dans l'ED $u' = (1+ cos(t))u -u^3$, le plus simple est de multiplier par $u$, \textit{on pourrait diviser par $u$}, on a montrer dans la question précédente que $u(t) \ne 0 ~ \forall t \in J$ ;  on a donc $u'u = u^2(1 + cos(t)) - u^4$, on voit apparaître une dérivée "parfaite" ; $u'u = (\frac{u^2}{2})'$, en passant $u^2(1 + cos(t))$ à gauche on a donc $(\frac{u^2}{2})'- u^2(1 + cos(t)) = -u^4$ mais $u^4 \geq 0$ donc on majore grossièrement par $0$ : $(u^2)'- 2u^2(1 + cos(t)) \leq 0.$ On peut maintenant multiplier par $e^{-2t -2sin(t)} > 0$, ce qui nous donne : $e^{-2t - 2sin(t)}(u^2)'- 2u^2(1 + cos(t)) e^{-2t - 2sin(t)} \leq 0 \iff (u^2e^{-2t - 2sin(t)})' \leq 0$, cette inégalité traduit le fait que la fonction $u^2e^{-2t - 2sin(t)}$ est décroissante, donc pour $t > t_0$, on a $u^2e^{-2t - 2sin(t)} \leq u^2(t_0) e^{-2t_0 - 2sin(t_0)} \iff u^2 \leq \bar{C}_1 e^{2t + 2sin(t)}$ avec $\bar{C}_1 = u^2(t_0)e^{-2t_0 - 2sin(t_0)}$, on majore maintenant $e^{2sin(t)} \leq e^2$, donc $C_1 = u^2(t_0)e^{-2t_0 - 2sin(t_0) + 2}$ et $C_2 = 2$.
+	  }\\
+{\bf Remarque }: on ne conclut rien sur $T^-$, ni que $T^-=-\infty$, ni que $T^-$ est fini.
+ \end{enumerate}
+\ee
+
+\be
+On considère le système d'équations
+\[
+(*)\ \ \ \left \{
+\begin{array}{c @{=} c}
+    x' & x+2ty+e^txy^2 \\
+    y' & -2tx+y-e^tx^2y \\
+\end{array}
+\right.
+\]
+\begin{enumerate}
+\item Écrire le système sous la forme $X'=F(t,X),$ avec $X=(x,y)^T$, en précisant la fonction $F$ et son domaine. Justifier l'existence et l'unicité de solution maximale d'un problème de Cauchy associé à (*).
+	\solution{On a donc $F(t,X) = (F_1(t,X), F_2(t,X))^T$ avec $F_1(t,X) = x+2ty+e^t xy^2$ et $F_2(t,X) = -2tx + y - e^t x^2y$. $F$ est une fonction $C^1$ sur $\R \times \R^2$, donc continue et localement lipschitzienne par rapport à $X$, donc on peut utiliser la version locale du théorème de Cauchy Lispchitz qui nous assure l'existence d'une unique solution $X_s$ maximale de tout problème de Cauchy pour $(*)$ de la forme : $$
+\begin{cases}
+  X'=F(t,X),\\
+	(x(t_0),y(t_0))^T = (x_0, y_0)^T.
+\end{cases}
+$$
+		Définie sur une intervalle $J = ]T_-, T^+[$ contenant $t_0$.
+		}
+\item En considérant $g(t)=x(t)^2+y(t)^2$, démontrer que toute solution maximale d'un problème de Cauchy associée au système (*) est globale.
+	\solution{
+	Faisons apparaître des $x'$ et $y'$ pour pouvoir utiliser ce que l'on connait ; pour cela dérivons $g$ : $g'(t) = 2x'(t)x(t) + y'(t)y(t)$ en remplaçant par les expressions respectives de $x'$ et $y'$ on obtient $g'(t) = 2g(t)$, c'est une équation différentielle, dont les solutions sont de la forme $g(t) =Ke^{2t}$ avec $K \in \R$\\
+		Si maintenant on considère la solution $X_s(t) = (x(t),y(t))^T$ au problème de Cauchy de la question précédente, on peut spécifier $K$ : $K = (x(t_0),y(y_0))^Te^{-2t_0}$\\
+		Supposons $T^+ < +\infty$, alors par le lemme des bouts on a $\ \displaystyle{\lim_{t\to T^+}\|X_s(t)\|}=+\infty$, il en serait de même pour le carré de la norme de $X_s$ \ie $\ \displaystyle{\lim_{t\to T^+}\|X_s(t)\|^2}=+\infty$\\
+		Or $\|X_s(t)\|^2 = g(t)$ avec $g$ la solution définie ci-dessus, mais alors on aurait $\ \displaystyle{\lim_{t\to T^+}\|X_s(t)\|^2}= \displaystyle{\lim_{t\to T^+}g(t)} = g(T^+)$, $g(T^+)$ est un nombre réel $< +\infty$ \\
+		C'est donc absurde, on a donc $T^+ = +\infty$, en ayant le même raisonnement on trouve que $T_- = -\infty$, donc la solution $X_s$ est définie sur $]-\infty, +\infty[$ elle est donc globale.
+	}
+\end{enumerate}
+
+\ee
+\newpage
+\be
+
+Soit le système d'équations différentielles
+  $$
+  (S)\begin{cases}
+    x'=x(1-x-y/2)\\
+    y'=y(1-y-x/2).
+  \end{cases}
+  $$
+  \begin{enumerate}
+    \item
+      Écrire le système $(S)$ sous la forme $Y'=F(t,Y)$, avec $Y=\Big(\begin{array}{c}x\\y\end{array}\Big)$ et $F(t,Y)=\big(F_1(t,Y),F_2(t,Y)\big)$, en explicitant la fonction $F$ et son domaine de définition.
+	      \solution{On a donc $F_1(t,Y) = x(1-x-y/2)$ et $F_2(t,Y) = y(1-y-x/2)$, $F$ est à valeur de $\R \times \R^2 \to \R^2$.}
+
+  \item Soit $\left(J,t\in J\mapsto \Big(\begin{array}{c}x(t)\\y(t)\end{array}\Big)\right)$ une solution maximale de $(S)$. Montrer que $\left(J,t\in J\mapsto\Big(\begin{array}{c}y(t)\\x(t)\end{array}\Big)\right)$ est aussi solution maximale de $(S)$.
+		  \solution{Supposons $Y(t) =  \Big(\begin{array}{c}x(t)\\y(t)\end{array}\Big)$ une solution maximale de $(S)$, posons $Z(t) = \Big(\begin{array}{c}z_1(t)\\z_2(t)\end{array}\Big)$, avec $z_1(t) = y(t)$ et $z_2(t) = x(t)$. A-t-on :
+  $$
+		  (S_1)\begin{cases}
+    z_1' \stackrel{?}{=} z_1(1-z_1-z_2/2)\\
+    z_2' \stackrel{?}{=} z_2(1-z_2-z_1/2)
+  \end{cases}
+  $$
+  $$
+		  (S_1)\iff (S_2) \begin{cases}
+    y_1' = y_1(1-y_1-x_1/2)\\
+    x_1' = x_1(1-y_1-x_1/2).
+		  \end{cases} \text{OK}
+  $$
+			  }
+  \item Soit $(x_0,y_0)\in\R^2$. Justifier l'existence et l'unicité d'une solution maximale du problème de Cauchy pour $(S)$, de donnée initiale $(x(0),y(0))=(x_0,y_0)$.
+	  \solution{La fonction $F$ définie en $1.$ est une fonction $C^1$ donc continue et lispchitzienne par rapport à la variable dépendante, donc le théorème de Cauchy-Lipchitz nous assure l'existence d'une unique solution maximale définie sur un intervalle $J$.
+		  }
+\item On va maintenant analyser le problème de Cauchy pour le système $(S)$, de donnée initiale $(x(0),y(0))=(x_0,y_0)$, pour différentes valeurs de $(x_0,y_0)$.
+  \begin{enumerate}
+  \item Supposons $x_0\in\R,\ y_0=0$. On considère $(J,x(t))$ la solution maximale du problème de Cauchy
+  $$
+  \begin{cases}
+    x'=x(1-x)\\
+    x(0)=x_0.
+  \end{cases}
+  $$
+Montrer que $\left(J,t\in J\mapsto \Big(\begin{array}{c}x(t)\\0\end{array}\Big)\right)$ est la solution maximale du problème de Cauchy pour $(S)$, de donnée initiale $(x(0),y(0))=(x_0,0)$. Justifier que si $x_0\geq0$, alors $[0,+\infty[\subseteq J$. Que vaut la limite $\lim_{t\to+\infty}x(t)$ {\it (On pourra considérer séparément les cas $0\leq x_0\leq 1$ et $x_0>1$)}.
+\solution{
+On considère $(J, x(t))$ la solution maximale du problème de cauchy précédent, on veut montrer que $(J, (x(t),y_0(t)))$, où $y_0(t) = 0, ~ \forall t$, est la solution maximale du problème de cauchy associé au système (S) avec pour condition initiale $(x(0),y(0)) = (x_0, 0)$.\\
+On doit donc montrer : \\
+\star~ que $(x(t),y(t))$ vérifie la problème de cauchy associé au système (S) avec pour condition initiale $(x(0),y(0)) = (x_0, 0)$;\\
+\star~ et que $(x(t),y_0(t))$ ne peut pas être prolongée.\\
+\doigt D'une part on a bien $y'(t) = y(t)(1-y(t)-x(t)/2) ~ \forall t \in J$, car $y(t) = 0 ~ \forall t \in J$.\\
+\doigt D'autre part on a aussi $x'(t) = x(t)(1-x(t) - y(t)/2) ~ \forall t \in J$, car $y(t) = 0 ~ \forall t \in J$, \ie $x'(t) = x(t)(1-x(t) - y(t)/2) = x(t)(1-x(t))$ et $x(t)$ est la solution maximale du problème de cauchy :
+$
+  \begin{cases}
+    x'=x(1-x)\\
+    x(0)=x_0.
+  \end{cases}
+  $ Donc $x't() = x(t)(1-x(t)), ~ \forall t \in J.$
+}
+    \item Supposons $x_0=y_0>0$. Soit $\left(J,t\in J\mapsto \Big(\begin{array}{c}x(t)\\y(t)\end{array}\Big)\right)$ la solution maximale du problème de Cauchy pour $(S)$, de donnée initiale $(x(0),y(0))=(x_0,y_0)$. Justifier que $x(t)=y(t)$ pour tout $t\in J$, puis que $[0,+\infty[\subseteq J$. Que vaut la limite $\lim_{t\to+\infty}x(t)$ ? {\it (On pourra étudier l'équation différentielle vérifiée par $x=y$)}.
+      \item Supposons $x_0>y_0>0$. Soit $\left(J,t\in J\mapsto \Big(\begin{array}{c}x(t)\\y(t)\end{array}\Big)\right)$ la solution maximale du problème de Cauchy pour $(S)$, de donnée initiale $(x(0),y(0))=(x_0,y_0)$.
+        \begin{enumerate}
+        \item Justifier que pour tout $t\in J$, $x(t)>y(t)>0$.
+        \item Soit
+          $$
+A=\{(x,y)\in\R^2\:x>y>0\ \textrm{et}\ x\geq 1-\frac y2\}.
+$$
+Montrer que $(x(t),y(t))\in A$ si et seulement si $x'(t)\leq0$. Conclure que $[0,+\infty[\subseteq J$.
+    \end{enumerate}
+  \end{enumerate}
+  \end{enumerate}
+
+\ee
+
+
+
+\end{document}

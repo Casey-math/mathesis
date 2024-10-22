@@ -1,0 +1,745 @@
+\input{../../preambule}
+
+\title{TD3 Algèbre linéaire}
+
+\begin{document}
+\maketitle
+
+\begin{center}
+\bf{Feuille d'exercices 3 : Espaces euclidiens / Espaces affines}
+\end{center}
+
+\todo{Exos : fin 3, 4, 8, 9, fin 11, 12}
+
+\section{Mise en bouche}
+\medskip
+
+%%%%%%%%%
+%Exo 1
+%%%%%%%%%
+\be
+Dans $\R^3$, soit $p$ le projecteur orthogonal sur $\mathcal{P}$ d'équation $x+2y-2z = 0$ et $u$ le vecteur 
+$u = (1,1,1)$.
+Déterminer l'image $p(u)$ de $u$. En déduire la distance $d(u,\mathcal{P})$.
+\solution{Notons $F$ le plan $\mathcal{P}$, $G$ l'orthogonal de $F$, $p_F$ la projection orthogonale sur $F$ et $p_G$ la projection orthogonale sur l'othogonal de $F$ \ie G. Un schéma rapide nous donne la relation entre $p_F$ et $p_G$ : $ \forall u \in \R^3, ~ p_F(u) = u - p_G(u)$.\\
+$F = \{(x,y,z) \in \R^3 \mid x+2y-2z = 0 \} = \{(x,y,z) \in \R^3 \mid \bps (x,y,z)\mid (1,2,-2) \eps = 0 \} = vect((1,2,-2))^\perp$.\\
+On a donc $G = F^\perp = \mathcal{P}^\perp = vect((1,2,-2))$, la projection sur $G$ est donc plus facile étant donné que nous n'avons qu'un seul vecteur, ainsi : $p_G((x,y,z)) = \frac{\bps (x,y,z) \mid (1,2,-2) \eps}{\|(1,2,-2) \|^2}(1,2,-2)$. D'où $p_F((1,1,1)) = (1,1,1) - \frac{\bps (1,1,1) \mid (1,2,-2) \eps}{\|(1,2,-2) \|^2}(1,2,-2) = (1,1,1) - \frac{1}{9}(1,2,-2) = \frac{1}{9}(8,7,11)$.\\
+On a $d(u,\mathcal{P}) := \|u - p_F(u)\| = \|p_G(u)\| = 1/3$
+}
+\ee
+
+\medskip
+
+%%%%%%%%%
+%Exo 2
+%%%%%%%%%
+\be
+Soit $M = \dfrac{1}{9}\mat{
+1&8&-4\\
+8&1&4\\
+-4&4&7}$
+et soit $f$ l'application linéaire associée à $M$ dans la base canonique.
+Montrer que $f$ est une isométrie et préciser sa nature.
+\solution{On a $^tMM = I_3$ donc $M$ est la matrice d'une isométrie. Calculons le déterminant pour savoir si il s'agit d'une isométrie directe ou indirecte : $\mid M \mid = -1$. On peut aussi comparer le signe du déterminant du bloc $2\times 2$ en bas à gauche et on le compare au signe du coefficent en haut à droite : si c'est de même signe alors le déterminant sera $1$ sinon $-1$, cette astuce ne fonctionne que si l'on sait que c'est la matrice d'une isométrie. Donc $M$ est la matrice d'une symétrie.
+}
+\ee
+
+\medskip
+
+%%%%%%%%%
+%Exo 3
+%%%%%%%%%
+\be
+Pour $A,B \in M_n(\R)$, on définit $\varphi (A,B) = \Tr(^tA B)$.
+Montrer que $\varphi$ définit un produit scalaire sur $M_n(\R)$.
+\solution{Un produit scalaire est une application bilinéaire, symétrique et définie positive. Commençons par montrer la symétrie :\\
+Soit $A,B \in M_n(\R)$ $\varphi (A,B) = \Tr(^tA B)$ et $\varphi (B,A) = \Tr(^tB A)$, mais on a $\varphi (A,B) = \Tr(^t(^tA B))$ \ie $\varphi (A,B) = \Tr(^tB A))$, donc $\varphi$ est symétrique.\\
+Nous avons montré la symétrie avant la bilinéarité pour n'avoir à montrer que la linéarité par rapport à une variable, montrons la linéarité à gauche : soit $A,B, C \in M_n(\R), \gamma \in \K,~ \varphi (A,B + \gamma C) = \Tr(^tA (B + \gamma C)) = \Tr(^tA B + ^tA \gamma C) = \Tr(^tA B) + \gamma \Tr(^tA C) = \varphi (A,B) + \gamma \varphi (A,C)$, donc $\varphi$ est linéaire par rapport à sa seconde variable, étant également symétrique, elle est donc bilinéaire.\\
+Il ne nous reste plus qu'à montrer que $\vfi$ est définie positive : soit $A \in M_n(\R), ~ \vfi(A,A) = \Tr(^tA A) = a_{i,i}^2, ~  \forall i \in \{1,...,n\}$, donc $\vfi$ est positive, de plus $\Tr(^tA A) = 0 \iff A = 0$ 
+}
+\ee
+
+\medskip
+
+%%%%%%%%%%%%%%
+%exo 4
+%%%%%%%%%%%%%%
+\be
+\ben
+\item Dans $\R^2$ muni du produit scalaire usuel,
+démontrer que pour tout $u,v\in \R^2$ de norme 1, il existe une unique réflexion $r$ telle que $r(u)=v$. Préciser ses éléments caractéristiques.
+\item  Lorsque $u=(\frac 1 2;\frac {\sqrt 3} 2)$ et $v =(-1,0)$,   représenter ces éléments caratéristiques sur un schéma,  puis donner  la matrice associée à  la réflexion dans la base canonique.
+\een
+\ee
+
+\medskip
+
+%%%%%%%%%%%%%
+%exo 5
+%%%%%%%%%%%%%
+\be
+Soit $E$ un $\R$-\ev euclidien de dimension $n$. 
+Soient $u,v$ deux vecteurs orthogonaux non nuls de $E$ et de norme 1. On note $F$ le \sev engendré par $u$ et $v$.
+Pour tout $x\in E$, on pose $$f(x)=x-<u,x>u-<v,x>v.$$ \ben
+\item Montrer que pour tout $x$, $f(x)\in F^\perp$.
+    \solution{$ \forall x \in E, f(x)\in F^\perp \iff \forall x \in E, \bps f(x) \mid u\eps = \bps f(x) \mid v\eps = 0$, ($\{u, v\}$ BON de $F$), on a donc $\bps f(x) \mid u\eps = \bps x- \bps u,x \eps u- \bps v,x \eps v \mid u\eps = \bps x \mid u \eps - \bps u \mid x \eps \|u\|^2 - \bps v \mid x \eps \bps v \mid u \eps = \bps x \mid u \eps - \bps u \mid x \eps = 0$, on a le même résultat pour $v$, donc $\forall x \in E, f(x)\in F^\perp$.}
+\item Montrer que $f$ est une projection orthogonale et préciser ses caractéristiques géométriques. 
+    \solution{Après un rapide calcul on trouve que $\forall x \in E, ~ f(f(x)) = f(x)$ donc $f$ est bien une projection ;\\
+    \sout{Montrons maintenant que $f$ est un endomorphisme orthogonal : \ie montrons que $\forall x \in E, \|f(x)\| = \|x\|$, on a $\|f(x)\|^2 = \bps f(x) \mid f(x) \eps = $}\\
+    \textcolor{red}{Et non une projection orthogonale n'est pas une isométrie: $f$ n'est pas bijective !! \textit{(conférer la matrice diagonale d'une projection $\ne id$).}}\\
+    Reprenons correctement, on a donc montré que $f$ était une projection, il nous reste à montrer que c'est une projection orthogonale ;\\
+    On a montré dans $1.$ que pour tout $x$ on avait $f(x) \in F^\perp$ autrement dit l'image de $f$ est $F^\perp$, comme on a $F \oplus F^\perp = E$ on a une projection sur $F^\perp$ parallèlement à $F$, c'est donc une projection orthogonale par définition.
+    }
+\item Dans $\R^3$, on choisit $u=(1,1,1)$ et $v=(1,-1,1)$. En adaptant le résultat précédent, exprimer à l'aide de $u$ et $v$  la projection orthogonale de mêmes caractéristiques que dans la question précédente.
+\solution{Donc dans $\R^3$, $f$ nous donne $p_{F^\perp} = (-x + 2z , -y , -2x - z) $}
+\een
+\ee
+
+\medskip
+
+%%%%%%%%%%
+%Exo 6
+%%%%%%%%%%
+\be
+Soit $y \in \R^n$ tel que $\|y\| = 1$. Pour tout $x$ de $\R^n$, on pose
+\[f(x) = x - 2 \langle x,y \rangle y.\]
+\ben
+\item Montrer que $f$ est une isométrie et préciser sa nature.
+    \solution{Pour montrer que $f$ est une isométrie, le cours nous donne une définition et une propriété, soit on montre que $\forall x,y \in E = \R^n, \bps f(x) \mid f(y) \eps = \bps x \mid y \eps$, soit, et c'est ce que nous allons faire ici, on montre que $\forall x \in E, \| f(x) \| = \|x\|$.\\
+    Soit donc $x \in E$, on a $\|f(x) \|^2 = \bps f(x) \mid f(x) \eps = \bps x - 2 \bps x,y \eps y \mid x - 2 \bps x,y \eps y \eps = \|x\|^2 + 4 \bps x\mid y \eps^2 -4 \bps x \mid y \eps \bps x \mid y \eps = \|x\|^2$, ainsi, $f$ est bien une isométrie.\\
+    Pour sa nature, calculons $f^2$ : $f(f(x)) = x$, ainsi $f$ est une symétrie.\\
+    On peut préciser ses caractéristiques : notons $s$ la symétrie, on voit que $s$ est déterminée comme suit : $s = id - 2p_F$, avec $p_F$ la projection orthogonale sur $F = vect(y)$, donc $s$ est la symétrie par rapport à $F^\perp$, c'est donc une réflexion, car $dim(F) = 1$, (symétrie par rapport à un hyperplan).
+    }
+\item On choisit $n=3$ et $y = \left({\frac 1 {\sqrt 2}, 0, -\frac 1 {\sqrt 2}}\right)$. Existe-t-il une base dans laquelle la matrice de $f$ s'écrit simplement?
+\solution{il nous suffit de prendre une base adaptée à la décomposition $F \oplus F^\perp$, avec $F = vect(y)$.}\\ 
+Comment obtenir alors la matrice de $f$ dans la base canonique?
+\solution{Cherchons la base dans laquelle la matrice de $f$ sera diagonale, on a déjà un vecteur normé pour $F$, cherchons une BON de $F^\perp$, il nous suffit pour cela de chercher un vecteur orthogonal à $y$ :  $v_1 = (0,1,0)$ est bien orthogonal à $y$, pour le dernier on peut prendre $v_2 =  y \wedge v_1 = \left({\frac 1 {\sqrt 2}, 0, \frac 1 {\sqrt 2}}\right)$ qui est bien normé, dans la base $\mathcal{B} = \{v_1, v_2, y\}$, la matrice de $f$ sera diagonale, de plus si on note $\mathcal{P} = P_{\mathcal{C}an, \mathcal{B}}$ la matrice de passage de la base canonique vers $\mathcal{B}$ alors la matrice de $f$ dans la base canonique sera donnée par : $\mathcal{P}D\mathcal{P}^{-1}$.
+}
+\een
+\ee
+
+\medskip
+%%%%%%%%%%
+%Exo 7
+%%%%%%%
+\be
+Soit $(u,v)$ une famille orthonormée de vecteurs de $\R^n$. Pour tout $x$ de $\R^n$, on pose
+\[f(x) = x - \langle x,u+v \rangle u - \langle x,v-u \rangle v.\] %\afaire{(rotation)}. 
+%\afaire{(Alternative : symétrie)} \[f(x) = x + \langle x,v-u \rangle u + \langle x,u-v \rangle v.\] 
+Montrer que $f$ est une isométrie et préciser sa nature. 
+\solution{$f$ est une isométrie \ssi $f$ préserve la norme : après un long calcul fastidieux on trouve bien que $\|f(x)\|^2 = \|x\|^2$ donc $f$ est une isométrie
+}\\
+Donner sa matrice dans une base bien choisie.
+\solution{\textcolor{red}{Je trouve $f^2(x) = x -2(\bps x \mid u \eps u + \bps x \mid v \eps v)$, y-a-t'il une erreur dans l'énoncé ?}}
+\ee
+
+\medskip
+%%%%%%%%%%
+%Exo 8
+%%%%%%%%%%
+\be
+Soit $p$ un projecteur d'un espace vectoriel euclidien $E$. Montrer que $p$ est orthogonal si et seulement si pour tout $x \in E$, $\|p(x)\| \leq \|x\|$.
+\solution{Donc déjà $p$ n'est pas une isométrie, ne pas dire que $\|p(x)\| = \|x\|$.\\
+\star ~ Montrons \Rightarrow : Supposons $p$ projecteur orthogonal ; donc $p$ est la projection sur un \sev $F$ parallèlement à $F^\perp$, on a la décomposition suivante de l'espace : $E = F \oplus F^\perp$, \ie que $\forall x \in E$ on a $x_1 \in F$ et $x_2 \in F^\perp$ : $x = x_1 + x_2$, mais $p(x) = p(x_1 + x_2) = p(x_1) + p(x_2) = p(x_1) = x_1$ donc en élevant au carré pour utiliser le théorème de Pythagore on a $\|p(x) \|^2 = \| p(x_1) + p(x_2) \|^2 = \|p(x_1) \|^2 = \| x_1 \|^2 \leq \| x \|^2 = \| x_1 + x_2 \|^2 = \|x_1\|^2 + \| x_2 \|^2$. C'est ce que nous voulions montrer.\\
+\star ~ Montrons \Leftarrow : supposons que $\forall x \in E$, $\|p(x)\| \leq \|x\|$, montrons que $p$ est un projecteur orthogonal ; \textcolor{orange}{A FINIR !}
+}
+\ee
+
+\medskip
+%%%%%%%%%%
+%Exo 9
+%%%%%%%%%%
+\be
+\ben
+\item Soit $\alpha \in \R$. Montrer que pour $P, Q \in \R_n[X]$, 
+$$\varphi(P,Q) = \sum_{k=0}^n P^{(k)}(\alpha) Q^{(k)} (\alpha)$$
+où  $P^{(k)}$ désigne la dérivée $k$-ième de $P$, définit un produit scalaire sur $\R_n[X]$.
+\item Montrer qu'il existe une unique base $(P_0, \ldots, P_n)$ orthonormale pour le produit scalaire $\varphi$ telle que chaque $P_i$ soit de degré $i$ et de terme de degré maximal positif.
+\item Calculer $P_i^{(k)}(\alpha)$ pour tout $k \in \N$.
+\een
+\ee
+
+\newpage
+\section{Syst\`emes d'\'equations affines}
+
+\medskip
+%%%%%%%%%%%
+%Exo 10
+%%%%%%%%%%%
+\be
+On note $F$ l'ensemble des  $(x,y,z)\in\R^3$ v\'erifiant le syst\`eme d'\'equations suivant:
+$$
+\left\{\begin{array}{lrlrlrlrlcl} 
+2x &-& y  &+ & 3 z &=& 1,\\
+x  &+& 4y& -&6z   &=& -2 .
+\end{array}\right.
+$$
+\begin{enumerate}
+  \item Montrer que $F$ est un sous-espace affine de $\R^3$ et préciser sa direction $\vect{F}$. 
+Quelle est la nature de $F$? Donner une équation paramétrique de $F$.
+\solution{Soit $u = (x,y,z) \in \R^3$, posons $l_1(u) = 2x -y +3z$ et $l_2(u) = x +4y -6y$, on soit que $\forall \alpha \in \R$, $l_1(u) \ne \alpha l_2(u)$, ainsi les deux lignes du système d'équations sont indépendantes, donc le système est surjectif, \ie que le point $(1,-2)$ est atteint, ainsi l'ensemble des solutions du système est un espace affine de dimension : nombre de variable - nombre de lignes indépendantes = 1, la direction du \sea est l'ensemble $\mathcal{S}_0$ des solutions au système d'équation homogène associé : 
+$$
+\left\{\begin{array}{lrlrlrlrlcl} 
+2x &-& y  &+ & 3 z &=& 0,\\
+x  &+& 4y& -&6z   &=& 0 .
+\end{array}\right.
+$$
+en utilisant la méthode du pivot de Gauss on trouve que 
+$\mathcal{S}_0 =\{(-2, 5, 3)\}$\\
+On peut aussi comprendre ce que l'on fait, on veut trouver $(x,y,z)$ tel qu'il soit perpendiculaire à $v_1 = (2,-1,3)$ et à $v_2 = (1,4,-6)$, mais on connaît un tel vecteur, c'est $v_1 \pv v_2$ ! \\
+Pour chercher une solution particulière au système initiale on peut poser $z = 0$ \textit{(en effet le système restant est bien surjectif donc on pourra bien trouver une solution)} on a donc :
+$$
+\left\{\begin{array}{lrlrlrlrlcl} 
+2x &-& y &=& 1,\\
+x  &+& 4y   &=& -2 
+\end{array}\right.
+$$
+ce qui nous donne finalement : 
+$$
+\left\{\begin{array}{lrlrlrlrlcl} 
+2x &-& y &=& 1,\\
+&& 9y   &=& -5 .
+\end{array}\right.
+$$
+On a donc comme équation paramétrique de $F = (\frac{2}{9},-\frac{5}{9}, 0) + vect((-2, 5, 3))$
+}
+ \item \'Ecrire ce système sous forme matricielle, puis à l'aide d'une application linéaire $f$. Identifier 
+ le sous-espace affine $F$ à l'aide de $f$.
+ \solution{on a donc $A = \mat{
+2&-1&3\\
+1&4&-6}$
+et $B = \mat{
+1\\
+-2}$
+Telle que le système s'écrit sous la forme $AX = B$ 
+On peut considérer l'application $f \in \Ll(\R^3, \R^2)$ telle que $(x,y,z) \mapsto (l_1(x,y,z), l_2(x,y,z))$, on a donc dans ces conditions $F = (\frac{2}{9},-\frac{5}{9}, 0) + ker(f)$
+ }
+ \item Interpréter le système d'équations à l'aide d'hyperplans.
+ \solution{$F = (\frac{2}{9},-\frac{5}{9}, 0) + ker(l_1) \cap ker(l_2)$. \textbf{Rappel :} le noyau d'une forme linéaire non nulle est un hyperplan.}
+\end{enumerate}
+\ee
+
+\medskip
+
+%%%%%%%%
+%Exo 11
+%%%%%%%%
+\be
+Soient $\lambda\in \mathbb R$ un param\`etre. 
+\begin{enumerate}
+  \item \`A quelles conditions sur $\lambda$ les deux syst\`emes d'\'equations
+ $$ \left\{
+  \begin{array}{lll}
+  -x+\lambda y-3z&=&\lambda-1\\
+  x-3y+\lambda z&=&-2
+  \end{array}\right.
+  \qquad \left\{
+  \begin{array}{lll}
+  y+z&=&-\lambda+2\\
+  \lambda x-2z&=&0
+  \end{array}\right.
+ $$
+  d\'ecrivent-ils des droites affines de $\mathbb R^3$ ?
+  \solution{Une droite affine est de dimension 1, donc il faut que les deux lignes des deux systèmes soient indépendantes, pour le premier système, cette condition est remplie quand $\lambda \ne 3$ pour le second système quelque soit la valeur de $\lambda$ les deux lignes sont indépendantes.}
+  \item On suppose les conditions du 1. satisfaites. Trouver pour chaque droite son \'equation param\'etrique.
+  \solution{Soit donc $\lambda \ne 3$ pour le premier système ; Pour trouver la direction de la droite affines du système 1 on cherche l'ensemble des solutions du système homogène associé : 
+   $$ \left\{
+  \begin{array}{lll}
+  -x+\lambda y-3z&=&0\\
+  x-3y+\lambda z&=&0
+  \end{array}\right.
+  $$
+  cela revient a chercher un vecteur $(x,y,z)$ orthogonal aux vecteurs $v_1 = (-1, \lambda, -3)$ et $v_2 = (1, -3, \lambda)$, il nous suffit donc de calculer le produit vectoriel $v_1 \pv v_2 = (\lambda^2 - 9, \lambda - 3, 3- \lambda) = (\lambda +3, 1, -1)$ car $\lambda \ne 3$. Donc $D_1 = (1, 1, 0) + vect(\lambda +3, 1, -1)$.\\
+  Pour le système 2 n'importe quelle valeur de $\lambda$ nous donne une droite affine, donc une fois de plus on calcul le produit vectoriel qui nous donne la direction de la droite affine $D_2$ : $(0,1,1) \pv (\lambda, 0, -2) = (-2, \lambda , -\lambda)$, d'où $D_2 = (-2, 2, -\lambda) + vect(-2, \lambda , -\lambda)$.
+  }
+  \item Etudier selon la valeur de $\lambda$ les positions relatives de ces 2 droites. 
+ On pr\'ecisera lorsqu'elles sont parall\`eles,  confondues, s\'ecantes.
+ \solution{\star \textbf{Parallélisme :} Deux \sea sont parallèles s'ils ont mêmes directions,  \ie si $(\lambda +3, 1, -1) = \alpha (-2, \lambda , -\lambda)$, ce qui nous amène à résoudre un système qui nous donne les valeurs de $\lambda$ qui conviennent : $\lambda \in \{-1, -2\}$\\
+ \star \textbf{Confondues :} Deux droites sont confondues si leurs directions sont égales et si les points de l'une appartiennent également à l'autre, \ie existe-t-il un $t \in \R$ tel que $$\mat{-2 \\ 2 \\ -\lambda} + t \mat{-2 \\ \lambda \\ - \lambda} = \mat{1 \\ 1 \\ 0}$$
+ }
+\end{enumerate}
+\ee
+
+\medskip
+%%%%%%%%%%%
+%Exo 12
+%%%%%%%%%%%
+\be
+Soient $\alpha,\beta,a,b,c$ des r\'eels. On consid\`ere trois plans $P_{1}$, $P_{2}$ et $P_{3}$ de $\mathbb R^3$, d'\'equations respectives :
+$x+2y+\beta z=a$ , $2x+4y=b$ et $\alpha x+(\alpha+1)y=c$.
+D\'eterminer, suivant les valeurs de $\alpha,\beta,a,b,c$, la dimension du
+sous-espace affine $P_1\cap P_2\cap P_3$ (si cette intersection est
+non vide). 
+\ee
+
+\medskip
+%%%%%%%%%%%%%
+%Exo 13
+%%%%%%%%%%%%%%
+\be
+On note $F$ l'ensemble des quintuplets $(x_1,x_2,x_3,x_4,x_5)\in\R^5$ v\'erifiant le syst\`eme d'\'equations affine suivant:
+$$
+\left\{\begin{array}{lrlrlrlrlcl} 
+x_1 &+& x_2 &+ & x_3 &+& x_4 & & &=& 1,\\
+x_1 &-& x_2& & &+& x_4 &-& x_5 &=& 1 ,\\
+-x_1 &+& 3x_2 &+& x_3 &-& x_4 &+& 2x_5 &=& -1.
+\end{array}\right.
+$$
+Montrer que $F$ est un sous-espace affine de $\R^5$, donner sa dimension, sa direction $\vect{F}$ et une base de celle-ci.
+\solution{\textcolor{gray}{\textbf{Rappel} : $F$ est un \sea de $\R^5$ s'il existe un \sev $\vec{F} \subset \R^5$.}\\
+Si on note $L_1, L_2, L_3$ les trois lignes du système, on voit que $L_1 = 2L_2 + L_3$, on peut donc éliminer $L_3$ et ne garder que les deux premières, ce qui nous donne le système suivant :
+$$\mathcal{S} :
+\left\{\begin{array}{lrlrlrlrlcl} 
+x_1 &+& x_2 &+ & x_3 &+& x_4 & & &=& 1,\\
+x_1 &-& x_2& & &+& x_4 &-& x_5 &=& 1 ,\\
+\end{array}\right.
+$$
+On voit que $L_1$ et $L_2$ sont indépendantes, donc le système est surjectif, donc  $F$ est bien un \sea de dimension $3$. La direction est donnée par l'ensemble de solutions du système homogène associé : 
+$$\mathcal{S}_h :
+\left\{\begin{array}{lrlrlrlrlcl} 
+x_1 &+& x_2 &+ & x_3 &+& x_4 & & &=& 1,\\
+x_1 &-& x_2& & &+& x_4 &-& x_5 &=& 1 ,\\
+\end{array}\right.
+$$
+qui nous donne : 
+$$
+\left\{\begin{array}{lrlrlrlrlcl} 
+x_2 &=& -x_1 &- & x_3 &-& x_4,\\
+x_5 &=& 2x_1& & &+& x_3 &+& 2x_4,\\
+\end{array}\right.
+$$
+D'où la direction $\vec{F} = vect((1, -1,0,0,2), (0,-1,1,0,1), (0,-1,0,1,2))$
+}
+\ee
+
+\newpage
+\section{Droites et plans dans $\R^{3}$}
+\medskip
+
+%%%%%%%%%%ù
+%Exo 14
+%%%%%%%%%%%
+\be
+On se place dans $\mathbb R^3$.
+\begin{enumerate}
+  \item D\'eterminer une \'equation du plan $V$ engendr\'e par les vecteurs $(1,2,1)$ et $(0,1,1)$ et passant par l'origine.
+  \solution{On a donc par définition $V = (0,0,0) + vect((1,2,1),(0,1,1))$\\
+  On a $\vec{V} = vect((1,2,1),(0,1,1))$, on veut une représentation cartésienne de ce \sev , on veut donc trouver une forme linéaire $l$ telle que $\vec{V} = \{\vec{u} \in \R^3 \mid l(\vec{u}) = 0 \}$, mais le lemme de représentation nous ramène à chercher un vecteur $\vec{w} \in \R^3$ tel que $\vec{V} = \{\vec{u} \in \R^3 \mid \bps \vec{w} \mid \vec{u} \eps = 0 \} = vect(\vec{w})^\perp$, étant en dimension finie, nous avons l'égalité suivante : $\vec{V}^\perp = (vect(\vec{w})^\perp)^\perp = vect(\vec{w})$, nous sommes donc ramené à chercher une base de l'orthogonal de $\vec{V}$. Le vecteur $\vec{w}$ est perpendiculaire à $(1,2,1)$ et à $(0,1,1)$, donc $\vec{w} = (1,2,1) \pv (0,1,1) = (1, -1, 1)$, d'où $\vec{V} = \{\vec{u} \in \R^3 \mid \bps (1, -1, 1) \mid \vec{u} \eps = 0 \} = \{\vec{u} \in \R^3 \mid x-y+z = 0 \}= V$
+  }
+  \item D\'eterminer une \'equation du plan $V'$ parall\`ele \`a $V$ et passant par le point $(0,0,1)$. Quelle est son \'equation param\'etrique ?
+  \solution{On a $V$ et $V'$ parallèle donc $V'$ admet une équation cartésienne de la forme $x - y + z = \alpha, ~ \alpha \in \R$ mais $V'$ passe par $(0,0,1)$ \ie $(0,0,1) \in V'$, \ie $\alpha$ est nécessairement égale à $1$, on a donc $V' = \{\vec{u} \in \R^3 \mid x-y+z = 1 \}$\\
+  Pour l'équation paramétrique, c'est simple ; $V$ et $V'$ sont parallèles donc par définition $\vec{V} = \vec{V'} = vect((1,2,1),(0,1,1))$, d'où $V' = (0,0,1) + vect((1,2,1),(0,1,1))$.
+  }
+  \item Soit $D$ la droite passant par $(1,0,0)$ et dirig\'ee par le vecteur $(1,0,1)$. D\'eterminer les points d'intersection de $V'$ et de $D$.
+  \solution{On a une équation paramétrique de $D = (1, 0,0) + vect((1,0,1))$, autrement dit $(x,y,z) \in D \iff (x,y,z) = (1, 0,0) + t(1,0,1)$ ce qui nous donne le système suivant : 
+$$
+\left\{\begin{array}{lrlrlrlrlcl} 
+x &-& 1 &=& t,\\
+y & & & =& 0 ,\\
+z & & & =& t.
+\end{array}\right.
+$$
+On a donc $D = \{\vec{u} \in \R^3 \mid x- z = 1 \text{ et } y = 0 \}$, l'intersection est donnée par le système suivant :
+$$D \cap V' = 
+\left\{\begin{array}{lrlrlrlrlcl} 
+x &-& & &z&=& 1,\\
+y & & & & &=& 0 ,\\
+x &-&y&+&z&=& 1.
+\end{array}\right.
+$$
+Le point d'intersection est $(1,0,0)$
+}
+\end{enumerate}
+\ee
+
+\medskip
+%%%%%%%
+%Exo 15
+%%%%%%%%%
+\be
+D\'eterminer une \'equation de la droite de $\mathbb R^3$ passant par les points $A = (1,1,1)$ et $B = (1,0,2)$.
+\solution{$D = A + vect(\vec{AB}) = \{ (x,y,z) \in \R^3 \mid x = 1 \text{ et } y + z = 2\}$
+}
+\ee
+
+\medskip
+%%%%%%%%%%%
+%Exo 16
+%%%%%%%%%%%%
+\be
+Dans l'espace $\mathbb R^3$, on consid\`ere le plan $P$ d'\'equation $x+y+z=1$.
+\begin{enumerate}
+\item D\'eterminer une \'equation de plan $P'$ passant par les points $A = (2,-1,0)$, $B = (0,0,2)$ et $C = (-1,1,2)$.
+\solution{Le plan est dirigé par les vecteurs $\vec{AB}$ et $\vec{AC}$, on a donc $P = A + vect(\vec{AB},\vec{AC}) = \{(x,y,z) \in \R^3 \mid 2x+2y+z = 2 \}.$
+}
+\item D\'eterminer la nature de  $\vect P\cap \vect{P'}$.
+\solution{$x+y+z=0$ et $2x+2y+z = 0$ ne sont pas proportionnelles donc les deux plans ne sont pas parallèles, ainsi la dimension de l'intersection de $\vec{P}$ avec $\vec{P'}$ est de dimension $1$, c'est donc une droite vectorielle.
+}
+\item D\'eduire de la question pr\'ec\'edente que $P\cap P'$ est non vide, et pr\'eciser sa nature. 
+\solution{On a $P \cap P'$ donnée par le système suivant : 
+$$ 
+\left\{\begin{array}{lrlrlrlrlcl} 
+x &+&y&+&z&=& 1,\\
+2x &+&2y&+&z&=& 2.
+\end{array}\right.
+$$
+On voit que $A \in P \cap P'$ donc $P \cap P' \ne \emptyset$, c'est donc une \sea de dimension 1, c'est donc une droite affine. 
+}
+\item D\'eterminer les caract\'eristiques g\'eom\'etriques de $P\cap P'$ (point et base de sa direction).
+\solution{$P \cap P' = A + vect((-1,1,0))$
+} 
+\end{enumerate}
+\ee
+
+\section{Autres exemples d'espaces affines}
+\medskip
+
+%%%%%%%
+%Exo 17
+%%%%%%%
+\be
+D\'eterminer parmi les sous-ensembles suivants ceux qui sont des sous-espaces affines de $\mathbb R^3$  et pr\'eciser alors leurs directions et leurs dimensions.
+\begin{enumerate}
+  \item $V_1=\{(x,y,z)\in\mathbb R^3, x+2y+z=1\}$
+  \solution{$V_1$ est un \sea de direction $\vec{V_1}=\{(x,y,z)\in\mathbb R^3, x+2y+z=0\}$, d'où  $\vec{V_1}=\{(x,y,z)\in\mathbb R^3, z=-x-2y \} = vect((1,0,-1),(0,1,-2))$. $V$ est de dimension $1$.
+  }
+  \item $V_2=\{(x,y,z)\in\mathbb R^3, x+2y+z=1 \text{ et } x=y=0\}$
+  \solution{$V_2$ est de dimension $3-1 = 2$, sa direction est donnée par $\vec{V_2}=\{(x,y,z)\in\mathbb R^3, z=0 \} = vect((1,0,0),(0,1,0))$
+  }
+  \item  $V_3=\{(x,y,z)\in\mathbb R^3, x^2+y^2=1\}$
+  \solution{Pas espace affine car $\vec{V_3}=\{(x,y,z)\in\mathbb R^3, x^2+y^2=1\}$ n'est pas un \sev
+  }
+  \item  $V_4=\{(x,y,z)\in\mathbb R^3, x^2+2xy+y^2=0\}$ 
+  \solution{$V_4=\{(x,y,z)\in\mathbb R^3, x^2+2xy+y^2=0\} = \{(x,y,z)\in\mathbb R^3, (x+y)^2=0\}$ \ie c'est l'ensemble des vecteurs $(x,y,z) \in \R^3$ tels que $x+y = 0$ donc $V_4 = vect((1,-1,0), (0,0,1))$, $V_4$ est de dimension $2$.
+  }
+  \item $V_5=\{(x,y,z)\in\mathbb R^3, x^2+2xy+y^2=1\}$ 
+\end{enumerate}
+\ee
+
+\medskip
+%exo 18
+\be
+Soit $n\in\mathbb N^*$. On note $E_n$ l'espace vectoriel des fonctions de $\mathbb R$ dans $\mathbb R$ qui sont polynomiales de degr\'e inf\'erieur ou \'egal \`a $n$. Soit 
+$F_0=\{f\in E_n,\int_0^1 f(t) d t=0 \}$ et $F_1=\{f\in E_n,\int_0^1 f(t) d t=1 \}$.
+\begin{enumerate}
+  \item Montrer que $F_0$ est un $\mathbb R$-espace vectoriel.
+  \item Montrer que $F_1$ est un espace affine dont l'espace vectoriel sous-jacent est $F_0$. Quelle est la dimension de $F_1$ ?
+  \item On suppose $n=4$. Montrer que la partie $V$ de $F_1$ form\'ee des polynômes divisibles par $\left(x-\frac{1}{2}\right)^2$ est un plan affine de $F_1$.
+\end{enumerate}
+\ee
+\medskip
+%exo19
+\be
+Soit $a$ et $b$ deux r\'eels. Montrer que les suites de r\'eels $(u_n)_{n\geq
+0}$ v\'erifiant $u_{n+1}=au_n+b$ pour tout $n\geq 0$ est un sous-espace
+affine de l'espace vectoriel des suites r\'eelles. Pr\'eciser la dimension de
+ce sous-espace affine. 
+\ee
+\medskip
+%exo20
+\be
+Soit $E$ un \sev de $\R[X]$, on note $F=\{P\in E, P'(0)=1\}$. 
+\ben
+\item Montrer que $F$ est un sous-espace affine de $E$. 
+\item On suppose que $E=\R_5[X]$. D\'eterminer la nature de $F$ ainsi qu'une base de sa direction.
+\item On suppose ici que $E=\R[X]$. Montrer que $F$ est un hyperplan affine. 
+\een
+\ee
+\medskip
+%exo21
+\newpage
+\section{Exercices th\'eoriques}
+\be
+Soit $E$ un espace affine.
+\begin{enumerate}
+  \item Soit $F$ une partie non vide de $E$. Montrer que $F$ est un sous-espace affine de $E$ si et seulement si toute droite passant par deux points distincts de $F$ est contenue dans $F$.
+  \item D\'ecrire le sous-espace affine engendr\'e par deux droites affines non coplanaires dans un espace affine.
+  \item Soient $F_1$ et $F_2$ deux sous-espaces affines de $E$. Montrer que $F_1\cup F_2$ est un sous-espace affine de $E$ si et seulement si $F_1\subset F_2$ ou $F_2\subset F_1$.
+\end{enumerate}
+\ee
+\medskip
+%exo22
+\be
+On consid\`ere deux sous-espaces affines $V$ et $W$ d'un espace affine $E$ et on note $T$ le sous-espace affine
+   engendr\'e par $V\cup W$.
+   \begin{enumerate}
+    \item Pour tout $a\in V$ et tout $b\in W$, montrer qu'on a $\overrightarrow{T}=\overrightarrow{V}+\overrightarrow{W}+\mathrm{Vect}(\overrightarrow{ab})$.
+    \item Pour tout $a\in V$ et tout $b\in W$, montrer que $V$ rencontre $W$ si et seulement si le vecteur $\overrightarrow{ab}$ est dans
+    $\overrightarrow{V}+\overrightarrow{W}$.
+    \item En d\'eduire que $\dim T=\dim(\overrightarrow{V} + \overrightarrow{W})+1$ si $V$ ne rencontre pas $W$, et que $\dim T=\dim(\overrightarrow{V}+\overrightarrow{W})$ sinon.
+   \end{enumerate}
+\ee
+\newpage
+
+\section{Transformations affines-D\'efinitions}
+\medskip
+%exo23
+\be
+Dans $\R^{2}$, on note $a=(0,0)$, $b=(1,0)$, $c=(1,1)$ et $d=(0,1)$. Repr\'esenter l'image de $abcd$ par les applications affines suivantes : 
+\begin{enumerate}
+\item l'application $f$ telle que $f(a)=b$ et 
+$\mat{3&0\\0&\frac 1 2}$ est la matrice de $\overrightarrow{f}$ dans la base canonique.   
+\item l'application $g$ telle que $g(a)=c$ et 
+$\mat{0&-1\\1&0}$  est la matrice de $\overrightarrow{g}$ dans la base canonique;
+\solution{Par définition d'une application affine on a $\vv{f}(\vv{ab}) = \vv{f(a)f(b)} = f(b) - f(a)$ \ie dans notre cas : $g(x) = g(a) + \vec{g}(\vec{ax})$. \\
+Donc dans notre cas on a $g(x) = \mat{1\\1} + \mat{0&-1\\1&0}\mat{x-0\\y-0}$\\
+On a donc les images suivantes : $g(b) = (1,2)$, $g(c) = (0,2)$, $g(d) = (0,1)$
+}
+  \item l'application $h$ telle que $h(a)=d$ et 
+$\mat{0&1\\1&0}$ est la matrice de $\overrightarrow{h}$ dans la base canonique. 
+\solution{On a $h(x) = h(a) + \vec{h}(\vec{ax})$. \\
+Donc dans notre cas on a $h(x) = \mat{1\\1} + \mat{0&1\\1&0}\mat{x-0\\y-0}$\\
+On a donc les images suivantes : $h(b) = (0,2)$, $h(c) = (1,2)$, $h(d) = (2,1)$
+} 
+\item $h$ et $g$ sont-elles \'egales ? Donner une application affine envoyant $g(a), g(b), g(c)$ sur $h(a), h(b), h(c)$. Ecrire la matrice de son application lin\'eraire associ\'ee. Que constate-t-on?
+\solution{Les deux applications ne sont clairement pas égales.\\
+Une application affine est entièrement déterminée par sont action sur un repère donc on sait qu'il existe une unique application affine $k$ telle que $k(g(a)) = h(a)$, $k(g(b)) = h(b)$, $k(g(c)) = h(c)$.\\
+\medskip
+Déterminons la matrice : de $\vv{g(a)g(b)}$ = \\
+\medskip
+$\vv{k}(\vv{g(a)g(b)}) = \vv{k}((0,1)) = \vv{h(a)h(b)} = (0,1)$\\
+$\vv{k}(\vv{g(a)g(c)}) = \vv{h(a)h(c)} = (1,1)$\\
+Et on a
+}
+\end{enumerate}
+\ee
+\medskip
+%exo24
+\be
+Soit $f$ une application affine qui envoie $abcd$ sur $a'b'c'd'$, comme indiqu\'e sur l'une des figures suivantes.
+\begin{enumerate}
+\item Justifier que $f$ ne d\'efinit  une application affine  que dans un seul des cas repr\'esent\'es.  Montrer qu'elle est alors unique. 
+\item $f$ est-elle bijective ?
+\item Donner la matrice de l'application lin\'eaire associ\'ee dans la base $(\vect{ab},\vect{ad})$ puis dans la base $(\vect{ab},\vect{ac})$. En d\'eduire l'expression matricielle de $f$ dans le r\'ep\`ere $(a,b,c)$. \end{enumerate} 
+\ee
+\medskip
+%exo25
+\be
+D\'eterminer toutes les applications affines d'un espace affine de dimension 1.
+\ee
+\newpage
+ \section{Translations-Homoth\'eties}
+ %exo26
+ \be
+ D\'emontrer qu'une application affine qui commute avec toutes les translations est elle-même une translation.
+ \ee
+ \medskip
+ %exo27
+ \be
+ On d\'efinit quatre points  $a=(1,1)$, $a'=(-2,2)$, $b=(1,3)$ et $b'=(-2,1)$. Montrer qu'il existe une homoth\'etie $h$ transformant $a$ en $a'$ et $b$ en $b'$. Pr\'eciser son centre et son rapport.
+ \solution{Supposons que $h$ existe et notons $c$ sont centre et $k$ sont rapport. On a par définition des applications affines $\vect{h}(\vect{ab}) = \vect{a'b'}$, \ie que l'on a $k\vect{ab} = \vect{a'b'}$. De là on a la valeur de $k = -\frac 12$. Posons $c := \mat{x\\y}$ pour $x,y \in \R$ on a donc un système d'équation donné par $h(a) = c + k \vect{ca}$, de là on tire $x = -1$ et $y = \frac 53$. 
+}
+ \ee
+\medskip
+%exo28
+\be
+Soit $f$ une transformation affine du plan. Soient $a$, $b$ et $c$ trois points non align\'es. 
+On note $a'$, $b'$ et $c'$ les images respectives de $a$,
+$b$ et $c$ par $f$. On suppose que $(a'b')$ est parall\`ele \`a
+$(ab)$, $(a'c')$ \`a $(ac)$ et $(b'c')$ \`a $(bc)$. Montrer que $f$ est une
+homoth\'etie ou une translation.
+\solution{On a donc $\vect{ab} = \lambda_1 \vect{a'b'}$, $\vect{ac} = \lambda_2~\vect{a'c'}$ et $ \vect{bc} = \lambda_3 ~ \vect{b'c'}$. Si on écrit la matrice de $f$ dans la base $\mathcal B = (\vect{ab},\vect{ac})  $, on a $\mat{\lambda_1 & 0 \\ 0 & \lambda_2}$
+}
+\ee
+\medskip
+%exo29
+\be[\textit{Theor\`eme de Desargues.}]
+Soient deux triangles non aplatis $abc$ et $a'b'c'$ sans sommets communs. 
+On suppose
+que $(ab)$ est parall\`ele \`a $(a'b')$, que $(bc)$ est parall\`ele \`a $(b'c')$ et
+que $(ac)$ est parall\`ele \`a $(a'c')$. Montrer que les droites $(aa')$,
+$(bb')$ et $(cc')$ sont concourantes ou parall\`eles.
+\ee
+\medskip
+\be
+Soit $E$ un espace affine, $a$ et $b$ deux points (non n\'ecessairement distincts) de $E$ et $\lambda, \mu$ deux r\'eels non nuls et diff\'erents de 1. On note $h$ l'homoth\'etie de centre $a$ et de rapport $\lambda$ et $h'$ celle de centre $b$ et de rapport $\mu$. 
+\begin{enumerate}
+\item On suppose $\lambda\mu=1$. D\'eterminer la nature de $h'\circ h$  et $h\circ h'$.
+\item On suppose $\lambda=1/3$ et $\mu=2$. D\'eterminer  $h'\circ h$  et $h\circ h'$.
+\end{enumerate}
+\ee
+\medskip
+\be
+Montrer que 2 homoth\'eties commutent si et seulement si elles ont le m\^eme centre.
+\ee
+\medskip
+\be
+Soient $A=(2,1)$ et $B=(-1,1)$ deux points du plan affine $\R^2$. Déterminer les caractéristiques
+de la composée des deux homothéties $h=h_{A,1/2}\circ h_{B,3}$.
+{{Solution|contenu=
+$\vec h=\frac12\mathrm{id}\circ3\mathrm{id}=\frac32\mathrm{id}$ donc $h$ est une homothétie de rapport $\frac32$. Son centre $C$ est déterminé par :
+:$\frac32\overrightarrow{CB}=\overrightarrow{Ch(B)}=\overrightarrow{Ch_{A,1/2}(B)}=\overrightarrow{CA}+\frac12\overrightarrow{AB}=\overrightarrow{CB}+\frac12\overrightarrow{BA}$, soit $\overrightarrow{CB}=\overrightarrow{BA}$.
+$C$ est donc le symétrique de $A$ par rapport à $B$. Ou algébriquement : $C=B+\overrightarrow{AB}=(-1,1)+(-3,0)=(-4,1)$.
+}}
+\ee
+
+
+\section{Applications affines}
+\medskip
+
+\be
+Soit $s : \R^3 \to \R^3$ l'application définie par : $s(x,y,z)=(-2y+z-2,-x-y+z-2,-x-2y+2z-2)$. Déterminer la nature de cette application affine.
+\ee
+
+\medskip
+
+\be
+Soit $A=(2,1)$ et $B=(-1,1)$ deux points du plan affine $\R^2$. Déterminer les caractéristiques de la composée des deux homothéties $h=h_{A,1/2}\circ h_{B,3}$
+\solution{$\vect{h_{A, \frac 12}(h_{B, 3})} = \frac 12 \vect{id} 3\vect{id} = \frac 32 \vect{id}$, c'est donc une homothétie de rapport $\frac 32$, cherchons le centre \ie le point fixe : \\
+Si on note $h:=h_{M, \frac 32} =h_{A,1/2}\circ h_{B,3}$ = , on cherche donc le point $M$ tel que $h(M) = M$, \ie $h_{A,1/2}\circ h_{B,3}(M) = M$.\\
+On pose $M' := h_{B,3}(M)$, comme $h_{B,3}(M) = B + 3\vect{BM}$ on a $\vect{BM'} = 3\vect{BM}$ on réserve l'expression pour plus tard.\\
+On a d'autre part $h_{A,1/2}(M') = A + \frac 12 \vect{AM'}$, (on veut $h(M)=M$ donc $h_{A,1/2}(M') = M$), d'où $\vect{AM} = \frac 12 \vect{AM'}$, par la relation de chasles on se ramène à $\vect{AM} = \frac 12 (\vect{AB} + \vect{BM'})$ on remplace $\vect{BM'}$ ce qui nous donne  $\vect{AM} = \frac 12 (\vect{AB} + 3\vect{BM}) = \frac 12 (\vect{AB} + 3(\vect{BA} + \vect{AM}))$, on obtient finalement $\vect{AM} = 2\vect{AB}$ et de là on tire $M = (-4,1)$.
+}
+\ee
+
+\medskip
+
+%Exo34
+\be
+Dans $\R^3$, calculez la projection orthogonale du point $A = (5,-5,5)$ sur la droite définie par le système 
+$$
+\left\{
+\begin{array}{lrlrlrlcl} 
+-4x &-&7y&=& 178,\\
+-8x &-&7y&=& 398.
+\end{array}\right.
+$$
+\solution{Soit $\mathcal D$ la droite définie par le système ci dessus. On veut la projection orthogonale $p$ du point $A$ sur la droite $\mathcal D$.Posons $A' = p(A)$. On sait que $p(A) \in \mathcal D$ et que $\vect{AA'}$ est orthogonale à $\mathcal D$. \\
+\doigt Du système ce dessus on tire qu'un point $(x,y,z) \in \R^3$ appartient à la droite $\mathcal D$ si et seulement si $(x,y,z) = (-55,6,z)$, \ie $\mathcal D = (-55,6,0) + \R(0,0,1)$.\\
+\doigt En posant $A' := (x',y',z')$, on a $AA' = (x'-5,y'+5,z-5)$ et en exprimant le produit scalaire $\bps AA' \mid (0,0,1) \eps = 0$, on en tire que $z' = 5$. \\
+Ainsi, comme $A' \in \mathcal D$, $A'$ s'écrit sous la forme $(-55,6,z)$ avec $z \in \R$ et que $AA' \perp (0,0,1)$ on en tire que $A' = (-55,6,5)$.
+}
+\ee
+
+\medskip
+
+%Exo35
+\be
+Dans $\R^3$, calculez la projection orthogonale du point $M = (-1,-5,-10)$ sur la droite déterminée par les points $A = (10,8,1)$ et $B = (11,3,-6)$.
+\solution{Un rapide dessin permet de visualiser la situation, si on note $\mathcal D$ la droite et $M'$ le projeté de $M$ sur $\mathcal D$ on voit que $\vect{MM'} \perp \vect{AB}$ et que évidemment $M' \in \mathcal D$, le premier point se traduit par le fait que $\bps \vect{AB} \mid \vect{MM'} \eps = 0$, le second point qu'il existe $t\in \R$ tel que $M' = A + t\vect{AB}$.}
+\ee
+
+\medskip
+
+\be
+Dans $\R^3$, calculez la projection othogonale du point $M = (5,-5,5)$ sur le plan définie par l'équation $24x+37y+22z=-76$.
+\solution{Si on note $\vect{n} = (24,37,22)$ le vecteur normal au plan, et le point $M'$ le projeté du point $M$ sur le plan, on a $\vect{MM'}$ parallèle au vecteur normal $\vect{n}$, autrement dit $\exists t \in \R$ tel que $\vect{MM'} = t\vect{n}$, de plus le point $M' \in \mathcal P$, on trouve $t$ et on remplace pour trouver les coordonnées de $M'$.}
+\ee
+
+\medskip
+
+\be
+Dans le plan affine $\R^2$ muni du repère cartésien $(O,e_1,e_2)$, on considère la droite $\mathcal D$ d'équation $2x+y-2=0$. Donner l'expression analytique de la symétrie par rapport à $\mathcal D$ de direction $e_1+e_2$.
+\solution{Un rapide dessin nous permet une fois de plus de considérer la situation : on voit que le milieu (que l'on appelera $m$) de $ [MM']$ appartient à $ \mathcal P$ et que $\vect{MM'} // (e_1+e_2)$, si on pose $M' = (x,y,z)$ le symétrique de $M = (x,y,z)$ par la symétrie on a $m = \Big(\frac{(x+x')}{2} ,\frac{(y+y')}{2} \Big)$, comme $m$ appartient à la droite, il vérifie l'équation donc on a $2\times \frac{(x+x')}{2} +  \frac{(y+y')}{2} - 2 = 0$, il nous reste à exploiter le fait que $\vect{MM'}// (e_1+e_2)$, information que l'on peut interprété par le fait qu'il existe un $t\in \R$ tel que $\vect{MM'} = t(e_1+e_2)$ }
+\ee
+
+\medskip
+
+\be
+Soit $s:\R^3\to\R^3$ l'application définie par : $s(x,y,z)=(-2y+z-2,-x-y+z-2,-x-2y+2z-2)$. Déterminer la nature de cette application affine ainsi que ces caractéristiques.
+\ee
+
+\medskip
+
+\be
+Soit $p:\R^2\to\R^2$ l'application définie par : $p(x,y)=\left(\frac{2x+y}3+2,\frac{2x+y}3-4\right)$\\
+Montrer que $p^2 = p$ et déterminer $p$ géométriquement (points fixes, etc.).
+\ee
+
+\medskip
+
+\be
+Notons $s_A$ la symétrie centrale de centre $A$ et $t_u$ la translation de vecteur $u$, montrer que $s_B\circ s_A=t_{2\overrightarrow{AB}}$, en déduire que pour tous $A,B,C,D \in \mathcal E$, $ABCD$ est un parallélogramme si et seulement si $s_D\circ s_C\circ s_B\circ s_A=\mathrm{id}_{\mathcal E}$.
+\ee
+
+\medskip
+
+\be %Exo 41
+Identifier l'application affine $f$ du plan qui envoie respectivement les points $A = (1,0)$, $B = (2,-1)$ et $C = (1,1)$ sur les points $A' = (1,-1)$, $B' = (-1,-3)$ et $C' = (3,-1)$
+\solution{
+}
+\ee
+
+\medskip
+
+\be %Exo42
+On considère une translation $\tau$ et une homothétie h d'un espace affine $E$. Identifier les applications :
+\ben
+\item $f_1:=\tau\circ h\circ\tau^{-1}$;
+\solution{On a $\vect{f_1} = \vect{id} \circ \vect{\lambda id} \circ \vect{id} = \vect{\lambda id}$. Montrons que $\vect{f_1}$ est une homothétie, cherchons le centre : Soit $c$ le centre de $h$ \ie $h(c) = c$, on a $f_1(\tau(c)) = \tau(c)$, ainsi $\tau(c)$ est le centre de l'homothétie $f_1$.
+}
+\item $f_2:=h^{-1}\circ\tau\circ h$ ;
+\solution{On a $f_2 = \frac 1\lambda \vect{id} \circ \vect{id} \circ \lambda \vect{id} = \vect{id}$, cela ressemble à une translation, cherchons le vecteur $\vect{u}$ tel que $f_2(A) = A + \vect{u}$ : On note $A''' := f_2(A)$ d'où $\vect{AA'''} = \vect{u}$, si on avance petit à petit on a en notant $c$ le centre de l'homothétie $h$ et $\vect{v}$ le vecteur de la translation $\tau$ on a : $h(A) = A' = c + \lambda \vect{cA}$ ce qui nous donne $\vect{cA'} = \lambda \vect{cA}$, ensuite on a $\tau(A') = A'' = A' + \vect{v}$ \ie $\vect{A'A''}  = \vect{v}$ et enfin $h^{-1}(A'') = A''' = c + \frac 1\lambda \vect{cA''}$ d'où $\vect{cA'''} = \frac 1\lambda \vect{cA''}$.\\
+Par la relation de Chasles on a $\vect{AA'''} = \vect{AA'}+ \vect{A'A''}+\vect{A''A'''} = \vect{Ac}+\vect{cA'}+\vect{v}+\vect{A''c}+\vect{cA'''} = \vect{Ac}+\vect{\lambda cA}+\vect{v}-\vect{\lambda cA'''}+\vect{cA'''}$, on a donc $\vect{AA'''} = (1-\lambda)\vect{Ac} + \vect{v} + (1- \lambda)\vect{cA'''}$ \ie $\vect{AA'''} = (1-\lambda)\vect{AA'''} + \vect{v}$, d'où $\vect{AA'''} = \frac{\vect{v}}{\lambda} = \vect{u}$
+}
+\item $f_3:=\tau\circ h\circ\tau$.
+\een
+\ee
+
+\medskip
+
+\be
+\textbf{Questions de cours...}
+\ben
+\item Quelle est la nature de l'ensemble d'équation $\mat{1&1&1\\2&1&0}X = \mat{1\\0}$ ? Retrouver l'application linéaire associée à la matrice, identifiez dans quel espace sont les solutions à ce système, puis donnez les solutions de ce système.
+\item Déterminez les matrices associées à l'intersection de deux sous-espaces affines de $\R^3$ d'équation $x+ y+z = 2$ et $x-2y-z = 3$. Donnez une représentation paramétrique de cette intersection.
+\item Déterminez une représentation cartésienne de $V = \{(3+t, 2+t,1+2t), t \in \R\}$ et de $W = \{(3s+t-1, 2s+t, s+2t+3), s,t \in R\}$
+\item Montrez que $\vect{aa}=0$, puis que $\vect{ab} = - \vect{ba}$.
+\item Montrez que s'il existe $a_0 \in E$ pour lequel l'application $b \in E \mapsto \vect{a_0b} \in \vect{E}$ est bijective, alors pour tout $a$, l'application $b \in E  \mapsto \vect{ab} \in \vect{E}$ est encore bijective.
+\item Justifiez le fait que le milieu de $(a,b)$ est aussi le milieu de $(b,a)$.
+\item Soit $(a,b,c,d)$ un quadruplet, montrer que $\vect{ab} = \vect{dc} \iff \vect{ad} = \vect{bc} \iff$ "le milieu de $(a,c)$ est égal au milieu de $(b,d)$".
+\item Une réunion de sous espaces affines est-elle un sous espace affine ? Donnez des exemples.
+\item Montrez qu'une application affine est une translation si et seulement si son application linéaire associée est l'identité.
+\item Donnez la nature de l'image d'une droite affine. Que peut-on dire si $f$ est bijective ?
+\item Montrez que les applications affines préservent les barycentres.
+\item Soit $t_{\vect{u}}$ une translation de vecteur $\vect{u} \ne \vect{0}.$ Donnez un exemple de partie invariante mais pas fixe par $t_{\vect{u}}$, et un exemple de partie stable mais pas invariante par $t_{\vect{u}}$.
+\item Soit $a,b$ deux points distincts du plan. Donnez une condition sur $a',b'$ pour qu'il existe une homothétie $h$ telle que $h(a) = a'$ et $h(b) = b'$. COnstruire un centre de $h$ dans ce cas.
+\item Montrez qu'une transformation affine du plan qui préserve trois directions deux à deux distinctes est une homothétie ou une translation.
+\item Expliquez la distinction entre "préserver les directions" et "préserver le parallélisme".
+\item Construire des exemples de symétries glissées qui ne sont pas des symétries.
+\item Est-ce que une application affine préserve les milieux ? Justifier.
+\item Est-ce qu'il existe des sous espaces affines dont l'intersection n'est pas un sous espaces affines ? 
+\item Est-ce que $D = \{(2+t,-t,3t+1) \mid t \in \R \}$ est faiblement parallèle à $P = \{(x,y,z) \in \R^3 \mid 2x+2y+z = 1\}$ ?
+\item Montrer qu'une application affine $f : E \to F$ est surjective si et seulement si l'application linéaire associée est surjective.
+\item Montrer qu'une application affine $f : E \to F$ est injective si et seulement si l'application linéaire associée est injective.
+\een
+\ee
+
+
+
+\newpage
+\section{formes quadratiques}
+\be[Vrai-Faux]
+Répondre par vrai ou faux en justifiant.
+\ben
+\item Soit $A = (1,0,0), ~ B = (0,1,0), ~ C = (0,0,1)$ tel que $(O,A,B,C)$ forme un repère. Il existe une unique transformation affine qui envoie le triangle $OAB$ sur $ABC$.
+\item Si dans $\R^2$, $q$ et $q'$ sont deux formes quadratiques de signe $(1,1)$, alors $q+q'$ est de signe $(1,1)$ aussi.
+\item Soit $\varphi$ une forme bilinéaire sur $E$, et $q$ la forme quadratique associée : soit $u \in E$, alors $q(u) = 0 \iff \varphi(u,v) = 0, ~ \forall v \in E$.
+\een
+\ee
+
+\medskip
+
+\be
+Soit $q(x,y) = x^2 -2y^2$ une application de $\R^2$. 
+\ben
+\item Est-ce que $q$ est une forme quadratique ?
+\item Est-ce que le cône isotrope forme un sous espace affine ?
+\item Expliciter le cône isotrope.
+\een
+\ee
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

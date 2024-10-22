@@ -1,0 +1,220 @@
+\documentclass[11pt]{article}
+\usepackage[francais]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{amsfonts}
+%\usepackage{verbatim}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\newcommand{\tn}{\mathrm}
+\newcommand{\eref}[1]{(\ref{#1})}
+\newcommand{\dep}[2]{\partial_{#2}{#1}}
+\newcommand{\dis}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\MmnK}{\mathcal{M}_{m,n}(\K)}
+\newcommand{\MnpK}{\mathcal{M}_{n,p}(\K)}
+\newcommand{\MnK}{\mathcal{M}_{n}(\K)}
+\newcommand{\MmK}{\mathcal{M}_{m}(\K)}
+\newcommand{\MmnR}{\mathcal{M}_{m,n}(\R)}
+\newcommand{\MnR}{\mathcal{M}_{n}(\R)}
+\newcommand{\MnC}{\mathcal{M}_{n}(\C)}
+\newcommand{\MmR}{\mathcal{M}_{m}(\R)}
+\newcommand{\nmt}[1]{|\mskip -2mu|\mskip -2mu|{#1}|\mskip -2mu |\mskip -2mu|}
+
+\oddsidemargin -0.2cm
+\textwidth 17cm
+\topmargin -2cm
+\headheight 0.0cm
+\textheight 25cm
+
+%\oddsidemargin -1.0cm    % espace libre a gauche d'une page (-2.5cm a 18cm)
+%\evensidemargin -1.0cm
+%\topmargin -0cm         % espace libre en haut d'une page (-4cm a 23cm)
+%\headheight 0cm
+%\headsep 1.2cm
+%\footskip 1cm          % ?
+%\textheight 22cm        % hauteur d'une page (textheigth+topmargin<=23cm)
+%\textwidth 18cm        % largeur d'une page (16-2*oddsidemargin)
+%\footnotesep 0.5cm      % ?
+%\parindent 2em          % indentation de debut de paragraphe
+%\baselineskip 5ex       % separation entre 2 lignes
+\setlength{\parindent}{0cm} \setlength{\parskip}{5mm}
+
+\newtheorem{exercice}{\bf Exercice}
+
+\newenvironment{exo}{\begin{exercice}\smallskip\normalfont}{\end{exercice}}
+
+\begin{document}
+
+\noindent 
+{\bf Universit\'e Paris-Saclay - L3 Mathématiques\\
+Analyse théorique et numérique des EDO - Année 2023-2024 }
+
+\begin{center}
+{\bf TD3 : Théorème de Cauchy-Lipschitz (existence et unicité de solution du problème de Cauchy) et théorème des bouts (temps de vie de la solution maximale).}
+\end{center}
+
+\fbox{
+  \begin{minipage}{\textwidth}\ \\
+{\bf Théorème des bouts}.\\
+Soient $I=]a,b[\subseteq\R$ un intervalle (avec $a,\ b\in\R\cup\{-\infty,+\infty\}$), $f:I\times \R^n\longrightarrow\R^n$ une fonction continue et localement Lipschitzienne par rapport à sa deuxième variable, et $t_0\in I,$ $y_0\in \R^n$ donnés.
+
+  Soit $(J,y)$, avec $J\subseteq I$, la solution maximale du problème de Cauchy
+$$
+\begin{cases}
+  y'=f(t,y),\\
+  y(t_0)=y_0.
+\end{cases}
+$$
+
+On suppose que $J=]T^-,T^+[$. Alors on a que 
+  \begin{enumerate}
+  \item si $T^+<b$, $\ \displaystyle{\lim_{t\to T^+}\|y(t)\|}=+\infty$ ;
+  \item si $T^->a$, $\ \displaystyle{\lim_{t\to T^-}\|y(t)\|}=+\infty$.
+  \end{enumerate}
+  {\bf Remarque}: ce théorème ne traite pas le cas d'une fonction $f:I\times U\longrightarrow\R^n$, avec $U$ un ouvert {\bf strictement inclus} dans $\R^n$ (donc différent de $\R^n$). 
+\end{minipage}}
+\ \\
+\begin{exo}[{\bf Application directe du théorème des bouts}].\\
+  Soit $f:]a,b[\times\R^n\longrightarrow\R^n$ ($a,\ b\in\R\cup\{-\infty,+\infty\}$) une fonction dans les conditions du théorème de Cauchy-Lipschitz.\\
+      Soit $(J,y)$ une solution maximale de l'EDO $y'=f(t,y)$. Supposons que $J$ est un intervalle de la forme $]T^-,T^+[$ (rappel : d'après le théorème de Cauchy-Lipschitz, la solution maximale est définie dans un intervalle ouvert de $]a,b[$), avec $T^-\geq a$ et $T^+\leq b$. Que peut-on dire de l'intervalle $J$ si :%(égal à $]a,b[$ donc $y$ solution globale, ou strictement inclus dans $]a,b[$, donc $y$ pas globale) si :
+        \begin{enumerate}
+        \item $y$ est bornée sur $J$ ?
+        \item $\|y(t)\|\leq |t|$, pour tout $t\in J$, ou, plus généralement, si $\|y(t)\|\leq g(t)$, où $g:\R\longrightarrow\R$ est une fonction continue ?
+         \item $\ \displaystyle{\lim_{t\to T^+}\|y(t)\|}=+\infty$ ou  $\ \displaystyle{\lim_{t\to T^-}\|y(t)\|}=+\infty$  ?
+        \end{enumerate}
+\end{exo}
+
+\begin{exo}
+  Soit l'équation différentielle
+  \begin{equation}
+    \label{edoex2}
+    \frac{du}{dt}=\big(1+\cos(t)\big)u-u^3.
+  \end{equation}
+  \begin{enumerate}
+  \item Soient $t_0\in\R,\ u_0\in\R$. Justifier que le problème de Cauchy pour \eqref{edoex2}, de donnée initiale $u(t_0)=u_0$, admet une unique solution maximale.
+  \item Soit $(J,u)$ une solution maximale de \eqref{edoex2}. Supposons qu'il existe $t\in J$ tel que $u(t)=0$. Justifier que $u\equiv0$ sur $J$.
+  \item Soient $t_0\in\R$ et $u_0\neq0$. Considérons $(J,u)$ la solution maximale du problème de Cauchy pour \eqref{edoex2}, de donnée initiale $u(t_0)=u_0$. Montrer qu'il existent $C_1,\ C_2>0$ tel que
+    $$
+u^2(t)\leq C_1e^{C_2 t},\ \ \textrm{pour\ tout\ }t\in J,\ t>t_0.
+$$
+Conclure que la solution $u$ est globale à droite, c'est-à-dire que $J$ est de la forme $]T^-,+\infty[$, avec $T^-\in\R\cup\{-\infty\}$.\\
+      {\bf Remarque }: on ne conclut rien sur $T^-$, ni que $T^-=-\infty$, ni que $T^-$ est fini.
+    \end{enumerate}
+\end{exo}
+
+\begin{exo}
+On considère le système d'équations
+\[
+(*)\ \ \ \left \{
+\begin{array}{c @{=} c}
+    x' & x+2ty+e^txy^2 \\
+    y' & -2tx+y-e^tx^2y \\
+\end{array}
+\right.
+\]
+\begin{enumerate}
+\item Écrire le système sous la forme $X'=F(t,X),$ avec $X=(x,y)^T$, en précisant la fonction $F$ et son domaine. Justifier l'existence et l'unicité de solution maximale d'un problème de Cauchy associé à (*).
+\item En considérant $g(t)=x(t)^2+y(t)^2$, démontrer que toute solution maximale d'un problème de Cauchy associée au système (*) est globale.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}
+  Soit le système d'équations différentielles
+  $$
+  (S)\begin{cases}
+    x'=x(1-x-y/2)\\
+    y'=y(1-y-x/2).
+  \end{cases}
+  $$
+  \begin{enumerate}
+    \item 
+      Écrire le système $(S)$ sous la forme $Y'=F(t,Y)$, avec $Y=\Big(\begin{array}{c}x\\y\end{array}\Big)$ et $F(t,Y)=\big(F_1(t,Y),F_2(t,Y)\big)$, en explicitant la fonction $F$ et son domaine de définition.
+  \item Soit $\left(J,t\in J\mapsto \Big(\begin{array}{c}x(t)\\y(t)\end{array}\Big)\right)$ une solution maximale de $(S)$. Montrer que $\left(J,t\in J\mapsto\Big(\begin{array}{c}y(t)\\x(t)\end{array}\Big)\right)$ est aussi solution maximale de $(S)$.
+  \item Soit $(x_0,y_0)\in\R^2$. Justifier l'existence et l'unicité d'une solution maximale du problème de Cauchy pour $(S)$, de donnée initiale $(x(0),y(0))=(x_0,y_0)$.
+\item On va maintenant analyser le problème de Cauchy pour le système $(S)$, de donnée initiale $(x(0),y(0))=(x_0,y_0)$, pour différentes valeurs de $(x_0,y_0)$.
+  \begin{enumerate}
+  \item Supposons $x_0\in\R,\ y_0=0$. On considère $(J,x(t))$ la solution maximale du problème de Cauchy
+  $$
+  \begin{cases}
+    x'=x(1-x)\\
+    x(0)=x_0.
+  \end{cases}
+  $$
+Montrer que $\left(J,t\in J\mapsto \Big(\begin{array}{c}x(t)\\0\end{array}\Big)\right)$ est la solution maximale du problème de Cauchy pour $(S)$, de donnée initiale $(x(0),y(0))=(x_0,0)$. Justifier que si $x_0\geq0$, alors $[0,+\infty[\subseteq J$. Que vaut la limite $\lim_{t\to+\infty}x(t)$ {\it (On pourra considérer séparément les cas $0\leq x_0\leq 1$ et $x_0>1$)}.    
+    \item Supposons $x_0=y_0>0$. Soit $\left(J,t\in J\mapsto \Big(\begin{array}{c}x(t)\\y(t)\end{array}\Big)\right)$ la solution maximale du problème de Cauchy pour $(S)$, de donnée initiale $(x(0),y(0))=(x_0,y_0)$. Justifier que $x(t)=y(t)$ pour tout $t\in J$, puis que $[0,+\infty[\subseteq J$. Que vaut la limite $\lim_{t\to+\infty}x(t)$ ? {\it (On pourra étudier l'équation différentielle vérifiée par $x=y$)}.
+      \item Supposons $x_0>y_0>0$. Soit $\left(J,t\in J\mapsto \Big(\begin{array}{c}x(t)\\y(t)\end{array}\Big)\right)$ la solution maximale du problème de Cauchy pour $(S)$, de donnée initiale $(x(0),y(0))=(x_0,y_0)$.
+        \begin{enumerate}
+        \item Justifier que pour tout $t\in J$, $x(t)>y(t)>0$.
+        \item Soit
+          $$
+A=\{(x,y)\in\R^2\:x>y>0\ \textrm{et}\ x\geq 1-\frac y2\}.
+$$
+Montrer que $(x(t),y(t))\in A$ si et seulement si $x'(t)\leq0$. Conclure que $[0,+\infty[\subseteq J$.
+    \end{enumerate}
+  \end{enumerate}
+  \end{enumerate}
+\end{exo}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{exo}
+  Pour les équations différentielles suivantes, justifier pourquoi toute solution maximale d'un problème de Cauchy associé est globale :
+  \begin{enumerate}
+  \item $y'=\sin^2(y)$
+  \item $y'=y\sin^2(y)$
+  \item $y'=(t+y)\sin(y)$
+  \end{enumerate}
+\end{exo}
+
+
+
+\end{document}
+

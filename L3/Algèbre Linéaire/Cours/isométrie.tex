@@ -1,0 +1,197 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{thmtools}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[francais]{babel}
+\usepackage{mathtools}   % loads »amsmath
+\usepackage[dvipsnames]{xcolor} % Ajout du package xcolor
+\usepackage{mdframed} %Pour le cadre du théorème
+
+\setlength{\parindent}{0pt}
+
+%Raccourcies
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Can}{(e_1,...,e_n)}
+\newcommand{\Mat}{\mathcal{M}_n(\R)}
+\newcommand{\Aa}{\mathcal{A}}
+\newcommand{\Oo}{\mathcal{O}}
+\newcommand{\Ll}{\mathcal{L}}
+\newcommand{\Tup}{\bigtriangleup}
+\newcommand{\Tdn}{\bigtriangledown}
+
+\definecolor{rltred}{rgb}{0.75,0,0}
+	\definecolor{rltgreen}{rgb}{0,0.5,0}
+	\definecolor{oneblue}{rgb}{0,0,0.75}
+	\definecolor{marron}{rgb}{0.64,0.16,0.16}
+	\definecolor{forestgreen}{rgb}{0.13,0.54,0.13}
+	\definecolor{purple}{rgb}{0.62,0.12,0.94}
+	\definecolor{dockerblue}{rgb}{0.11,0.56,0.98}
+	\definecolor{freeblue}{rgb}{0.25,0.41,0.88}
+	\definecolor{myblue}{rgb}{0,0.2,0.4}
+
+
+%Style définition
+\declaretheoremstyle[
+  headfont=\color{blue}\normalfont\bfseries,
+  bodyfont=\color{blue}\normalfont,
+]{colored}
+\declaretheorem[
+  style=colored,
+  name=Définition,
+]{df}
+
+%Style Proposition
+\declaretheoremstyle[
+  headfont=\color{black}\normalfont\bfseries,
+  bodyfont=\color{black}\normalfont,
+]{coloredProp}
+\declaretheorem[
+  style=coloredProp,
+  name=Proposition,
+]{prop}
+
+
+%Style Exercice
+\declaretheoremstyle[
+  headfont=\color{orange}\normalfont\bfseries,
+  bodyfont=\color{black}\normalfont,
+]{coloredExo}
+\declaretheorem[
+  style=coloredExo,
+  name=Exercice,
+]{exo}
+
+% Style Théorème
+\newmdtheoremenv[
+  linecolor=red,
+  frametitlefont=\normalfont\bfseries\color{red},
+  frametitlerule=true,
+  frametitlerulecolor=red,
+  backgroundcolor=blue!10,
+]{theo}{Théorème}
+
+% Style Exemple
+\newmdtheoremenv[
+  linecolor=black,
+  frametitlefont=\normalfont\bfseries\color{green},
+  frametitlerule=true,
+  frametitlerulecolor=green,
+  backgroundcolor=green!20,
+]{exemple}{Exemple}
+%Style Théorème 
+%\declaretheoremstyle[
+%  headfont=\color{black}\normalfont\bfseries,
+%  bodyfont=\color{BrickRed}\normalfont,
+%]{coloredTheo}
+%\declaretheorem[
+%  style=coloredTheo,
+%  name=Théorème,
+%]{theo}
+
+%Style Corollaire 
+\declaretheoremstyle[
+  headfont=\color{black}\normalfont\bfseries,
+  bodyfont=\color{black}\normalfont,
+]{coloredProp}
+\declaretheorem[
+  style=coloredProp,
+  name=Corollaire,
+]{coro}
+
+
+\let\oldproof\proof
+\renewcommand{\proof}{\color{olive}\oldproof}
+
+%\theoremstyle{definition}
+%\newtheorem{prop}{Proposition}
+%\newtheorem{exo}{Exercice}
+%\newtheorem{df}{Définition}
+
+% Commande pour ajouter une solution (en vert)
+\newcommand{\solution}[1]{\par\noindent\textbf{Solution :} \textcolor{red}{#1}}
+
+
+
+\title{Les isométries}
+%\author{Floryan Jourdan}
+%\date{2023-2024}
+
+
+\begin{document}
+\maketitle
+
+\begin{df}
+Soit $E$ un espace vectoriel euclidien de dimension finie. Les isométries de $E$ ne sont autres que les automorphismes orthogonaux de $E$.
+\end{df}
+\section{Isométries et matrices}
+\subsection{Matrices orthogonales}
+Attardons nous sur un sujet important : Les matrices orthogonales. Ce sujet prend suite directement après le changement de base orthonormée. On a en effet parlé d'un corollaire intéressant : 
+\begin{coro}
+Si $P$ est la matrice de passage de la base orthonormée $\Can$ à la base $(u_1,...,u_n)$ de $E$, alors $(u_1,...,u_n)$ est une base orthonormée si et seulement si $^tPP = I_n$.
+\end{coro}
+Introduisons donc une définition :
+\begin{df}
+On dit qu'une matrice $A \in \Mat$ est orthogonale si l'on a $^tAA = I_n$.
+\end{df}
+\begin{prop}
+Soit $A$ une matrice orthogonale. Alors $A$ est inversible, $A^{-1}=A^t$ et le determinant de $A$ est égal à $1$ ou à $-1$.
+\end{prop}
+
+\begin{prop}
+Une matrice $A$ appartenant à $\Mat$ est orthognale si et seulement si les vecteurs colonnes de $A$ forment une base orthonormée de l'espace euclidien usuel $\R^n$.
+\end{prop}
+
+\begin{prop}
+L'ensemble des matrices orthogonales de $\Mat$, noté $\Oo_n$ est un sous-groupe du groupe $GL_n(\R)$ des matrices inversibles.
+L'ensemble des matrices de $\Oo_n$ qui sont de déterminant $1$ est noté $S\Oo_n$, c'est un sous-groupe de $\Oo_n$.
+\end{prop}
+
+Ainsi nous savons maintenant que les matrices de passage d'une base orthonormée à une autre base orthonormée sont des matrices orthogonales dont le déterminant vaut $1$ ou $-1$. Nous verrons que cela va déterminer l'orientation de l'espace.
+
+\subsection{Isométries}
+Examinons un peu ce que sont les isométries :
+
+\begin{df}
+Soit $E$ un espace vectoriel euclidien. Une isométrie de $E$ est un endomorphisme qui préserve le produit scalaire, ie : $\forall x,y \in E$ on a $<f(x)\mid f(y)>~ =~ <x\mid y>$
+\end{df}
+
+\begin{prop}
+Soit $f \in \Ll(E)$, $f$ est une isométrie si et seulement si  $f$ préserve la norme euclidienne, ie si  et seulement si $\|f(x) \| = \| x \|,~ \forall x \in E$. 
+\end{prop}
+
+\begin{coro}
+Une isométrie est forcément inversible, en effet, par la proposition précédente on a $\|f(x)\| = 0 \Rightarrow \|f(x)\| = \|x\| = 0$. 
+\end{coro}
+
+\begin{prop}
+L'ensemble des isométries de $E$ forme un groupe pour la composition appelé \textbf{groupe d'isométries de $E$}, on le note généralement $\Oo(E)$.
+\end{prop}
+
+\begin{prop}
+Une valeur propre d'une ismétrie de $E$ ne peut être égale qu'à $1$ ou $-1$.
+\end{prop}
+
+\begin{proof}
+
+\end{proof}
+\begin{theo}
+Supposons $E$ de dimension $n \leq 2$. Toute isométrie de $E$ est composée d'au plus $n$ symétries orthogonales de $E$ par rapport à des hyperplans (ces symétries sont des réflexions).
+\end{theo}
+
+\section{Composition d'isométries}
+\subsection{Orientation}
+\begin{prop}
+La relation binaire définie sur l'ensemble des bases orthonormées de $E$ par 
+\end{prop}
+
+\end{document}

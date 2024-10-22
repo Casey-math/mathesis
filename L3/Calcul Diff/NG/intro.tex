@@ -1,0 +1,20 @@
+\input{../../preambule}
+
+\title{Exo Calcul Diff}
+\begin{document}
+\maketitle
+On pourrait écrire naïvement $\displaystyle f(x) - f(a) \underset{x \to a}{\approx} f'(a)(x-a)$ ; ce qui se traduirait par le fait qu'au voisinage de $a$, la différence d'ordonnées est à peu près proportionnelle à la différence d'abscisses...\\
+L'application $df_a$ qui nous permet de passer d'une différence d'abscisse à une différence d'ordonnée est appelée différentielle.
+\bd
+Soit $f : (E, \|.\|_E) \to (F, \|.\|_F)$, soit $x_0 \in E$, $f$ est différentiable en $x_0$ si et seulement si $\exists L \in \mathcal L(E,F)$ telle que $$f(x) = f(x_0) + L_{x_0}(x-x_0) + \|x - x_0\| \epsilon (x)$$ avec $\epsilon$ une fonction évanescente, (\ie $\epsilon \to 0$ quand $x \to x_0$).
+\ed
+
+\bw
+\doigt Différentiable $\Rightarrow$ continuité ;\\
+\doigt Mais l'existence de dérivées partielles ou directionnelles n'implique pas la continuité (ni l'inverse d'ailleurs).
+\ew
+
+\be
+Soit $f$ bilinéaire de $E\times E \to \R$, étudier la différentiabilité de $f$.
+\ee
+\end{document}

@@ -1,0 +1,245 @@
+\input{../../preambule}
+\newcommand{\tn}{\mathrm}
+\newcommand{\eref}[1]{(\ref{#1})}
+\newcommand{\dep}[2]{\partial_{#2}{#1}}
+\newcommand{\dis}{\displaystyle}
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\MmnK}{\mathcal{M}_{m,n}(\K)}
+\newcommand{\MnpK}{\mathcal{M}_{n,p}(\K)}
+\newcommand{\MnK}{\mathcal{M}_{n}(\K)}
+\newcommand{\MmK}{\mathcal{M}_{m}(\K)}
+\newcommand{\MmnR}{\mathcal{M}_{m,n}(\R)}
+\newcommand{\MnR}{\mathcal{M}_{n}(\R)}
+\newcommand{\MnC}{\mathcal{M}_{n}(\C)}
+\newcommand{\MmR}{\mathcal{M}_{m}(\R)}
+\newcommand{\MpnR}{\mathcal{M}_{p,n}(\R)}
+\newcommand{\MnpR}{\mathcal{M}_{n,p}(\R)}
+\newcommand{\MpnC}{\mathcal{M}_{p,n}(\C)}
+\newcommand{\MnpC}{\mathcal{M}_{n,p}(\C)}
+\newcommand{\nmt}[1]{|\mskip -2mu|\mskip -2mu|{#1}|\mskip -2mu |\mskip -2mu|}
+\title{TD1 rédaction}
+
+\begin{document}
+\maketitle
+\begin{center}
+{\large {\bf Rappels et pré-requis}}
+\end{center}
+
+Nous rappelons ici certaines notions et résultats qui seront fréquemment utilisés pendant les cours et que vous avez certainement vus en L2 et au premier semestre de L3, avec plus ou moins de détail. Vous êtes censés les connaître. Si ce n'est pas le cas, vous êtes invités  à revoir ces notions. Des notes sur cette partie seront disponibles sur ecampus. 
+
+\begin{itemize}
+\item Espaces vectorielles, applications linéaires, représentation matricielle.
+\item Produits scalaires et normes sur un espace vectoriel réel $E$, distance sur un ensemble $\mathcal{E}.$ Le produit scalaire euclidien sur $\R^n$, les normes $\|x\|_{\infty}, \|x\|_{1}$ et $\|x\|_{2}$ sur $\R^n$ et les distances induites par ces normes.
+\item Produit hermitien sur $\C$.
+\item Familles orthonormales, procédé d'orthonormalisation de Gram-Schmidt.
+\item Trace et déterminants.
+\item Valeurs propres, diagonalisation, réduction de matrices.
+\item Équivalence des normes sur $\R^n.$
+\item Matrices définies positives.
+\end{itemize}
+
+Dans la première feuille de TD, des exercices sont proposés dans le but de travailler certains de ces concepts.
+\\ \\
+\begin{center}
+{\large {\bf Feuille de TD 1 - Rappels et pré-requis}}
+\end{center}
+
+Dans ce TD, $\K$ désigne soit le corps des réels $\R$ soit le corps des complexes $\C$, et $m,\,n,\,p$ sont des entiers strictement positifs.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exo}\ ({\bf Opérations élémentaires sur les matrices}). \\
+  Soit $A$ une matrice de $\MmnK$ et $B$ une matrice de $\MnpK$. Soient $b_1,\dots,b_p\in\K^n$ les colonnes de $B$. Montrer que les colonnes de $AB$ sont les vecteurs de $\K^m$ $Ab_1,\dots,Ab_p$.
+	\solution{On a de manière générale : $\displaystyle (AB)_{ij} = \sum_{k=1}^n A_{ik}B_{kj}$ pour $1 \leq i \leq m, 1 \leq j \leq p$. \\
+	Notons $C_j$ la $j^{ieme}$ colonne de $AB$, on a $$C_j = \mat{C_{1j}\\.\\.\\.\\ C_{mj}}$$
+	Si on considère la $i^{ieme}$ ligne de $C_j$ on a $C_{ij} = (AB)_{ij}$. On veut savoir si $(Ab_j) = C_j$, autrement dit veut savoir si $(Ab_j)_{ij} = C_{ij}$.
+	}
+\end{exo}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exo}\ \\
+  Soient $A\in\M_{n,m}(\R)$, $B\in\M_{n,p}(\R)$ et $C=A^TB$. Soient $a_1,\dots a_m$ les colonnes de $A$, $b_1,\dots, b_p$ les colonnes de $B$. Montrer que pour tous $i\in\{1,\dots,m\},\ j\in\{1,\dots,p\}$,
+$$
+C_{ij}=
+(a_i|b_j).
+$$
+	\solution{On a $A$ qui est de taille $n\times m$ et $B$ qui est de taille $n\times p$, donc $^tAB$ existe bien.\\
+	Notons $L_i$ la $i^{ieme}$ ligne de $^tA$, on a donc $L_i = \mat{a_{i1} & a_{i2} & ... & a_{in}} =  (^ta_i)$.\\
+	D'autre part on a $\displaystyle (^tAB)_{ij} = \sum_{k=1}^n (^tA_{ik})B_{kj}$
+	}
+
+{\it On peut montrer également que si $C=A^*B$, avec $A\in\M_{n,m}(\C)$ et $a_1,\dots a_m$ les colonnes de $A$, et $B\in\M_{n,p}(\C)$ et $b_1,\dots, b_p$ les colonnes de $B$, alors pour tous $i\in\{1,\dots,m\},\ j\in\{1,\dots,p\}$,
+$
+C_{ij}=
+(b_j|a_i)_{\C^n}.
+$}
+	\solution{
+	}
+\end{exo}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exo}
+  \begin{enumerate}
+  \item[]
+  \item 
+    Soient $p,\ n\in\N$, $A\in\MpnR$ et $A^T\in\MnpR$ la transposée de $A$, définie par ${A^T}_{i,j}=A_{j,i},\ i\leq n,\ j\leq p$. On note $(\cdot|\cdot)_{\R^n}$ et $(\cdot|\cdot)_{\R^p}$ respectivement le produit scalaire euclidien dans $\R^n$ et dans $\R^p$. Montrer que pour tous $u\in\R^n,\ v\in\R^p$, on a 
+    $$
+    (Au|v)_{\R^p}=(u|A^Tv)_{\R^n}.
+    $$
+Montrer que $A^T$ est l'unique matrice $B$ de $\MnpR$ tel que $(Au|v)_{\R^p}=(u|Bv)_{\R^n}$, pour tous $u\in\R^n,\ v\in\R^p.$
+		  \solution{Notons $U$ la matrice colonne des coordonnées de $u$ dans une base orthonormée (Canonique), et $V$ la matrice colonne des coordonnées de $v$ dans une base orthonormée (Canonique). On a alors $\bps Au \mid v \eps = \bps AU \mid V \eps = (^tAU)V = \bps u \mid (^tA)v \eps$, cela est vrai car on se place dans une base orthonormée. \\
+		  Pour l'unicité prenons deux matrice $A$ et $B$ telles que $\bps Au \mid v \eps = \bps u \mid (^tA)v \eps = \bps u \mid Bv \eps$ et montrons que $B = (^tA)$. \\
+		  On a par l'égalité $\bps u \mid (^tA)v - Bv  \eps = \bps u \mid (^tA - B)v \eps = 0, ~ \forall u$ donc on a $(^tA-B)v = 0, ~ \forall v$ donc $(^tA) - B = 0 \Rightarrow (^tA) = B$, d'où l'unicité.
+		  }
+\item Montrer de manière analogue que si $A\in\MpnC$ et $A^*\in\MnpC$ est son adjointe, définie par ${A^*}_{i,j}=\overline{A_{j,i}}$, alors pour tous $u\in\C^n,\ v\in\C^p,$
+  $$
+(Au|v)_{\C^p}=(u|A^* v)_{\C^n},
+  $$
+  où $(\cdot|\cdot)_{\C^{p(n)}}$ est le produit hermitien canonique sur $\C^{p}\ (\C^n)$, et que $A^*$ est l'unique matrice $B$ de $\MnpC$ tel que $(Au|v)_{\C^p}=(u|Bv)_{\C^n}$, pour tous $u\in\C^n,\ v\in\C^p.$
+		  \solution{On a dans le cas complexe le même raisonnement, par définition $\bps Au \mid v \eps _{\C} = (^t(Au)\bar{v} = (^tu)(^tA)\bar{v}$ et $\bps u \mid A^*v \eps _{\C} = (^tu)\bar{A^*v}$ mais on a $A^* = (^t\bar{A})$, on a donc le résultat.
+		  }
+  \end{enumerate}
+\end{exo}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exo}\ \\
+  Soit $A\in\MnK$. Montrer que les colonnes (lignes) de $A$ forment un système orthonormal de $\K^n$ si et seulement si $A^*A=AA^*=I_n$.
+	\bn
+	Si $AB = I \Rightarrow B = A^{-1}$.
+
+	Normalement on devrait vérifier que $$AB = BA = I$$ mais dans le cas des matrices nous n'avons pas besoin de cela, en effet ; Si $AB = I \Rightarrow det A \times det B = 1$, donc $det A \ne 0$ donc $A$ est inversible, or $AB = I$ donc $A^{-1} A B = A^{-1}$ \ie $B = A^{-1}$.
+	\en
+
+\end{exo}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exo}\ ({\bf Matrices triangulaires})
+  \begin{enumerate}
+\item Soient $A,\ B$ des matrices triangulaires supérieures (inférieures). Montrer que $AB$ est triangulaire supérieure (inférieure). Montrer que si $A$ ou $B$ est triangulaire supérieure (inférieure) stricte, alors $AB$ l'est aussi.
+\item Soit $T$ une matrice triangulaire inférieure (supérieure) inversible. Montrer que $T^{-1}$ est aussi une matrice triangulaire inférieure (supérieure).
+\end{enumerate}
+\end{exo}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exo}\ ({\bf Matrices définies positives et valeurs propres})
+  %\begin{enumerate}
+    %\item 
+      %Soit $A\in\MnR$ une matrice symétrique réelle. Montrer que $A$ est positive si et seulement si toutes ses valeurs propres sont positives et que $A$ est définie positive si et seulement si toutes ses valeurs propres sont strictement positives.
+      %\item
+      Soit $A\in\MnC$ une matrice hermitienne, {\it i. e.} vérifiant $A=A^*$. Montrer que les valeurs propres de $A$ sont réelles. Montrer que $A$ est positive si et seulement si toutes ses valeurs propres sont réelles positives et que $A$ est définie positive si et seulement si toutes ses valeurs propres sont réelles strictement positives.
+
+      {\it En particulier, si $A\in\MnR$ une matrice symétrique réelle (vérifiant donc $A^T=A$), alors les valeurs propres de $A$ sont réelles, et $A$ est positive si et seulement si toutes ses valeurs propres sont réelles positives ; $A$ est définie positive si et seulement si toutes ses valeurs propres sont réelles strictement positives.}
+      %\end{enumerate}
+\end{exo}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\medskip
+
+\begin{exo}\ \\
+Soit $A\in\MnK$. Montrer que les valeurs propres de la matrice $A^*A$ sont réelles et positives.
+	\solution{Soit $\lambda$ une valeur propre de $A^*A$, telle que $A^*AX_0 = \lambda X_0$ avec $X_0 \ne 0$, montrons que $\lambda \geq 0$.\\
+	On a $\bps X_0 \mid A^*AX_0 \eps = \lambda \bps X_0 \mid X_0 \eps = \lambda \|X_0 \| ^2$. Mais $\bps X_0 \mid A^*AX_0 \eps = \bps AX_0 \mid AX_0 \eps = \|AX_0\|^2$.\\
+	On a donc $\|AX_0\| = \lambda \|X_0\|^2$, donc $\lambda = \frac 1{\|X_0\|^2}\|AX_0\|^2\geq 0.$
+	}
+\end{exo}
+
+\medskip
+
+\begin{exo}{\bf Matrices à diagonale dominante}.\ \\
+  Soit $n\in\N^*$ et $A\in\MnK$. On dit que $A$ est à diagonale strictement dominante si pour tout $i\in\{1,\dots,n\}$,
+  $$
+|A_{ii}|>\sum_{\substack{j=1\\j\neq i}}^n|A_{ij}|.
+  $$
+  \begin{enumerate}
+    \item Donner un exemple d'une matrice à diagonale dominante.
+	    \solution{On a par exemple : $\mat{1&0&0&0\\0&2&0&0\\0&0&3&0\\0&0&0&4}$}
+    \item Montrer le résultat suivant (à connaître) : {\bf si $A$ est une matrice à diagonale strictement dominante, alors $A$ est inversible}.  
+      {\it Indication} : si $A$ n'est pas inversible, considérer $x\in\K^n,\ x\neq0,$ tel que $Ax=0$, et $i\in\{1,\dots,n\}$ tel que que $|x_i|=\displaystyle{\max_{1\leq j\leq n}|x_j|}$.
+		  \solution{Supposons $A$ une matrice à diagonale strictement dominante, supposons que $A$ n'est pas inversible, \ie qu'il existe un $x = \mat{x_1&x_2&...&x_n}^t \ne 0_n$ tel que $Ax = 0$.\\
+		  Si on pose $|x_{k_0}| := \max |x_i|$, on a $0_{k_0} = \displaystyle \sum_{k=1}^n A_{k_0 k}x_k \iff A_{k_0 k_0} x_{k_0} = - \sum_{k=1,k\ne k_0}^n A_{k_0 k}x_k$. \\ 
+		  Cela nous donne : $\displaystyle |A_{k_0 k_0}||x_{k_0}| \leq  \sum_{k=1}^n | A_{k_0 k}| |x_k| \leq \sum_{k=1}^n | A_{k_0 k}| |x_{k_0}|$.\\ 
+		  On a donc $|A_{k_0 k_0}| \leq \sum_{k=1}^n | A_{k_0 k}|$.\\
+		  Ce qui est absurde car $A$ est à diagonale strictement dominante...
+		  }
+
+    \item Justifier, sans faire de calculs supplémentaires, que si la matrice $A$ est à diagonale strictement dominante sur les colonnes, {\it i.e.} vérifiant pour tout $j\in\{1,\dots,n\}$,
+  $$
+|A_{jj}|>\sum_{\substack{i=1\\i\neq j}}^n|A_{ij}|,
+  $$
+  alors $A$ est inversible.
+		  \solution{Si $A$ est à diagonale strictement dominante sur les colonnes, alors, $A^t$ est à diagonale strictement dominante sur les lignes, d'après la question précédente, $A^t$ est donc inversible, donc $A$ est inversible.}
+  \end{enumerate}
+\end{exo}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\centerline{{\bf Exercices à faire à la maison.}}
+
+\begin{exo}\ ({\bf Opérations élémentaires sur les matrices} - pour s'exercer et à connaître). \\
+  Soit $A$ une matrice de $\MmnK$.
+  \begin{enumerate}
+\item Soient $i_1,\ i_2\in{1,\dots,m}$. Soit $P(i_1,i_2)\in\MmR$ la matrice de permutation correspondant à la matrice identité de taille $m$ avec les lignes $i_1,\ i_2$ échangées. Vérifier qu'échanger les lignes $i_1$ et $i_2$ de $A$ correspond à multiplier $A$ à gauche par $P(i_1,i_2)$.
+\item Soient $\alpha_i\in\K,\ i=1,\dots,m$. Vérifier que multiplier chaque ligne $i$ de $A$ par le scalaire $\alpha_i$ correspond à multiplier à gauche la matrice $A$ par la matrice diagonale $diag(\alpha_1,\dots,\alpha_m)$.
+  \end{enumerate}
+  {\it Remarque. On peut également montrer que :}
+  \begin{itemize}
+\item    {\it Si $\beta_j\in\K,\ j=1,\dots,n$, multiplier chaque colonne $j$ de $A$ par le scalaire $\beta_j$ correspond à multiplier à droite la matrice $A$ par la matrice diagonale $diag(\beta_1,\dots,\beta_n)$.}
+\item {\it Si $j_1,\ j_2\in{1,\dots,n}$ et si $P(j_1,j_2)\in\MnR$ est la matrice de permutation correspondant à la matrice identité de taille $n$ avec les colonnes $j_1,\ j_2$ échangées, échanger les colonnes $j_1$ et $j_2$ de $A$ correspond à multiplier $A$ à droite par $P(j_1,j_2)$.}
+\end{itemize}
+\end{exo}
+
+
+\begin{exo}{\bf (Applications linéaires de $\R^n$ dans $\R^m$, norme d'une application linéaire)}\ \\
+Soit $T:\R^n\longrightarrow\R^m$ une application linéaire. On fixe une norme dans $\R^n$ et une norme dans $\R^m$, que l'on notera de la même façon par $\|\cdot\|$.   
+\begin{enumerate}
+\item Montrer qu'il existe $M>0$ tel que
+$$
+\|T(x)\|\le M\|x\|,\ \forall x\in\R^n.
+$$
+Conclure que $T$ est continue.
+\item Justifier que $\displaystyle{\max_{\|x\|=1}\|T(x)\|}$ existe. 
+\end{enumerate}
+On pose $\displaystyle{\nmt{T}:=\max_{\|x\|=1}\|T(x)\|}.$
+\begin{enumerate}
+\setcounter{enumi}{2} 
+\item Vérifier que $\nmt{T}$ est la plus petite constante $M$ telle que $\|T(x)\|\le M\|x\|,\ \forall x\in\R^n.$
+\item Montrer que l'application $\nmt{\cdot}$ définit une norme dans l'espace vectoriel des applications linéaires de $\R^n$ dans $\R^m.$
+\item Montrer que l'on a aussi
+  $$
+  \nmt{T}=\max_{\|x\|\le1}\|T(x)\|=\max_{\|x\|=1}\|T(x)\|=\sup_{\|x\|\neq0}\frac{\|T(x)\|}{\|x\|}.
+  $$
+\end{enumerate}
+
+{\color{blue}\it On verra dans un des prochains cours que l'on va définir une norme dans l'espace des matrices $\mathcal{M}_{n,m}(\R)$, dite norme subordonnée, et que cette norme correspond à la norme de l'application linéaire de $\R^m$ dans $\R^n$ définie par la matrice $A$.} 
+\end{exo}
+\ \\
+{\bf Quelques indications pour les exercices à faire à la maison au verso.}
+\newpage
+{\bf Exercice 9.}\ \\
+{\it Pour 1 : écrire le coefficient $M_{ij}$ du produit $M=P(i_1,i_2)A$ et vérifier que si $i\notin\{i_1,i_2\}$, alors $M_{ij}=A_{ij}$, que si $i=i_1$ alors $M_{ij}=M_{i_1j}=A_{i_2j}$, et que  si $i=i_2$ alors $M_{ij}=M_{i_2j}=A_{i_1j}$. Pour 2 : écrire le coefficient $ij$ du produit $\textrm{diag}(\alpha_1,\dots,\alpha_m)A$.}
+
+{\bf Exercice 10.}
+\begin{enumerate}
+\item {\it Écrire $x$ dans la base canonique de $\R^n$ et utiliser la linéarité de $T$}.
+\item {\it Utiliser qu'une fonction continue atteint ses bornes sur un compact (un fermé borné) de $\R^n$}.
+  \item {\it Montrer que $\|T(x)\|\leq \nmt{T}\|x\|$, pour tout $x\in\R^n$, puis que si $M$ est telle que $\|T(x)\|\leq M\|x\|$, pour tout $x\in\R^n$, alors $M\geq\nmt{T}$.}
+\end{enumerate}
+
+\end{document}
+

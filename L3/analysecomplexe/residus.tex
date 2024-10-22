@@ -1,0 +1,130 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{geometry}
+\geometry{margin=1in}
+\usepackage{enumitem}
+\usepackage{xcolor}
+
+\title{Calcul d'Intégrales Réelles par Méthode des Résidus}
+\author{Anito Kodama}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+Pour calculer une intégrale réelle en passant par les nombres complexes et la méthode des résidus, on utilise les propriétés des intégrales de contour dans le plan complexe, en particulier le théorème des résidus. Voici les étapes typiques pour effectuer ce type de calcul :
+
+\section{Étapes de Calcul}
+
+\begin{enumerate}
+    \item \textbf{Reformuler l'intégrale réelle en une intégrale complexe} \\
+    Pour utiliser les résidus, il est souvent nécessaire de reformuler l'intégrale réelle donnée en termes d'une intégrale dans le plan complexe. Cela implique de trouver une fonction complexe \( f(z) \) qui a un comportement simple et bien défini sur le contour choisi.
+
+    \item \textbf{Choisir un contour dans le plan complexe} \\
+    Choisir un contour fermé qui inclut la portion de la ligne réelle sur laquelle vous souhaitez calculer l'intégrale. Ce contour peut être, par exemple, un demi-cercle ou un rectangle, selon la forme de l'intégrale que vous calculez.
+    
+    \textcolor{blue}{\textbf{Exemple :}} Si l'intégrale est sur \( \mathbb{R} \), on pourrait envisager un contour semi-circulaire dans le plan supérieur ou inférieur, selon les singularités de la fonction.
+
+    \item \textbf{Identifier les singularités de la fonction} \\
+    Cherchez les pôles et autres singularités de la fonction \( f(z) \) dans la région délimitée par le contour choisi. Les singularités à l'intérieur du contour fermé seront cruciales pour appliquer le théorème des résidus.
+
+    \item \textbf{Appliquer le théorème des résidus} \\
+    Le théorème des résidus stipule que pour une fonction \( f(z) \) méromorphe dans un domaine \( D \) entouré par un contour fermé \( C \), l'intégrale de \( f(z) \) sur \( C \) est donnée par :
+    \[
+    \oint_C f(z) \, dz = 2\pi i \sum \text{résidus de } f(z) \text{ à l’intérieur de } C
+    \]
+
+    \item \textbf{Évaluer les résidus} \\
+    Les résidus peuvent être calculés à l'aide des formules suivantes, selon le type de singularité :
+    \begin{itemize}
+        \item Si \( z_0 \) est un pôle simple de \( f(z) \), le résidu en \( z_0 \) est donné par :
+        \[
+        \text{Res}(f, z_0) = \lim_{z \to z_0} (z - z_0) f(z)
+        \]
+        
+        \item Si \( z_0 \) est un pôle d'ordre \( n \), le résidu est donné par :
+        \[
+        \text{Res}(f, z_0) = \frac{1}{(n-1)!} \lim_{z \to z_0} \frac{d^{n-1}}{dz^{n-1}} \left[ (z - z_0)^n f(z) \right]
+        \]
+    \end{itemize}
+
+    \item \textbf{Prendre la limite du contour} \\
+    Après avoir évalué les résidus, vous devez considérer la contribution des autres parties du contour, souvent les portions semi-circulaires ou à l'infini. Dans de nombreux cas, ces portions de l'intégrale tendent vers 0 lorsque le rayon du contour devient grand, ce qui simplifie le calcul.
+
+    \item \textbf{Extraire l'intégrale réelle} \\
+    L'intégrale réelle que vous cherchez est souvent liée à une partie de l'intégrale complexe calculée. En fonction du contour et de la symétrie du problème, vous pourrez extraire l'intégrale réelle à partir de la partie réelle ou imaginaire de l'intégrale complexe.
+\end{enumerate}
+
+\section{Exemples supplémentaires}
+
+\subsection{Exemple 1 : Calcul de l'intégrale de \( f(x) = e^{ix} \) sur \( \mathbb{R} \)}
+Nous reformulons l'intégrale en utilisant la fonction complexe \( f(z) = e^{iz} \). Le contour choisi est un demi-cercle dans le plan supérieur. Après avoir identifié les singularités et évalué les résidus, nous obtenons l'intégrale réelle :
+\[
+\int_{-\infty}^{\infty} e^{ix} \, dx = 2\pi i \cdot \text{Res}(f, 0) = 2\pi i \cdot (0) = 0.
+\]
+
+\subsection{Exemple 2 : Calcul de l'intégrale de \( f(x) = \frac{1}{x^2 + 1} \)}
+Nous reformulons l'intégrale en utilisant la fonction complexe \( f(z) = \frac{1}{z^2 + 1} \). Le contour choisi est un demi-cercle dans le plan supérieur. Les pôles se trouvent en \( z = i \) et \( z = -i \). En appliquant le théorème des résidus, nous trouvons :
+\[
+\int_{-\infty}^{\infty} \frac{1}{x^2 + 1} \, dx = 2\pi i \cdot \text{Res}(f, i) = 2\pi i \cdot \left(\frac{1}{2i}\right) = \pi.
+\]
+
+\subsection{Exemple 3 : Calcul de l'intégrale de \( f(x) = \frac{\sin(x)}{x} \)}
+Nous reformulons l'intégrale en utilisant la fonction complexe \( f(z) = \frac{e^{iz}}{z} \). Le contour choisi est un demi-cercle dans le plan supérieur. Après avoir identifié les singularités (pôle simple en \( z = 0 \)) et évalué les résidus, nous obtenons :
+\[
+\int_{-\infty}^{\infty} \frac{\sin(x)}{x} \, dx = \pi.
+\]
+
+\section{Calcul de l'intégrale de \( \left(\frac{\sin(t)}{t}\right)^2 \)}
+
+Nous pouvons utiliser la méthode des résidus pour calculer l'intégrale de \( \left(\frac{\sin(t)}{t}\right)^2 \) sur \( \mathbb{R} \). Voici les étapes :
+
+\begin{enumerate}
+    \item \textbf{Reformuler l'intégrale réelle} \\
+    On a :
+    \[
+    \left(\frac{\sin(t)}{t}\right)^2 = \frac{1}{4t^2} \left(1 - \cos(2t)\right)
+    \]
+    Donc :
+    \[
+    \int_{-\infty}^{\infty} \left(\frac{\sin(t)}{t}\right)^2 dt = \frac{1}{4} \int_{-\infty}^{\infty} \left(\frac{1 - \cos(2t)}{t^2}\right) dt
+    \]
+
+    \item \textbf{Choisir un contour} \\
+    Nous choisissons un contour \( C \) qui est un demi-cercle dans le plan supérieur.
+
+    \item \textbf{Identifier les singularités} \\
+    La fonction \( f(z) = \frac{1 - e^{2iz}}{z^2} \) a un pôle d'ordre 2 en \( z = 0 \).
+
+    \item \textbf{Calculer le résidu} \\
+    Le résidu en \( z = 0 \) est donné par :
+    \[
+    \text{Res}(f, 0) = \lim_{z \to 0} \frac{d}{dz} (1 - e^{2iz}) = -2i
+    \]
+
+    \item \textbf{Appliquer le théorème des résidus} \\
+    Nous avons :
+    \[
+    \oint_C f(z) \, dz = 2\pi i \cdot (-2i) = 4\pi
+    \]
+
+    \item \textbf{Contribution du contour semi-circulaire} \\
+    La contribution de la partie semi-circulaire tend vers 0 lorsque \( R \) devient grand.
+
+    \item \textbf{Extraire l'intégrale réelle} \\
+    Finalement :
+    \[
+    \int_{-\infty}^{\infty} \left(\frac{\sin(t)}{t}\right)^2 dt = \pi
+    \]
+\end{enumerate}
+
+\textbf{En résumé :}
+\[
+\int_{-\infty}^{\infty} \left(\frac{\sin(t)}{t}\right)^2 dt = \pi
+\]
+
+\end{document}
+

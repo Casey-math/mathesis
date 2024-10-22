@@ -1,0 +1,72 @@
+\input{../../preambule}
+\title{Exo EDO}
+
+\begin{document}
+\maketitle
+
+\be
+\ben
+On considère le schéma du point milieu pour approcher la solution de $(PC)$ dans l'intervalle $[t_0,t_0+T]$, qui est défini par la suite :
+  $$
+    y^{n+1} = y^n+hf\Big(t_{n}+\frac{h}{2},y^n+\frac{h}{2}f(t_n,y^n)\Big),\ \ n=0,\dots,N,\ \ \ y^0\ \textrm{donné}. 
+    $$
+
+On suppose ici que $f$ est de classe $C^2.$
+
+On rappelle que pour un schéma à un pas explicite de la forme
+$$
+(S)\ \ \ y^{n+1} = y^n+h\Phi(t_n,y^n,h),
+$$
+approchant l'équation $y'=f(t,y)$, l'erreur de consistance à l'itération $n$, relative à une solution $y$ de l'équation $y'=f(t,y)$, 
+est la quantité
+$$
+\varepsilon^n=y(t_{n+1})-y(t_{n})-h\Phi(t_n,y(t_n),h),\ \ \ n=0,\dots,N-1.
+$$
+
+\item Donner l'expression de l'erreur de consistance locale pour le schéma du point milieu et montrer que la suite $(y(t_0),\dots,y(t_N))_N$ vérifie
+
+ $$
+    y(t_{n+1}) = y(t_n)+hf\Big(t_{n}+\frac{h}{2},y(t_n)+\frac{h}{2}f(t_n,y(t_n))\Big)+\varepsilon^n,\ \ n=0,\dots,N,\ \ \ y(t_0)=y^0. 
+    $$
+
+
+\item Montrer que le  schéma du point milieu est consistante avec l'équation $y'=f(t,y)$, en montrant qu'il existe une constante $C$ indépendante de $h$ tel que
+    $$
+\|\varepsilon^n\|\leq C h^2,\ \ \forall\ n=0,\dots,N-1.
+    $$
+*Indication : Utiliser des développements de Taylor faisant apparaître des restes d'ordre 2. On peut procéder comme suit : développer $y(t_{n+1})=y(t_n+h)$ autour de $t_n$ puis développer $f\big(t_{n}+\frac{h}{2},y(t_n)+\frac{h}{2}f(t_n,y(t_n))\big)$ d'abord en $t$ autour de $t_n$ puis en $y$ autour de $y(t_n)$ (et on remarque que comme ce terme est multiplié par $h$ il suffit d'obtenir des restes d'ordre 1 dans ces développements).*
+     
+**Remarque.** *On peut montrer en réalité que*
+    $$
+\|\varepsilon^n\|\leq C h^3,\ \ \forall\ n=0,\dots,N-1,
+    $$
+*avec $C$ indépendante de $h$, en faisant des développements jusqu'à l'ordre 3 et en utilisant que la solution $y$ de $y'=f(t,y)$ vérifie* 
+      \begin{align*}
+        y'(t)&=f(t,y(t)),\\
+        y''(t)&=\partial_t f(t,y(t))+\partial_y f(t,y(t))y'(t)\\
+             &=\partial_t f(t,y(t))+\partial_y f(t,y(t))f(t,y(t)).
+      \end{align*}
+      
+\item Montrer que si $f$ est à dérivées bornées, le schéma du point milieu est stable, en montrant que 
+si 
+ $$
+    y^{n+1} = y^n+hf\Big(t_{n}+\frac{h}{2},y^n+\frac{h}{2}f(t_n,y^n)\Big),\ \ n=0,\dots,N,\ \ \ y^0\ \textrm{donné}. 
+    $$
+et
+ $$
+    z^{n+1} = z^n+hf\Big(t_{n}+\frac{h}{2},z^n+\frac{h}{2}f(t_n,z^n)\Big)+\rho^n,\ \ n=0,\dots,N,\ \ \ z^0\ \textrm{donné}, 
+    $$
+alors $|z^{n+1}-y^{n+1}|\leq(1+Mh)|z^n-y^n|+|\rho^n|$,
+avec $M$ une constante indépendante de $h$.
+
+En déduire une estimation sur l'erreur globale du schéma
+
+$$
+\max_{n=0,\dots,N}|y(t_n)-y^n|
+$$
+
+\item Sous quelle condition suffisante sur $f$, le schéma du point milieu converge-t-il ?
+\een
+\ee
+\end{document}
+

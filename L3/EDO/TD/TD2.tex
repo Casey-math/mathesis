@@ -1,0 +1,338 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{thmtools}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[francais]{babel}
+\usepackage{mathtools}   % loads »amsmath
+\usepackage[dvipsnames]{xcolor}
+\author{Anito KODAMA}
+
+
+%Raccourcies
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Aa}{\mathcal{A}}
+\newcommand{\Tup}{\bigtriangleup}
+\newcommand{\Tdn}{\bigtriangledown}
+
+\definecolor{rltred}{rgb}{0.75,0,0}
+	\definecolor{rltgreen}{rgb}{0,0.5,0}
+	\definecolor{oneblue}{rgb}{0,0,0.75}
+	\definecolor{marron}{rgb}{0.64,0.16,0.16}
+	\definecolor{forestgreen}{rgb}{0.13,0.54,0.13}
+	\definecolor{purple}{rgb}{0.62,0.12,0.94}
+	\definecolor{dockerblue}{rgb}{0.11,0.56,0.98}
+	\definecolor{freeblue}{rgb}{0.25,0.41,0.88}
+	\definecolor{myblue}{rgb}{0,0.2,0.4}
+
+
+%Style définition
+\declaretheoremstyle[
+  headfont=\color{blue}\normalfont\bfseries,
+  bodyfont=\color{blue}\normalfont,
+]{colored}
+\declaretheorem[
+  style=colored,
+  name=Définition,
+]{df}
+
+%Style Proposition
+\declaretheoremstyle[
+  headfont=\color{black}\normalfont\bfseries,
+  bodyfont=\color{black}\normalfont,
+]{coloredProp}
+\declaretheorem[
+  style=coloredProp,
+  name=Proposition,
+]{prop}
+
+%Style exo
+\declaretheoremstyle[
+  headfont=\color{orange}\normalfont\bfseries,
+  bodyfont=\color{black}\normalfont,
+]{coloredexo}
+\declaretheorem[
+  style=coloredexo,
+  name=Exercice,
+]{exo}
+
+\let\oldproof\proof
+\renewcommand{\proof}{\color{olive}\oldproof}
+
+%\theoremstyle{definition}
+%\newtheorem{prop}{Proposition}
+%\newtheorem{exo}{Exercice}
+%\newtheorem{df}{Définition}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%solution%%%%%%%%%%%%%%%%%%
+\newcommand{\solution}[1]{\par\noindent\textbf{\color{OliveGreen}Solution :} \textcolor{OliveGreen}{#1}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\title{Corrigé du TD2 EDO}
+%\author{Floryan Jourdan}
+\date{2023-2024}
+
+
+\begin{document}
+\maketitle
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Exo 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{exo}
+  Soient $I\subseteq\R$ un intervalle ouvert et $U\subseteq\R$ un ouvert. Montrer que toute fonction $f:I\times U\longrightarrow\R$ de classe $C^1$ est localement Lipschitzienne par rapport à sa deuxième variable.
+\end{exo}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Exo 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exo}
+  Soit $y_0\in]-\infty,4[$ et le problème de Cauchy $(E)$ suivant :
+ $$
+\begin{cases}
+y'=(4-y)^3\\
+y(0)=y_0.
+\end{cases}
+$$
+\begin{enumerate}
+    \item Justifier que ce problème admet une unique solution maximale $y$, définie dans un intervalle $J\subseteq\R$. Sans calculer $y$, montrer que $y(t)\neq4$, pour tout $t\in J$.
+\solution{
+$(E)$ est un problème de Cauchy de la forme :
+ $$
+\begin{cases}
+y'=f(t,y)\\
+y(0)=y_0.
+\end{cases}
+$$
+avec $f : \R \times \R \to \R$, $(t,y) \mapsto (4-y)^3$.\\
+La fonction est de classe $\mathcal{C}^1$ sur $\R\times\R$ donc localement lipschitzienne par rapport à sa deuxième variable (cf exo 1).\\
+Par le théorème de Cauchy Lipschitz on est assuré qu'il existe une unique solution maximale de $(E)$, $y_1 : J \to \R$, définie dans un intervalle $J \subseteq \R$ ouvert.\\
+Notre but est  de montrer que $\forall t \in J, y(t) \ne 4$, pour cela on va montrer :\\
+    (i) : $\nexists t \in J$ tq $y_1 = 4$\\
+    (ii) : $\forall t \in J, y_1(t) < 4$\\
+On a (i) $\Rightarrow$ (ii), montrons le :\\
+L'énoncé nous donne $y_1(t_0) = y_0 < 4$\\
+Supposons par l'absurde que $\exists t_1 \in J$ tel que $y_1(t_1) \geq 4$\\
+Or $y_1$ est continue, donc d'après le TVI $\exists \bar{t} \in J$ tel que $y_1(\bar{t}) = 4$ mais cela est impossible d'après (i). Ce que l'on a supposé est donc absurde. \\
+Il nous reste a montrer (i) : \\
+Supposons par l'absurde que $\exists \bar{t} \in J$ tel que $y_1(\bar{t}) = 4$\\
+Considérons le problème de Cauchy $(E_2)$ suivant :
+$$
+\begin{cases}
+y'=(4-y)^3\\
+y(\bar{t})=4.
+\end{cases}
+$$
+On a $y_c \equiv 4$ solution triviale de $(E_2)$ c'est une solution globale.\\
+$y_1$ est également solution.
+D'où $y_1$ et $y_c$ sont deux solutions de $(E_2)$ définient sur $\R \cap J = J$.\\
+		On a $y_1(\bar{t}) = 4 = y_c$ d'après le corollaire 1 on a donc $y_1 \equiv y_c$.\\
+Mais on aurait également $y_1(t_0) = y_0 = y_c = 4$ ce qui est absurde car $y_0 < 4$. Ce que l'on a supposé est donc absurde.\\
+Donc $\nexists t \in J$ tel que $y_1(t) = 4$\\
+On a donc montré que $y(t) \ne 4$ et même que $y(t) < 4, ~ \forall t \in J$.}
+
+    \item Calculer $y$ et $J$. Est-ce que la solution maximale $y$ est globale ? 
+    \solution{pas globale...}
+\end{enumerate}
+\end{exo}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Exo 3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exo}
+Considérons le problème de Cauchy 
+$$
+\begin{cases}
+y'=4-y^2\\
+y(0)=0.
+\end{cases}
+$$
+
+\begin{enumerate}
+    \item Justifier que ce problème admet une unique solution maximale $y$, définie dans un intervalle $I\subseteq\R.$
+\solution{problème de cauchy de la forme $f(t,y)$ avec $f$ de classe $\mathcal{C}^1$ donc lispchitzienne par rapport à $y_1$ donc le théorème de Cauchy nous assure l'existence d'une unique solution définie dans un intervalle $J$ de $\R$ ouvert. Le théorème nous dit que c'est une solution maximale.}
+    \item Justifier que la solution $y$ est bornée et calculer un minorant et un majorant pour $y.$
+\solution{Il faut repérer les points d'équilibre de l'EDO ce qui ramène au but de cette question qui est de montrer deux choses :
+\begin{itemize}
+    \item[(i)] $\nexists t \in J$ tel que $y_1(t) = 2$ ou $ y_1 = -2$ avec $2$ et $-2$ point d'équilibre.
+    \item[(ii)] $\forall t \in J, f(t) \in ]-2,2[$
+\end{itemize}
+Le plus commode est certainement de découper en deux sous cas, de rédiger le premier pour la point d'équilibre $2$ et de conclure en disant que les deux cas se traite de la même manière. \textit{NB : (i) $\Rightarrow$ (ii), une fois cette implication démontrée il ne reste plus qu'à montrer (i).}
+}
+\end{enumerate}
+On suppose ici que la solution $y$ est globale, {\it i. e.} que $I=\R$ (on verra au prochain cours un résultat permettant de le justifier).
+\begin{enumerate}
+\setcounter{enumi}{2}
+\item Calculer les limites de $y$ en $\pm\infty.$
+\solution{
+On suppose la solution $y_1$ au problème de Cauchy est globale, c'est à dire que l'intervalle $J \subseteq R$ sur lequel la fonction solution est définie est $\R$ tout entier ie $J = ]-\infty, +\infty[$.\\
+Il est facile de voir que $y'$ est strictement positive par la question 2, donc la fonction $y$ est strictement croissante ET bornée donc la fonction admet une limite $l$ FINIE qui reste encore à determiner.\\
+On peut dire que : \\
+$y \to l \Rightarrow y' \to 4 - l^2$ quand $t \to \infty$\\
+Si $4 -l^2 \ne 0$\\
+Alors $\int_{0}^{T}y'(s)ds$ diverge grossièrement.\\
+Mais donc $\int_{0}^{T}y'(s)ds = y(T) - y(0) = y(T) \to \infty$ quand $T \to \infty$\\
+Ce qui est absurde car on a montré qu'il existait une limite finie $l$ à $y$.\\
+Donc $4-y^2 = 0 \Rightarrow l = 2 \text{ ou } l = -2$
+}
+\item Calculer $y''$ en fonction de $y$ et étudier le signe de $y''.$ 
+\solution{$y'' = -2y'y = -2y(4-y^2)$ avec $(4-y^2) > 0$ car $y \in ]-2,2[$ et $y < 0$ si $t<0$ et $y>0$ si $t>0$ donc 
+$$
+\begin{cases}
+y'' > 0 \text{ si } t < 0 \text{ donc y est convexe sur } $]-\infty , 0 [$; \\
+y'' < 0 \text{ si } t > 0 \text{ donc y est concave sur } $]0, \infty[$.
+\end{cases}
+$$
+}
+\item Donner une allure du graphe de la solution $y.$
+\end{enumerate}
+
+\end{exo}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Exo 4
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exo}
+Soit $f:\R\longrightarrow\R$ une fonction de classe $C^1$ et $b:\R\longrightarrow\R$ une fonction continue périodique de période $T$. Soit $y:\R\longrightarrow\R$ une solution de l'équation $y'=f(y)+b(t)$. Montrer que $y$ est $T-$périodique si et seulement si $y(T)=y(0)$.
+	\solution{On a $\Rightarrow$ qui est immédiat, occupons nous de $\Leftarrow$ :\\
+	On suppose donc $y(T) = y(0)$ ;\\
+	On a $b(t+T) = b(t)$ car $b$ est $T$-périodique ;\\
+	On a $y$ solution de $y' = f(y)+b(t)$ ; \\
+	Posons $F(t,y) = f(y) + b(t)$\\
+	On a $f$ $\mathcal{C}^1$, la fonction $b$ ne dépend pas de $y$, $F$ est donc lipschitzienne par rapport à $y$ ;\\
+	On veut savoir si $y(t+T) = y(t)$ ??\\
+	Posons $z(t) = y(t+T)$ $z$ est aussi solution de l'ED $y' = f(y) + b(t)$ ;\\
+	Mais on a pour $t = 0$ : \\
+	$y(0) = z(0) = y(T) = y(0)$ par hypothèse.\\
+	Il existe donc un point $\bar{t} \in J = \R$ tel que deux solutions de l'ED $y' = f(y) + b(t)$ sont égales. Mais d'après le corollaire 1 du cours, si il existe un point situé sur l'intersection des deux intervalles de définitions de ces solutions tel que ces deux solutions sont égales, alors elles sont égales pour tout point $t$ de cette intersection. Donc $y\equiv z$ autrement dit $y(t) = y(t+T), \forall t \in \R$.
+	}
+\end{exo}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Exo 5
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exo}
+  Soient $t_0,\ y_0\in\R$ et le problème de Cauchy
+$$
+(*)\ \ \ \ \ \begin{cases}
+y'=y(y-1)(y-t)\\
+y(t_0)=y_0.
+\end{cases}
+$$
+\begin{enumerate}
+  \item Justifier que quelque soit $(t_0,y_0)$, le problème $(*)$ admet une unique solution maximale $y:J\longrightarrow\R$, définie dans un intervalle ouvert $J\subseteq\R$ tel que $t_0\in J$. 
+\solution{le problème $(*)$ est de la forme 
+$$
+\begin{cases}
+y'=f(t,y)\\
+y(t_0)=y_0.
+\end{cases}
+$$
+Avec $f$ une fonction de classe $\mathcal{C}^1$ donc lipschitzienne par rapport à $y$, le théorème de Cauchy Lipschitz nous assure l'existence d'une solution unique maximale $y_1$ définie sur sur un intervalle ouvert $J \subseteq \R$
+}
+  \item Donner les solutions constantes de l'équation $y'=y(y-1)(y-t)$.
+\solution{Cherchons les solutions constante, pour cela posons $y=K \in \R$ on a donc $y' = 0$ d'où : $0 = K(K-1)(K-t) \Rightarrow K = 0 \text{ et } K = 1 \forall t \in J$.\\
+Donc les solutions constante sont $y = 0$ et $y = 1$ ce sont les points d'équilibre.
+}
+\end{enumerate}
+Par la suite, $y$ désigne la solution maximale de $(*)$ et $J$ l'intervalle où elle est définie. On va s'intéresser aux cas où
+où $t_0>1$ et $y_0\in]0,t_0[$.
+\begin{enumerate}
+  \setcounter{enumi}{2}
+  \item Supposons $y_0\in]0,1[$. Montrer que $y$ est bornée sur $J$.
+\solution{On a donc deux points d'équilibre $y_{c1} \equiv 1$ et $y_{c0} \equiv 0$ donc pour $y_0 \in ]0,1[$ on va montrer que la fonction solution $y_1$ est bornée entre $y_{c1}$ et $y_{c0}$. Ce qui nous ramène à montrer deux choses : 
+\begin{itemize}
+	\item[(i)] $\nexists t \in J \text{ tq } y_1(t) = 0 \text{ ou } y_1(t) = 1$ ;
+	\item[(ii)] $\forall t \in J, 0<y_1(t)<1$
+		On montre $y_1(t) < 1, \forall t \in J$, le fait que $y(t) > 0 \forall t \in J$ provient d'un raisonnement tout à fait analogue.
+		Montrons donc $y(t) < 1 \forall t \in J$ : \\ $\to$ cf le raisonnement de l'exercice 2 qui est exactement le même !
+\end{itemize}
+}
+    \item Supposons que $t_0>1$ et que $y_0\in]1,t_0[$. Montrer que pour tout $t\in J,\ t>t_0$, on a $1<y(t)<t$.
+    \solution{Pour $y(t) > 1, \forall t \in J$ même raisonnement que d'habitude, pour $y(t) < t, \forall t \in J, t > t_0$, raisonnons par l'absurde :\\
+    Supposons que $\exists \bar{t} \in J$  tel que $y(\bar{t}) = \bar{t}$, l'ensemble $\{t \in J \mid y(t) = t \}$ est un ensemble fermé, il est non vide par hypothèse, on peut donc prendre son minimum : $t_{min}$. On a ainsi $1 < t_0 < t_{min}$, mais pour tout les $t\in J, t \leq t_{min}$ on a $y' \geq 0$ c'est à dire que $y$ décroit, donc $t_0 > y_0 = y(t_0) > y(t_{min}) = t_{min}$, ce qui est absurde. Donc $y(t) < t, \forall t \in J, t > t_0$.
+    }
+    \item Supposons que $J$ est un intervalle de la forme $]T^-,T^+[$, où $T^-,\ T^+\in\R\cup\{-\infty,+\infty\}$. On veut justifier que si $t_0>1$ et $y_0\in]0,t_0[$, alors la solution maximale $y$ de $(*)$ est globale à droite, c'est-à-dire que $T^+=+\infty$.
+        \begin{enumerate}
+        \item Supposons $y_0=1$. Justifier que $y$ est globale, c'est-à-dire que $J=\R$.
+        \item Soit $t_0>1$ et $y_0\in]0,1[$ ou $y_0\in]1,t_0[$. On va montrer par l'absurde que l'on ne peut pas avoir $T^+<+\infty$.          
+              \begin{enumerate}
+                \item Supposons que $T^+<+\infty$. Justifier qu'il existe la limite
+        $$
+\lim_{t\to T^+,t<T^+}y(t),
+$$
+et que cette limite est finie.
+\item Soit $y^+\in\R$ la limite précédente. En considérant le problème de Cauchy pour l'EDO $y'=y(y-1)(y-t)$, de donnée initiale $(T^+,y^+)$, montrer que $y$ admet un prolongement. Conclure.
+        \end{enumerate}
+        \item Calculer, selon que $y_0\in]0,1]$ ou que $y_0\in]1,t_0[$, avec $t_0>1$, $\lim_{t\to+\infty}y(t)$.
+        \end{enumerate}
+        \end{enumerate}
+\end{exo}
+
+%%%%%%%%%%%%%
+%Exo 6
+%%%%%%%%%%%%%
+
+\begin{exo}
+  Soit le système d'équations différentielles
+  $$
+  (S)\begin{cases}
+    x'=x(1-x-y/2)\\
+    y'=y(1-y-x/2).
+  \end{cases}
+  $$
+  \begin{enumerate}
+    \item 
+      Écrire le système $(S)$ sous la forme $Y'=F(t,Y)$, avec $Y=\Big(\begin{array}{c}x\\y\end{array}\Big)$, en explicitant la fonction $F$ et son domaine de définition.
+	      \solution{On a le système (S) que l'on peut écrire : $Y' = F(t,Y)$ avec $F(t,Y) = (F_1(t,(x,y)),F_2(t,(x,y)))^T$ avec $F_1(t,(x,y)) = x(1-x-y/2)$ et $F_2(t,(x,y)) = y(1-y-x/2)$ $F$ est de classe $\mathcal{C}^1$ sur $\R\times\R^2$ donc localement lipscitzienne par rapport à $(x,y)$.}
+  \item Soit $\left(J,t\in J\mapsto \Big(\begin{array}{c}x(t)\\y(t)\end{array}\Big)\right)$ une solution maximale de $(S)$. Montrer que $\left(J,t\in J\mapsto\Big(\begin{array}{c}y(t)\\x(t)\end{array}\Big)\right)$ est aussi solution maximale de $(S)$.
+		  \solution{$(x_1(t),y_1(t))^T$ est solution de (S) montrons que $(y_1(t),x_1(t))^T$ est aussi solution de (S). Posons $Z(t) = (z_1(t),z_2(t))^T$ tel que $z_1(t) = y_1(t)$ et $z_2(t) = x_1(t)$ a t-on 
+  $$
+		  (S_1)\begin{cases}
+    z_1' \stackrel{?}{=} z_1(1-z_1-z_2/2)\\
+    z_2' \stackrel{?}{=} z_2(1-z_2-z_1/2)
+  \end{cases}
+  $$
+  $$
+		  (S_1)\iff (S_2) \begin{cases}
+    y_1' = y_1(1-y_1-x_1/2)\\
+    x_1' = x_1(1-y_1-x_1/2).
+		  \end{cases} \text{OK}
+  $$
+}
+  \end{enumerate}
+  \begin{enumerate}
+    \item Soient $t_0\in\R$ et $(x_0,y_0)\in\R^2$. Justifier l'existence et l'unicité d'une solution maximale du problème de Cauchy pour $(S)$, de donnée initiale $(x(t_0),y(t_0))=(x_0,y_0)$.
+	    \solution{On a vu dans la question 1 que $F$ répondait aux hypothèses du Théorème de Cauchy Lipschitz donc on est assuré de l'existence d'une unique solution maximale $(x_1,y_1)$ définie dans un intervalle ouvert $J \subseteq \R$}
+		  
+    \item Supposons $x_0=y_0$. Soit $\left(J,t\in J\mapsto \Big(\begin{array}{c}x(t)\\y(t)\end{array}\Big)\right)$ la solution maximale du problème de Cauchy pour $(S)$, de donnée initiale $(x(t_0),y(t_0))=(x_0,y_0)$. Justifier que $x(t)=y(t)$ pour tout $t\in J$, et calculer la solution $t\mapsto\Big(\begin{array}{c}x(t)\\y(t)\end{array}\Big)$.
+		    \solution{On a montrer dans la question 2 que si $\Big(\begin{array}{c}x(t)\\y(t)\end{array}\Big)$ était solution de (S), alors $\Big(\begin{array}{c}y(t)\\x(t)\end{array}\Big)$ est aussi solution de (S), on considère le PC : 
+ $$
+\begin{cases}
+	(S)\\
+	(x(t_0),y(t_0)) = (x_0,x_0).
+\end{cases}
+$$
+		 On a  $\Big(\begin{array}{c}x(t)\\y(t)\end{array}\Big)$ solution maximale de PC, mais  $\Big(\begin{array}{c}y(t)\\x(t)\end{array}\Big)$ aussi, ces deux solutions maximales ont la même condition initiale donc sont égales, c'est à dire : 
+			 $$\Big(\begin{array}{c}x(t)\\y(t)\end{array}\Big) =  \Big(\begin{array}{c}y(t)\\x(t)\end{array}\Big),~ \forall t \in J;$$
+				 D'où $x\equiv y$ sur $J$.
+			 }
+		  
+        \end{enumerate}
+\end{exo}
+
+\end{document}
+
+\end{document}          

@@ -1,0 +1,393 @@
+\documentclass[11pt,twocolumn]{article}
+
+
+\setlength{\columnseprule}{0.02cm}
+\usepackage[a4paper,landscape,hmargin=2cm,vmargin=2cm,columnsep=1cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[francais]{babel}
+\usepackage[ttscale=0.7]{libertine}
+
+\usepackage{multicol}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{ifthen}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{framed}
+
+\usepackage{pifont}
+
+\usepackage{url}
+
+\usepackage{graphicx}
+
+\def\vv{\overrightarrow}
+\newcommand\abs[1]{\left|#1\right|}
+\newcommand{\guil}[1]{\og\ignorespaces #1\unskip\fg}
+
+\newcounter{exercice}
+\newcounter{question}
+\newcounter{subquestion}
+
+\makeatletter
+\newcommand{\exercice}{\addtocounter{exercice}{1}%
+\def\@currentlabel{\Roman{exercice}}%
+\setcounter{question}{0}%
+\medskip
+\noindent{\large {\bfseries Exercice \Roman{exercice}}}
+
+\nopagebreak[4]
+}
+
+\newcommand{\emptyquestion}{\addtocounter{question}{1}%
+\def\@currentlabel{(\arabic{question})}%
+\setcounter{subquestion}{0}}
+\newcommand{\question}{\emptyquestion%
+\noindent(\arabic{question})~%
+}
+
+\newcommand{\subquestion}{\addtocounter{subquestion}{1}%
+\noindent(\arabic{question}\alph{subquestion})~%
+\def\@currentlabel{(\arabic{question}\alph{subquestion})}%
+}
+\makeatother
+
+\ifthenelse{\isundefined{\corrige}}{\newcommand{\reponse}[1]{}}%
+{\newcommand{\reponse}[1]{\begin{thinbar}{\small\color{red!100!blue!50} #1}\end{thinbar}}}
+
+\newdimen\thinbarsep
+  \thinbarsep=\parindent
+  \advance\thinbarsep-2pt
+\newenvironment{thinbar}{%
+  \def\FrameCommand{\kern\thinbarsep \vrule width 0.4pt \hspace{1em}}%
+  \MakeFramed {\advance\hsize-\width \FrameRestore}}{%
+  \endMakeFramed}
+
+\ifthenelse{\isundefined{\corrige}}{\newcommand{\rep}[1]{}}%
+{\newcommand{\rep}[1]{{\color{red}#1}}}
+\ifthenelse{\isundefined{\corrige}}{\newcommand{\newpagesujet}{\newpage}}
+{\newcommand{\newpagesujet}{}}
+\ifthenelse{\isundefined{\corrige}}{\newcommand{\newpagecorrige}{}}
+{\newcommand{\newpagecorrige}{\newpage}}
+
+\newcommand{\entetefeuille}{%
+\begin{center}
+École universitaire Paris-Saclay\hfill Licence de mathématiques (L3) \\
+Année universitaire 2023/2024 \hfill MEU 302 Algèbre 
+\end{center}}
+
+\DeclareMathOperator\Vect{Vect}
+\DeclareMathOperator\image{im}
+\DeclareMathOperator{\Mat}{Mat}
+
+\newcommand{\doigt}{\ding{43} ~}
+
+
+%Solution
+\newcommand{\solution}[1]{\par\noindent\textbf{\color{OliveGreen}Solution :} \textcolor{OliveGreen}{#1}}
+
+
+\def\mat#1{\begin{pmatrix}#1\end{pmatrix}}
+
+
+
+\newcommand{\norme}[1]{\lVert#1\rVert}
+\newcommand{\td}[1]{\entetefeuille
+\begin{center}
+{\large \textbf{Feuille d'exercices n${}^\circ$#1}}
+\end{center}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%
+%%%%%%
+%%%
+%
+
+
+
+\begin{document}
+
+\td{4}
+\begin{center}
+Rédaction solutions $\mathscr{F.J}$
+\end{center}
+
+%Exo 1
+\exercice%<<<1
+
+\noindent On considère plusieurs applications $\varphi :
+\mathbf{R}^2\times\mathbf{R}^2\to\mathbf{R}$ :
+\begin{enumerate}
+\item[a.] $\varphi((x_1,x_2), (y_1,y_2))=x_1y_2+x_2y_1$ ;
+\item[b.] $\varphi((x_1,x_2), (y_1,y_2))=x_1y_2-x_2y_1$ ;
+\item[c.] $\varphi((x_1,x_2), (y_1,y_2))=x_1x_2+x_1y_2$ ;
+\item[d.] $\varphi((x_1,x_2), (y_1,y_2))=x_1y_1$ ;
+\item[e.] $\varphi((x_1,x_2), (y_1,y_2))=x_1y_2$.
+\end{enumerate}
+
+\medskip
+\question Lesquelles définissent une forme bilinéaire ?
+\solution{Si $u =(x_1,x_2)$, $v = (y_1,y_2)$ $w = (z_1,z_2)$ de $\mathbb{R}^3$ et $\lambda$ de $\mathbb{R}$ on a :\\
+\doigt Pour la a. : Dans la question (2) on montre que cette application est symétrique, il suffit donc de montrer la linéarité par rapport à la variable de droite (ou de gauche) : $\varphi(u+\lambda v,w) = (x_1+\lambda y_1)z_2+(x_2+\lambda y_2)z_1 = \varphi(u,w) + \lambda \varphi(v,w)$, donc $\varphi$ est bien bilinéaire (symétrique par la réponde à la question b.).\\
+\doigt Pour le b. : bilinéaire facile ...\\
+\doigt Pour le c. : Le terme $x_1x_2$ met en défaut la linéarité à gauche : $\varphi(\lambda u,v) = \lambda^2 x_1x_2 + \lambda x_1y_2 = \lambda(\lambda x_1x_2 + x_1y_2) \ne \lambda \varphi(u,v)$.\\
+\doigt Pour le d. : bilinéaire facile...\\
+\doigt Pour le e. : bilinéaire facile...
+}
+
+\medskip
+\question Parmi les formes bilinéaires, lesquelles sont symétriques ?
+antisymétriques ?
+\solution{Si $u =(x_1,x_2)$ et $v = (y_1,y_2)$ on a :\\
+\doigt Pour le a. : $\varphi(u,v) = x_1y_2+x_2y_1 = y_1x_2+y_2x_1 = \varphi(v,u)$, donc bilinéaire symétrique.\\
+\doigt Pour le b. : $\varphi(u,v) = x_1y_2-x_2y_1 = - (y_1x_2-y_2x_1) = - \varphi(v,u)$, donc bilinéaire antisymétrique.\\
+\doigt Pour le c. : pas bilinéaire.\\
+\doigt Pour le d. bilinéaire symétrique facile...\\
+\doigt Pour le e. bilinéaire ni symétrique ni anti symétrique.
+}
+
+\medskip
+\question Pour les formes bilinéaires, écrire la matrice de
+$\varphi$ dans la base canonique, ainsi que la forme quadratique
+correspondante.
+\solution{La matrice d'une application linéaire à pour coefficient $a_{i,j} = \phi(e_i,e_j)$ d'où :\\
+\doigt $Mat(\varphi _a, Can) = \mat{0&1\\1&0}$;\\
+\medskip
+\doigt $Mat(\varphi _b, Can) = \mat{0&1\\-1&0}$;\\
+\medskip
+\doigt $Mat(\varphi _d, Can) = \mat{1&0\\0&0}$;\\
+\medskip
+\doigt $Mat(\varphi _e, Can) = \mat{0&1\\0&0}$;\\
+}
+%>>>1
+
+%Exo 2
+\exercice%<<<1
+
+Soit $A=\left(\begin{array}{cc} 1 & 0 \\ 0 & -1 \end{array}\right)$.
+On note $\varphi$ la forme bilinéaire symétrique sur $\mathbf{R}^2$
+dont la matrice dans la base canonique est $A$.
+
+\question Déterminer l'expression de $\varphi$.
+\solution{On a $\varphi(u,v) = (U)^tAV$ pour tout $u, v \in \mathbf{R}^2$, \\d'où $\varphi(u,v) = x_1y_1-x_2y_2$.
+}
+
+\question Soit $\mathscr B'=(e'_1, e'_2)$ la base de $\mathbf{R}^2$ définie
+par $e'_1=(\frac 12,\frac 12)$ et $e'_2=(\frac 12,-\frac 12)$. Déterminer
+l'expression de $\varphi$ \emph{en fonction des coordonnées dans la base
+$\mathscr B'$} ainsi que la matrice $A'$ de $\varphi$ dans la base $\mathscr
+B'$. On note $\mathscr C_{an}$ la base canonique de $\mathbb{R}^2$.
+\solution{Si on note $P = Mat(id, \mathscr B', \mathscr C_{an})$ la matrice de chamgement de base, on a $U = PU'$, d'où : \\
+$\varphi(u,v) = (PU')^tAPV' = (U')^t(P)^t~A~PV' = (U')^t\big(P^tAP\big)V' = \frac 12 x_1y_2 + \frac 12 y_1x_2$, \\
+on a la aussi $Mat(\varphi, \mathscr B') = P^tAP = \mat{0&1/2 \\ 1/2 & 0}$
+}
+\newpage
+%>>>1
+
+%Exo 3
+\exercice%<<<1
+
+On considère l'application la forme bilinéaire sur $\mathbf{R}^2$ définie
+par la formule $\varphi((x_1,x_2),(y_1,y_2))=x_1y_1-\frac 12x_2y_1+\frac
+32x_1y_2-x_2y_2$.
+
+\question Déterminer deux formes bilinéaires $\varphi_1$ et $\varphi_2$
+telles que $\varphi=\varphi_1+\varphi_2$, avec $\varphi_1$ symétrique et
+$\varphi_2$ antisymétrique.
+
+\question Déterminer les matrices de $\varphi$, $\varphi_1$ et $\varphi_2$
+dans la base canonique.
+
+%>>>1
+\exercice%<<<1
+
+Soit $A=\left(\begin{array}{cc} 1 & 1 \\ 2 & 2\end{array}\right)$. On note
+$f: \mathbf{R}^2\to \mathbf{R}^2$ l'application linéaire dont $A$ est la
+matrice dans la base canonique.
+Représenter graphiquement les sous-espaces $\ker f$,
+$\ker f^\star$, $\image f$, $\image f^\star$.
+
+%>>>1
+\newpagesujet
+\exercice%<<<1
+
+\question\label{question-iv-1} Parmi les applications
+$q:\mathbf{R}^n \to \mathbf{R}$ définies ci-dessous,
+lesquelles sont des formes quadratiques ?
+
+\begin{enumerate}
+\item[a.] $q(x_1,x_2)=2x_1^2+3x_1x_2+6x_2^2$ ;
+\item[b.] $q(x_1,x_2)=2x_1^2+x_1+3x_2+6x_2^2$ ;
+\item[c.] $q(x_1,x_2,x_3)=8x_1x_2+4x_2^2$ ;
+\item[d.] $q(x_1,x_2,x_3)=x_1x_2x_3$ ;
+\item[e.] $q(x_1,x_2,x_3)=x_1^2+2x_1x_2+4x_1x_3+3x_2^2+x_2x_3+7x_3^2$ ;
+\item[f.] $q(x_1,x_2,x_3)=4x_1x_2$ ;
+\item[g.] $q(x_1,x_2,x_3)=x_1^2+4x_1x_2+4x_2^2+2x_1x_3+x_3^2+2x_2x_3$. 
+\item[h.] $q(x_1,x_2,x_3)=3x_1x_2+2x_1x_3+x_2x_3$.
+\end{enumerate}
+
+\question Pour chacune des formes quadratiques identifiées à la
+question~\ref{question-iv-1}, déterminer sa forme bilinéaire symétrique
+associée, sa matrice dans base canonique, son rang.
+
+\question Déterminer la signature des formes quadratiques identifiées à la
+question~\ref{question-iv-1}. \emph{(Dans un premier temps, ne pas traiter
+cette dernière question :
+y revenir quand la réduction de Gauss aura été vue en cours.)}
+
+%>>>1
+\exercice%<<<1
+
+Soit $q : E \to \mathbf{R}$ une forme quadratique réelle. On note
+$\varphi:E \times E \to \mathbf{R}$ la forme bilinéaire symétrique
+associée.
+
+\question Montrer que pour tout $\lambda\in\mathbf{R}$ et $u\in E$,
+$q(\lambda u)=\lambda^2 q(u)$.
+\solution{On sait que $q(u) = \varphi(u,u)$, donc on a $q(\lambda u) = \varphi(\lambda u, \lambda u) = \lambda^2 \varphi(u,u) = \lambda^2 q(u)$, car $\varphi$ est la forme bilibénaire associée à $q$}
+\medskip
+
+\question Montrer que pour tout $(u,v)\in E^2$,
+$q(u+v)=q(u)+q(v)+2\varphi(x,y)$.
+\solution{On a $q(u+v) = \varphi(u+v,u+v) = q(u) + 2\varphi(u,v) + q(v)$ car $\varphi$ est symétrique donc $\varphi(u,v) + \varphi(v,u) = 2\varphi(u,v)$.}
+\medskip
+
+\question Montrer que pour tout $(u,v)\in E^2$, $\varphi(u,v)=\frac 1
+4\left(q(u+v)-q(u-v)\right)$.
+\solution{On a $\frac 14\left(q(u+v)-q(u-v)\right) = \frac 14 (\varphi(u+v,u+v) - \varphi(u-v,u-v)) = \frac 14 (q(u) + q(v) + 2\varphi(u,v) - q(u) -q(v) + 2 \varphi(u,v)) = \varphi(u,v)$.
+}
+\medskip
+
+\question Montrer que pour tout $(u,v)\in E^2$, 
+$(q(u+v)+q(u-v)= 2 (q(u)+q(v))$.
+\solution{On a $q(u+v) + q(u-v) = \varphi(u+v,u+v) + \varphi(u-v,u-v) = 2q(u) + 2q(v)$.}
+
+%>>>1
+\exercice%<<<1
+
+Déterminer la signature de la forme quadratique $q(x_1,x_2,x_3)=(x_1+x_2)^2
++(x_1+x_3)^2-(x_2-x_3)^2$.
+\solution{On développe et on utilise l'algorithme de Gauss qui nous donne une somme de formes linéaires indépendantes.}
+
+%>>>1
+\newpagesujet
+\exercice%<<<1
+
+On munit $\mathbf{R}^2$ du produit scalaire canonique.
+On note $\mathscr C$ la courbe d'équation $5(x^2+y^2)+6xy=16$.
+
+\question Réduire la forme quadratique apparaissant dans le membre de
+gauche de l'équation dans une base orthonormale.
+
+\question Déterminer les caractéristiques géométriques de $\mathscr C$.
+
+\question Déterminer les valeurs minimales et maximales prises par la
+restriction de la fonction $(x,y)\longmapsto 5(x^2+y^2)+6xy$ sur le cercle
+d'équation $x^2+y^2=1$.
+
+%>>>1
+\exercice%<<<1
+
+Soit $q$ la forme quadratique sur $\mathbf{R}^2$ définie par la formule
+$q(x,y)=x^2-y^2$. Existe-t-il un système de coordonnées $(x',y')$
+(\emph{i.e.} $x'$ et $y'$ sont les fonctions coordonnées dans une base
+$\mathscr B'$ de $\mathbf{R}^2$ bien choisie) telle que l'expression de $q$
+devienne :
+\begin{enumerate}
+\item[a.] $q=2x'^2+\frac 1 4 y'^2$ ;
+	\solution{Les formes quadratiques n'ont pas même signature, c'est donc impossible.}	
+\item[b.] $q=2x'^2-\frac 1 4 y'^2$ ;
+	\solution{si on fait le changement de variable $\sqrt{2}x' = x$ et $\frac 12 y' = y$ on a $x' = \frac{x}{\sqrt{2}}$ et $y' = 2y$, matriciellement on a $\mat{x'\\y'} = \mat{\frac{1}{\sqrt{2}}&0\\0&2}\mat{x\\y}$, notons $P =  \mat{\frac{1}{\sqrt{2}}&0\\0&2}$, $P$ est la matrice $Mat(id, \mathscr B', \mathscr B)$, on a donc $Mat(q, \mathscr B) = P^t \times Mat(q, \mathscr B')\times P $ }
+\item[c.] $q=-2x'^2+\frac 1 4 y'^2$ ;
+\item[d.] $q=x'y'$ ;
+\item[e.] $q=x'^2$ ;
+\end{enumerate}
+
+%>>>1
+\exercice%<<<1
+
+Soit $(a,b,c)\in\mathbf{R}^3$. Montrer que la forme quadratique réelle
+$q(x,y)=ax^2+bxy+cy^2$ est définie positive si et
+seulement si $a>0$ et $b^2-4ac < 0$.
+
+%>>>1
+\exercice%<<<1
+
+Soit $E$ un espace euclidien. Soit $a\in E$ tel que $\norme a=1$. Soit
+$\lambda\in\mathbf{R}$. On définit $q:E\to \mathbf{R}$ par la formule
+$q(x)=\lambda {\norme x }^2-\langle x, a \rangle^2$.
+
+\question Vérifier que $q$ est une forme quadratique sur $E$.
+
+\question Justifier que tout vecteur de $E$ s'écrit de manière unique sous
+la forme $u + t a$ avec $u\in a^\perp$ et $t\in\mathbf{R}$.
+Calculer $q(u+ta)$.
+
+\question Notons $\varphi : E \times E \to \mathbf{R}$ la forme bilinéaire
+symétrique associée à $q$. Calculer $\varphi(u+ta, u'+t'a)$ où $u$ et $u'$
+sont des éléments de $a^\perp$, et $t$ et $t'$ des réels.
+
+\question On suppose que $\dim E\geq 2$.
+À quelle condition nécessaire et suffisante portant sur $\lambda$ est-ce
+que $q$ est définie positive ?
+
+%>>>1
+\newpagesujet
+\exercice%<<<1
+
+Décrire les courbes déterminées par les équations cartésiennes suivantes
+dans $\mathbf{R}^2$ :
+\begin{enumerate}
+\item[a.] $5x^2+6xy+5y^2 = 8$ ;
+\item[b.] $3x^2 - 2 xy - 3y^2 = 1$ ;
+\item[c.] $3xy = 1$ ;
+\end{enumerate}
+
+%>>>1
+\exercice%<<<1
+
+Décrire les surfaces déterminées par les équations cartésiennes suivantes
+dans $\mathbf{R}^3$ :
+\begin{enumerate}
+\item[a.] $x+y+z = 3$ ;
+\item[b.] $x^2+y^2+z^2= 1$ ;
+\item[c.] $x^2+y^2 = 1$ ;
+\item[d.] $x^2+y^2-z^2 = 0$ ;
+\item[e.] $x^2+y^2-z^2 = 1$.
+\end{enumerate}
+
+%>>>1
+\exercice%<<<1
+
+
+On considère la forme quadratique $q(x,y,z)=2xy+2xz+2yz$ sur
+$\mathbf{R}^3$. Soit $A$ la matrice de $q$ dans la base canonique.
+
+\question Déterminer $A$.
+
+\question On pose $U=\left(\begin{array}{c}1\\1\\1\end{array}\right)$,
+$V=\left(\begin{array}{c}1\\-1\\0\end{array}\right)$,
+$W=\left(\begin{array}{c}1\\1\\-2\end{array}\right)$. Calculer $AU$, $AV$,
+$AW$.
+
+\question Quelle est la signature de $q$ ?
+
+\question Déterminer la matrice de $q$ dans la base $(\vec u,\vec v,\vec w)$
+(correspondant aux vecteurs-colonnes $U$, $V$, $W$).
+
+\question Déterminer $q(x' \vec u + y' \vec v + z' \vec w)$ en
+fonction des réels $x'$, $y'$ et $z'$.
+
+\question Appliquer la réduction de Gauss à la forme quadratique $q$.
+
+\question Quelle est la nature géométrique du cône isotrope de $q$ ?
+
+%>>>1
+
+
+\end{document}

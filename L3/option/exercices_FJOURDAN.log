@@ -1,0 +1,286 @@
+This is LuaHBTeX, Version 1.15.0 (TeX Live 2022/Debian)  (format=lualatex 2023.9.13)  12 DEC 2023 21:17
+ restricted system commands enabled.
+**exercices_FJOURDAN.tex
+(./exercices_FJOURDAN.tex
+LaTeX2e <2022-11-01> patch level 1
+Lua module: luaotfload 2022-10-03 3.23 Lua based OpenType font support
+Lua module: lualibs 2022-10-04 2.75 ConTeXt Lua standard libraries.
+Lua module: lualibs-extended 2022-10-04 2.75 ConTeXt Lua libraries -- extended c
+ollection.
+luaotfload | conf : Root cache directory is "/home/john/.texlive2022/texmf-var/l
+uatex-cache/generic/names".
+luaotfload | init : Loading fontloader "fontloader-2022-10-03.lua" from kpse-res
+olved path "/usr/share/texlive/texmf-dist/tex/luatex/luaotfload/fontloader-2022-
+10-03.lua".
+Lua-only attribute luaotfload@noligature = 1
+luaotfload | init : Context OpenType loader version 3.120
+Inserting `luaotfload.node_processor' in `pre_linebreak_filter'.
+Inserting `luaotfload.node_processor' in `hpack_filter'.
+Inserting `luaotfload.glyph_stream' in `glyph_stream_provider'.
+Inserting `luaotfload.define_font' in `define_font'.
+Lua-only attribute luaotfload_color_attribute = 2
+luaotfload | conf : Root cache directory is "/home/john/.texlive2022/texmf-var/l
+uatex-cache/generic/names".
+Inserting `luaotfload.harf.strip_prefix' in `find_opentype_file'.
+Inserting `luaotfload.harf.strip_prefix' in `find_truetype_file'.
+Removing  `luaotfload.glyph_stream' from `glyph_stream_provider'.
+Inserting `luaotfload.harf.glyphstream' in `glyph_stream_provider'.
+Inserting `luaotfload.harf.finalize_vlist' in `post_linebreak_filter'.
+Inserting `luaotfload.harf.finalize_hlist' in `hpack_filter'.
+Inserting `luaotfload.cleanup_files' in `wrapup_run'.
+Inserting `luaotfload.harf.finalize_unicode' in `finish_pdffile'.
+Inserting `luaotfload.glyphinfo' in `glyph_info'.
+Lua-only attribute luaotfload.letterspace_done = 3
+Inserting `luaotfload.aux.set_sscale_dimens' in `luaotfload.patch_font'.
+Inserting `luaotfload.aux.set_font_index' in `luaotfload.patch_font'.
+Inserting `luaotfload.aux.patch_cambria_domh' in `luaotfload.patch_font'.
+Inserting `luaotfload.aux.fixup_fontdata' in `luaotfload.patch_font_unsafe'.
+Inserting `luaotfload.aux.set_capheight' in `luaotfload.patch_font'.
+Inserting `luaotfload.aux.set_xheight' in `luaotfload.patch_font'.
+Inserting `luaotfload.rewrite_fontname' in `luaotfload.patch_font'. L3 programm
+ing layer <2023-01-16>
+Inserting `tracingstacklevels' in `input_level_string'.
+(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2022/07/02 v1.4n Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/size12.clo
+File: size12.clo 2022/07/02 v1.4n Standard LaTeX file (size option)
+luaotfload | db : Font names database loaded from /home/john/.texlive2022/texmf-
+var/luatex-cache/generic/names/luaotfload-names.luc.gz)
+\c@part=\count183
+\c@section=\count184
+\c@subsection=\count185
+\c@subsubsection=\count186
+\c@paragraph=\count187
+\c@subparagraph=\count188
+\c@figure=\count189
+\c@table=\count190
+\abovecaptionskip=\skip48
+\belowcaptionskip=\skip49
+\bibindent=\dimen139
+)
+(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2021/02/14 v1.3d Input encoding file
+\inpenc@prehook=\toks16
+\inpenc@posthook=\toks17
+
+
+Package inputenc Warning: inputenc package ignored with utf8 based engines.
+
+) (/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 11
+2.
+
+(/usr/share/texmf/tex/latex/lm/t1lmr.fd
+File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+))
+(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2022/12/26 3.84 The Babel package
+
+(/usr/share/texlive/texmf-dist/tex/generic/babel/luababel.def
+\bbl@readstream=\read2
+\l@dumylang=\language2
+Package babel Info: Non-standard hyphenation setup on input line 118.
+\l@nohyphenation=\language3
+\l@croatian=\language4
+\l@basque=\language5
+\l@tamil=\language6
+\l@finnish=\language7
+\l@welsh=\language8
+\l@arabic=\language9
+\l@telugu=\language10
+\l@hungarian=\language11
+\l@uppersorbian=\language12
+\l@nynorsk=\language13
+\l@kurmanji=\language14
+\l@interlingua=\language15
+\l@danish=\language16
+\l@farsi=\language17
+\l@swedish=\language18
+\l@galician=\language19
+\l@turkmen=\language20
+\l@polish=\language21
+\l@latin=\language22
+\l@romansh=\language23
+\l@turkish=\language24
+\l@dutch=\language25
+\l@armenian=\language26
+\l@german-x-2022-03-16=\language27
+\l@catalan=\language28
+\l@ukenglish=\language29
+\l@indonesian=\language30
+\l@bokmal=\language31
+\l@french=\language32
+\l@oriya=\language33
+\l@marathi=\language34
+\l@romanian=\language35
+\l@churchslavonic=\language36
+\l@thai=\language37
+\l@ibycus=\language38
+\l@macedonian=\language39
+\l@czech=\language40
+\l@esperanto=\language41
+\l@malayalam=\language42
+\l@classiclatin=\language43
+\l@panjabi=\language44
+\l@latvian=\language45
+\l@irish=\language46
+\l@coptic=\language47
+\l@sanskrit=\language48
+\l@italian=\language49
+\l@russian=\language50
+\l@german=\language51
+\l@usenglishmax=\language52
+\l@occitan=\language53
+\l@schoolfinnish=\language54
+\l@georgian=\language55
+\l@icelandic=\language56
+\l@lithuanian=\language57
+\l@swissgerman=\language58
+\l@kannada=\language59
+\l@serbianc=\language60
+\l@bulgarian=\language61
+\l@serbian=\language62
+\l@greek=\language63
+\l@liturgicallatin=\language64
+\l@hindi=\language65
+\l@friulan=\language66
+\l@pali=\language67
+\l@spanish=\language68
+\l@portuguese=\language69
+\l@gujarati=\language70
+\l@bengali=\language71
+\l@ngerman=\language72
+\l@monogreek=\language73
+\l@ngerman-x-2022-03-16=\language74
+\l@estonian=\language75
+\l@ethiopic=\language76
+\l@assamese=\language77
+\l@pinyin=\language78
+\l@afrikaans=\language79
+\l@ukrainian=\language80
+\l@slovenian=\language81
+\l@mongolianlmc=\language82
+\l@piedmontese=\language83
+\l@slovak=\language84
+\l@belarusian=\language85
+\l@mongolian=\language86
+\l@ancientgreek=\language87
+\babelcatcodetablenum=\catcodetable12
+\bbl@pattcodes=\catcodetable13
+)
+\babel@savecnt=\count191
+\U@D=\dimen140
+\l@unhyphenated=\language88
+
+(/usr/share/texlive/texmf-dist/tex/generic/babel/luababel.def
+\bbl@attr@locale=\attribute4
+)
+(/usr/share/texlive/texmf-dist/tex/generic/babel-french/french.ldf
+Language: french 2023/01/02 v3.5p French support from the babel system
+Package babel Info: Hyphen rules for 'acadian' set to \l@french
+(babel)             (\language32). Reported on input line 91.
+Package babel Info: Hyphen rules for 'canadien' set to \l@french
+(babel)             (\language32). Reported on input line 92.
+\FB@nonchar=\count192
+\FB@spacing=\attribute5
+\FB@addDPspace=\attribute6
+\FB@addGUILspace=\attribute7
+\FB@ucsNBSP=\attribute8
+\FB@dialect=\attribute9
+Package french.ldf Info: No need for active punctuation characters
+(french.ldf)             with this version of LuaTeX!
+(french.ldf)             reported on input line 249.
+\FBguill@level=\count193
+\FBold@everypar=\toks18
+\FB@Mht=\dimen141
+\mc@charclass=\count194
+\mc@charfam=\count195
+\mc@charslot=\count196
+\std@mcc=\count197
+\dec@mcc=\count198
+Inserting `frenchb.french_punctuation' in `kerning'.
+\listindentFB=\dimen142
+\descindentFB=\dimen143
+\labelindentFB=\dimen144
+\labelwidthFB=\dimen145
+\leftmarginFB=\dimen146
+\parindentFFN=\dimen147
+\FBfnindent=\dimen148
+
+(/usr/share/texlive/texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-fr.tex
+UTF-8 French hyphenation patterns
+(/usr/share/texlive/texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-fr.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/hyph-utf8/patterns/quote/hyph-quote-
+fr.tex))))
+(/usr/share/texlive/texmf-dist/tex/generic/babel/locale/fr/babel-french.tex
+Package babel Info: Importing font and identification data for french
+(babel)             from babel-fr.ini. Reported on input line 11.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/carlisle/scalefnt.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks19
+)
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-luatex.def
+File: l3backend-luatex.def 2023-01-16 L3 backend support: PDF output (LuaTeX)
+\l__color_backend_stack_int=\count199
+\l__pdf_internal_box=\box51
+)
+(./exercices_FJOURDAN.aux)
+\openout1 = exercices_FJOURDAN.aux
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 10.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 1
+0.
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
+File: ts1cmr.fd 2022/07/10 v2.5l Standard LaTeX font definitions
+)
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Info: Redefining \degres on input line 10.
+LaTeX Info: Redefining \up on input line 10.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <14.4> on input line 12.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 12.
+ [1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2
+Missing character: There is no ’ (U+2019) in font ec-lmbx12!
+] [3] (./exercices_FJOURDAN.aux))
+
+Here is how much of LuaTeX's memory you used:
+ 2717 strings out of 478382
+ 100000,1977958 words of node,token memory allocated
+ 608 words of node memory still in use:
+   4 hlist, 1 vlist, 1 rule, 11 glue, 3 kern, 1 penalty, 2 glyph, 54 attribute, 
+50 glue_spec, 9 attribute_list, 1 write nodes
+   avail lists: 1:1,2:391,3:59,4:16,5:284,6:18,7:6606,8:1,9:116,10:10,11:585
+ 22799 multiletter control sequences out of 65536+600000
+ 30 fonts using 1758455 bytes
+ 39i,6n,45p,872b,204s stack positions out of 10000i,1000n,20000p,200000b,200000s
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}</usr/share/texmf/fonts/type1/pub
+lic/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/
+texmf/fonts/type1/public/lm/lmr17.pfb>
+Output written on exercices_FJOURDAN.pdf (3 pages, 84860 bytes).
+
+PDF statistics: 27 PDF objects out of 1000 (max. 8388607)
+ 18 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 131072)
+ 1 words of extra memory for PDF output out of 10000 (max. 100000000)
+

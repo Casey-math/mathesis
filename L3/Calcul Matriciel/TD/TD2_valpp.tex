@@ -1,0 +1,214 @@
+\documentclass[11pt]{article}
+\usepackage[francais]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{amsfonts}
+%\usepackage{verbatim}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{color}
+\newcommand{\tn}{\mathrm}
+\newcommand{\eref}[1]{(\ref{#1})}
+\newcommand{\dep}[2]{\partial_{#2}{#1}}
+\newcommand{\dis}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\MmnK}{\mathcal{M}_{m,n}(\K)}
+\newcommand{\MnpK}{\mathcal{M}_{n,p}(\K)}
+\newcommand{\MnK}{\mathcal{M}_{n}(\K)}
+\newcommand{\MmK}{\mathcal{M}_{m}(\K)}
+\newcommand{\MmnR}{\mathcal{M}_{m,n}(\R)}
+\newcommand{\MnR}{\mathcal{M}_{n}(\R)}
+\newcommand{\MnC}{\mathcal{M}_{n}(\C)}
+\newcommand{\MmR}{\mathcal{M}_{m}(\R)}
+\newcommand{\nmt}[1]{|\mskip -2mu|\mskip -2mu|{#1}|\mskip -2mu |\mskip -2mu|}
+
+\oddsidemargin -0.2cm
+\textwidth 17cm
+\topmargin -2cm
+\headheight 0.0cm
+\textheight 25cm
+
+%\oddsidemargin -1.0cm    % espace libre a gauche d'une page (-2.5cm a 18cm)
+%\evensidemargin -1.0cm
+%\topmargin -0cm         % espace libre en haut d'une page (-4cm a 23cm)
+%\headheight 0cm
+%\headsep 1.2cm
+%\footskip 1cm          % ?
+%\textheight 22cm        % hauteur d'une page (textheigth+topmargin<=23cm)
+%\textwidth 18cm        % largeur d'une page (16-2*oddsidemargin)
+%\footnotesep 0.5cm      % ?
+%\parindent 2em          % indentation de debut de paragraphe
+%\baselineskip 5ex       % separation entre 2 lignes
+\setlength{\parindent}{0cm} \setlength{\parskip}{5mm}
+
+\newtheorem{exercice}{\bf Exercice}
+
+\newenvironment{exo}{\begin{exercice}\smallskip\normalfont}{\end{exercice}}
+
+
+\begin{document}
+
+\noindent 
+{\bf Université Paris-Saclay - L3 Mathématiques - Année 2023-2024\\
+Analyse matricielle et optimisation }
+
+\vspace{0.2cm}
+
+
+\begin{center}
+{\large {\bf Feuille de TD n° 2 - Propriétés des matrices. Valeurs propres.}}
+\end{center}
+\vspace{0.2cm}
+
+{\bf Rappels préliminaires}.
+
+Soit $n\in\N^*,\ \mathbb{K}=\R$ ou $\mathbb{K}=\C$ et $A\in\MnK$. On dit que $\lambda\in\K$ est une valeur propre de $A$ s'il existe $u\in\K^n,\ u\neq0,$ tel que $Au=\lambda u$. Un tel vecteur $u$ s'appelle vecteur propre de $A$ associé à la valeur propre $\lambda$.
+
+Toute matrice $A\in\M_n(\K)$ est une matrice de $M_n(\C)$ et a $n$ valeurs propres dans $\C$, qui sont les $n$ racines (distinctes ou non) du polynôme $P(\lambda)=\det(A-\lambda I_n)\in\C[\lambda]$.
+
+Soit $A\in\MnR$ une matrice {\bf symétrique réelle}, {\it i.e.} vérifiant $A^T=A$. Alors :
+\begin{itemize}
+\item $A$ a $n$ valeurs propres réelles ;
+  \item il existe une base orthonormée de $\R^n$ formée de vecteurs propres (réels) de $A$ ($A$ est diagonalisable dans une base o. n. de vecteurs propres réels).\\
+\end{itemize}
+
+Soit $A\in\MnC$ une {\bf matrice hermitienne (auto-adjointe)}, {\it i.e.} vérifiant $A^*=A$. Alors :
+\begin{itemize}
+\item les $n$ valeurs propres de $A$ sont réelles ;
+  \item il existe une base orthonormée de $\C^n$ formée de vecteurs propres de $A$ ($A$ est diagonalisable dans une base o. n. de vecteurs propres (complexes)).\\
+\end{itemize}
+
+Soit $A\in\MnC$ une {\bf matrice normale}, {\it i.e.} vérifiant $AA^*=A^*A$. Alors il existe une base orthonormée de $\C^n$ formée de vecteurs propres de $A$ ($A$ est diagonalisable dans une base o. n. de vecteurs propres (complexes), ses valeurs propres sont complexes)).\\
+
+\begin{exo} {\bf Théorème de Gerschgörin - localisation des valeurs propres}.\ \\
+  Si $n\in\N,\ n\geq1,$ et $A\in\MnK$, on note $spec(A)$ le spectre de la matrice $A$, c'est-à-dire l'ensemble des valeurs propres de $A$ et, pour chaque $i\in\{1,\dots,n\}$, on note $D_i(A)$ l'ensemble
+  $$
+  D_i(A)=\{z\in\C\, :\, |z-A_{ii}|\leq \sum_{\substack{j=1\\j\neq i}}^n|A_{ij}|\}.
+  $$
+  $D_i$ s'appelle le $i$-ème disque de Gerschgörin de la matrice $A$.
+  Soit $n\in\N,\ n\geq1,$ et $A\in\MnK$.
+  Montrer que pour tout $\lambda\in spec(A)$,
+  $$
+\lambda\in\displaystyle{\bigcup_{i=1}^n }D_i(A).
+  $$
+  En déduire que le rayon spectral $\rho(A):=\displaystyle{\max_{\lambda\in spec(A)}|\lambda|}$ de $A$ vérifie
+  $$
+  \rho(A)\leq\displaystyle{\max_{1\leq i\leq n}\sum_{j=1}^n|A_{ij}|}.
+  $$
+\end{exo}
+\newpage
+\begin{exo}
+  \begin{enumerate}
+    \item[]
+\item   Soit $A\in\MnR$ orthogonale ({\it i.e.} vérifiant $AA^T=A^TA=I_n$). Montrer que si $\lambda\in\C$ est une valeur propre de $A$, alors $|\lambda|=1$.
+    \item On considère ici le produit scalaire euclidien et la norme euclidienne sur $\R^n$. Soit $A\in\MnR$.
+      \begin{enumerate}
+    \item Montrer que $A$ est orthogonale si et seulement si les colonnes de $A$ forment une base o. n. de $\R^n$ si et seulement si $A$ préserve le produit scalaire, autrement dit si et seulement si pour tous $x,\ y\in\R^n$,
+      $$
+(Ax|Ay)=(x|y).
+      $$
+      \item Montrer que $A$ préserve le produit scalaire si et seulement si $A$ préserve la norme, autrement dit si et seulement si pour tout $x\in\R^n$,
+      $$
+\|Ax\|=\|x\|,
+      $$ 
+et en déduire que $A$ est orthogonale si et seulement si $A$ préserve la norme.
+      \end{enumerate}
+      \end{enumerate}
+\end{exo}
+
+\begin{exo}{\bf Caractérisation des valeurs propres pour des matrices hermitiennes - théorème de Courant-Fischer}.\\
+  {\bf Rappel :} on rappelle que le produit hermitien canonique sur $\C^n$ est défini par
+  $$
+(x|y)_\C=x_1\overline{y_1}+\cdots x_n\overline{y_n},
+  $$
+  pour tous $x=(x_1,\dots,x_n),\ y=(y_1,\dots,y_n)\in\C^n$,
+  et que la norme $\|\cdot\|_2$ sur $\C^n$ est définie par
+  $$
+\|x\|_2=\sqrt{(x|x)_\C}=\sqrt{|x_1|^2+\cdots|x_n|^2},
+  $$
+  pour tout $x=(x_1,\dots,x_n)\in\C^n$.\\
+ 
+  Soit $n\in\N,\ n\geq1,$ et $A\in\MnC$ une matrice hermitienne (auto-adjointe). Soient $\lambda_1\leq\dots\leq\lambda_n$ les $n$ valeurs propres réelles de $A$. Montrer que
+  $$
+\lambda_1=\min_{x\in\C^n,\ x\neq0}\frac{(Ax|x)_\C}{\|x\|_2^2}=\min_{x\in\C^n,\ \|x\|_2=1}(Ax|x)_\C
+$$
+et que
+  $$
+\lambda_n=\max_{x\in\C^n,\ x\neq0}\frac{(Ax|x)_\C}{\|x\|_2^2}=\max_{x\in\C^n,\ \|x\|_2=1}(Ax|x)_\C
+$$
+{\it Remarque : on pourra montrer de manière analogue que si $A\in\MnR$ est une matrice symétrique, alors 
+  $$
+\lambda_1=\min_{x\in\R^n,\ x\neq0}\frac{(Ax|x)}{\|x\|_2^2}=\min_{x\in\R^n,\ \|x\|_2=1}(Ax|x)
+$$
+et que
+  $$
+\lambda_n=\max_{x\in\R^n,\ x\neq0}\frac{(Ax|x)}{\|x\|_2^2}=\max_{x\in\R^n,\ \|x\|_2=1}(Ax|x).
+$$}
+\end{exo}
+\ \\
+
+
+\centerline{{\bf Exercices en plus, à faire à la maison (non traités en TD)}}
+
+\begin{exo}\ \\
+  Soit $n\in\N,\ n\geq2$, et $A\in\MnR$.
+  \begin{enumerate}
+  \item Redémontrer le résultat suivant : si $A$ est une matrice symétrique, alors les valeurs propres de $A$ sont réelles.
+  \item Montrer que les matrices $A^tA$ et $AA^t$ sont symétriques et positives, i.e. sont symétriques et vérifient
+    $$
+    (A^tAx|x)\geq0,\ \ \ (AA^tx|x)\geq0,\ \ \forall\ x\in\R^n.
+    $$
+  \item Montrer que les valeurs propres de $A^tA$ et de $AA^t$ sont positives ou nulles.
+  \item Montrer que les matrices $A^tA$ et $AA^t$ sont définies positives si et seulement si $A$ est inversible.
+  \item Supposons $A$ symétrique. Montrer que si $A$ est définie positive, alors $A_{ii}>0,\ \forall\ i\in\{1,\dots,n\}$. Donner un exemple montrant que la réciproque n'est pas vraie, i.e. donner un exemple d'une matrice $A$ qui ne soit pas définie positive mais telle que $A_{ii}>0,\ \forall\ i\in\{1,\dots,n\}$.  
+\end{enumerate}
+\end{exo}
+
+\begin{exo}{\bf Matrices symétriques à coefficients positifs et valeurs propres (*)}.
+  
+  {\bf Notations}. Soit $n\in\N,$ $A\in\MnR$ et $x\in\R^n$. On note :
+  \begin{description}
+  \item $A\geq0$ ($A>0$) si $A_{ij}\geq0$ ($A_{ij}>0$), $\forall i, j\in\{1,\dots,n\}$ ;
+  \item $x\geq0$ ($x>0$) si $x_{i}\geq0$ ($x_{i}>0$), $\forall i\in\{1,\dots,n\}$ ;
+  \item $\|x\|_2$ la norme euclidienne de $x$ ;
+    \item si $x=(x_1,\dots,x_n)\in\R^n$, $|x|$ le vecteur de $\R^n$ $(|x_1|,\dots,|x_n|)$.
+  \end{description}
+\ \\  
+  {\it L'objectif de cet exercice est de montrer que si $A$ est une matrice symétrique à coefficients (strictement) positifs, alors le rayon spectral de $A$ est une valeur propre de $A$, pour laquelle il existe un vecteur propre associé dont toutes les composantes sont (strictement) positives}.
+
+  Soit $n\in\N,\ n\geq2,$ et $A\in\MnR$ une matrice symétrique telle que $A\ge0$. On note $\lambda_1\leq\dots\leq\lambda_n$ les $n$ valeurs propres réelles de $A$.  Soit
+  $$
+  \mu:=\sup\{(Ax|x)\,:\,x\in\R^n,\ x\geq0,\ \|x\|_2=1\}.
+  $$
+\begin{enumerate}
+\item Montrer que $0\leq\mu\leq \lambda_n$.
+\item Soit $y\in\R^n$ tel que $\|y\|_2=1$ un vecteur propre de $A$ associé à la valeur propre $\lambda_n$. Soit $z=|y|$. Montrer que
+  $$
+\mu\geq(Az|z)\geq \lambda_n.
+$$
+En déduire que $\mu=\lambda_n=(Az|z)$.
+\item Soit $\lambda$ une valeur propre de $A$ et $x\in\R^n$ un vecteur propre associé à la valeur propre $\lambda$ tel que $\|x\|_2=1$. Justifier que
+  $$
+|\lambda|=|(Ax|x)|\leq\mu.
+$$
+En déduire que $\lambda_n=\rho(A)$.
+\item Soient $u_1,\dots,u_n$ vecteurs propres de $A$ associés respectivement aux valeurs propres $\lambda_1,\dots,\lambda_n$ tel que $(u_1,\dots,u_n)$ est une base orthonormée de $\R^n$. Soit $z$ le vecteur de la question 2 et $(\alpha_1,\dots,\alpha_n)$ les coefficients de $z$ dans la base $(u_1,\dots,u_n)$. Montrer que si $\lambda_i\neq\lambda_n$ alors $\alpha_i=0$. En déduire que $z$ est un vecteur propre de $A$ associé à la valeur propre $\lambda_n=\rho(A)$.
+\item Supposons maintenant que $A>0$. Justifier que $\rho(A)>0$ et utiliser la relation $z=\frac{1}{\rho(A)}Az$ pour justifier que $z>0$.
+\end{enumerate}
+\end{exo}
+
+{\bf \color{blue} Indications pour l'exercice 5.}
+\begin{enumerate}
+\item Pour montrer que $\mu\ge0$, développer $(Ax|x)$ pour $x\geq0$ et utiliser que $A\geq0$ ; pour montrer que $\mu\leq\lambda_n$, utiliser l'exercice 3.
+\item Pour la première inégalité, utiliser la définition de $\mu$ ; pour la deuxième, développer $(Az|z)$ avec $z_i=|y_i|$, utiliser l'inégalité triangulaire et que $y$ valeur propre de A associé à $\lambda_n$.
+\item Pour montrer l'inégalité, développer $(Ax|x)$, utiliser l'inégalité triangulaire et la définition de $\mu$.
+\item Utiliser que $(Az|z)=\lambda_n=\lambda_n(z|z)$ et développer $(Az|z)$ et $(z|z)$.
+  \end{enumerate}
+\end{document}
+

@@ -1,0 +1,155 @@
+\input{../preambule.tex}
+
+\usepackage{amsmath, amssymb}
+\author{Anito Kodama}
+\title{Théorème de Convergence monotone}
+\begin{document}
+\maketitle
+
+\bp[Théorème de Beppo-Levi - (Convergence monotone)]
+Si les variables aléatoires $X_n$ sont positives et si la suite $(X_n)_n$ converge simplement presque sûrement vers $X$, alors
+$$ \lim_{n \to \infty} \mathbb{E}[X_n] = \mathbb{E}[X], $$ 
+et cela même si $\mathbb{E}[X] = \infty$.
+\ep
+
+\bpf
+
+\subsubsection*{Montrons la convergence de l'espérance par étapes.}
+
+\begin{enumerate}
+    \item $\mathbb{E}[X_n] \geq 0$, et la suite $\mathbb{E}[X_n]$ est croissante. Ainsi, il existe un $\alpha \geq 0$ tel que
+    $$ \lim_{n \to \infty} \mathbb{E}[X_n] = \alpha. $$
+
+    \item Comme $X_n \leq X$ pour tout $n$, on a également :
+    $$ \mathbb{E}[X_n] \leq \mathbb{E}[X]. $$
+
+    \item On en déduit alors que :
+    $$ \alpha \leq \mathbb{E}[X]. $$
+\end{enumerate}
+
+\subsubsection*{Montrons que $\alpha \geq \mathbb{E}[X]$}
+
+Pour cela, nous devons prouver que pour toute variable aléatoire étagée \( S \) telle que \( 0 \leq S \leq X \), on a :
+$$ \alpha \geq \mathbb{E}[S]. $$
+
+Prenons donc une variable aléatoire étagée \( S \geq 0 \) telle que \( S \leq X \). Montrons que pour tout \( c \in [0, 1[ \), on a :
+$$ \alpha \geq c \cdot \mathbb{E}[S] = \mathbb{E}[cS]. $$
+
+\subsubsection*{Construction des événements}
+
+Considérons les événements \( E_{n,c} = \{X_n \geq cS\} \). Ces événements forment une suite croissante, car \( (X_n) \) est croissante. De plus, on a :
+$$ \bigcup_{n \geq 0} E_{n,c} = \Omega. $$
+
+Ensuite, on utilise les inégalités suivantes :
+\[
+\mathbb{E}[X_n] \geq \mathbb{E}[X_n \cdot \mathbf{1}_{E_{n,c}}] = \mathbb{E}[X_n \cdot \mathbf{1}_{X_n \geq cS}] \geq \mathbb{E}[cS \cdot \mathbf{1}_{X_n \geq cS}].
+\]
+
+\subsubsection*{Calculs d'espérance}
+
+Nous avons :
+\[
+\mathbb{E}[cS \cdot \mathbf{1}_{E_{n,c}}] = c \cdot \mathbb{E}\left[\sum_{i=1}^K a_i \mathbf{1}_{A_i} \cdot \mathbf{1}_{E_{n,c}}\right] 
+= c \cdot \sum_{i=1}^K a_i \mathbb{P}(A_i \cap E_{n,c}).
+\]
+
+Comme \( A_i \cap E_{n,c} \) est croissant, on a :
+\[
+\lim_{n \to \infty} \mathbb{P}(A_i \cap E_{n,c}) = \mathbb{P}(A_i).
+\]
+
+D'où :
+\[
+\lim_{n \to \infty} \mathbb{E}[cS \cdot \mathbf{1}_{E_{n,c}}] = c \cdot \sum_{i=1}^K a_i \mathbb{P}(A_i) = c \cdot \mathbb{E}[S].
+\]
+
+\subsubsection*{Conclusion}
+
+Ainsi, on a :
+\[
+\lim_{n \to \infty} \mathbb{E}[X_n] \geq c \cdot \mathbb{E}[S], \quad \forall c \in [0, 1[.
+\]
+
+En faisant tendre \( c \) vers 1, on en déduit que \( \alpha \geq \mathbb{E}[S] \) pour toute variable étagée \( S \) telle que \( 0 \leq S \leq X \). Finalement, comme \( X \) peut être approchée par des variables étagées \( S \), on conclut que :
+$$ \alpha \geq \mathbb{E}[X]. $$
+
+Étant donné que \( \alpha \leq \mathbb{E}[X] \) (voir l'étape 2), on en conclut que :
+$$ \alpha = \mathbb{E}[X]. $$
+
+Ainsi, on a montré que :
+$$ \lim_{n \to \infty} \mathbb{E}[X_n] = \mathbb{E}[X]. $$
+
+\epf
+
+\section*{Explications de la preuve}
+
+La preuve repose sur des propriétés de croissance, d'inégalités, et sur l'usage de variables aléatoires étagées qui permettent d'approximer $X$.
+
+\subsection*{1. Premier point : $\mathbb{E}[X_n] \to \alpha$}
+
+La première étape consiste à remarquer que les espérances $\mathbb{E}[X_n]$ sont croissantes car $X_n \leq X_{n+1}$ pour tout $n$, et que les $X_n$ sont positives. Par conséquent, $\mathbb{E}[X_n] \geq 0$ et forme une suite croissante. 
+
+Une suite croissante bornée (elle est bornée par $X$) converge nécessairement, et donc il existe une limite, notée $\alpha$, telle que
+\[
+\lim_{n \to \infty} \mathbb{E}[X_n] = \alpha.
+\]
+
+\subsection*{2. Inégalité avec $\mathbb{E}[X]$}
+
+Puisque $X_n \leq X$ presque sûrement (p.s.) pour tout $n$, on a également l'inégalité
+\[
+\mathbb{E}[X_n] \leq \mathbb{E}[X].
+\]
+Cela signifie que la limite $\alpha$ est inférieure ou égale à $\mathbb{E}[X]$, c'est-à-dire :
+\[
+\alpha \leq \mathbb{E}[X].
+\]
+Nous avons donc déjà une borne supérieure sur $\alpha$.
+
+\subsection*{3. Inégalité avec $\mathbb{E}[S]$ pour $S \leq X$}
+
+Pour montrer que $\alpha = \mathbb{E}[X]$, on introduit une variable aléatoire étagée $S$, qui est une approximation simple de $X$. Par construction, $S \leq X$, et il suffit de montrer que pour toute telle variable $S$, on a
+\[
+\alpha \geq \mathbb{E}[S].
+\]
+Cela entraînera alors que $\alpha \geq \mathbb{E}[X]$ (car $X$ peut être vu comme la limite de telles approximations).
+
+\subsection*{4. Utilisation des indicatrices $E_{n,c}$}
+
+Prenons un facteur $c \in [0,1[$ et considérons l'ensemble des événements $E_{n,c} = \{X_n \geq cS\}$, qui sont croissants avec $n$ (puisque $X_n$ est croissant). En prenant la limite, on obtient :
+\[
+\bigcup_{n \geq 0} E_{n,c} = \Omega
+\]
+par convergence simple presque sûrement de $X_n \to X$.
+
+Ensuite, on montre que :
+\[
+\mathbb{E}[X_n] \geq \mathbb{E}[X_n \times \mathbf{1}_{E_{n,c}}] \geq \mathbb{E}[cS \times \mathbf{1}_{E_{n,c}}],
+\]
+ce qui nous donne une borne inférieure pour $\mathbb{E}[X_n]$.
+
+\subsection*{5. Passage à la limite}
+
+Lorsque $n \to \infty$, l'événement $E_{n,c}$ converge presque sûrement vers $\{S \leq X\}$, et donc l'espérance $\mathbb{E}[cS \times \mathbf{1}_{E_{n,c}}]$ converge vers $c \times \mathbb{E}[S]$. Ceci implique que :
+\[
+\lim_{n \to \infty} \mathbb{E}[X_n] \geq c \times \mathbb{E}[S].
+\]
+Comme cela est vrai pour tout $c \in [0,1[$, on obtient finalement que :
+\[
+\alpha \geq \mathbb{E}[S].
+\]
+
+\subsection*{6. Conclusion : $\alpha = \mathbb{E}[X]$}
+
+Comme cela est vrai pour toute variable $S$ étagée telle que $0 \leq S \leq X$, on peut conclure que $\alpha \geq \mathbb{E}[X]$. Mais, comme on avait déjà $\alpha \leq \mathbb{E}[X]$, on conclut que :
+\[
+\alpha = \mathbb{E}[X].
+\]
+
+\subsection*{Résumé final}
+
+Ainsi, la preuve montre que la suite croissante d'espérances $\mathbb{E}[X_n]$ converge vers $\mathbb{E}[X]$, même lorsque $\mathbb{E}[X] = \infty$, en utilisant l'approximation par des variables étagées et des inégalités sur des espérances conditionnelles.
+
+\end{document}
+
+

@@ -1,0 +1,175 @@
+%suffit de mettre dans le fichier tex \input{solution}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{thmtools}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[francais]{babel}
+\usepackage{mathtools}   % loads »amsmath
+\usepackage[dvipsnames]{xcolor}
+\usepackage{ulem}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage[most]{tcolorbox}
+\usepackage{esvect} %vecteur avec \vv
+
+
+\usepackage{calc}
+\usepackage[nothm]{thmbox}
+
+
+
+%Raccourcies
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\ie}{\textit{i.e }}
+\newcommand{\Aa}{\mathcal{A}}
+\newcommand{\Mm}{\mathcal{M}}
+\newcommand{\Chi}{\mathcal{X}}
+\newcommand{\Ll}{\mathcal{L}}
+\newcommand{\Tup}{\bigtriangleup}
+\newcommand{\Tdn}{\bigtriangledown}
+\newcommand{\bps}{\langle}
+\newcommand{\eps}{\rangle}
+\newcommand{\pv}{\wedge}
+\newcommand{\doigt}{\ding{43} ~}
+\newcommand{\cray}{\ding{46} ~}
+
+
+% Définir une commande pour la boîte encadrée
+\newcommand{\todo}[1]{%
+    \begin{tcolorbox}[colback=red!10!white, colframe=red!75!black, title=To-do :]
+        #1
+    \end{tcolorbox}%
+}
+%\begin{tcolorbox}[colback=red!10!white, colframe=red!75!black, title=Ma Boîte Encadrée]
+%    Ceci est un exemple de texte à l'intérieur de la boîte.
+%\end{tcolorbox}
+
+\def\BC{base canonique }
+\def\ev{espace vectoriel }
+\def\evs{espaces vectoriels }
+\def\sevs{sous-espaces vectoriels }
+\def\sev{sous-espace vectoriel }
+\def\sep{sous-espace propre }
+\def\seps{sous-espaces propres }
+\def\sea{sous-espace affine }
+\def\seas{sous-espaces affines }
+\def\AL{application lin\'eaire }
+\def\ALs{applications lin\'eaires }
+\def\AA{application affine }
+\def\AAs{applications affines }
+\def\Aff{ \hbox{\it Aff}}
+\def\vep{vecteur propre }
+\def\vap{valeur propre }
+\def\ssi{si et seulement si }
+
+\def\bar#1{\overline{#1}}
+\def\e#1{{\hbox{e}^{#1}}}
+\def\mat#1{\begin{pmatrix}#1\end{pmatrix}}
+\def\vect#1{\overrightarrow{\kern-1pt#1\kern 2pt}}
+\def\card#1{{\hbox{Card}(#1)}}
+\def\bin(#1,#2){ \left(\!\begin{smallmatrix} #2 \\ #1 \end{smallmatrix}\!\right)}
+\def\Aff{ \hbox{\it Aff}}
+\def\lims{\,\overline{\lim}\;}
+\def\limi{\,\underline{\lim}\;}
+\def\vide{\emptyset}
+\def\lims{\,\overline{\lim}\;}
+\def\limi{\,\underline{\lim}\;}
+\def\vide{\emptyset}
+\def\vfi{\varphi}
+\def\dim#1{\text{dim }(#1)}
+
+\def\ben{\begin{enumerate}}
+\def\een{\end{enumerate}}
+\def\bi{\begin{itemize}}
+\def\ei{\end{itemize}}
+
+\DeclareMathOperator{\Id}{Id}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\rg}{rg}
+
+\definecolor{rltred}{rgb}{0.75,0,0}
+	\definecolor{rltgreen}{rgb}{0,0.5,0}
+	\definecolor{oneblue}{rgb}{0,0,0.75}
+	\definecolor{marron}{rgb}{0.64,0.16,0.16}
+	\definecolor{forestgreen}{rgb}{0.13,0.54,0.13}
+	\definecolor{purple}{rgb}{0.62,0.12,0.94}
+	\definecolor{dockerblue}{rgb}{0.11,0.56,0.98}
+	\definecolor{freeblue}{rgb}{0.25,0.41,0.88}
+	\definecolor{myblue}{rgb}{0,0.2,0.4}
+
+%Note
+\newenvironment{note}{\par\medskip\noindent\begin{tabular}{l|p{\linewidth-8cm}}
+\ding{46}& \color{black}}
+{\end{tabular}\par\medskip}
+\def\bn{\begin{note}}
+\def\en{\end{note}}
+
+
+%Attention
+\def\war{\color{red}\medskip\begin{thmbox}[M]{\ding{39}\textbf{Attention :}}\noindent\color{black}}
+\def\endwar{\end{thmbox}}
+\def\bw{\begin{war}}
+\def\ew{\end{war}}
+
+
+%Style définition
+\declaretheoremstyle[
+  headfont=\color{RoyalBlue}\normalfont\bfseries,
+  bodyfont=\color{NavyBlue}\normalfont,
+]{colored}
+\declaretheorem[
+  style=colored,
+  name=Définition,
+]{df}
+\def\bd{\begin{df}}
+\def\ed{\end{df}}
+
+%Style Proposition
+\declaretheoremstyle[
+  headfont=\color{BrickRed}\normalfont\bfseries,
+  bodyfont=\color{black}\normalfont,
+]{coloredProp}
+\declaretheorem[
+  style=coloredProp,
+  name=Proposition,
+]{prop}
+\def\bp{\begin{prop}}
+\def\ep{\end{prop}}
+
+%Style exo
+\declaretheoremstyle[
+  headfont=\color{orange}\normalfont\bfseries,
+  bodyfont=\color{black}\normalfont,
+]{coloredexo}
+\declaretheorem[
+  style=coloredexo,
+  name=Exercice,
+]{exo}
+\def\be{\begin{exo}}
+\def\ee{\end{exo}}
+
+%Règle soulignée
+\def\regle{\color{blue}\begin{thmbox}[M]{\textbf{Règle :}}\noindent\color{blue}}
+\def\endregle{\end{thmbox}}
+\def\br{\begin{regle}}
+\def\er{\end{regle}}
+
+%Démonstration
+\let\oldproof\proof
+\renewcommand{\proof}{\color{olive}\oldproof}
+\def\bpf{\begin{proof}}
+\def\epf{\end{proof}}
+
+%Solution
+\newcommand{\solution}[1]{\par\noindent\textbf{\color{OliveGreen}Solution :} \textcolor{OliveGreen}{#1}}
+
+

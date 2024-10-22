@@ -1,0 +1,109 @@
+\input{../../preambule}
+
+\newcommand{\tn}{\mathrm}
+\newcommand{\eref}[1]{(\ref{#1})}
+\newcommand{\dep}[2]{\partial_{#2}{#1}}
+\newcommand{\dis}{\displaystyle}
+\newcommand{\MmnK}{\mathcal{M}_{m,n}(\K)}
+\newcommand{\MnpK}{\mathcal{M}_{n,p}(\K)}
+\newcommand{\MnK}{\mathcal{M}_{n}(\K)}
+\newcommand{\MmK}{\mathcal{M}_{m}(\K)}
+\newcommand{\MmnR}{\mathcal{M}_{m,n}(\R)}
+\newcommand{\MnR}{\mathcal{M}_{n}(\R)}
+\newcommand{\MnC}{\mathcal{M}_{n}(\C)}
+\newcommand{\MmR}{\mathcal{M}_{m}(\R)}
+\newcommand{\nmt}[1]{|\mskip -2mu|\mskip -2mu|{#1}|\mskip -2mu |\mskip -2mu|}
+
+
+\title{TD2 rédaction}
+
+\begin{document}
+\maketitle
+\begin{exo} {\bf Théorème de Gerschgörin - localisation des valeurs propres}.\ \\
+  Si $n\in\N,\ n\geq1,$ et $A\in\MnK$, on note $spec(A)$ le spectre de la matrice $A$, c'est-à-dire l'ensemble des valeurs propres de $A$ et, pour chaque $i\in\{1,\dots,n\}$, on note $D_i(A)$ l'ensemble
+  $$
+  D_i(A)=\{z\in\C\, :\, |z-A_{ii}|\leq \sum_{\substack{j=1\\j\neq i}}^n|A_{ij}|\}.
+  $$
+  $D_i$ s'appelle le $i$-ème disque de Gerschgörin de la matrice $A$.
+  Soit $n\in\N,\ n\geq1,$ et $A\in\MnK$.
+\ben
+  \item Montrer que pour tout $\lambda\in spec(A)$,
+  $$
+\lambda\in\displaystyle{\bigcup_{i=1}^n }D_i(A).
+  $$
+	 \solution{Soit donc $\lambda \in Sp(A)$, montrons que $\lambda$ est au moins dans l'un des $D_i(A)$.\\
+	On sait que $\lambda \in Sp(A)$, \ie $\exists u \in \K^n$ tel que $Au = \lambda u$ avec $u \ne 0$. \\
+	Définissons maintenant $k_0$ tel que $|u_{k_0} | = \displaystyle \max_{i \in \{1,...,n\}} |u_i|$. Comme $u \ne 0$, $u_{k_0} \ne 0$. \\
+	On a donc $\displaystyle \lambda u_{k_0} = \sum_{k=1}^n A_{k_0k} u_k$ qui nous donne $\lambda u_{k_0} - A_{k_0 k_0} u_{k_0} = \displaystyle \sum_{k=1,k\ne k_0}^n A_{k_0 k}u_{k_0}$\\
+	Ce qui nous donne : $| \lambda - A_{k_0 k_0}|| u_{k_0}| = \displaystyle \sum_{k=1,k\ne k_0}^n | A_{k_0 k}||u_{k_0}|$\\
+	Et par suite : $|\lambda - A_{k_0 k_0}| \leq \displaystyle \sum_{k=1,k\ne k_0}^n |A_{k_0 k}|$ car $\frac{|u_k|}{|u_{k_0}|} \leq 1$
+	Donc on a bien $\lambda$ dans l'un des $D_i(A)$.
+	}	
+ \item En déduire que le rayon spectral $\rho(A):=\displaystyle{\max_{\lambda\in spec(A)}|\lambda|}$ de $A$ vérifie
+  $$
+  \rho(A)\leq\displaystyle{\max_{1\leq i\leq n}\sum_{j=1}^n|A_{ij}|}.
+  $$
+\een
+
+\end{exo}
+\newpage
+
+\be
+\begin{enumerate}
+    \item[]
+\item   Soit $A\in\MnR$ orthogonale ({\it i.e.} vérifiant $AA^T=A^TA=I_n$). Montrer que si $\lambda\in\C$ est une valeur propre de $A$, alors $|\lambda|=1$.
+	\solution{Supposons donc $A \in \Mm_n(\R)$ orthogonale et $\lambda \in Sp(A)$, on sait donc qu'il existe un vecteur $u$ non nul tel que $Au = \lambda u$. En prenant la norme de $Au$ on obtient : $\|Au\| = \|\lambda u \| = |\lambda| \|u\|$. D'autre part on a aussi $\|Au\|^2 = \bps Au | Au \eps = \bps u | A^tAu \eps = \bps u | u \eps$ car $AA^t = I_n$. Donc on a $|\lambda | \|u \| = \|u\| \Rightarrow |\lambda | = 1$. 
+		}
+    \item On considère ici le produit scalaire euclidien et la norme euclidienne sur $\R^n$. Soit $A\in\MnR$.
+      \begin{enumerate}
+    \item Montrer que $A$ est orthogonale si et seulement si les colonnes de $A$ forment une base o. n. de $\R^n$ si et seulement si $A$ préserve le produit scalaire, autrement dit si et seulement si pour tous $x,\ y\in\R^n$,
+      $$
+(Ax|Ay)=(x|y).
+      $$
+		      \solution{Pour $A$ orthogonale $\iff$ les colonnes $C_1,...,C_n$ de $A$ forment une $BON$ déjà fait en cours.\\
+		      Montrons que $A$ orthogonale $\iff$ $A$ préserve le produit scalaire : 
+		      \bi
+	      \item[ $\Rightarrow$] Supposons $A$ orthogonale, \ie $AA^t = I_n$ et montrons que $A$ préserve le produit scalaire. \\ 
+		      On a donc $\bps Ax | Ay \eps = \bps x | A^t A y \eps = \bps x | y \eps$ car $A^t A = A A^t = I_n$
+	      \item[$\Leftarrow$] Supposons que $A$ préserve le produit scalaire et montrons que $A$ est orthogonale : \\
+		      $\bps Ax | Ay \eps = \bps x | A^t A y \eps = \bps x | y \eps$ et cela quelques soient $x,y \in \R^n$. \\
+		      On a donc $\bps Ax | Ay \eps - \bps x | y \eps = 0, ~ \forall x,y \in \R^n$, donc $\bps x | (A^tA)y \eps = 0, ~ \forall x,y \in \R^n$ \ie $(A^tA)y = 0, ~ \forall y \in \R^n$, d'où $AA^t = I_n$. 
+		      \ei
+		      }
+      \item Montrer que $A$ préserve le produit scalaire si et seulement si $A$ préserve la norme, autrement dit si et seulement si pour tout $x\in\R^n$,
+      $$
+\|Ax\|=\|x\|,
+      $$ 
+et en déduire que $A$ est orthogonale si et seulement si $A$ préserve la norme.
+	\solution{\bi
+\item[\Rightarrow] évident. 
+\item[\Leftarrow] Supposons que $A$ préserve la norme, et en utilisant l'identité de polarisation on a $\bps Ax | Ay \eps = \frac 12(\|Ax + Ay \|^2 - \|Ax\|^2 - \|Ay\|^2) = \frac 12 (\|x+y\|^2 - \|x \| - \|y \| ^2) = \bps x | y \eps$.
+	\ei}
+      \end{enumerate}
+\end{enumerate}
+\ee
+
+\be[Caractérisation des valeurs propres pour des matrices hermitiennes - théorème de Courant-Fischer]
+Soit $n\in\N,\ n\geq1,$ et $A\in\MnC$ une matrice hermitienne (auto-adjointe). Soient $\lambda_1\leq\dots\leq\lambda_n$ les $n$ valeurs propres réelles de $A$. \\
+\ben
+	\item Montrer que : 
+  $$
+\lambda_1=\min_{x\in\C^n,\ x\neq0}\frac{(Ax|x)_\C}{\|x\|_2^2}=\min_{x\in\C^n,\ \|x\|_2=1}(Ax|x)_\C
+$$
+et que
+  $$
+\lambda_n=\max_{x\in\C^n,\ x\neq0}\frac{(Ax|x)_\C}{\|x\|_2^2}=\max_{x\in\C^n,\ \|x\|_2=1}(Ax|x)_\C
+$$
+  \item Montrer de même si $A \in \Mm_n(\R)$ :
+	  $$
+\lambda_1=\min_{x\in\R^n,\ x\neq0}\frac{(Ax|x)}{\|x\|_2^2}=\min_{x\in\R^n,\ \|x\|_2=1}(Ax|x)
+$$
+\solution{On a $A \in \Mm_n(\R)$ symétrique (\ie $A^t = A$) donc $A$ est diagonalisable dans une $BON$ de vecteurs propres, \ie qu'il existe une base orthonormée de vecteurs propres $(u_1,...,u_n)$, ordonnons les valeurs propres $\lambda_1 \leq \lambda_2 \leq ... \leq \lambda_n$ ({\it il peut y en avoir qui se répète vu que l'on va jusqu'à $n$}). On se place dans la base orthonormée $(u_1,...,u_n)$, dans cette base $x = \displaystyle \sum_{k=1}^n x_k e_k$. Donc en prenant la norme on a $\|x\| = \displaystyle \sum_{k=1}^n \|x_k\|$
+}\\
+et que
+  $$
+\lambda_n=\max_{x\in\R^n,\ x\neq0}\frac{(Ax|x)}{\|x\|_2^2}=\max_{x\in\R^n,\ \|x\|_2=1}(Ax|x).
+$$
+\een
+\ee
+\end{document}

@@ -1,0 +1,35 @@
+\documentclass{article}
+\usepackage{hyperref}
+
+\newcounter{exercice}
+\newcommand{\exercice}[1]{%
+  \stepcounter{exercice}%
+  \section*{Exercice \theexercice}%
+  #1%
+  \subsection*{Solution}%
+  \label{sol:\theexercice}%
+}
+
+\begin{document}
+
+\title{Exercices et Solutions}
+\author{Votre nom}
+\date{\today}
+\maketitle
+
+je test quelque chose
+\tableofcontents
+
+\exercice{Énoncé de l'exercice 1. Ici, vous pouvez écrire la description de l'exercice 1.}
+\exercice{Énoncé de l'exercice 2. Ici, vous pouvez écrire la description de l'exercice 2.}
+\exercice{Énoncé de l'exercice 3. Ici, vous pouvez écrire la description de l'exercice 3.}
+
+\section*{Solutions}
+
+\hyperref[sol:1]{Solution de l'exercice 1.}
+\hyperref[sol:2]{Solution de l'exercice 2.}
+\hyperref[sol:3]{Solution de l'exercice 3.}
+je test autre chose
+et encore autre chose
+\end{document}
+

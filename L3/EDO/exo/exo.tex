@@ -1,0 +1,109 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{thmtools}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[francais]{babel}
+\usepackage{mathtools}   % loads »amsmath
+\usepackage[dvipsnames]{xcolor}
+
+
+%Raccourcies
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\ie}{\textit{i.e }}
+\newcommand{\Aa}{\mathcal{A}}
+\newcommand{\Mm}{\mathcal{M}}
+\newcommand{\Chi}{\mathcal{X}}
+\newcommand{\Ll}{\mathcal{L}}
+\newcommand{\Tup}{\bigtriangleup}
+\newcommand{\Tdn}{\bigtriangledown}
+
+\definecolor{rltred}{rgb}{0.75,0,0}
+	\definecolor{rltgreen}{rgb}{0,0.5,0}
+	\definecolor{oneblue}{rgb}{0,0,0.75}
+	\definecolor{marron}{rgb}{0.64,0.16,0.16}
+	\definecolor{forestgreen}{rgb}{0.13,0.54,0.13}
+	\definecolor{purple}{rgb}{0.62,0.12,0.94}
+	\definecolor{dockerblue}{rgb}{0.11,0.56,0.98}
+	\definecolor{freeblue}{rgb}{0.25,0.41,0.88}
+	\definecolor{myblue}{rgb}{0,0.2,0.4}
+
+
+%Style définition
+\declaretheoremstyle[
+  headfont=\color{blue}\normalfont\bfseries,
+  bodyfont=\color{blue}\normalfont,
+]{colored}
+\declaretheorem[
+  style=colored,
+  name=Définition,
+]{df}
+
+%Style Proposition
+\declaretheoremstyle[
+  headfont=\color{black}\normalfont\bfseries,
+  bodyfont=\color{black}\normalfont,
+]{coloredProp}
+\declaretheorem[
+  style=coloredProp,
+  name=Proposition,
+]{prop}
+
+%Style exo
+\declaretheoremstyle[
+  headfont=\color{orange}\normalfont\bfseries,
+  bodyfont=\color{black}\normalfont,
+]{coloredexo}
+\declaretheorem[
+  style=coloredexo,
+  name=Exercice,
+]{exo}
+
+%Règle soulignée
+\def\regle{\color{blue}\begin{thmbox}[M]{\textbf{Règle :}}\noindent\color{blue}}
+\def\endregle{\end{thmbox}}
+
+
+\let\oldproof\proof
+\renewcommand{\proof}{\color{olive}\oldproof}
+%\theoremstyle{definition}
+%\newtheorem{prop}{Proposition}
+%\newtheorem{exo}{Exercice}
+%\newtheorem{df}{Définition}
+\def\be{\begin{exo}}
+\def\ee{\end{exo}}
+
+
+\def\br{\begin{regle}}
+\def\er{\end{regle}}
+
+\def\bd{\begin{df}}
+\def\ed{\end{df}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%solution%%%%%%%%%%%%%%%%%%
+\newcommand{\solution}[1]{\par\noindent\textbf{\color{OliveGreen}Solution :} \textcolor{OliveGreen}{#1}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Exos EDO pour le S5}
+\author{$\mathcal{F.J}$}
+%\date{2023-2024}
+
+
+\begin{document}
+\maketitle
+\be
+Montrer que l'ED suivante admet une unique solution maximale :
+$$y' = \frac{sin(xy)}{x^2} ; ~ y(1) = 1$$
+\solution{Le problème de Cauchy est de la forme 
+}
+\ee
+
+\end{document}

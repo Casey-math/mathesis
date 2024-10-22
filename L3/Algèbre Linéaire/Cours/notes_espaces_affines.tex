@@ -1,0 +1,119 @@
+\documentclass{../../tete}
+\title{Espaces affines, notes   }
+
+\begin{document}
+\maketitle
+\section{Espace affine}
+\subsection{Définition}
+\bd
+Soit $E$ un ensemble non vide. 
+On dit que $E$ est un \textbf{espace affine} sur $\vec{E}$ losqu'il existe une \textit{loi de composition externe} (notée +) de $E \times \vec{E}$ dans $E$ qui vérifie :
+\ben
+\item $\forall A \in E, A + \vec{0} = A$ ;
+\item $\forall A \in E, \forall \vec{u}, \vec{v} \in \vec{E}$, on a $(A + \vec{u}) + \vec{v} = A + (\vec{u} + \vec{v})$;
+\item $\forall A \in E$, l'application $\vec{u} \mapsto A + \vec{u}$ est une \textbf{bijection} de $\vec{E}$ sur $E$.
+\een
+\ed
+\bn
+\star ~ Les éléments de $E$ sont souvent appelés \textbf{points}, alors que les éléments de $\vec{E}$ sont appelés \textbf{vecteurs}.
+
+\star ~ On dit que $\vec{E}$ est l'espace vectoriel associé à $E$, ou encore que c'est la \textbf{direction} de $E$.
+\en
+
+\bw
+\star ~ Le symbole $+$ entre deux vecteurs désigne l'addition des vecteurs, celle qui fait de $(\vec{E}, +)$ un groupe abélien.\\
+\star ~ Entre un point et un vecteur en revanche, il s'agit de la loi de composition externe dont on a besoin pour définir un espace affine.\\
+\ding{43} ~ Bien remarquer de quelle loi on parle dans le 2. de la définition.
+\ew
+
+\bn
+Un espace affine n'est pas seulement un ensemble : c'est une structure; 
+\ben
+\item l'ensemble ; 
+\item l'espace vectoriel ;
+\item la L.C.E \textit{(loi de composition externe)}.
+\een
+\doigt En pratique on confond souvent l'espace affince $(E, \vec{E}, +)$ avec l'ensemble sous-jacent $E$.
+\en
+
+\medskip
+
+\noindent \dag ~ En utilisant le vocabulaire des actions de groupe, on peut traduire la définition par : Le groupe additif $(\vec{E}, +)$ opère librement et transitivement sur $\vec{E}$.
+
+\noindent \dag ~ Lorsque $\vec{u}$ est l'unique vecteur tel que $B = A + \vec{u}$, on notera $\vec{u} = \vec{AB} = B - A$.
+
+\subsection{Premières propriétés}
+\bp
+Pour tout $A,B,C \in E$, on a la relation de Chasles : $\vec{AB}+\vec{BC} = \vec{AC}$.
+\ep
+\begin{proof}
+On peut écrire cette relation sous la forme : $(B-A) + (C - B) = C -A$.\\
+En appliquant 2. puis la définition de $\vv{XY}$, on a :
+\ben
+\item $A + (\vec{AB} + \vec{BC}) = (A + \vv{AB}) + \vv{BC} = B + \vv{BC} = C = A+ \vec{AC}.$
+\item On peut conclure grâce au fait que l'application $\vec{x} \mapsto A + \vec{x}$ est injective, que $\vec{AB}+\vec{BC} = \vec{AC}$.
+\een
+\end{proof}
+
+\bp
+Pour tout $X \in E$ on a $\vv{XX} = \vec{0} = X - X$.
+\ep
+\bpf
+C'est une conséquence de $X+\vv{0} = X$ et de la définition de $\vv{XX}$.
+\epf
+
+\bp
+Pour tout $x,y \in E$, on a $\vv{XY} = - \vv{YX}$ ; ("Trivialement : $Y-X = -(X-Y)$.)
+\ep
+
+\bpf
+Il suffit d'appliquer la relation de Chasles : $\vv{0} = \vv{XX} = \vv{XY} + \vv{YX}.$
+\epf
+
+\bp
+Pour tout $X, Y, Z \in E$, on a $\vv{XY} - \vv{XZ} = \vv{ZY} ; ("trivialement" : $(Y-X) - (Z-X) = Y-Z.)
+\ep
+\bpf
+Conséquence immédiate de la relation de Chasles.
+\epf
+\bn
+ On peut retenir que toutes les simplifications "triviales" dans les soustractions de points sont légitimes, c'est pourquoi il n'est pas gênant d'utiliser les notations + et -.
+\en
+
+\subsection{Translations}
+\bp
+Pour tout $\vv{u} \in \vv{E}$, l'application $A \mapsto A + \vv{u}$ est une bijection de $E$ dans lui même appelée translation de vecteur $\vv{u}$. On la note $t_{\vv{u}}$.
+\ep
+\bw
+Bien faire la différence avec l'application du point 3. de la définition de l'espace affine : \ding{125}~$\forall A \in E$, l'application $\vec{u} \mapsto A + \vec{u}$ est une \textbf{bijection} de $\vec{E}$ sur $E$.~\ding{126}
+\ew
+\bpf
+Pour tout $B \in E$, on peut considérer le point $A = B + (-\vv{u})$; en utilisant 2. puis 1. on a $A+ \vv{u} = (B + (-\vv{u})) + \vv{u} = B + (-\vv{u} + \vv{u} = B + \vv{0} = B,$ donc $t_{\vv{u}}$ est surjective.\\
+SI $t_{\vv{u}}(A) = t_{\vv{u}}(A') = B$, on a $A + \vv{u} = A' + \vv{u}$, donc $(A + \vv{u}) + (-\vv{u}) + (-\vv{u})$ et on en déduit $A = A + \vv{0} = A + (\vv{u} - \vv{u}) = A' - (\vv{u} - \vv{u}) = A' + \vv{0} = A'$, et $t_{\vv{u}}$ est injective.
+\epf
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

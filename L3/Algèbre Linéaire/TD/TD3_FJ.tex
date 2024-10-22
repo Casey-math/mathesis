@@ -1,0 +1,447 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage{titlesec}
+\usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+%\usepackage{theorem}
+\usepackage[english,francais]{babel}
+%\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\pagestyle{empty}
+\usepackage[pdftex]{graphicx}
+
+\usepackage{tcolorbox}
+
+%\topmargin -1cm
+\textheight = 62\baselineskip
+\advance\textheight by \topskip
+\textwidth 480pt
+
+\hoffset-1cm
+\voffset -1cm
+
+\def\bf#1{\textbf{#1}}
+\def\it#1{\textit{#1}}
+ 
+\newcounter{nexo}
+\setcounter{nexo}{1}
+\newcommand{\exo}{\medskip\noindent \bf{ Exercice \thenexo. \stepcounter{nexo}}}
+
+\newtheorem{theo}{Th\'eor\`eme}
+\newtheorem{prop}{Proposition}
+\newtheorem{lemme}{Lemme}
+\newtheorem{coro}{Corollaire}
+
+\def\afaire#1{\textit{\textcolor{magenta}{#1}}}
+
+\newcommand {\csq}{\smallskip\noindent \bf{Cons\'equence : } \rm }
+\newcommand {\rem}{\smallskip\noindent \bf{Remarque : }  }
+\newcommand {\defi}{\smallskip\noindent \bf{D\'efinition : } }
+\newcommand {\defs}{\smallskip\noindent \bf{D\'efinitions : } }
+\newcommand {\note}{\smallskip\noindent \bf{Notation : } \rm }
+\newcommand {\nots}{\smallskip\noindent \bf{Notations : } \rm }
+\newcommand {\dem}{\smallskip\noindent {\sc Preuve : } \rm }
+\newcommand{\findem}{\hfill$\square$\par\medskip}
+
+
+\def\propr#1{\smallskip\noindent \bf{Propri\'et\'e : } \it {#1} \par}
+\def\props#1{\smallskip\noindent \bf{Propri\'et\'es : }\it{#1}\par}
+\def\Question#1{\smallskip\noindent \bf{Question : }{\it {#1}}\par\medskip}
+\def\Rappel#1#2{\smallskip\noindent \bf{Rappel : #1}\par \it{#2}}
+
+
+\def\itbf{\itshape \bfseries}
+\def\noi{\noindent}
+
+\def\be{\begin{enumerate}}
+\def\ee{\end{enumerate}}
+\def\bi{\begin{itemize}}
+\def\ei{\end{itemize}}
+
+
+
+\def\BC{base canonique }
+\def\ev{espace vectoriel }
+\def\evs{espaces vectoriels }
+\def\sevs{sous-espaces vectoriels }
+\def\sev{sous-espace vectoriel }
+\def\sep{sous-espace propre }
+\def\seps{sous-espaces propres }
+\def\sea{sous-espace affine }
+\def\seas{sous-espaces affines }
+\def\AL{application lin\'eaire }
+\def\ALs{applications lin\'eaires }
+\def\AA{application affine }
+\def\AAs{applications affines }
+\def\Aff{ \hbox{\it Aff}}
+\def\vep{vecteur propre }
+\def\vap{valeur propre }
+
+\def\ssi{si et seulement si }
+
+\def\lims{\,\overline{\lim}\;}
+\def\limi{\,\underline{\lim}\;}
+\def\vide{\emptyset}
+\def\lims{\,\overline{\lim}\;}
+\def\limi{\,\underline{\lim}\;}
+\def\vide{\emptyset}
+\def\vfi{\varphi}
+\def\dim#1{\text{dim }(#1)}
+
+\def\T{\mathbb{T}}
+\def\N{\mathbb{N}}
+\def\Q{\mathbb{Q}}
+\def\R{\mathbb{R}}
+\def\C{\mathbb{C}}
+\def\Z{\mathbb{Z}}
+\def\Bc{\mathcal{B}}
+\def\Mc{\mathcal{M}}
+\def\Lc{\mathcal{L}}
+\def\rond{{\scriptstyle\circ}}
+
+
+\def\bar#1{\overline{#1}}
+\def\e#1{{\hbox{e}^{#1}}}
+\def\mat#1{\begin{pmatrix}#1\end{pmatrix}}
+\def\vect#1{\overrightarrow{\kern-1pt#1\kern 2pt}}
+\def\card#1{{\hbox{Card}(#1)}}
+\def\bin(#1,#2){ \left(\!\begin{smallmatrix} #2 \\ #1 \end{smallmatrix}\!\right)}
+\def\Aff{ \hbox{\it Aff}}
+ 
+ \DeclareMathOperator{\Id}{Id}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\rg}{rg}
+
+\titleformat{\section}{\normalfont\bfseries}
+{\thesection.}{0.5em}{}
+ 
+
+\title{Feuille 2 : Etudes des endomorphismes}
+
+\begin{document}
+\noindent L3MATH \hfill Universit\'e Paris-Saclay \\
+MEU302  \hfill  2023-2024\\
+
+\begin{center}
+\bf{Feuille d'exercices 3 : Espaces euclidiens / Espaces affines}
+\end{center}
+\vspace{0.2cm}
+
+%\section{Entrainement.}
+
+
+
+
+
+\exo
+Dans $\R^3$, soit $p$ le projecteur orthogonal sur $\mathcal{P}$ d'équation $x+2y-2z = 0$ et $u$ le vecteur 
+$u = (1,1,1)$.
+Déterminer l'image $p(u)$ de $u$. En déduire la distance $d(u,\mathcal{P})$.
+
+\exo
+Soit $M = \dfrac{1}{9}\mat{
+1&8&-4\\
+8&1&4\\
+-4&4&7}$
+et soit $f$ l'application linéaire associée à $M$ dans la base canonique.
+Montrer que $f$ est une isométrie et préciser sa nature.
+
+\exo
+Pour $A,B \in M_n(\R)$, on définit $\varphi(A,B) = \Tr(^tA B)$.
+Montrer que $\varphi$ définit un produit scalaire sur $M_n(\R)$.
+
+
+\exo \textit{(D'après le partiel 2020)}\\
+\be
+\item Dans $\R^2$ muni du produit scalaire usuel, 
+démontrer que pour tout $u,v\in \R^2$ de norme 1, il existe une unique réflexion $r$ telle que $r(u)=v$. Préciser ses éléments caractéristiques. 
+\item  Lorsque $u=(\frac 1 2;\frac {\sqrt 3} 2)$ et $v =(-1,0)$,   représenter ces éléments caratéristiques sur un schéma,  puis donner  la matrice associée à  la réflexion dans la base canonique.
+\ee
+
+\exo  \textit{(D'après le partiel 2020)}\\
+Soit $E$ un $\R$-\ev euclidien de dimension $n$. 
+Soient $u,v$ deux vecteurs orthogonaux non nuls de $E$ et de norme 1. On note $F$ le \sev engendré par $u$ et $v$.
+Pour tout $x\in E$, on pose $$f(x)=x-<u,x>u-<v,x>v.$$ \be
+\item Montrer que pour tout $x$, $f(x)\in F^\perp$.
+\item Montrer que $f$ est une projection orthogonale et préciser ses caractéristiques géométriques. 
+\item Dans $\R^3$, on choisit $u=(1,1,1)$ et $v=(1,-1,1)$. En adaptant le résultat précédent, exprimer à l'aide de $u$ et $v$  la projection orthogonale de mêmes caractéristiques que dans la question précédente.
+\ee
+
+\exo
+Soit $y \in \R^n$ tel que $\|y\| = 1$. Pour tout $x$ de $\R^n$, on pose
+\[f(x) = x - 2 \langle x,y \rangle y.\]
+\be
+\item Montrer que $f$ est une isométrie et préciser sa nature.
+\item On choisit $n=3$ et $y = \left({\frac 1 {\sqrt 2}, 0, -\frac 1 {\sqrt 2}}\right)$. Existe-t-il une base dans laquelle la matrice de $f$ s'écrit simplement? Comment obtenir alors la matrice de $f$ dans la base canonique?
+\ee
+
+\exo %\afaire{j'enlève?}
+Soit $(u,v)$ une famille orthonormée de vecteurs de $\R^n$. Pour tout $x$ de $\R^n$, on pose
+\[f(x) = x - \langle x,u+v \rangle u - \langle x,v-u \rangle v.\] %\afaire{(rotation)}. 
+%\afaire{(Alternative : symétrie)} \[f(x) = x + \langle x,v-u \rangle u + \langle x,u-v \rangle v.\] 
+Montrer que $f$ est une isométrie et préciser sa nature. 
+Donner sa matrice dans une base bien choisie.
+
+
+\exo($\star$)
+Soit $p$ un projecteur d'un espace vectoriel euclidien $E$. Montrer que $p$ est orthogonal si et seulement si pour tout $x \in E$, $\|p(x)\| \leq \|x\|$.
+
+\exo($\star$\afaire{?})
+\be
+\item Soit $\alpha \in \R$. Montrer que pour $P, Q \in \R_n[X]$, 
+$$\varphi(P,Q) = \sum_{k=0}^n P^{(k)}(\alpha) Q^{(k)} (\alpha)$$
+où  $P^{(k)}$ désigne la dérivée $k$-ième de $P$, définit un produit scalaire sur $\R_n[X]$.
+\item Montrer qu'il existe une unique base $(P_0, \ldots, P_n)$ orthonormale pour le produit scalaire $\varphi$ telle que chaque $P_i$ soit de degré $i$ et de terme de degré maximal positif.
+\item Calculer $P_i^{(k)}(\alpha)$ pour tout $k \in \N$.
+\ee
+
+
+
+\section{Syst\`emes d'\'equations affines}
+
+\exo 
+On note $F$ l'ensemble des  $(x,y,z)\in\R^3$ v\'erifiant le syst\`eme d'\'equations suivant:
+$$
+\left\{\begin{array}{lrlrlrlrlcl} 
+2x &-& y  &+ & 3 z &=& 1,\\
+x  &+& 4y& -&6z   &=& -2 .
+\end{array}\right.
+$$
+\begin{enumerate}
+  \item Montrer que $F$ est un sous-espace affine de $\R^3$ et préciser sa direction $\vect{F}$. 
+Quelle est la nature de $F$? Donner une équation paramétrique de $F$.
+ \item \'Ecrire ce système sous forme matricielle, puis à l'aide d'une application linéaire $f$. Identifier 
+ le sous-espace affine $F$ à l'aide de $f$.
+ \item Interpréter le système d'équations à l'aide d'hyperplans.
+\end{enumerate}
+
+\medskip
+
+\exo
+Soient $\lambda\in \mathbb R$ un param\`etre. 
+\begin{enumerate}
+  \item \`A quelles conditions sur $\lambda$ les deux syst\`emes d'\'equations
+ $$ \left\{
+  \begin{array}{lll}
+  -x+\lambda y-3z&=&\lambda-1\\
+  x-3y+\lambda z&=&-2
+  \end{array}\right.
+  \qquad \left\{
+  \begin{array}{lll}
+  y+z&=&-\lambda+2\\
+  \lambda x-2z&=&0
+  \end{array}\right.
+ $$
+  d\'ecrivent-ils des droites affines de $\mathbb R^3$ ?
+  \item On suppose les conditions du 1. satisfaites. Trouver pour chaque droite son \'equation param\'etrique. 
+  \item Etudier selon la valeur de $\lambda$ les positions relatives de ces 2 droites. 
+ On pr\'ecisera lorsqu'elles sont parall\`eles,  confondues, s\'ecantes.
+\end{enumerate}
+
+\medskip
+
+\exo
+Soient $\alpha,\beta,a,b,c$ des r\'eels. On consid\`ere trois plans $P_{1}$, $P_{2}$ et $P_{3}$ de $\mathbb R^3$, d'\'equations respectives :
+$x+2y+\beta z=a$ , $2x+4y=b$ et $\alpha x+(\alpha+1)y=c$.
+D\'eterminer, suivant les valeurs de $\alpha,\beta,a,b,c$, la dimension du
+sous-espace affine $P_1\cap P_2\cap P_3$ (si cette intersection est
+non vide). 
+
+\medskip
+
+\exo 
+On note $F$ l'ensemble des quintuplets $(x_1,x_2,x_3,x_4,x_5)\in\R^5$ v\'erifiant le syst\`eme d'\'equations affine suivant:
+$$
+\left\{\begin{array}{lrlrlrlrlcl} 
+x_1 &+& x_2 &+ & x_3 &+& x_4 & & &=& 1,\\
+x_1 &-& x_2& & &+& x_4 &-& x_5 &=& 1 ,\\
+-x_1 &+& 3x_2 &+& x_3 &-& x_4 &+& 2x_5 &=& -1.
+\end{array}\right.
+$$
+Montrer que $F$ est un sous-espace affine de $\R^5$, donner sa dimension, sa direction $\vect{F}$ et une base de celle-ci.
+
+
+
+\section{Droites et plans dans $\R^{3}$}
+
+\exo
+On se place dans $\mathbb R^3$.
+\begin{enumerate}
+  \item D\'eterminer une \'equation du plan $V$ engendr\'e par les vecteurs $(1,2,1)$ et $(0,1,1)$ et passant par l'origine.
+  \item D\'eterminer une \'equation du plan $V'$ parall\`ele \`a $V$ et passant par le point $(0,0,1)$. Quelle est son \'equation param\'etrique ?
+  \item Soit $D$ la droite passant par $(1,0,0)$ et dirig\'ee par le vecteur $(1,0,1)$. D\'eterminer les points d'intersection de $V'$ et de $D$.
+\end{enumerate}
+
+\medskip
+
+\exo
+D\'eterminer une \'equation de la droite de $\mathbb R^3$ passant par les points $(1,1,1)$ et $(1,0,2)$.
+
+\medskip
+
+\exo  
+Dans l'espace $\mathbb R^3$, on consid\`ere le plan $P$ d'\'equation $x+y+z=1$.
+\begin{enumerate}
+\item D\'eterminer une \'equation de plan $P'$ passant par les points $(2,-1,0)$, $(0,0,2)$ et $(-1,1,2)$.
+\item D\'eterminer la nature de  $\vect P\cap \vect{P'}$.
+\item D\'eduire de la question pr\'ec\'edente que $P\cap P'$ est non vide, et pr\'eciser sa nature. 
+\item D\'eterminer les caract\'eristiques g\'eom\'etriques de $P\cap P'$ (point et base de sa direction).
+\end{enumerate}
+
+
+\section{Autres exemples d'espaces affines}
+%exo 17
+\exo
+D\'eterminer parmi les sous-ensembles suivants ceux qui sont des sous-espaces affines de $\mathbb R^3$  et pr\'eciser alors leurs directions et leurs dimensions.
+\begin{enumerate}
+  \item $V_1=\{(x,y,z)\in\mathbb R^3, x+2y+z=1\}$
+  \item $V_2=\{(x,y,z)\in\mathbb R^3, x+2y+z=1 \text{ et } x=y=0\}$
+  \item  $V_3=\{(x,y,z)\in\mathbb R^3, x^2+y^2=1\}$
+  \item  $V_4=\{(x,y,z)\in\mathbb R^3, x^2+2xy+y^2=0\}$ 
+  \item $V_5=\{(x,y,z)\in\mathbb R^3, x^2+2xy+y^2=1\}$ 
+\end{enumerate}
+
+\medskip
+%exo 18
+\exo
+Soit $n\in\mathbb N^*$. On note $E_n$ l'espace vectoriel des fonctions de $\mathbb R$ dans $\mathbb R$ qui sont polynomiales de degr\'e inf\'erieur ou \'egal \`a $n$. Soit 
+$F_0=\{f\in E_n,\int_0^1 f(t) d t=0 \}$ et $F_1=\{f\in E_n,\int_0^1 f(t) d t=1 \}$.
+\begin{enumerate}
+  \item Montrer que $F_0$ est un $\mathbb R$-espace vectoriel.
+  \item Montrer que $F_1$ est un espace affine dont l'espace vectoriel sous-jacent est $F_0$. Quelle est la dimension de $F_1$ ?
+  \item On suppose $n=4$. Montrer que la partie $V$ de $F_1$ form\'ee des polynômes divisibles par $\left(x-\frac{1}{2}\right)^2$ est un plan affine de $F_1$.
+\end{enumerate}
+
+\medskip
+
+\exo
+Soit $a$ et $b$ deux r\'eels. Montrer que les suites de r\'eels $(u_n)_{n\geq
+0}$ v\'erifiant $u_{n+1}=au_n+b$ pour tout $n\geq 0$ est un sous-espace
+affine de l'espace vectoriel des suites r\'eelles. Pr\'eciser la dimension de
+ce sous-espace affine. 
+
+
+\medskip
+
+\exo
+Soit $E$ un \sev de $\R[X]$, on note $F=\{P\in E, P'(0)=1\}$. 
+\be
+\item Montrer que $F$ est un sous-espace affine de $E$. 
+\item On suppose que $E=\R_5[X]$. D\'eterminer la nature de $F$ ainsi qu'une base de sa direction.
+\item On suppose ici que $E=\R[X]$. Montrer que $F$ est un hyperplan affine. 
+\ee
+
+\section{Exercices th\'eoriques}
+
+\exo ($\star$)
+Soit $E$ un espace affine.
+\begin{enumerate}
+  \item Soit $F$ une partie non vide de $E$. Montrer que $F$ est un sous-espace affine de $E$ si et seulement si toute droite passant par deux points distincts de $F$ est contenue dans $F$.
+  \item D\'ecrire le sous-espace affine engendr\'e par deux droites affines non coplanaires dans un espace affine.
+  \item Soient $F_1$ et $F_2$ deux sous-espaces affines de $E$. Montrer que $F_1\cup F_2$ est un sous-espace affine de $E$ si et seulement si $F_1\subset F_2$ ou $F_2\subset F_1$.
+\end{enumerate}
+
+\medskip
+
+\exo ($\star$)
+ On consid\`ere deux sous-espaces affines $V$ et $W$ d'un espace affine $E$ et on note $T$ le sous-espace affine
+   engendr\'e par $V\cup W$.
+   \begin{enumerate}
+    \item Pour tout $a\in V$ et tout $b\in W$, montrer qu'on a $\overrightarrow{T}=\overrightarrow{V}+\overrightarrow{W}+\mathrm{Vect}(\overrightarrow{ab})$.
+    \item Pour tout $a\in V$ et tout $b\in W$, montrer que $V$ rencontre $W$ si et seulement si le vecteur $\overrightarrow{ab}$ est dans
+    $\overrightarrow{V}+\overrightarrow{W}$.
+    \item En d\'eduire que $\dim T=\dim(\overrightarrow{V} + \overrightarrow{W})+1$ si $V$ ne rencontre pas $W$, et que $\dim T=\dim(\overrightarrow{V}+\overrightarrow{W})$ sinon.
+   \end{enumerate}
+   
+   
+ \section{Transformations affines-D\'efinitions}
+ 
+\exo
+Dans $\R^{2}$, on note $a=(0,0)$, $b=(1,0)$, $c=(1,1)$ et $d=(0,1)$. Repr\'esenter l'image de $abcd$ par les applications affines suivantes : 
+\begin{enumerate}
+%\item l'application $f$ telle que $f(a)=b$ et 
+%$\mat{3&0\\0&\frac 1 2}$ est la matrice de $\overrightarrow{f}$ dans la base canonique.   
+\item l'application $g$ telle que $g(a)=c$ et 
+$\mat{0&-1\\1&0}$  est la matrice de $\overrightarrow{g}$ dans la base canonique;
+  \item l'application $h$ telle que $h(a)=d$ et 
+$\mat{0&1\\1&0}$ est la matrice de $\overrightarrow{h}$ dans la base canonique.  
+\item $h$ et $g$ sont-elles \'egales ? Donner une application affine envoyant $g(a), g(b), g(c)$ sur $h(a), h(b), h(c)$. Ecrire la matrice de son application lin\'eraire associ\'ee. Que constate-t-on?
+\end{enumerate}
+
+\medskip
+
+\exo
+Soit $f$ une application affine qui envoie $abcd$ sur $a'b'c'd'$, comme indiqu\'e sur l'une des figures suivantes.
+
+\centerline{\includegraphics[scale=.2]{images/transformation1.png}
+\includegraphics[scale=.2]{images/transformation2.png}
+\includegraphics[scale=.2]{images/transformation3.png}}
+\begin{enumerate}
+\item Justifier que $f$ ne d\'efinit  une application affine  que dans un seul des cas repr\'esent\'es.  Montrer qu'elle est alors unique. 
+\item $f$ est-elle bijective ?
+\item Donner la matrice de l'application lin\'eaire associ\'ee dans la base $(\vect{ab},\vect{ad})$ puis dans la base $(\vect{ab},\vect{ac})$. En d\'eduire l'expression matricielle de $f$ dans le r\'ep\`ere $(a,b,c)$. \end{enumerate}  
+
+\medskip
+
+\exo
+D\'eterminer toutes les applications affines d'un espace affine de dimension 1.
+
+
+
+
+ \section{Translations-Homoth\'eties}
+ 
+\exo
+D\'emontrer qu'une application affine qui commute avec toutes les translations est elle-même une translation.
+
+\medskip
+
+\exo
+On d\'efinit quatre points  $a=(1,1)$, $a'=(-2,2)$, $b=(1,3)$ et $b'=(-2,1)$. Montrer qu'il existe une homoth\'etie $h$ transformant $a$ en $a'$ et $b$ en $b'$. Pr\'eciser son centre et son rapport.
+
+\medskip
+
+\exo 
+Soit $f$ une transformation affine du plan. Soient $a$, $b$ et $c$ trois points non align\'es. 
+On note $a'$, $b'$ et $c'$ les images respectives de $a$,
+$b$ et $c$ par $f$. On suppose que $(a'b')$ est parall\`ele \`a
+$(ab)$, $(a'c')$ \`a $(ac)$ et $(b'c')$ \`a $(bc)$. Montrer que $f$ est une
+homoth\'etie ou une translation.
+
+\medskip
+
+\exo ($\star$) \textit{Theor\`eme de Desargues. } 
+Soient deux triangles non aplatis $abc$ et $a'b'c'$ sans sommets communs. 
+On suppose
+que $(ab)$ est parall\`ele \`a $(a'b')$, que $(bc)$ est parall\`ele \`a $(b'c')$ et
+que $(ac)$ est parall\`ele \`a $(a'c')$. Montrer que les droites $(aa')$,
+$(bb')$ et $(cc')$ sont concourantes ou parall\`eles.
+
+\medskip
+
+\exo 
+Soit $E$ un espace affine, $a$ et $b$ deux points (non n\'ecessairement distincts) de $E$ et $\lambda, \mu$ deux r\'eels non nuls et diff\'erents de 1. On note $h$ l'homoth\'etie de centre $a$ et de rapport $\lambda$ et $h'$ celle de centre $b$ et de rapport $\mu$. 
+\begin{enumerate}
+\item On suppose $\lambda\mu=1$. D\'eterminer la nature de $h'\circ h$  et $h\circ h'$.
+\item On suppose $\lambda=1/3$ et $\mu=2$. D\'eterminer  $h'\circ h$  et $h\circ h'$.
+\end{enumerate}
+
+\medskip
+
+\exo
+Montrer que 2 homoth\'eties commutent si et seulement si elles ont le m\^eme centre.
+
+\exo
+Soient $A=(2,1)$ et $B=(-1,1)$ deux points du plan affine $\R^2$. Déterminer les caractéristiques
+de la composée des deux homothéties $h=h_{A,1/2}\circ h_{B,3}$.
+{{Solution|contenu=
+$\vec h=\frac12\mathrm{id}\circ3\mathrm{id}=\frac32\mathrm{id}$ donc $h$ est une homothétie de rapport $\frac32$. Son centre $C$ est déterminé par :
+:$\frac32\overrightarrow{CB}=\overrightarrow{Ch(B)}=\overrightarrow{Ch_{A,1/2}(B)}=\overrightarrow{CA}+\frac12\overrightarrow{AB}=\overrightarrow{CB}+\frac12\overrightarrow{BA}$, soit $\overrightarrow{CB}=\overrightarrow{BA}$.
+$C$ est donc le symétrique de $A$ par rapport à $B$. Ou algébriquement : $C=B+\overrightarrow{AB}=(-1,1)+(-3,0)=(-4,1)$.
+}}
+
+
+\end{document}

@@ -1,0 +1,509 @@
+ \documentclass[10pt,a4paper]{article}
+\usepackage{titlesec}
+\usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+%\usepackage{theorem}
+\usepackage[english,francais]{babel}
+%\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\pagestyle{empty}
+\usepackage[pdftex]{graphicx}
+
+\usepackage{tcolorbox}
+
+%\topmargin -1cm
+\textheight = 62\baselineskip
+\advance\textheight by \topskip
+\textwidth 480pt
+
+\hoffset-1cm
+\voffset -1cm
+
+\def\bf#1{\textbf{#1}}
+\def\it#1{\textit{#1}}
+ 
+\newcounter{nexo}
+\setcounter{nexo}{1}
+\newcommand{\exo}{\medskip\noindent \bf{ Exercice \thenexo. \stepcounter{nexo}}}
+
+\newtheorem{theo}{Th\'eor\`eme}
+\newtheorem{prop}{Proposition}
+\newtheorem{lemme}{Lemme}
+\newtheorem{coro}{Corollaire}
+
+\def\afaire#1{\textit{\textcolor{magenta}{#1}}}
+
+\newcommand {\csq}{\smallskip\noindent \bf{Cons\'equence : } \rm }
+\newcommand {\rem}{\smallskip\noindent \bf{Remarque : }  }
+\newcommand {\defi}{\smallskip\noindent \bf{D\'efinition : } }
+\newcommand {\defs}{\smallskip\noindent \bf{D\'efinitions : } }
+\newcommand {\note}{\smallskip\noindent \bf{Notation : } \rm }
+\newcommand {\nots}{\smallskip\noindent \bf{Notations : } \rm }
+\newcommand {\dem}{\smallskip\noindent {\sc Preuve : } \rm }
+\newcommand{\findem}{\hfill$\square$\par\medskip}
+
+
+\def\propr#1{\smallskip\noindent \bf{Propri\'et\'e : } \it {#1} \par}
+\def\props#1{\smallskip\noindent \bf{Propri\'et\'es : }\it{#1}\par}
+\def\Question#1{\smallskip\noindent \bf{Question : }{\it {#1}}\par\medskip}
+\def\Rappel#1#2{\smallskip\noindent \bf{Rappel : #1}\par \it{#2}}
+
+
+\def\itbf{\itshape \bfseries}
+\def\noi{\noindent}
+
+\def\be{\begin{enumerate}}
+\def\ee{\end{enumerate}}
+\def\bi{\begin{itemize}}
+\def\ei{\end{itemize}}
+
+
+
+\def\BC{base canonique }
+\def\ev{espace vectoriel }
+\def\evs{espaces vectoriels }
+\def\sevs{sous-espaces vectoriels }
+\def\sev{sous-espace vectoriel }
+\def\sep{sous-espace propre }
+\def\seps{sous-espaces propres }
+\def\sea{sous-espace affine }
+\def\seas{sous-espaces affines }
+\def\AL{application lin\'eaire }
+\def\ALs{applications lin\'eaires }
+\def\AA{application affine }
+\def\AAs{applications affines }
+\def\Aff{ \hbox{\it Aff}}
+\def\vep{vecteur propre }
+\def\vap{valeur propre }
+
+\def\ssi{si et seulement si }
+
+\def\lims{\,\overline{\lim}\;}
+\def\limi{\,\underline{\lim}\;}
+\def\vide{\emptyset}
+\def\lims{\,\overline{\lim}\;}
+\def\limi{\,\underline{\lim}\;}
+\def\vide{\emptyset}
+\def\vfi{\varphi}
+\def\dim#1{\text{dim }(#1)}
+
+\def\T{\mathbb{T}}
+\def\N{\mathbb{N}}
+\def\Q{\mathbb{Q}}
+\def\R{\mathbb{R}}
+\def\C{\mathbb{C}}
+\def\Z{\mathbb{Z}}
+\def\Bc{\mathcal{B}}
+\def\Mc{\mathcal{M}}
+\def\Lc{\mathcal{L}}
+\def\rond{{\scriptstyle\circ}}
+
+
+\def\ol#1{\overline{#1}}
+\def\e#1{{\hbox{e}^{#1}}}
+\def\mat#1{\begin{pmatrix}#1\end{pmatrix}}
+\def\vect#1{\overrightarrow{\kern-1pt#1\kern 2pt}}
+\def\card#1{{\hbox{Card}(#1)}}
+ 
+ \DeclareMathOperator{\Id}{Id}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\rg}{rg}
+
+\titleformat{\section}{\normalfont\bfseries}
+{\thesection.}{0.5em}{}
+ 
+
+\title{Feuille 2 : Etudes des endomorphismes}
+
+\begin{document}
+\noindent L3MATH \hfill Universit\'e Paris Saclay\\
+MEU302  \hfill  2023-2024\\
+
+\begin{center}
+\bf{Feuille d'exercices 2 : \'Etudes et réduction d'endomorphismes}
+\end{center}
+\vspace{0.2cm}
+
+
+\section{Entrainement}
+
+\exo On considère l'endomorphisme $f$ de $\R^3$ dont la matrice dans la base canonique est 
+%
+\begin{equation*}
+ A=
+ \begin{pmatrix}
+    3 & 2 & -4 \\ 
+    1 & 2 & -2 \\ 
+    2 & 2 & -3
+ \end{pmatrix}
+\end{equation*}
+%
+\be
+\item Déterminer la nature de $f$ et ses éléments caractéristiques.  
+\item Déterminer une base de $\R^{3}$ dans laquelle la matrice de $f$ a une écriture plus simple.
+\ee
+
+\exo
+Soit $A= \mat{5&4&2\\-6&-5&-2\\0&0&-1}$
+\be
+\item
+Montrer qu'il existe une matrice $D$ diagonale telle que $A=PDP^{-1}$, où $P=\mat{ 1&2&1\\-1&-3&-1\\0&0&-1}$.
+\item En déduire l'expression de $A^n$ lorsque $n\in \N$.
+\item Quelle est la nature de l'endomorphisme associé à $A$ ?
+\ee
+
+\exo
+Soit $\mathcal{B}=(e_1,e_2,e_3)$ une base de $\R^{3}$ et $f$ un endomorphisme de $\R^3$ tel que 
+%
+\begin{equation*}
+ f(e_1) = e_1+e_3, \quad 
+ f(e_1+e_2) = e_1+e_2+e_3 \quad 
+ \mbox{ et } \quad 
+ f(e_1+e_2+2 e_3) = e_1+e_2+e_3.
+\end{equation*}
+%
+\be
+\item Justifiez pourquoi un tel endormorphisme existe. Est-il unique?
+\item Placer les vecteurs de $\mathcal{B}$  et leur image sur un dessin. Pouvez-vous deviner la nature de $f$?
+\item Donner les images par $f$ des vecteurs de la base $\mathcal{B}$ à l'aide du dessin. Déduisez-en sa matrice dans la base $\mathcal{B}$.
+\item Déterminer une base de $\R^{3}$ dans laquelle la matrice de $f$ soit diagonale et caractériser $f$.
+\ee
+
+\exo
+Soit $(e_1,e_2,e_3)$ une base de $\R^{3}$, 
+
+\noindent
+\begin{tabular}{cc}
+\begin{minipage}{10cm}
+\be
+\item Montrer qu'il existe une unique  $f\in L(\R^3)$ qui fixe $e_2$ et qui envoie $e_1$ sur $f_1$ et $e_3$ sur $f_3$ comme l'indique la figure ci-contre. \\ Pourquoi $f$ est-elle bijective ?
+\item On note $e'_1 = \frac 1 2(e_1-e_3)$  Placer ce vecteur sur le schéma puis calculer son image. 
+\item Montrer que l'ensemble des vecteurs fixes de $f$ est un plan vectoriel not\'e $\cal P$. Préciser sa base. Que peut-on en déduire sur les valeurs propres de $f$ ?
+\item
+Déterminer l'image de $e'_3=\frac 1 2  (e_1+e_3)$. En déduire que  $f^{2}=id$ ($f^{2}=f\circ f$). 
+\item Montrer que $f$ est diagonalisable et donner dans une base qu'on choisira la matrice $A$ associ\'ee \`a $ f$. 
+\ee
+\end{minipage} &
+\begin{minipage}{5cm}
+\includegraphics[scale=0.3]{images/td2-symetrie-3d.png}
+\end{minipage}
+\end{tabular} 
+
+\exo Montrer que l'application $f$ de $\mathbb R^2$ dans lui-m\^eme qui \`a $(x,y)$ associe $(2x-2y, x-y)$ est une projection. Faire une figure et pr\'eciser ses \'el\'ements caract\'eristiques (sur quel espace projette-t-on, parallèlement à quoi ?).  
+
+
+\exo Soit $f : \R^3\rightarrow\R^3$ l'endomorphisme défini par
+%
+\begin{equation*}
+ f(x,y,z) = (7x-4y-4z,6x-3y-4z,6x-4y-3z).
+\end{equation*}
+%
+On note $\Bc=(e_1,e_2,e_3)$ la base canonique de $\R^3$.
+\be
+\item On pose $P=X^2-1$. Calculer $P(f)(e_i)$ pour tout $1\leq i\leq3$. En déduire que $f \rond f=id_{\R^3}$.
+\item En déduire que les valeurs propres de $f$ sont dans $\{1,-1\}$.
+\item Soit $A=M_{\Bc}(f)$. Calculer $P(A)$ et retrouver le résultat de la question.
+\ee
+
+
+\exo
+Parmi les matrices suivantes, lesquelles sont semblables ? Préciser dans quel ensemble.
+%
+\begin{equation*}
+ A=\mat{1&1&0\\
+0&1&0\\
+0&0&2}, \quad
+B = \mat{1&0&0\\
+0&1&0\\
+0&0&2},\quad
+C = \mat{1&0&0\\
+0&2&1\\
+0&0&2},\quad
+D = \mat{1&0&0\\
+1&1&0\\
+0&0&2},\quad
+E = \mat{2&1&0\\
+0&2&0\\
+0&0&1},
+\end{equation*}
+\begin{equation*}
+F = \mat{1&0&i\\
+0&2&0\\
+0&0&1},\quad
+G = \mat{1&0&i\\
+0&0&1\\
+0&2&0},\quad
+H = \mat{1&0&i\\
+0&1&0\\
+0&0&2},\quad
+I =  \mat{1&1&0\\
+0&2&0\\
+0&0&2},\quad
+J = \mat{1&0&0\\
+0&2&0\\
+0&0&2}.
+\end{equation*}
+
+
+\exo Décrire une méthode qui permettrait de décider si les matrices \\
+%
+\begin{equation*}
+ A = \mat{-2&-3&-4\\
+-1&0&0\\
+2&2&3}
+\mbox{ et }
+B=\mat{-9&72&52\\
+1&-5&-4\\
+-3&20&15}
+\end{equation*}
+%
+sont semblables dans $M_3(\R)$. La mettre en {\oe}uvre dans cet exemple.
+
+
+\exo Soit $A\in M_4(\R)$ définie par 
+$A=\mat{-1&1&1&0\\
+0&-1&0&1\\
+-1&2&1&-1\\
+0&-1&0&1}$. \be
+\item Calculer $A^2$.  
+\item Déterminer la forme réduite de Jordan $J$ de $A$ et une matrice inversible $P$ telle que $A=P J P^{-1}$.
+\ee
+
+
+\exo Soit $f\in L(\R^5)$ nilpotent tel que $dim Ker f = 2$ et $dim Ker f^2 = 4$. 
+\be
+\item Démontrer que l'indice de nilpotence de $f$ vaut 3.
+\item Dessiner le tableau de Young associé à $f$
+\item En déduire la forme de Jordan associée à $f$ en précisant dans quelle base on se place.
+\ee
+
+\exo
+On considère $f\in L(\R^n)$  un endomorphisme nilpotent  associé à chacun des tableaux de Young suivants. \\
+\begin{minipage}{8cm}
+Donner dans  chaque cas : 
+\be
+\item La valeur de $n$ et l'indice de nilpotence de $f$.
+\item La matrice de Jordan associée à $f$.
+\item Le rang de $f$ et la dimension de $Im f \cap Ker f $. 
+\ee
+\end{minipage}
+\begin{minipage}{8cm}\quad
+\includegraphics[scale=0.17]{images/tableau-young.png}
+\end{minipage}
+
+
+
+\exo Soit $A\in M_n(\R)$ définie par 
+$A=\mat{1&\cdots&1\\\vdots& \ddots& \vdots\\1&\cdots&1}$. \be
+\item Déterminer le rang de cette matrice. 
+\item En déduire l'ensemble de ses valeurs propres (son spectre).
+\item Montrer que $A$ est diagonalisable. 
+\item Montrer que $A^2-tr(A)A=0$ sans calculer $A^2$. 
+\ee
+
+
+\exo 
+Pour quelles valeurs de $\theta$ les endomorphismes canoniquement associés aux matrices
+%
+\begin{equation*}
+ A_{\theta}= \mat{\cos(\theta)&-\sin(\theta)\\ \sin(\theta)&\cos(\theta)}
+ \mbox{ et }
+B_{\theta}= \mat{\cos(\theta)&-\sin(\theta)&0\\ \sin(\theta)&\cos(\theta)& 0\\0 & 0 & 1}
+\end{equation*}
+%
+admettent-ils des sous-espaces stables? Commenter.
+
+
+\section{Approfondissement}
+
+\exo Soit $f\in L(E)$ et $E$ un $\R$-\ev de dimension $n\geq 2$. 
+\be
+\item Montrer que $f$ admet toujours des plans stables. 
+\item Montrer que si $n$ est impair, alors $f$ admet au moins une direction stable. 
+\item Si $E$ un $\C$-\ev, que peut-on dire de plus ?
+\ee
+
+\exo Soit $n \in \N^*$, et $f$ l'endomorphisme de $\R^n$ associé à la matrice
+%
+\begin{equation*}
+ J = \mat{0 & 1 & 0 & \ldots & 0\\ 
+0 & 0 & 1 & \ldots & \\
+   &     & 0 & \\
+ \vdots   &     &  &\ddots & 1 \\  
+ 0 &\ldots & & & 0 }.
+\end{equation*}
+
+\be
+\item Calculer $J^k$ pour $k \in \N^*$.
+\item ($\star$) Déterminer tous les sous-espaces vectoriels stables par $f$.
+\ee
+
+\exo Soit $A= \mat{2&-1&2\\1&0&2\\1&-1&3}$
+\be 
+\item Vérifier que $P = (X-1)(X-3)$ est un polynôme annulateur pour $A$ (c'est à dire $P(A)=0$).
+\item Soit $R_n = a_n X + b_n$ le reste de la division euclidienne de $X^n$ par $P$. Déterminer $a_n$ et $b_n$.
+\item En déduire une expression de $A^n$.
+\ee
+
+\exo (Polynômes)
+\be
+\item Effectuer la division euclidienne de $P=X^4+2X^3-X+6$ par $Q=X^3-6X^2+X+4$ dans~$\R[X]$.
+\item Effectuer la division euclidienne de $P=iX^3-X^2+(1-i)$ par $Q=(1+i)X^2-iX+3$ dans~$\C[X]$.
+\item ($\star$) Trouver deux polynômes $U$ et $V$ de $\R[X]$ tels que $AU+BV=1$, où $A=X^7-X-1$ et $B=X^5-1$.
+\ee
+
+
+\exo ($\star$)
+On considère l’espace vectoriel $\mathcal{F}(\R,\R)$ des fonctions de $\R$ dans $\R$ et soit $T: \mathcal{F}(\R,\R) \rightarrow \mathcal{F}(\R,\R)$ l'application 
+définie par : si $f \in \mathcal{F}(\R,\R)$, alors $T(f) \in \mathcal{F}(\R,\R)$ est la fonction définie par  
+%
+\begin{equation*}
+ \forall x \in \R, \quad T(f)(x) = f(-x).
+\end{equation*}
+%
+Montrer que $T$ est une symétrie de $\mathcal{F}(\R,\R)$ et donner ses éléments caractéristiques.
+
+
+\section{Propriétés générales}
+
+\exo  Soit $f$ un endomorphisme de $E$. Montrer que les sous-espaces propres de $f$ associés à des valeurs propres distinctes sont en somme directe.
+
+\exo (Cours) Montrer que $\lambda$ est valeur propre de $f$ \ssi $\lambda$ est racine du polynôme caractéristique de $f$.
+
+\exo (Cours)
+ Existe-t-il des endomorphismes nilpotents vérifiant $Im f \bigoplus Ker f =E$ ?
+
+\exo
+Soit $E$ un espace vectoriel de dimension $n$. Quelle est la dimension de $L(E)$? Montrer que pour tout endomorphisme $f$ de $E$ il existe un polynôme $P$ tel que 
+tel que $P(f)=0$ (sans le théorème de Cayley--Hamilton). Montrer que son degré est toujours inférieur à $n^2$.
+
+
+\exo Soit $A,B$ des matrices de $\Mc(\R)$. Montrer qu'elles sont semblables sur $\R$ \ssi elles sont semblables sur $\C$.
+
+
+\exo (Cours)
+Soient $p$ et $q$ deux projections équivalentes. Sont-elles nécessairement semblables?
+
+
+\exo (Cours) Montrer qu'une \AL est une homothétie \ssi sa matrice dans une base est de la forme $\lambda I_n$.
+
+
+\exo Montrer qu'une \AL du plan qui pr\'eserve 3 directions 2 \`a 2 distinctes est une homoth\'etie .
+
+
+\exo Donner un exemple de deux matrices $A$ et $B$ telles que $AB = 0$ mais $B A$ est non nulle. Que pouvez-vous dire des noyaux et images des endomorphismes associés?
+
+
+
+
+%\exo($\star$)
+%Soit $E$ un $\R$-espace vectoriel de dimension $n \in \N^*$ et $f \in L(E)$ un endomorphisme nilpotent d'indice de nilpotence $k$.
+%Montrer que 
+%\[k = n \iff \rg(f) = n-1.\]
+
+
+\exo
+\'Etant donnée une matrice $A \in M_n(\R)$, on veut définir l'exponentielle \[e^{A} = \lim_{n \rightarrow +\infty} \sum_{k=0}^{n} \frac{1}{k!} A^k.\]
+\be
+\item Montrer que si $A = D  =  \mat{
+\lambda_1 & 0               & \ldots & 0 \\
+      0         & \lambda_2& \ddots & \vdots \\
+    \vdots  & \ddots       &  \ddots  & 0 \\
+0              & \ldots         & 0         &\lambda_{n}}$ est diagonale, alors 
+$e^{A} =  \mat{
+e^{\lambda_1}& 0               & \ldots & 0 \\
+      0         & e^{\lambda_2}& \ddots & \vdots \\
+    \vdots  & \ddots       &  \ddots  & 0 \\
+0              & \ldots         & 0         &e^{\lambda_n}}$. 
+En déduire l'existence de $e^{A}$ lorsque $A$ est diagonalisable.
+
+\item Montrer que si $A=N$ est nilpotente, alors il existe un polynôme $P = \R[X]$ tel que $e^{A} =P(A)$.
+
+\item On suppose que $A = D+N$ avec $DN = ND$. Prouvez que dans ce cas $e^{A}$ est bien définie et que l'on a $e^{A} = e^{D} e^{N}  = e^{N} e^{D}$.
+
+\item  En déduire l'expression de $e^A$ dans le cas général.
+\ee
+
+
+\section{Pour réfléchir un peu plus...}
+
+\exo(Cours) Soient $f, g \in L(E)$ deux endomorphismes d'un espace vectoriel de dimension finie. Montrer que si $f$ et $g$ commutent et si ils sont tous deux diagonalisables, alors ils admettent une base co-diagonalisante (c'est à dire une base dans laquelle leurs matrices sont toutes deux diagonales).
+
+
+\exo Montrer que si un endomorphisme $f$ est diagonalisable, alors $f^k$ est aussi diagonalisable. Que pensez-vous de la réciproque ?
+
+\exo ($\star$) Montrer que l'ensemble $H(E)$ des homothéties non nulles est un sous-groupe commutatif de $GL(E)$ pour la composition. 
+Montrer qu'il est le centre de $GL(E)$, c'est à dire l'ensemble des endomorphismes qui commutent avec toutes les éléments de $GL(E)$.
+
+\exo($\star \star$)
+Soit $f \in L(E)$ un endomorphisme d'un $\R$-espace vectoriel $E$ de dimension finie tel que $f^2 = -\Id$. Montrer qu'il existe une base dans laquelle la matrice de $f$ 
+s'écrit par blocs
+\[ \mat{R& 0 & \ldots & 0\\
+0 & R& \\
+   &    &\ddots & 0 \\
+0&\ldots&0&R} \mbox{ avec } 
+R=\mat{0&-1\\
+1&0} \in M_2(\R).\]
+(\emph{Indication: on pourra d'abord montrer que la dimension de $E$ est paire}).
+
+
+\exo($\star \star$) \emph{Polynôme compagnon.}
+Soit $P \in \R[X]$ un polynôme unitaire de la forme $P(X) = X^n+ \sum_{i=0}^{n-1} a_i X^i$. 
+On appelle matrice compagnon associée à $P$ la matrice 
+\[C =  \mat{
+0 & 0 & \ldots & 0 & -a_0\\
+1 & 0&   \ldots & 0&-a_1\\
+0 & 1&  \ddots  &  \vdots  &\vdots\\
+\vdots & \ddots & \ddots & 0 & -a_{n-2}\\
+0& \ldots & 0 &1&-a_{n-1}}.\]
+\be
+\item
+Montrer que l'application linéaire associée à $C$ dans la base canonique est déterminée par $f(e_i) = e_{i+1}$ pour $i<n$ et $f(e_n) = - \sum_{i=0}^{n-1} a_i e_{i+1}$.
+\item 
+Montrer que $(-1)^n P$ est le polynôme caractéristique associé à $f$.
+\item
+Déterminer le polynôme minimal associé à $f$. En déduire que $f$ est diagonalisable si et seulement si $P$ n'a que des racines simples.
+\item 
+Soit $\lambda$ une racine de $P$. Montrer que $|\lambda| \leq R$ où $R = \max\{|a_0|,|a_1|+\ldots+|a_{n-1}|+1\}$ (\emph{indication: on pourra considérer un 
+vecteur propre associé à $\lambda$}).
+\ee
+
+\exo($\star \star$)
+Soit$f \in L(E)$ un endomorphisme d'un $\R$-espace vectoriel $E$ de dimension finie dont le polynôme minimal est $\mu_f(X) = \prod_{i=1}^s(X-\lambda_i)^{m_i}$. 
+\'Etant donné un polynôme $P \in \R[X]$, on cherche à montrer que l'endomorphisme $P(f)$ est diagonalisable si et seulement si 
+\[\forall i\in \{1, \ldots s\}, \forall k\in \{1, \ldots m_i-1\}, \; P^{(k)}(\lambda_i) = 0.\]
+ \be
+\item Montrer cette équivalence pour un endomorphisme $f$ nilpotent d'indice $m$ 
+(\emph{indication: on pourra d'abord montrer que la famille $f, f^2, \ldots, f^{m-1}$ est libre}).
+\item En déduire le résultat dans le cas où $f- \lambda \Id$ est nilpotent.
+\item Conclure dans le cas général (\emph{indication: on pourra utiliser le théorème des noyaux}).
+\ee
+
+\end{document}
+
+
+
+
+\begin{exercice}~(avec geogebra)
+Pour tout $m=(x,y)$ de $\R^{2}$, on d\'efinit  $f(m)=(5x+4y-4, -6x-5y+6)$. On note $(O,\vect{i},\vect{j})$ le rep\`ere canonique de $\R^{2}$.
+ \begin{enumerate}
+ \item Montrer que $f$ est une sym\'etrie affine et d\'eterminer ses \'el\'ements caract\'eristiques.
+ \item Soit $t$ une translation de vecteur $u=\overrightarrow i-\overrightarrow j$.  D\'eterminer la nature de $t\circ f$ et donner ses caract\'eristiques g\'eom\'etriques. Illustrer ces transformations sur une figure Geogebra.
+\end{enumerate}
+\end{exercice}
+
+\end{document}
+\begin{exercice}
+On suppose que $f$ une sym\'etrie affine par rapport \`a $F$ parall\`element \`a  $G$. 
+\begin{enumerate}  
+\item À quelle condition sur $u$, l'application $t\circ f$ est-elle encore une sym\'etrie affine ? A quelle condition $t\circ f=f\circ t$ ?
+ \item Soit $g$ une application affine dont l'application lin\'eaire associ\'ee est une sym\'etrie vectorielle. Montrer qu'il existe une unique sym\'etrie affine $s$ et une unique translation $t$ telles que : $g=s\circ t=t\circ s$.
+\end{enumerate}
+\end{exercice}
+
+
+\end{document}

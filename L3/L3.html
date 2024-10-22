@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">  
+    <title>L3</title>
+    <style>
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #f2f2f2;
+        }
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 20px;
+            margin: 20px;
+        }
+
+        .icon {
+            text-align: center;
+        }
+        
+        .icon a {
+            text-decoration: none; /* Supprime le soulignement du lien texte */
+        }
+
+        .icon img {
+            max-width: 100%; /*au lieu de width: 100px; */
+            max-height: 100px; /* au lieu de height: 100px; . Pour éviter que les images soient déformées */
+            border: 1px solid #ccc;
+            cursor: pointer;
+        }
+
+        .icon p {
+            margin: 10px 0;
+        }
+    </style>
+    
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Troisième année de licence</h1>
+    </header>
+    
+    
+    <nav>
+        <ul>
+            <li><a href="../index.html">Accueil</a></li>
+        </ul>
+    </nav>
+    
+    
+    <div class="icon-grid">
+    
+        <!-- Première icône -->
+        <div class="icon">
+            <a href="Algèbre Linéaire/algèbre_linéaire.html">
+                <img src="../images/Cone_de_lumière2.png" alt="Icône 2">
+                <p>Algèbre linéaire</p>
+            </a>
+        </div>
+        
+        <!-- Deuxième icône -->
+        <div class="icon">
+            <a href="Algèbre/algèbre.html">
+                <img src="../images/galois_josleys.png" alt="Icône 3">
+                <p>Algèbre générale</p>
+            </a>
+        </div>
+        
+        <!-- Troisième icône -->        
+        <div class="icon">
+            <a href="EDO/EDO.html">
+                <img src="../images/Linear-Differential-Equation.png" alt="Icône 1">
+                <p>EDO</p>
+            </a>
+        </div>
+        
+        <!-- Quatrième icône -->        
+        <div class="icon">
+            <a href="page1.html">
+                <img src="../images/topo.png    " alt="Icône 1">
+                <p>Topologie et calcul différentiel</p>
+            </a>
+        </div>
+        
+        <!-- cinquième icône -->        
+        <div class="icon">
+            <a href="page1.html">
+                <img src="../images/matrix.png" alt="Icône 1">
+                <p>Analyse matricielle et optimisation</p>
+            </a>
+        </div>
+        
+        
+    </div>
+</body>
+</html>
+

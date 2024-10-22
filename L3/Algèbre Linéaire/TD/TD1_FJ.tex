@@ -1,0 +1,434 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[]{amsmath,amsthm,amssymb,amscd}
+\usepackage[T1]{fontenc}
+%\usepackage[utf8]{inputenc}
+\usepackage[francais]{babel}
+
+
+
+ \setlength{\topmargin}{-40pt}
+ \setlength{\oddsidemargin}{-24pt}
+ %\addtolength{\evensidemargin}{-78pt}
+ \setlength{\marginparsep}{0pt}
+ \setlength{\marginparwidth}{0pt}
+ \setlength{\textwidth}{500pt}
+ \setlength{\headsep}{18pt}
+ \setlength{\headheight}{12pt}
+ \setlength{\textheight}{730pt}
+
+
+
+\usepackage{fancyhdr}
+ 
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Université Paris Saclay\\2023-2024}
+\lhead{L3MATH\\MEU302}
+\cfoot{\thepage}
+
+%               Theorem Environments
+\theoremstyle{definition}
+\newtheorem{exo}{Exercice}
+
+
+%               Subquestions numbered with letters
+\renewcommand{\theenumi}{\textbf{\alph{enumi}}}
+
+%               Maths definitions
+\renewcommand{\emptyset}{\varnothing}
+\newcommand{\Sph}{\mathbb{S}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\CP}{\mathbb{C}P}
+\newcommand{\lieG}{\mathfrak{G}}
+\newcommand{\liem}{\mathfrak{m}}
+\newcommand{\hol}{\mathcal{H}}
+\newcommand{\proj}{\mathbb{P}}
+\newcommand{\calo}{\mathcal{O}}
+\newcommand{\dbar}{\bar{\partial}}
+\renewcommand{\d}{\partial}
+\newcommand{\D}{\mathrm{D}}
+\newcommand{\into}{\hookrightarrow}
+\newcommand{\abs}[1]{\lvert#1\rvert}
+\newcommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\lie}{\mathfrak}
+\newcommand{\half}{\tfrac{1}{2}}
+\newcommand{\third}{\tfrac{1}{3}}
+\newcommand{\esc}[1]{\langle #1 \rangle}
+\newcommand{\rot}{\nabla\times}
+\renewcommand{\div}{\nabla\cdot}
+\newcommand{\grad}{\nabla}
+\newcommand{\co}[1]{(#1_1,#1_2,#1_3)}
+\newcommand{\Det}[3]{
+        \begin{vmatrix}
+                #1_1 & #1_2 & #1_3 \\
+                #2_1 & #2_2 & #2_3 \\
+                #3_1 & #3_2 & #3_3 
+        \end{vmatrix}}
+\newcommand{\x}{\times}
+%\newcommand{\pdif}[3][]{\frac{\partial #1}{\partial #2}}
+\newcommand{\pdif}[3][]{\frac{{\partial}^{#1}#2}{\partial #3}}
+\newcommand{\diff}[3][]{\frac{{\partial}^{#1}#2}{\partial x_{#3}^{#1}}}
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\suchthat}{\;:\;}
+\newcommand{\st}{\;:\;}
+\newcommand{\imp}{\im}
+\newcommand{\ii}{\mathbf{i}}
+\newcommand{\dxdy}{dx\,dy}
+\newcommand{\dxdydz}{dx\,dy\,dz}
+\newcommand{\dydx}{\dfrac{dy}{dx}}
+\newcommand{\n}{\mathbf{n}}
+%\newcommand{\ans}[1]{[#1]}
+\newcommand{\ans}[1]{}
+\newcommand{\dx}{\,dx}
+\newcommand{\dy}{\,dy}
+\newcommand{\dz}{\,dz}
+\newcommand{\du}{\,du}
+\newcommand{\dv}{\,dv}
+\newcommand{\dS}{\,dS}
+\newcommand{\ds}{d\mathbf{s}}
+\newcommand{\inner}[1]{\langle #1 \rangle}
+\newcommand{\vect}{\boldsymbol{\mathfrak{X}}}
+\newcommand{\SL}{\mathrm{SL}}
+\newcommand{\GL}{\mathrm{GL}}
+\newcommand{\SO}{\mathrm{SO}}
+\newcommand{\SU}{\mathrm{SU}}
+\newcommand{\U}{\mathrm{U}}
+\newcommand{\OO}{\mathrm{O}}
+%\renewcommand{\sl}{\mathfrak{sl}}
+\newcommand{\gl}{\mathfrak{gl}}
+\newcommand{\su}{\mathfrak{su}}
+%\renewcommand{\u}{\mathfrak{u}}
+\newcommand{\Ad}{\mathrm{Ad}}
+\newcommand{\Id}{\mathrm{Id}}
+%\newcommand{\vect}{\boldsymbol{\mathfrak{X}}}
+\newcommand{\xra}{\xrightarrow}
+\newcommand{\RPn}{\mathbb{R}\mathrm{P}^n}
+\newcommand{\Sp}{\mathrm{Sp}}
+
+\DeclareMathOperator{\gradient}{grad}
+\DeclareMathOperator{\rotation}{rot}
+\DeclareMathOperator{\divergence}{div}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\rk}{rk}
+%\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Div}{div}
+\DeclareMathOperator{\Sign}{Sign}
+\DeclareMathOperator{\sen}{sen}
+\DeclareMathOperator{\senh}{senh}
+\DeclareMathOperator{\tg}{tg}
+\DeclareMathOperator{\tgh}{tgh}
+\DeclareMathOperator{\arctg}{arctg}
+\DeclareMathOperator*{\Coeff}{Coeff}
+\DeclareMathOperator*{\Res}{Res}
+\DeclareMathOperator{\re}{Re}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\intt}{int}
+\DeclareMathOperator{\Alt}{Alt}
+\DeclareMathOperator{\Graph}{Graph}
+\DeclareMathOperator{\Card}{Card}
+
+%\DeclareMathOperator{\exp}{exp}
+
+
+\parindent 0mm
+\parskip 2mm
+
+
+
+\begin{document}
+\vspace*{1pt}
+\begin{center}{\bfseries
+Feuille d'exercices 1: Matrices, bases et applications linéaires.
+}
+\end{center}
+
+
+{\bfseries
+Applications linéaires
+}
+
+\begin{exo}
+Existe-t-il une application linéaire entre $K$-espaces vectoriels, avec $K=\R$, telle que
+\begin{itemize}
+\item[(a)] l'image d'une droite vectorielle soit une demi-droite (ouverte/fermée)?
+\item[(b)] l'image d'un plan vectoriel soit un plan vectoriel privé de l'origine?
+\item[(c)] l'image d'un plan vectoriel privé de l'origine soit une droite vectorielle?
+\item[(d)] (*) que pouvez-vous dire de (b) et (c) pour $K$ un corps quelconque?
+   \end{itemize}
+\end{exo}
+
+\begin{exo}
+Pour les familles de vecteurs $\mathcal{F}=(e_1, e_2, \ldots e_n)$ et $\mathcal{F}'=(e_1', e_2', \ldots, e_n')$ suivantes, existe-t-il une application linéaire permettant de passer de $\mathcal{F}$ à $\mathcal{F}'$? Si oui est-elle unique?
+\begin{itemize}
+\item[(a)] Les vecteurs de $\R^2$ :  $e_1=(1,0), e_2=(3,2), e_3=(1,-2)$  \\
+et les vecteurs de $\R^2$ : $\quad e_1'=(0,1), e_2'=(0,-2), e_3'=(-2,4)$ (dessiner les vecteurs dans ce cas);\\
+\item[(b)] Les vecteurs de $\C^3$ :   $e_1=(1,0,0), e_2=(0,1,0), e_3=(0,0,1)$ \\ 
+et les vecteurs de $\C^3$ : $ e_1'=(0,0,0), e_2'=(0,0,1), e_3'=(1,0,0)$;\\
+\item[(c)] Les vecteurs de $\R^3$ :  $e_1=(1,0,0), e_2=(0,1,0), e_3=(0,0,1), e_4=(1,1,1)$  \\ 
+ et les vecteurs de $\R_3[X]$ : $e_1'=X^3, e_2'=X^2, e_3'=X, e_4'=1$;\\
+\item[(d)] Les vecteurs de $\R_4[X]$ :  $e_1=1+X^4, e_2=X^2$  \\
+et les vecteurs de $\R^2$  $e_1'=(2,-1), e_2'=(3,0)$;\\
+\item[(e)] Les vecteurs de $\R_3[X]$ : $e_1=2X+1, e_2=X^3+X^2+X, e_2= 2X^3+2X^2+1$  \\et les vecteurs de $\R_2[X]$ : $e_1'=1+X, e_2'=2+2X, e_3'=3+3X$;\\
+\item[(f)] Les vecteurs de $\C_4[X]$, $e_1=(1,1,1, 0), e_2=(0,i,i, i), e_3=(-1,1,1,2)$ \\
+et les matrices de $M_2(\C)$ $
+e_1' = \begin{pmatrix}
+1 & -2 \\
+0 & 3
+\end{pmatrix}
+$, 
+$e_2' = \begin{pmatrix}
+0 & 2 \\
+2 & 4
+\end{pmatrix}
+$,
+$e_3' = \begin{pmatrix}
+-1 & 0 \\
+i & 1
+\end{pmatrix}
+$.
+   \end{itemize}
+\end{exo}
+
+
+
+\begin{exo}
+Soit $f: \R^2 \rightarrow \R^2$ l'application définie par $f(e_1)=e_1'$ et $f(e_2)=e_2'$. Dans chacun des cas suivants, déterminer graphiquement l'image des vecteurs $v_i$, donner la matrice de $f$ dans la base canonique, puis l'expression de $f(x,y)$ pour tout $(x,y)\in \R^2$.  Identifier la transformation du plan définie par $f$.
+\begin{itemize}
+\item[(a)] pour $e_1 = (1,0)$, $e_2=(0,1)$,  $\quad e_1' = (1,1)$, $e_2'=(-1,1)$ et $\quad v_1=(2,0)$, $v_2=(2,1)$;
+\item[(b)] pour $e_1 = (1,1)$, $e_2=(0,1)$,  $\quad e_1' = (4,1)$, $e_2'=(3,1)$ et $\qquad v_1=(1,0)$, $v_2=(2,-1)$;
+\item[(c)] pour $e_1 = (3,3)$, $ e_2=(0,-3)$, $\quad e_1' = (1,2)$, $e_2'=(-2,-4)$ et $\quad v_1=(1,2)$, $v_2=(2,1)$.
+
+\end{itemize}
+\end{exo}
+
+
+\begin{exo}
+On considère les applications linéaires $f_i : \R^2 \rightarrow \R^2$ définies pour tout $(x,y)\in \R^2$ par
+$$f_1(x,y) = (y,x), \quad f_2(x,y) = \left({\frac{2x+y}{4},\frac{2x+y}{2}}\right), \quad f_3(x,y) = \left({\frac{x-\sqrt{3}y}{2},\frac{\sqrt{3}x+y}{2}}\right).$$
+\begin{itemize}
+\item[(a)] Représenter l'image de la base canonique pour chacune de ces applications. Préciser leur nature.
+\item[(b)] Donner les matrices associées à ces applications. Ces matrices sont-elles équivalentes?
+\end{itemize}
+\end{exo}
+
+
+
+\begin{exo}
+Si $A$ est la matrice associée à une application linéaire $f$ dans une base quelconque, montrer que le rang de $f$ est la dimension de l'espace engendré par les colonnes de $A$.
+\end{exo}
+
+
+
+\begin{exo}
+Quelles sont les classes d'équivalences des matrices de $M_{n,1}(\R)$?
+\end{exo}
+
+\begin{exo}
+Parmi les matrices suivantes, lesquelles sont équivalentes?
+
+$
+A = \begin{pmatrix}
+1 & 0 \\
+0 & 1
+\end{pmatrix}
+$,
+$B = \begin{pmatrix}
+1 & 2 \\
+2 & 1
+\end{pmatrix}$,
+$C = \begin{pmatrix}
+1 & 2 \\
+2 & 4
+\end{pmatrix}$,
+$D =  \begin{pmatrix}
+0 & 1 \\
+0 & 1  \\
+\end{pmatrix}$,
+$E= \begin{pmatrix}
+i & 0 \\
+0 & -i  \\
+\end{pmatrix}$,
+$
+F =  \begin{pmatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+\end{pmatrix}$,
+$G =  \begin{pmatrix}
+1 & 2 & 3\\
+1 & 2 & 3 \\
+\end{pmatrix}$, \smallskip
+
+\noindent
+$H =  \begin{pmatrix}
+1 & 0 &  1\\
+0 & 0 & 1 \\
+\end{pmatrix}$,
+$I =  \begin{pmatrix}
+1 & 0 \\
+0 & 1 \\
+0 & 0
+\end{pmatrix}$,
+$J =  \begin{pmatrix}
+i & -1 \\
+-i & 1 \\
+0 & 0
+\end{pmatrix}$,
+$K = \begin{pmatrix}
+1 & 2 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 0
+\end{pmatrix}$,
+$L =  \begin{pmatrix}
+1 & 0 & 0 \\
+0 & 0 & 1 \\
+0 & 0 & 0
+\end{pmatrix}$,
+$M =  \begin{pmatrix}
+1 & 0 & 0 \\
+0 & 2 & 1 \\
+0 & 0 & 0
+\end{pmatrix}$,\smallskip
+
+\noindent
+$N =  \begin{pmatrix}
+0 & 0 & 0 \\
+i & -1 & 0 \\
+-1 & -i & 0
+\end{pmatrix}$,
+$O =  \begin{pmatrix}
+1 & 0 & 0 & 0\\
+0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 
+\end{pmatrix}$,
+$P =  \begin{pmatrix}
+1 & 5 & 9 & 4\\
+2 & 6 & 0 & 5 \\
+3 & 7 & 0 & 6 \\
+4 & 8 & 0 & 7 
+\end{pmatrix}$,
+$Q =  \begin{pmatrix}
+1 & 5 & -5 & 4\\
+2 & 6 & -6& 4 \\
+3 & 7 & -7& 4 \\
+4 & 8 & -8 & 4 
+\end{pmatrix}$.
+
+\end{exo}
+
+
+
+{\bfseries
+Bases et espaces vectoriels
+}
+\begin{exo}
+Les familles de fonctions suivantes sont-elles libres?
+\begin{itemize}
+\item[(a)] $\{\R \rightarrow \R, x \mapsto \exp(kx)\}_{k=1, \ldots n}$ pour $n \in \N^*$;
+\item[(b)] $\{\R \rightarrow \R, x \mapsto x^k\}_{k=0, \ldots n}$ pour $n \in \N^*$;
+   \end{itemize}
+\end{exo}
+
+\begin{exo}
+On considère l'ensemble $M_2(\C)$ des matrices $2\times2$ à coefficients dans $\C$.
+\begin{itemize}
+\item[(a)] Rappelez pourquoi $M_2(\C)$ est un $\C$-espace vectoriel. Quelle est sa dimension?
+\item[(b)] Montrer que $M_2(\C)$ est un $\R$-espace vectoriel. Quelle est sa dimension?
+\item[(c)] Réciproquement, est-ce que $M_2(\R)$ est un $\C$-espace vectoriel?
+   \end{itemize}
+\end{exo}
+
+
+
+\begin{exo}
+\begin{itemize}
+\item[(a)] Pour $x, y, z \in \R$ calculer le déterminant 
+$\begin{vmatrix}
+1 & 2 & x\\
+2 & 3 & y\\
+3 & 4 & z
+\end{vmatrix}$. 
+\item[(b)] En déduire une équation cartésienne du sous-espace vectoriel $H$ de $\R^3$ engendré par les vecteurs de coordonnées 
+$(1,2,3)$ et $(2,3,4)$.
+\item[(c)] Montrer que $H$ est le noyau d'une forme linéaire $f \in L(\R^3,\R)$ et donner sa matrice dans les bases canoniques de $\R^3$ et $\R$.
+   \end{itemize}
+\end{exo}
+
+\begin{exo}($\star$)
+Soit $\{v_1, v_2, \ldots v_{n-1}\}$ une famille libre de vecteurs d'un espace vectoriel $E$ de dimension~$n$.
+Montrer qu'un vecteur $u$ de $E$ appartient au sous-espace vectoriel engendré par ces vecteurs si et seulement si $\det(v_1, v_2, \ldots v_{n-1},u) = 0$.
+\end{exo}
+
+\begin{exo}
+Soit $E$ un espace vectoriel de dimension $n$. On désigne par $E^*=L(E,\R)$ l'ensemble des formes linéaires sur $E$. Remarquer que $E^*$ est un espace vectoriel, préciser sa dimension et donner une base.
+\end{exo}
+
+
+\begin{exo}($\star$)
+Montrer qu'un sous-espace vectoriel est un hyperplan si et seulement si il est le noyau d'une forme linéaire non nulle.
+\end{exo}
+
+
+{\bfseries
+Algèbre
+}
+\begin{exo}
+Montrer que la relation ``\textit{$A$ est équivalente à $B$}'' est une relation d'équivalence sur l'ensemble des matrices
+$M_{n,p}(\R)$ 
+\end{exo}
+
+\begin{exo}
+
+
+\begin{itemize}
+\item[\phantom{()}]
+\item[(a)] Montrer qu'une matrice de $M_n(\R)$ est une matrice de passage si et seulement si elle est inversible.
+\item[(b)] Montrer que $GL_n(\R)$ est un groupe multiplicatif. Est-il commutatif?
+   \end{itemize}
+\end{exo}
+
+
+\begin{exo}($\star$)
+L'ensemble $M_{n,p}(\R)$ est-il un groupe multiplicatif ?
+\end{exo}
+
+
+\begin{exo}($\star$)
+\begin{itemize}
+\item[(a)] Montrer que la famille de matrices de $M_2(\C)$ 
+$\begin{pmatrix}
+1 & 0 \\
+0 & 1
+\end{pmatrix}$, 
+$I = \begin{pmatrix}
+i & 0 \\
+0 & -i
+\end{pmatrix}$, 
+$J =\begin{pmatrix}
+0 & -1\\
+1 & 0
+\end{pmatrix}$, 
+$K =\begin{pmatrix}
+0 & -i\\
+-i & 0
+\end{pmatrix}$
+est libre.
+\item[(b)] Montrer que le sous-espace vectoriel engendré par cette famille forme une algèbre.
+\item[(c)] Montrer qu'il forme un corps.
+   \end{itemize}
+\end{exo}
+
+
+
+\begin{exo}
+Soit $P \in K[X]$ un polynôme sur un corps $K$ et $\lambda \in K$. Montrer que $P(\lambda) = 0$ si et seulement si $(X-\lambda)$ divise le polynôme $P$.
+\end{exo}
+
+\end{document}

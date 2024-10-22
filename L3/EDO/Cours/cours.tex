@@ -1,0 +1,112 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{thmtools}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[francais]{babel}
+\usepackage{mathtools}   % loads »amsmath
+\usepackage[dvipsnames]{xcolor} % Ajout du package xcolor
+
+
+\usepackage{calc}
+\usepackage[nothm]{thmbox}
+\usepackage{pifont}
+
+%Définition soulignée
+\def\deff{\color{blue}\begin{thmbox}[M]{\textbf{Définition :}}\noindent\color{blue}}
+\def\enddeff{\end{thmbox}}
+
+%Remarque crayon
+\newenvironment{commentaire}{\par\medskip\noindent\begin{tabular}{l|p{\linewidth-0.955cm}}
+\ding{46} & }
+{\end{tabular}\par\medskip}
+
+
+
+%Raccourcies
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Aa}{\mathcal{A}}
+\newcommand{\Cc}{\mathcal{C}}
+\newcommand{\Tup}{\bigtriangleup}
+\newcommand{\Tdn}{\bigtriangledown}
+
+\definecolor{rltred}{rgb}{0.75,0,0}
+	\definecolor{rltgreen}{rgb}{0,0.5,0}
+	\definecolor{oneblue}{rgb}{0,0,0.75}
+	\definecolor{marron}{rgb}{0.64,0.16,0.16}
+	\definecolor{forestgreen}{rgb}{0.13,0.54,0.13}
+	\definecolor{purple}{rgb}{0.62,0.12,0.94}
+	\definecolor{dockerblue}{rgb}{0.11,0.56,0.98}
+	\definecolor{freeblue}{rgb}{0.25,0.41,0.88}
+	\definecolor{myblue}{rgb}{0,0.2,0.4}
+
+
+%Style définition
+\declaretheoremstyle[
+  headfont=\color{blue}\normalfont\bfseries,
+  bodyfont=\color{blue}\normalfont,
+]{colored}
+\declaretheorem[
+  style=colored,
+  name=Définition,
+]{définition}
+
+%Style Proposition
+\declaretheoremstyle[
+  headfont=\color{black}\normalfont\bfseries,
+  bodyfont=\color{black}\normalfont,
+]{coloredProp}
+\declaretheorem[
+  style=coloredProp,
+  name=Proposition,
+]{prop}
+
+
+\let\oldproof\proof
+\renewcommand{\proof}{\color{olive}\oldproof}
+
+%\theoremstyle{definition}
+%\newtheorem{prop}{Proposition}
+%\newtheorem{exo}{Exercice}
+%\newtheorem{df}{Définition}
+
+% Commande pour ajouter une solution (en vert)
+\newcommand{\solution}[1]{\par\noindent\textbf{Solution :} \textcolor{red}{#1}}
+
+
+
+\title{$y' = f(x,y)$}
+\author{Floryan Jourdan}
+%\date{2023-2024}
+
+
+\begin{document}
+\maketitle
+
+\begin{deff}
+Une solution de l'équation différentielle $y' = f(x,y)$ est une fonction $\phi$ à valeurs réelles, définie et dérivable sur un intervalle ouvert $I$ et telle que 
+$$(x,\phi(x)) \in U \text{ et } \phi'(x) = f(x, \phi(x)), \text{ pour tout } x \in I.$$
+L'ouvert $U$ s'appelle le domaine de l'équation différentielle.
+\end{deff}
+
+\begin{commentaire}
+ - Une solution d'une ED est toujours définie sur un ouvert. Pourquoi ?
+
+ - Si $\phi : I \to \R$ est une solution, la condition "$\forall x \in I, ~ (x,\phi(x)) \in U$" signifie que le graphe de $\phi$ est contenu dans le domaine $U$.
+
+ - Toute solution est de classe $\Cc^1$.
+\end{commentaire}
+
+Bonjour
+
+\end{document}

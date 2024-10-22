@@ -1,0 +1,43 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[francais]{babel}
+\usepackage{mathtools}   % loads »amsmath
+\usepackage[lastexercise]{exercise}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newtheorem{prop}{Proposition}
+\newtheorem{exo}{Exercice}
+\newtheorem{ex}{Exemple}
+\title{Exo Wims}
+\author{Floryan JOURDAN}
+\begin{document}
+
+\begin{ExerciseList}
+\maketitle
+	\Exercise Soit $E$ un sous-espace vectoriel de $\RR^{30}$ défini par un système linéaire de $20$ équations. Alors $dim(E)$ est ........ égale à .... .
+
+	\Exercise Soit $E$ un sous-espace vectoriel de $\RR^{38}$ engendré par $20$ vecteurs. Alors $dim(E)$ est ....... égale à ..... .
+
+	\Exercise Soit $E$ un sous-espace vectoriel de $\RR^{37}$ défini par un système linéaire de $7$ équations. Alors $dim(E)$ est ...... égale à .... .
+	
+	\Exercise Soit $E$ un sous espace vectoriel de $\RR^{47}$ défini par un système linéaire de $3$ équations indépendantes. Alors $dim(E)$ est ..... égale à .... .
+	\Answer en fait on considère le sous-espace vectoriel $E = \{(x_1,...,x_{47}) \mid L_1(x) = 0, ...., L_{3}(x) = 0 \}$, on peut voir $E$ comme le noyau d'une application linéaire de $\mathcal{L}(\RR^{47},\RR^3)$, on applique donc le théorème du rang pour connaître la dimension du noyau, notons $f$ cette application : $dim(E) = dim(Ker(f)) = dim(\RR^{47}) - dim(\RR^3) = 47 - 3 = 44.$ 
+	
+	\Exercise Soit $E$ un sous-espace vectoriel de $\RR^{23}$ engendré par $12$ vecteurs non proportionnels. ALors $dim(E)$ est .... égale à .... .
+	\Answer $E$ est engendré par $12$ vecteurs non proportionnels, i.e deux à deux, donc ils peuvent être linéairements dépendants tous ensemble, la dimension est donc au plus $12$.
+
+	\Exercise Soit $E$ un sous-espace vectoriel de $\RR^{27}$ défini par un système linéaire de $13$ équations différentes. Alors $dim(E)$ est ..... égale à .... .
+
+	\Exercise Soit $(e_1,e_2,e_3)$ une base de $\RR^3$. Les composantes d'un vecteur dans cette base sont notées $(x,y,z)$. On considère le plan $P$ d'équation $5x+2y = 0$ et la droite $D$ engendrée par le vecteur $2e_2 - e_1$.\\
+	Décomposez le vecteur $w = ée_1-5e_2+3e_3$ comme somme d'un vecteur $u$ de $P$ et d'un vecteur $v$ de $D$.
+
+
+\end{ExerciseList}
+
+\end{document}

@@ -1,0 +1,134 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{thmtools}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[francais]{babel}
+\usepackage{mathtools}   % loads »amsmath
+\usepackage[dvipsnames]{xcolor}
+
+\usepackage{calc}
+\usepackage[nothm]{thmbox}
+\usepackage{pifont}
+
+%Raccourcies
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Aa}{\mathcal{A}}
+\newcommand{\Vv}{\mathcal{V}}
+\newcommand{\Mm}{\mathcal{M}}
+\newcommand{\Chi}{\mathcal{X}}
+\newcommand{\Ll}{\mathcal{L}}
+\newcommand{\Tup}{\bigtriangleup}
+\newcommand{\Tdn}{\bigtriangledown}
+
+%Vecteur
+\renewcommand*{\overrightarrow}[1]{\vbox{\halign{##\cr
+  \tiny\rightarrowfill\cr\noalign{\nointerlineskip\vskip1pt}
+  $#1\mskip2mu$\cr}}}
+
+\definecolor{rltred}{rgb}{0.75,0,0}
+	\definecolor{rltgreen}{rgb}{0,0.5,0}
+	\definecolor{oneblue}{rgb}{0,0,0.75}
+	\definecolor{marron}{rgb}{0.64,0.16,0.16}
+	\definecolor{forestgreen}{rgb}{0.13,0.54,0.13}
+	\definecolor{purple}{rgb}{0.62,0.12,0.94}
+	\definecolor{dockerblue}{rgb}{0.11,0.56,0.98}
+	\definecolor{freeblue}{rgb}{0.25,0.41,0.88}
+	\definecolor{myblue}{rgb}{0,0.2,0.4}
+
+
+%Style définition
+\declaretheoremstyle[
+  headfont=\color{blue}\normalfont\bfseries,
+  bodyfont=\color{blue}\normalfont,
+]{colored}
+\declaretheorem[
+  style=colored,
+  name=Définition,
+]{df}
+
+%Style Proposition
+\declaretheoremstyle[
+  headfont=\color{black}\normalfont\bfseries,
+  bodyfont=\color{black}\normalfont,
+]{coloredProp}
+\declaretheorem[
+  style=coloredProp,
+  name=Proposition,
+]{prop}
+
+%Style exo
+\declaretheoremstyle[
+  headfont=\color{orange}\normalfont\bfseries,
+  bodyfont=\color{black}\normalfont,
+]{coloredexo}
+\declaretheorem[
+  style=coloredexo,
+  name=Exercice,
+]{exo}
+
+%Règle soulignée
+\def\regle{\begin{thmbox}[M]{\textbf{Rappel :}}\noindent\color{DarkOrchid}}
+\def\endregle{\end{thmbox}}
+
+
+\let\oldproof\proof
+\renewcommand{\proof}{\color{olive}\oldproof}
+%\theoremstyle{definition}
+%\newtheorem{prop}{Proposition}
+%\newtheorem{exo}{Exercice}
+%\newtheorem{df}{Définition}
+\def\be{\begin{exo}}
+\def\ee{\end{exo}}
+
+
+\def\br{\begin{regle}}
+\def\er{\end{regle}}
+
+\def\bd{\begin{df}}
+\def\ed{\end{df}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%solution%%%%%%%%%%%%%%%%%%
+\newcommand{\solution}[1]{\par\noindent\textbf{\color{OliveGreen}Solution :} \textcolor{OliveGreen}{#1}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Ce qu'il faut savoir du cours d'Algèbre Linéaire de D.Thomine}
+\author{Floryan Jourdan}
+%\date{2023-2024}
+
+
+\begin{document}
+\maketitle
+\bd
+Soit $E$ un espace vectoriel et $V \subset E$. $\mathcal{V}$ est un sous espace affine de $E$ s'il existe un sous espace vectoriel $V \subset E$ et $a \in E$ tels que $\mathcal{V} = a+V = \{a+v \mid v \in V\}$.
+\ed
+\br
+Une représentation paramétrique de $\Vv$ est une écriture de la forme $\Vv = a + vect(v_1,...,v_k)$ ou $\Vv =  a+\R v_1 + ... + \R v_k$ ou $\Vv = \{a+ t_1 v_1 + ... +t_k v_k \mid t_1,...,t_k \in \R\}$ où $(v_1,...,v_k)$ est libre.
+\er
+\be
+Soit $\Vv$ un sous espace affine de $\R^n$ de direction $V$. \\
+Montrer que si $P\in \Vv$, alors $\Vv$ est le sous espace affine passant par $P$ et de direction $V$.
+\solution{P158 L1, \color{white} Par hypothèse, il existe un point $A \in \Vv$ tel que $\Vv$ est l'ensemble des points $A+u$ ou $u\in V$...}
+\ee
+\be
+Montrer que si $\Vv$ est un sous espace affine de $\R^n$ alors sa direction est l'ensemble des vecteurs $PQ$, où $P$ et $Q$ sont des points de $\Vv$.
+\solution{\color{white} Supposons que $P$ est un point de $\Vv$. Si $Q \in \Vv$, alors d'après l'exo précedent, il existe un vecteur $u \in V$ tel que $Q = P + u$ ; on a donc $u = \overrightarrow{PQ}$ et par suite $\overrightarrow{PQ} \in V$. Réciproquement, si $v\in V$, alors le point $Q = P + v$ appartient à $\Vv$ et l'on a $v = \overrightarrow{PQ}$.}
+\ee
+
+
+
+\be
+
+\ee
+
+
+
+\end{document}

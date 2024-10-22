@@ -1,0 +1,185 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{thmtools}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[francais]{babel}
+\usepackage{mathtools}   % loads »amsmath
+\usepackage[dvipsnames]{xcolor}
+
+
+%Raccourcies
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Aa}{\mathcal{A}}
+\newcommand{\Mm}{\mathcal{M}}
+\newcommand{\Chi}{\mathcal{X}}
+\newcommand{\Ll}{\mathcal{L}}
+\newcommand{\Tup}{\bigtriangleup}
+\newcommand{\Tdn}{\bigtriangledown}
+
+\definecolor{rltred}{rgb}{0.75,0,0}
+	\definecolor{rltgreen}{rgb}{0,0.5,0}
+	\definecolor{oneblue}{rgb}{0,0,0.75}
+	\definecolor{marron}{rgb}{0.64,0.16,0.16}
+	\definecolor{forestgreen}{rgb}{0.13,0.54,0.13}
+	\definecolor{purple}{rgb}{0.62,0.12,0.94}
+	\definecolor{dockerblue}{rgb}{0.11,0.56,0.98}
+	\definecolor{freeblue}{rgb}{0.25,0.41,0.88}
+	\definecolor{myblue}{rgb}{0,0.2,0.4}
+
+
+%Style définition
+\declaretheoremstyle[
+  headfont=\color{blue}\normalfont\bfseries,
+  bodyfont=\color{blue}\normalfont,
+]{colored}
+\declaretheorem[
+  style=colored,
+  name=Définition,
+]{df}
+
+%Style Proposition
+\declaretheoremstyle[
+  headfont=\color{black}\normalfont\bfseries,
+  bodyfont=\color{black}\normalfont,
+]{coloredProp}
+\declaretheorem[
+  style=coloredProp,
+  name=Proposition,
+]{prop}
+
+%Style exo
+\declaretheoremstyle[
+  headfont=\color{orange}\normalfont\bfseries,
+  bodyfont=\color{black}\normalfont,
+]{coloredexo}
+\declaretheorem[
+  style=coloredexo,
+  name=Exercice,
+]{exo}
+
+\let\oldproof\proof
+\renewcommand{\proof}{\color{olive}\oldproof}
+%\theoremstyle{definition}
+%\newtheorem{prop}{Proposition}
+%\newtheorem{exo}{Exercice}
+%\newtheorem{df}{Définition}
+\def\be{\begin{exo}}
+\def\ee{\end{exo}}
+
+
+\def\bd{\begin{df}}
+\def\ed{\end{df}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%solution%%%%%%%%%%%%%%%%%%
+\newcommand{\solution}[1]{\par\noindent\textbf{\color{OliveGreen}Solution :} \textcolor{OliveGreen}{#1}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Réduction d'un endomorphisme liret}
+\author{Floryan Jourdan}
+%\date{2023-2024}
+
+
+\begin{document}
+\maketitle
+
+$E$ est un $\K$ espace vectoriel.
+\section{Rappels d'Algèbre linéaire}
+
+\bd
+Soit $\lambda \in \K$. On dit que $\lambda$ est valeur propre de $f$ s'il existe un vecteur non nul $x\in E$ tel que $f(x) = \lambda x$.
+\ed
+
+\be
+Montrer que le scalaire $\lambda \in \K$ est valeur propre de$f \in \Ll(E)$ si et seulement si l'endomorphisme $f-\lambda id_E$ n'est pas bijectif.
+\ee
+\bd
+	Soit $x \in E$. On dit que $x$ est vecteur propre de $f$ si $x \ne 0$ et s'il existe $\lambda \in \K$ tel que $f(x) = \lambda x$.
+\ed
+
+\begin{exo}[\textbf{Valeur propre}]
+	Soit $x \in E$, montrer qu'il existe un unique scalaire $\lambda$ tel que $f(x) = \lambda x$.
+	\solution{P50}
+\end{exo}
+
+\be
+Soit $h \in \Ll(E)$ tel que tout vecteur non nul de $E$ est vecteur propre de $h$. Montrer que $h$ est une homothétie de $E$.
+\solution{P51}
+\ee
+
+\begin{exo}	
+	Soit $f \in \Ll(E)$, soit $P \in \K[X]$, montrer que si $x$ est un vecteur propre de $f$ pour la valeur propre $\lambda$ alors $x$ est vecteur propre de $P(f)$ pour la valeur propre $P(\lambda)$. 
+	\solution{P51}
+\end{exo}
+
+\begin{exo}
+	Soit $\lambda_1,...,\lambda_s$ des valeurs propres distinctes de $f$, montrer que si $x_i$ est vecteur propre de $f$ pour la valeur propre $\lambda_i$, alors les vecteurs $x_1,...,x_s$ sont linéairement indépendants.\\
+	\textit{Indice : Utiliser le résultat de l'exercice précédent.}
+	\solution{P52}
+\end{exo}
+
+\bd
+Soit $A \in \Mm(\K)$. Le polynôme $det(A - XI_n)$ de $\K[X]$ s'appelle le polynôme caractéristique de la matrice $A$. Nous le notons $\Chi_A$.\\
+\textit{NB : Nous admettons ici le résultat que le déterminant de la matrice $A-XI_n$ est un polynôme à coefficients dans $\K$ de degré $n$ tel que $det(A-XI_n) = (-1)^nX^n+(-1)^{n-1}(trA)X^{n-1}+...+detA$, mais il serait bon de savoir le prouver}.
+\ed
+
+\be
+Soit $A$ et $B$ des matrices de $\Mm_n(\K)$. Montrer que s'il existe $P \in GL_n(\K)$ telle que $B = P^{-1}AP$, alors on a $\Chi_B = \Chi_A$.
+\solution{P55}
+\ee
+
+\bd
+On appelle polynôme caractéristique de $f$, le polynôme caractéristique de la matrice de $f$ dans une base de $E$. Le polynôme caractéristique de $f$ sera noté $\Chi_f$.\\
+\textit{NB : par définition du déterminant d'un endomorphisme, on a donc $\Chi_f(\lambda) = det(f - \lambda id_E)$ quel que soit le scalaire $\lambda \in \K$}.
+\ed
+
+\be
+Soit $\lambda \in \K$. Montrer que le scalaire $\lambda$ est valeur prorpre de $f$ si et seulement si $\lambda$ est racine du polynôme caractéristique de $f$.
+\solution{P55}
+\ee
+
+\be
+Soit $A$ la matrice de $f$ dans une base de E. Montrer que si la matrice $A$ est triangulaire, alors les valeurs propres de $f$ sont les coefficients diagonaux de $A$.\\
+\color{gray}\textit{Indice : utiliser un résultat sur le déterminant.}
+\solution{P56}
+\ee
+\bd
+Soit $A \in \Mm(\K)$. 
+ On dit que le scalaire $\lambda \in \K$ est valeur propre de $A$ si $\lambda$ est racine du polynôme $\Chi_A$.
+ \ed
+\bd
+Soit $\lambda$ une valeur propre de $f$. Le sous espace vectoriel $Ker(f-\lambda id_E)$ s'appelle le sous espace propre de $E$ pour la valeur propre $\lambda$ et se note $E(\lambda)$.
+\ed
+\textbf{Exemple} : Soit $p$ la projection de $E$ sur $F$ et $s$ ma symétrie par rapport à $F$ parallèlement à $G$, où $E = F \oplus G$. Tout vecteur $x\in E$ s'écrit de manière unique $x = y+z$ avec $y \in F$ et $z \in G$. 
+Nous avons $p(x) = y$ et $s(x) = y-z$. En conclure les sous espaces propres de tout ça.
+
+\be
+Soit $\lambda_1,...,\lambda_r$ les valeurs propres distinctes de $f$. Montrer que les sous espaces propres $E(\lambda_1),...,E(\lambda_r)$ sont en somme directe.\\
+\color{gray}\textit{Indice : utiliser exo 5}
+\solution{P58 \color{white} finir en raisonnant par contraposée}
+\ee
+
+\textbf{Notation : } Soit $\lambda$ une valeur propre de $f$, c'est à dire une racine \textbf{dans $\K$} du polynôme $\Chi_f$. On note $m(\lambda)$ la multiplicité de $\lambda$ dans le polynôme $\Chi_f$, c'est à dire le plus grand entier $r$ tel que $(X-\lambda)$ divise $\Chi_f$. Puisque $\lambda$ est racine de $\Chi_f$, on a $m(\lambda) \geq 1$.
+
+\be
+Soit $\lambda$ une valeur propre de $f$. Montrer qu'on a $1 \leq dimE(\lambda) \leq m(\lambda).$\\
+\color{gray}\textit{Indice : utiliser exercice 3 et un résultat sur le déterminant}
+\solution{P58 \color{white} matrice par bloc}
+\ee
+\section{Réduction}
+\be
+Montrer que la matrice de $f\in \Ll(E)$ dans la base $(e_1,...,e_n)$ de $E$ est diagonale si et seulement si les vecteurs $e_1,...,e_n$ sont desvecteurs propres de $f$.
+\ee
+D'après ce résultat, l'endomorphisme $f$ est diagonalisable si et seulement
+\bd
+On dit que l'endomorphisme $f$ est diagonalisable si et seulement si il existe une base de $E$ dans laquelle la matrice de $f$ est diagonale.
+\ed
+\end{document}

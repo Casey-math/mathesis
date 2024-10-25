@@ -1,0 +1,180 @@
+\input{../preambule.tex}
+\usepackage{pgfplots}
+\usepackage{setspace}
+\setstretch{1,4}
+\usepackage{emoji}
+
+\title{Intégration}
+
+\author{Anito Kodama}
+
+\date{\today}
+
+\begin{document}
+
+\onehalfspacing % Appliquer l'interligne 1.5 à tout le document
+
+\maketitle
+
+% Disclaimer en police machine à écrire, plus petit
+\begin{center}
+\begin{minipage}{0.9\textwidth}
+\small\ttfamily
+Ce document PDF n'a pas pour vocation à être vendu ni diffusé à des fins commerciales. Il s'agit de notes personnelles de l'auteur, combinées avec des extraits et des réflexions basés sur des lectures. Toute utilisation ou diffusion doit respecter le caractère privé et non commercial de ces contenus. Les idées présentées ici peuvent ne pas être complètes ni totalement exactes, car elles sont le fruit de notes prises à titre personnel.
+
+Influence : Vallet, Merker.
+\end{minipage}
+\end{center}
+
+\section{Introduction}
+\textbf{L'intégrale de Riemann} est généralement suffisante pour les besoins d'un cursus de licence en mathématiques. Même dans le cadre des probabilités, souvent abordées à travers la théorie de la mesure de Lebesgue, il est possible de se contenter de l'intégrale de Riemann. En témoignent des ouvrages comme celui de Charles Suquet, \textit{Probabilités via l'intégrale de Riemann}, qui montre qu'il est possible de traiter les concepts probabilistes avec cet outil plus classique.
+
+Cependant, si l'on souhaite approfondir les mathématiques au-delà du niveau de la licence, la mesure de Lebesgue constitue un véritable \textbf{complément} à la théorie de Riemann, et non un remplacement. Elle enrichit cette dernière sans la supplanter.
+
+L'intégrale de Lebesgue est effectivement plus générale : elle permet d'intégrer dès lors qu'une famille de parties mesurables et une mesure y sont définies.
+
+Il est sans doute plus raisonnable de commencer la théorie de Lebesgue en se disant que tout est mesurable \textit{"La non mesurabilité est un luxe de mathématicien" J.DENY}. D'ailleurs si nos conviction philosophique nous font facilement mettre de côté l'axiome du choix (\textit{Pour tout ensemble $X$ d'ensembles non vides, il existe une fonction définie sur $X$, appelée \textbf{fonction de choix}, qui à chaque ensemble $A$ appartenant à $X$ associe un élément de cet ensemble $A$.}) SOLOVAY a montré que l'on pouvait admettre comme axiome que toutes les parties de $\R^d$ sont mesurables au sens de Lebesgue. Nul besoin de se torturer au début donc. \emoji{smiling-face-with-sunglasses}
+
+\subsection*{Inconvévients de Riemann}
+\ben
+	\item On n'intègre seulement des fonctions bornées sur des parties de $\R$ (intervalles compacts), ou de $\R^d$. La notion d'intégrale généralisée n'est que une limite d'intégrales.
+	\item Il faut des conditions très fortes pour intervertir les intégrales doubles (itérées de plus généralement), condition de continuité for example.
+	\item Pour avoir la convergence des intégrales d'une suite de foncitons intégrables, on a besoin de supposer la convergence uniforme de la suite. \emoji{tired-face}
+\een
+
+\subsection*{Raison de l'intégrale de Lebesgue}
+Le principal objectif de l'intégrale de Lebesgue est de permettre l'intégration d'un plus grand nombre de fonctions, ce qui est essentiel pour des applications telles que le calcul des coefficients de Fourier. En effet, cette approche permet de développer en série de Fourier une plus vaste gamme de fonctions, élargissant ainsi le champ des problèmes mathématiques que l'on peut traiter.
+
+\subsection*{Riemann \emoji{point-right} Lebesgue}
+Lorsque $f$ est Riemann intégrable au sens propre sur un intervalle compact, alors elle l'est au sens de Lebesgue (si l'on a supposé la mesurabilité de $f$), ainsi les deux intégrales coïncident. Ceci étant dit, cela reste vrai pour les intégrales de Riemann généralisées à condition qu'elles soient \textbf{absolument convergentes}.
+
+\subsection*{Lebesgue \emoji{fist-right} Riemann}
+L'intégrale de Lebesgue possède de nombreux avantages sur celle de Riemann : 
+\ben
+	\item Elle permet de montrer simplement (découlant de sa nature même) des théorèmes de convergence et de passage à la limite sous le signe de l'intégral : \textbf{Théorème de convergence monotone}, \textbf{Théorème de convergence dominée}.
+	\item \emoji{1st-place-medal} On peut toujours calculer une intégrale double sur un produit d'intervalles (si la fonction y est intégrable) par intégration successive de deux intégrales simples : \textbf{Théorème de Fubini}.
+	\item On peut généraliser la construction de l'intégrale de Lebesgue ; les espaces de Lebsgue.
+\een
+
+\subsection*{Quelques inconvenients de l'intégrale de Lebesgue \emoji{grimacing-face}}
+\ben
+	\item L'intégrale de Lebesgue est plus longue à construire.
+	\item Utilise la notion d'ensemble mesurable.
+	\item Utilise la notion de fonction mesurable (celles qui seront susceptibles d'être intégrées).
+	\item Utilise la notion de propriété \textit{vraie presque partout} : p.p. Notion indispensable notamment en probabilités sous le nom de propriété \textit{vraie presque sûrement}.
+\een
+
+\section{Construction de l'intégrale de Riemann}
+\subsection{Qu'est ce qu'une intégrale}
+L'une des interprétations possibles, et d'ailleurs sûrement la première chronologiquement : 
+
+Si on considère une fonction \textbf{positive} $f$, définie sur l'intervalle compact $[a,b]$, on cherche à mesurer l'\textbf{aire} de la partie $G_f^-$ du plan se trouvant entre le graphe $G_f$ de $f$ et l'axe des abscisses. C'est cette valeur que l'on appelera l'intégrale de $f$ sur $[a,b]$.
+
+\bigskip
+
+\begin{tikzpicture}
+    \begin{axis}[
+        axis x line=middle, % Ligne de l'axe x au milieu
+        axis y line=middle, % Ligne de l'axe y au milieu
+        xlabel={$x$}, % Label de l'axe x
+        ylabel={$y$}, % Label de l'axe y
+        xmin=0, xmax=4,
+        ymin=0, ymax=1.5,
+        samples=100, % Nombre de points pour dessiner la courbe
+        domain=0:3.1416, % Domaine de la fonction
+        width=10cm, height=8cm, % Dimensions du graphique
+        clip=false
+    ]
+
+    % Représentation de l'aire en dessous de la courbe
+    \addplot [
+        fill=gray!60,
+        draw=none,
+        domain=0:3.1416
+    ] {sin(deg(x))} \closedcycle;
+
+    % Représentation du graphe de la fonction f(x) = sin(x)
+    \addplot [
+        thick,
+        smooth,
+        domain=0:3.1416,
+        samples=100
+    ] {sin(deg(x))} node[pos=0.85, above right] {$G_f$};
+
+    % Légende pour l'aire
+    \node at (axis cs: 1.5, 0.5) {$I_f$};
+
+    \end{axis}
+\end{tikzpicture}
+
+\emoji{heart-on-fire} Ce que l'on sait bien mesurer, ce sont les rectangles, plus généralement les réunions d'une nombre fini de rectangles disjoints. Lorsque ces rectangles ont un côté porté par l'axe des abscisses, ils sont les sous-graphes de fonctions constantes sur des sous-intervalles de leur domaine de définition. On appelle ces fonctions des \textbf{fonctions en escalier}. On peut donc aisément donner la mesure de l'aire de leur sous-graphe, \ie définir leur intégrale.
+
+\bigskip
+
+\begin{tikzpicture}
+    \begin{axis}[
+        axis x line=middle, % Ligne de l'axe x
+        axis y line=middle, % Ligne de l'axe y
+        xlabel={$x$}, % Label de l'axe x
+        ylabel={$y$}, % Label de l'axe y
+        xmin=0, xmax=5.5,
+        ymin=0, ymax=3,
+        samples=100, % Nombre de points pour dessiner la courbe
+        width=10cm, height=8cm, % Dimensions du graphique
+        clip=false
+    ]
+
+    % Représentation de l'aire sous la courbe en escalier
+    \addplot [
+        fill=gray!40,
+        draw=none
+    ] coordinates {(0,1) (1,1) (1,2) (2,2) (2,1.5) (3,1.5) (3,2.5) (4,2.5) (4,1) (5,1)} \closedcycle;
+
+    % Représentation du graphe de la fonction en escalier
+    \addplot [
+        thick,
+        const plot,
+        domain=0:5
+    ] coordinates {(0,1) (1,1) (1,2) (2,2) (2,1.5) (3,1.5) (3,2.5) (4,2.5) (4,1) (5,1)} node[pos=1, above right] {Fonction en escalier};
+
+    % Légende pour l'aire sous la courbe
+    \node at (axis cs: 2.5, 0.5) {$I_f$};
+
+    % Ajout des pointillés verticaux pour visualiser les rectangles individuels
+    \addplot [
+        black, % Couleur des pointillés
+        dashed
+    ] coordinates {(1,0) (1,2)};
+
+    \addplot [
+        black,
+        dashed
+    ] coordinates {(2,0) (2,1.5)};
+
+    \addplot [
+        black,
+        dashed
+    ] coordinates {(3,0) (3,2.5)};
+
+    \addplot [
+        black,
+        dashed
+    ] coordinates {(4,0) (4,1)};
+
+    \addplot [
+        black,
+        dashed
+    ] coordinates {(5,0) (5,1)};
+
+    \end{axis}
+\end{tikzpicture}
+
+\bigskip
+
+D'ailleurs puisque l'on ne considère qu'un nombre fini de rectangles, le domaine de définition est forcément une partie bornée de $\R$. 
+
+Dans la suite nous ne considèrerons que des fonctions définies sur un intervalle compact $[a,b] \subset \R$.
+
+kz
+
+\end{document}

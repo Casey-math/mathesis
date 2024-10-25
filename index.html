@@ -10,7 +10,10 @@
 
 <body>
     <header>
-        <h2><cite>"Si j'ai vu plus loin, c'est en montant sur les épaules de géants."</cite></h2>
+        <blockquote id="quote">
+            <p id="quote-text">Citation 1 : "Votre première citation ici."</p>
+            <p id="quote-author">— Auteur de la ffpremière citation</p>
+        </blockquote>
     </header>
 
     <main>
@@ -66,6 +69,36 @@
             
         </div>
     </main>
+    
+    <script>
+        // Tableau de citations et auteurs
+        const quotes = [
+            { text: "\"Les charmes enchanteurs de cette sublime science ne se décèlent dans toute leur beauté qu'à ceux qui ont le courage de l'approfondir.\"", author: "Carl Friedrich Gauss" },
+            { text: "\"Du Paradis que Cantor a créé pour nous, nul ne nous chassera.\"", author: "David Hilbert" },
+            { text: "\"En mathématiques, on ne comprend pas les choses, on s’y habitue.\"", author: "John von Neumann" },
+            { text: "\"Si j'ai vu si loin, c'est en montant sur les épaules de géants.\"", author: "Newton" },
+            { text: "\"L'analyse mathématique est une symphonie cohérente de l'infini.\"", author: "Hilbert" }
+            // Ajoutez autant de citations que vous le souhaitez
+        ];
+
+        const quoteElement = document.getElementById("quote");
+        const quoteTextElement = document.getElementById("quote-text");
+        const quoteAuthorElement = document.getElementById("quote-author");
+
+        // Fonction pour changer la citation affichée
+        function changeQuote() {
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            const randomQuote = quotes[randomIndex];
+            quoteTextElement.textContent = randomQuote.text;
+            quoteAuthorElement.textContent = randomQuote.author;
+        }
+
+        // Appel initial pour afficher une citation aléatoire
+        changeQuote();
+
+        // Appel la fonction changeQuote() à chaque fois que vous revenez sur la page
+        window.addEventListener("focus", changeQuote);
+    </script>
     <footer>
         <p>Contact : <a href="mailto:anitokodama@gmail.com">e-mail</a></p>
     </footer>

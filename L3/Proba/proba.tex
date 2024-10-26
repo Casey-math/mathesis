@@ -1,0 +1,235 @@
+\input{../../../preambule.tex}
+\usepackage{emoji}
+\title{Probabilités}
+\author{Anito Kodama}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+% Disclaimer en police machine à écrire, plus petit
+\begin{center}
+\begin{minipage}{0.9\textwidth}
+\small\ttfamily
+Ce document PDF n'a pas pour vocation à être vendu ni diffusé à des fins commerciales. Il s'agit de notes personnelles, combinées avec des extraits et des réflexions basés sur des lectures. Toute utilisation ou diffusion doit respecter le caractère privé et non commercial de ces contenus. Les idées présentées ici peuvent ne pas être complètes ni totalement exactes, car elles sont le fruit de notes prises à titre personnel.
+
+Influence : .
+\end{minipage}
+\end{center}
+
+
+\section{Les outils pour la proba}
+
+\subsection{Grand $\mathcal{O}$}
+
+\subsection{Petit $o$}
+
+\subsection{Les suites}
+
+\subsubsection{Théorème de Cesàro}
+\bp
+Soit $(a_n)_n$ une suite de nombres réels ou complexes. Si elle converge vers $l$, alors la suite de ses moyennes de Cesàro, de terme general $$c_n = \frac1n \sum_{k=1}^n a_k,$$ converge également vers $l$.
+\ep
+
+\bigskip
+
+\be \emoji{hocho}
+Trouver le terme général de la suite $u_{n+1} = sin(u_n), ~ $avec $u_0 \in ]0,1].$ 
+\ee
+
+\subsection{Algèbre et tribu}
+\subsubsection{Définitions}
+\bd[Algèbre de Boole]
+\ed
+
+\bd[\sigma-Algèbre (Tribu)]
+\ed
+
+\subsubsection{Eléments générateurs }
+En général, il est difficile d'expliciter tous les éléments d'une tribu. Les algèbres et les tribus se décrivent le plus souvent par leurs éléments \textbf{générateurs}.
+\bd[Générateurs]
+\ed
+
+On peut parler de la tribu engendrée par deux tribus $\A_1$ et $\A_2$, que l'on note $$\A_1\lor \A_2 = \sigma(\A_1 \cup \A_2).$$
+
+\bex
+Soit $A$ une partie de $\Omega$. L'algèbre $\C(\{A\})$ et la tribu $\sigma(\{A\})$ sont $\{\emptyset, \Omega, A,A^c\}$
+\eex
+
+\subsubsection{Tribu Borélienne}
+\bd[Tibu borélienne]
+Si $\Omega$ est un espace topologique, on appelle tribu borélienne, notée $\B(\Omega)$, la tribu engendrée par les ouverts de \Omega. Un borélien est un ensemble à la tribu borélienne.
+\ed
+\bn
+La tribu borélienne est aussi engendrée par les fermés puisque la tribu est stable par passage au complémentaire.
+\en
+
+\subsubsection{Espace produit}
+
+\subsection{Mesurabilité}
+En mathématique lorsqu'une structure est définie sur un espace, on souhaite pouvoir la \textbf{transporter} sur d'autres espaces par des fonctions. En général, on utilise d'ailleurs les \textbf{images réciproques} par les fonctions. 
+\bex Par exemple :
+\ben
+    \item Sur $\R$, la structure d'ordre est préservée par la réciproque d'une application \textbf{croissante} : Si $x < y$ sont dans l'image de $\R$ par une fonction $f$ croissante, alors $f^{-1}(x) < f^{-1}(y)$.
+    \item La structure topologique est préservée par une application de la réciproque d'une application \textbf{continue} : $f$ est continue si $f^{-1}(U)$ est ouvert pour tout ouvert $U$.
+\een
+\eex
+La notion analogue dans le contexte de la théorie de la mesure est celle de \textbf{mesurabilité}.
+
+\bigskip
+
+\bd[Fonctions mesurables] Pour rappel le couple $(\Omega, \A)$ formé d'un ensemble $\Omega$ et d'une tribu $\A$ est un \textbf{espace mesurable}. Les éléments de $\A$ sont appelés \textbf{ensembles mesurables}.
+\ben
+    \item[(i)] Soit $(\Omega, \A)$ et $(E, \B)$, deux espaces mesurables. Soit $f$ une fonction de $\Omega$ dans $E$. On dit que $f$ est mesurable (pour $\A$ et $\B$) si $$f^{-1}(\B) \subset \A.$$ C'est à dire, $f^{-1}(B) \in \A$ pour tout $B \in \B$.
+\een
+\ed
+
+\bigskip
+
+\bd[Fonctions borélienne]
+Une fonction mesurable de $(\Omega, \A)$ dans un espace topologique muni de sa tribu borélienne $(E, \B(E))$ est dite borélienne.
+\ed
+    
+\bigskip
+
+La proposition suivante montre que pour qu'une fonction soit \textbf{mesurable}, il suffit de vérifier sa propriété caractéristique sur une famille génératrice de la tribu d'arrivée.
+
+\bp[Caractéristique d'une fonction mesurable] Soit $\Omega$ et $E$ deux ensembles. Soit $\Ee \subset \Pp(E)$ et soit $\B = \sigma(\Ee).$\\
+La tribu engendrée par une fonction $f$ de $\Omega$ dans $(E, \B)$ est $$\sigma(f) = \sigma(f^{-1}(\Ee)) = \sigma(\{f^{-1}(C) : C \in \Ee\}).$$
+
+Plus généralement, si $\F$ est une famille de fonctions de $\Omega$ dans $(E, \B)$, alors $$\sigma(\F) = \sigma(\{f^{-1}(C) : C \in \Ee ; f \in \F\}).$$
+
+En particulier, pour qu'une fonction $f$ de $(\Omega, \A)$ dans $(E, \sigma(\E))$ soit mesurable, il suffit que $f^{-1}(\E)$ soit inclus dans $\A$.
+\ep
+ \bpf
+ Soit $$\T = \{B \subset E : f^{-1}(B) \in \sigma\big(f^{-1}(\E)\big)\}$$
+ \epf
+    
+\subsection{Ensembles de fonctions mesurables}
+
+\bp
+La composée de deux fonctions mesurables est mesurable.
+\ep
+\bpf
+
+\epf
+    
+\bl
+Si $f,g$ sont des fonctions mesurables de $\Omega, \A)$ dans $(\R, \B(\R))$, alors $\omega \in \Omega \to (f(\omega),g(\omega)) \in \R^2$ est mesurable de $(\Omega, \A)$ dans $(\R^2, \B(\R^2))$.
+\el
+\bpf
+\epf
+
+\bp
+Soit $\Omega_1$, $\Omega_2$ deux espaces topologiques munis de leurs tribu borélienne.\\
+Toute fonctions \textbf{continue} de $\Omega_1$ dans $\Omega_2$ est \textbf{mesurable} X (ou borélienne) \emoji{metal}.
+\ep
+\bpf
+\epf
+
+\bigskip
+
+\bn
+Pour $x, y \in \R$ on note leur \textbf{maximum} : $x \lor y$
+\en
+    
+\bp
+L'espace des fonctions mesurables (boréliennes) de $\Omega, \A)$ dans $(\R, \B(\R))$ est stable pour les opérations de :
+\ben 
+    \item \textbf{multiplication par une constante} : $(\lambda f)(\omega) = \lambda f(\lambda)$ pour $\lambda \in \R$ ;
+    \item \textbf{addition} : $(f+g)(\omega) = f(\omega) + g(\omega)$ ;
+    \item \textbf{multiplication} : $(fg)(\omega) = f(\omega)g(\omega)$ ;
+    \item \textbf{maximum} : $(f \lor g)(\omega) = f(\omega) \lor g(\omega)$.
+\een
+\ep
+\bpf
+\epf
+    
+    
+\subsection{Fonction étagée}
+    
+On peut approcher \textbf{toute} fonction mesurable par des fonctions mesurables plus simples.
+
+\bd[Fonction étagée]
+Soit $(\Omega, \A)$ un espace mesurable. On appelle fonction étagée (à valeurs dans $\R^d$) une fonction de la forme : $$f(\omega) = \sum_{i = 1}^k a_i \1_{A_i}(\omega)$$ où les $A_i$ sont des éléments \textbf{disjoints} de $\A$, et où les coefficients $a_i$ appartiennent à $\R^d$.
+\ed
+    
+\bp
+Toute fonction $f$ mesurable de $(\Omega, \A)$ dans $(\R,\B(\R))$ est \textbf{limite simple} de fonctions étagées. \\Si $f$ est positive, la limite peut être choisie croissante.
+\ep
+\bpf
+Prenons d'abord $f$ positive. Définissons pour $n,k \geq 1$, $$A_{n,k} = \{ \omega : \frac{k-1}{2^n} \leq f(\omega) \leq \frac k{2^n} \}$$
+Les $A_{n,k}$ sont éléments de $\A$ en tant qu'\textbf{images réciproques} par la fonction mesurable $f$ d'intervalles.\\
+La suite $$f_n(\omega)  = \sum_{k = 1}^{2^{n^2}} \frac{k-1}{2^n} \1_{A_{n,k}}(\omega)$$
+converge en croissant vers $f$.
+\medskip
+
+Si $f$ est quelconque, écrivons $f = f^+ - f^-$ avec $f^+ = f \lor 0$ et $f^- = (-f) \lor 0$, et approximons les fonctions positives $f^+$ et $f^-$ par la méthode précédente.
+\epf
+    
+\subsection{Classes monotones ???}
+à voir
+
+\subsection{Mesure}
+
+\bd[Axiomes]
+\ed
+
+\bp
+\ep
+
+\bd[Mesure image]
+\ed
+
+
+\bigskip
+
+\subsection{Intégration}
+\subsubsection{Intégrale d'une fonctions positives}
+
+\subsubsection{Intégrale d'une fonctions quelconques}
+
+\subsubsection{Convergence monotone}
+
+\subsubsection{Convergence dominée de Lebesgue}
+
+\subsubsection{Inégalité de Jensen}
+
+\subsubsection{Théorème de Radon-Nikodym}
+
+\subsubsection{Intégration par rapport à une mesure image}
+
+\bp[de transport]
+\ep
+
+\subsubsection{Théorème de Fubini-Tonelli}
+
+\subsubsection{Espaces L$^p$}
+
+\bp[Inégalité de Hölder]
+\ep
+
+\bp[Inégalité de Minkowski]
+\ep
+
+\bp
+Pour tout $p \geq 1$, l'espace L$^p$ est complet.
+\ep
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+\end{document}

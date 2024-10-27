@@ -37,13 +37,16 @@ Soit $(a_n)_n$ une suite de nombres réels ou complexes. Si elle converge vers $
 Trouver le terme général de la suite $u_{n+1} = sin(u_n), ~ $avec $u_0 \in ]0,1].$ 
 \ee
 
-\subsection{Algèbre et tribu}
+\subsection{Algèbre et tribu \emoji{heart-exclamation}}
 \subsubsection{Définitions}
 \bd[Algèbre de Boole]
 \ed
 
 \bd[\sigma-Algèbre (Tribu)]
 \ed
+
+
+
 
 \subsubsection{Eléments générateurs }
 En général, il est difficile d'expliciter tous les éléments d'une tribu. Les algèbres et les tribus se décrivent le plus souvent par leurs éléments \textbf{générateurs}.
@@ -105,6 +108,15 @@ En particulier, pour qu'une fonction $f$ de $(\Omega, \A)$ dans $(E, \sigma(\E))
  Soit $$\T = \{B \subset E : f^{-1}(B) \in \sigma\big(f^{-1}(\E)\big)\}$$
  \epf
     
+\bp[Théorème fondamental de la mesurabilité]
+Soit $f$ une application quelconque d'un ensemble $\Omega$ dans un ensemble $\Omega'$. Alors
+\ben
+    \item Pour toute tribu $\A$ sur $\Omega'$, $f^{-1}(\A)$ est une tribu sur $\Omega$, où $f^{-1}(\A) = \{f^{-1}(A) : A \in \A\}$
+    \item Pour tout $\A \in \Pp(\Pp(\Omega'))$, on a $\sigma(f^{-1}(\A)) = f^{-1}(\sigma(\A))$.
+\een
+    On appelle $\sigma(f^{-1}(\A)) = f^{-1}(\sigma(\A))$ la tribu image de $\A$ par $f$.
+
+\ep
 \subsection{Ensembles de fonctions mesurables}
 
 \bp
@@ -178,9 +190,25 @@ Si $f$ est quelconque, écrivons $f = f^+ - f^-$ avec $f^+ = f \lor 0$ et $f^- =
 \bp
 \ep
 
+\subsubsection{Mesure de dirac}
+Soit $(\Omega, \F)$ un espace muni d'une tribu. Soit $x\in \Omega$. On appelle mesure de Dirac (ou masse de Dirac) en $x$ et on note $\delta_x$ la mesure définie par :$$\forall A \in \F, ~ \delta_x(A) = \1_A(x).$$
+
+\bn
+La vérification du fait que $\delta_x$ est une mesure est évidente mais utile à faire une fois dans sa vie \emoji{relieved}.
+\en
+
+\subsubsection{Mesure de comptage}
+Soit $(\Omega, \F)$ un espace mesurable. On appelle mesure de comptage sur $\Omega$ la mesure $C$ définie par : $$\forall A \in \F, ~ C(A) = \mid A\mid,$$
+Où $\mid A\mid$ est le cardinal de $A$.
+\bn
+La vérification du fait que $C$ est une mesure est évidente mais utile à faire une fois dans sa vie \emoji{relieved}.
+\en
+
+\subsubsection{Mesure image}
 \bd[Mesure image]
 \ed
 
+\subsubsection{Mesure de Lebesgue \emoji{hugs}}
 
 \bigskip
 
@@ -189,7 +217,7 @@ Si $f$ est quelconque, écrivons $f = f^+ - f^-$ avec $f^+ = f \lor 0$ et $f^- =
 
 \subsubsection{Intégrale d'une fonctions quelconques}
 
-\subsubsection{Convergence monotone}
+\subsubsection{Convergence monotone de Beppo Levi}
 
 \subsubsection{Convergence dominée de Lebesgue}
 
@@ -217,7 +245,25 @@ Pour tout $p \geq 1$, l'espace L$^p$ est complet.
 \ep
 
 
-    
+\section{Espace probabilisé}
+
+Les choses nouvelles commencent \emoji{hand-over-mouth}
+
+\bigskip
+
+On appelle probabilité, ou mesure de probabilité, ou loi sur $(\Omega, \F)$ toute application $$ \PP : \F \to [0,1]$$ vérifiant les propriétés suivantes : 
+\ben
+    \item $\PP(\emptyset) = 0, \PP(\Omega) = 1$ ;
+    \item Pour toute suite $(A_i)_{i\geq 1}$ d'éléments de $F$ deux à deux disjoints, on a $$\PP \left( ~ \bigcup\limits_{i=1}^{\infty} A_i ~ \right) = \sum_{i=1}^{\infty} \PP(A_i)$$
+\een
+Le triplet $(\Omega, \F, \PP)$ est alors appelé \textbf{espace probabilisé}.
+
+\bn 
+Ce qui fait qu'un espace probabilisé est très exactement un espace mesuré associé à une mesure positive de masse totale 1 \emoji{bangbang}
+\en
+\bn
+Dans le contexte des probabilités, on appelle évènement tout élément de la tribu $\F$.
+\en
     
     
     

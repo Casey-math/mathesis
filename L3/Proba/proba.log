@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.15.0 (TeX Live 2022/Debian)  (format=lualatex 2024.2.17)  26 OCT 2024 21:43
+This is LuaHBTeX, Version 1.15.0 (TeX Live 2022/Debian)  (format=lualatex 2024.2.17)  27 OCT 2024 14:05
  restricted system commands enabled.
 **proba.tex
 (./proba.tex
@@ -1178,35 +1178,45 @@ Underfull \hbox (badness 10000) in paragraph at lines 14--15
 talement exactes,
  []
 
+
+LaTeX Font Warning: Font shape `TU/NotoColorEmoji(0)/bx/n' undefined
+(Font)              using `TU/NotoColorEmoji(0)/m/n' instead on input line 40.
+
 LaTeX Font Info:    Font shape `U/rsfs/m/n' will be
-(Font)              scaled to size 12.0pt on input line 53.
+(Font)              scaled to size 12.0pt on input line 56.
 LaTeX Font Info:    Font shape `U/rsfs/m/n' will be
-(Font)              scaled to size 8.0pt on input line 53.
+(Font)              scaled to size 8.0pt on input line 56.
 LaTeX Font Info:    Font shape `U/rsfs/m/n' will be
-(Font)              scaled to size 6.0pt on input line 53.
+(Font)              scaled to size 6.0pt on input line 56.
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}</tmp/lua_1rEBs9>]
-[2]
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}</tmp/lua_ZtR4MU></tmp/lua_KJ
+Q4EW>] [2]
 LaTeX Font Info:    Font shape `U/rsfs/m/n' will be
-(Font)              scaled to size 10.95pt on input line 105.
+(Font)              scaled to size 10.95pt on input line 108.
 LaTeX Font Info:    Trying to load font information for U+dsrom on input line 1
-54.
+66.
  (/usr/share/texlive/texmf-dist/tex/latex/doublestroke/Udsrom.fd
 File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
-) [3</tmp/lua_d42Z3f>] [4] (./proba.aux))
+)
+[3</tmp/lua_XO2BGm>] [4</tmp/lua_Kq6cst>] [5</tmp/lua_dQ24YZ></tmp/lua_JY6wmg></
+tmp/lua_KmjOd9>] (./proba.aux)
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+)
 
 Here is how much of LuaTeX's memory you used:
- 32410 strings out of 478382
+ 32415 strings out of 478382
  100000,1977958 words of node,token memory allocated
- 2906 words of node memory still in use:
-   31 hlist, 2 vlist, 14 rule, 41 glue, 4 kern, 1 penalty, 2 glyph, 704 attribut
-e, 57 glue_spec, 113 attribute_list, 2 write, 24 pdf_literal, 24 pdf_colorstack 
+ 3074 words of node memory still in use:
+   31 hlist, 2 vlist, 14 rule, 49 glue, 4 kern, 1 penalty, 2 glyph, 753 attribut
+e, 57 glue_spec, 120 attribute_list, 2 write, 24 pdf_literal, 24 pdf_colorstack 
 nodes
-   avail lists: 1:1,2:3117,3:260,4:146,5:422,6:51,7:5448,8:31,9:309,10:13,11:366
+   avail lists: 1:1,2:3427,3:280,4:156,5:434,6:56,7:5440,8:31,9:301,10:13,11:366
 
- 51364 multiletter control sequences out of 65536+600000
- 93 fonts using 9260207 bytes
+ 51369 multiletter control sequences out of 65536+600000
+ 94 fonts using 10133655 bytes
  104i,10n,101p,480b,299s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf/fonts/opentype/public/lm/lmroman10-regular.otf></usr/share/tex
 mf/fonts/opentype/public/lm/lmroman10-bold.otf></usr/share/texmf/fonts/opentype/
@@ -1228,10 +1238,10 @@ st/fonts/type1/public/doublestroke/dsrom12.pfb></usr/share/texlive/texmf-dist/fo
 nts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/font
 s/type1/public/rsfs/rsfs10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/za
 pfding/uzdr.pfb>
-Output written on proba.pdf (4 pages, 160126 bytes).
+Output written on proba.pdf (5 pages, 189805 bytes).
 
-PDF statistics: 169 PDF objects out of 1000 (max. 8388607)
- 97 compressed objects within 1 object stream
+PDF statistics: 183 PDF objects out of 1000 (max. 8388607)
+ 99 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 131072)
  256 words of extra memory for PDF output out of 10000 (max. 100000000)
 

@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mathématiques</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <header>
         <blockquote id="quote">
@@ -16,31 +18,56 @@
 
     <main>
         <div class="menu-grid">
-            <!-- Vos cours existants -->
+        
             <a href="L3/L3.html"><div class="menu-item">
                 <img src="images/L3.png" alt="intégral lebesgue">
                 <h2>Licence de mathématiques</h2>
+                <p></p>
             </div></a>
+            
             <a href="L3/Proba/proba.pdf"><div class="menu-item">
                 <img src="images/proba.png" alt="proba">
                 <h2>Douces Probabilités</h2>
+                <p></p>
             </div></a>
+
             <a href="integration.pdf"><div class="menu-item">
                 <img src="images/integration.png" alt="integration">
                 <h2>Intégration</h2>
+                <p></p>
             </div></a>
+            
             <a href="Analyse complexe.pdf"><div class="menu-item">
                 <img src="images/analyse_complexe.png" alt="complexes">
                 <h2>Analyse complexe</h2>
             </div></a>
-        </div>
-
-        <hr>
+            
+            <a href="residus.pdf"><div class="menu-item">
+                <img src="images/residus_small.png" alt="résidus">
+                <h2>Théorème des résidus</h2>
+            </div></a>
+            
         
-        <h2>Cours du jour</h2>
+            <a href="TCM.pdf"><div class="menu-item">
+                <img src="images/tcm_small.png" alt="Convergence monotone">
+                <h2>Beppo-Levi en proba</h2>
+                <p>Une preuve expliquée du théorème de convergence monotone utilisant les fonctions étagées</p>
+            </div></a>
 
-        <!-- Bloc pour afficher trois cours du jour aléatoires -->
-        <div id="random-courses" class="menu-grid"></div>
+            <a href="sommation_abel.pdf"><div class="menu-item">
+                <img src="images/sommation_abel.png" alt="Formule de sommation d'Abel">
+                <h2>Formule sommation Abel</h2>
+            </div></a>
+            
+            <a href="lebesgue.pdf"><div class="menu-item">
+                <img src="images/lebesgue.png" alt="intégral lebesgue">
+                <h2>Théorie de Lebesgue</h2>
+            </div></a>
+            
+            
+
+            
+        </div>
     </main>
     
     <script>
@@ -51,8 +78,10 @@
             { text: "\"En mathématiques, on ne comprend pas les choses, on s’y habitue.\"", author: "John von Neumann" },
             { text: "\"Si j'ai vu si loin, c'est en montant sur les épaules de géants.\"", author: "Newton" },
             { text: "\"L'analyse mathématique est une symphonie cohérente de l'infini.\"", author: "Hilbert" }
+            // Ajoutez autant de citations que vous le souhaitez
         ];
 
+        const quoteElement = document.getElementById("quote");
         const quoteTextElement = document.getElementById("quote-text");
         const quoteAuthorElement = document.getElementById("quote-author");
 
@@ -66,51 +95,14 @@
 
         // Appel initial pour afficher une citation aléatoire
         changeQuote();
+
+        // Appel la fonction changeQuote() à chaque fois que vous revenez sur la page
         window.addEventListener("focus", changeQuote);
-
-        // Tableau de cours du jour
-        const courses = [
-            { title: "Théorème des résidus", description: "Apprendre à utiliser le théorème des résidus pour les intégrales complexes.", link: "residus.pdf", image: "images/residus_small.png" },
-            { title: "Beppo-Levi en proba", description: "Une preuve expliquée du théorème de convergence monotone.", link: "TCM.pdf", image: "images/tcm_small.png" },
-            { title: "Formule sommation Abel", description: "Les secrets de la sommation d'Abel expliqués en détail.", link: "sommation_abel.pdf", image: "images/sommation_abel.png" },
-            { title: "Théorie de Lebesgue", description: "Introduction à l'intégration de Lebesgue.", link: "lebesgue.pdf", image: "images/lebesgue.png" }
-        ];
-
-        const randomCoursesContainer = document.getElementById("random-courses");
-
-        // Fonction pour sélectionner des éléments aléatoires dans un tableau sans répétitions
-        function getRandomCourses(num) {
-            const shuffledCourses = [...courses].sort(() => 0.5 - Math.random());
-            return shuffledCourses.slice(0, num);
-        }
-
-        // Fonction pour afficher les cours du jour aléatoires
-        function displayRandomCourses() {
-            const randomCourses = getRandomCourses(3); // Sélectionner 3 cours aléatoires
-            randomCoursesContainer.innerHTML = ""; // Nettoyer le conteneur avant d'ajouter
-
-            randomCourses.forEach(course => {
-                const courseElement = document.createElement("a");
-                courseElement.href = course.link;
-                courseElement.innerHTML = `
-                    <div class="menu-item">
-                        <img src="${course.image}" alt="${course.title}">
-                        <h2>${course.title}</h2>
-                        <p>${course.description}</p>
-                    </div>
-                `;
-                randomCoursesContainer.appendChild(courseElement);
-            });
-        }
-
-        // Appel initial pour afficher trois cours aléatoires
-        displayRandomCourses();
-        window.addEventListener("focus", displayRandomCourses);
     </script>
-    
     <footer>
         <p>Contact : <a href="mailto:anitokodama@gmail.com">e-mail</a></p>
     </footer>
 </body>
+
 </html>
 

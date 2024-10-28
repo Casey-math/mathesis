@@ -1,11 +1,12 @@
 # Fdb version 4
-["lualatex"] 1730034336 "proba.tex" "proba.pdf" "proba" 1730034337 0
+["lualatex"] 1730060869 "proba.tex" "proba.pdf" "proba" 1730060871 0
   "../../../preambule.tex" 1729967202 5847 55fb6df568dc45b58c00a9b6d9911f3a ""
   "/home/john/.texlive2022/texmf-var/luatex-cache/generic/fonts/hb/:usr:share:texlive:texmf-dist:fonts:truetype:google:noto-emoji:NotoColorEmoji.ttf:1:nil" 1729691975 129978 4b6aa05d9685f5fe81871bb33ddc4205 ""
   "/home/john/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/lmmono10-regular.luc" 1708850689 81819 943de47a424d8006cb945ecfb1acc821 ""
   "/home/john/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-bold.luc" 1708850681 128392 5ccdcd80529671c517f74edd952aa156 ""
   "/home/john/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-regular.luc" 1708850681 127309 2c3a7c325c755353a32b5f3d0c56cb88 ""
   "/home/john/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman12-bold.luc" 1708850681 128281 9d287a5267ef7e46310d2a20eb9d5ccd ""
+  "/home/john/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman12-italic.luc" 1729691975 135225 b32211e9f197b4d3efa86a399b1756c8 ""
   "/home/john/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman12-regular.luc" 1708850681 127652 ea9fc6c83383bb1337b771452cfd801e ""
   "/home/john/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman17-regular.luc" 1708850681 128903 c09e0576e10f0fc037591eb3b694d3ec ""
   "/home/john/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman6-regular.luc" 1725211156 128498 0ee388b0cb60835399803066807b8d70 ""
@@ -290,6 +291,7 @@
   "/usr/share/texmf/fonts/opentype/public/lm/lmroman10-bold.otf" 1255129361 111240 0af0b64d6d3df41bead3f9de314afbd4 ""
   "/usr/share/texmf/fonts/opentype/public/lm/lmroman10-regular.otf" 1255129361 111536 ae9d1b331000d544f47e5223081b7b54 ""
   "/usr/share/texmf/fonts/opentype/public/lm/lmroman12-bold.otf" 1255129361 110496 b9c8767d4cc3bf3f4b21f676bf89aa78 ""
+  "/usr/share/texmf/fonts/opentype/public/lm/lmroman12-italic.otf" 1255129361 117732 558aeb4ada25b652cc2e9bcf0771e962 ""
   "/usr/share/texmf/fonts/opentype/public/lm/lmroman12-regular.otf" 1255129361 110400 d844cffffa1af59f9d2bb1bfdb6f1a2c ""
   "/usr/share/texmf/fonts/opentype/public/lm/lmroman17-regular.otf" 1255129361 110248 1d75fdc9dbe45e70de83ff6cc79a81c9 ""
   "/usr/share/texmf/fonts/tfm/public/lm/ec-lmr12.tfm" 1254269338 12092 7b1546e2d096cfd5dcbd4049b0b1ec2e ""
@@ -297,8 +299,8 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1708203513 4623455 fa0568a71dd9a288d6c226ee477506c6 ""
   "/var/lib/texmf/tex/generic/config/language.dat" 1708203515 5130 0b9cfc7f911d355ff2254b7ae3243242 ""
   "/var/lib/texmf/web2c/luahbtex/lualatex.fmt" 1708203541 11864701 b097a2e2e99806f8adb0659fa07b82c1 ""
-  "proba.aux" 1730034337 7576 d7fee1c3a48c6512ab38f23ebe22deec "lualatex"
-  "proba.tex" 1730034333 10029 41e8faf19b709b7801b38a4ecef3f8fe ""
+  "proba.aux" 1730060871 7989 bf6e01fac01110d7cc62464a9a8e9afe "lualatex"
+  "proba.tex" 1730060867 12442 f58483cc5a1173043963e4332efc5fba ""
   (generated)
   "proba.aux"
   "proba.log"

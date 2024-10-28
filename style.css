@@ -40,6 +40,19 @@ header h1 {
     margin: 0 auto;
 }
 
+.menu-random {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 100vh; /* Ajustez selon la hauteur souhaitée */
+    align-items: center;
+    justify-items: center;
+}
+
+
 .menu-item {
     background-color: #333;
     border-radius: 8px;

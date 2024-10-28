@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mathématiques</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <header>
         <blockquote id="quote">
@@ -39,8 +41,32 @@
         
         <h2>Cours du jour</h2>
 
-        <!-- Bloc pour afficher trois cours du jour aléatoires -->
-        <div id="random-courses" class="menu-grid"></div>
+        <!-- Bloc pour afficher un cours du jour aléatoire -->
+        <blockquote id="random-course">
+        <div class="menu-grid">
+            <a id="course-link" href="#">
+                <div class="menu-item">
+                    <img id="course-image" src="images/tcm_small.png" alt="Convergence monotone">
+                    <h2 id="course-title">Titre du cours</h2>
+                    <p id="course-description">Description du cours</p>
+                </div>
+            </a>
+            <a id="course-link" href="#">
+                <div class="menu-item">
+                    <img id="course-image" src="images/tcm_small.png" alt="Convergence monotone">
+                    <h2 id="course-title">Titre du cours</h2>
+                    <p id="course-description">Description du cours</p>
+                </div>
+            </a>
+            <a id="course-link" href="#">
+                <div class="menu-item">
+                    <img id="course-image" src="images/tcm_small.png" alt="Convergence monotone">
+                    <h2 id="course-title">Titre du cours</h2>
+                    <p id="course-description">Description du cours</p>
+                </div>
+            </a>
+        </div>
+        </blockquote>
     </main>
     
     <script>
@@ -53,6 +79,7 @@
             { text: "\"L'analyse mathématique est une symphonie cohérente de l'infini.\"", author: "Hilbert" }
         ];
 
+        const quoteElement = document.getElementById("quote");
         const quoteTextElement = document.getElementById("quote-text");
         const quoteAuthorElement = document.getElementById("quote-author");
 
@@ -76,36 +103,24 @@
             { title: "Théorie de Lebesgue", description: "Introduction à l'intégration de Lebesgue.", link: "lebesgue.pdf", image: "images/lebesgue.png" }
         ];
 
-        const randomCoursesContainer = document.getElementById("random-courses");
+        const courseTitleElement = document.getElementById("course-title");
+        const courseDescriptionElement = document.getElementById("course-description");
+        const courseLinkElement = document.getElementById("course-link");
+        const courseImageElement = document.getElementById("course-image");
 
-        // Fonction pour sélectionner des éléments aléatoires dans un tableau sans répétitions
-        function getRandomCourses(num) {
-            const shuffledCourses = [...courses].sort(() => 0.5 - Math.random());
-            return shuffledCourses.slice(0, num);
+        // Fonction pour afficher un cours du jour aléatoire
+        function changeCourse() {
+            const randomIndex = Math.floor(Math.random() * courses.length);
+            const randomCourse = courses[randomIndex];
+            courseTitleElement.textContent = randomCourse.title;
+            courseDescriptionElement.textContent = randomCourse.description;
+            courseLinkElement.href = randomCourse.link;
+            courseImageElement.src = randomCourse.image;
         }
 
-        // Fonction pour afficher les cours du jour aléatoires
-        function displayRandomCourses() {
-            const randomCourses = getRandomCourses(3); // Sélectionner 3 cours aléatoires
-            randomCoursesContainer.innerHTML = ""; // Nettoyer le conteneur avant d'ajouter
-
-            randomCourses.forEach(course => {
-                const courseElement = document.createElement("a");
-                courseElement.href = course.link;
-                courseElement.innerHTML = `
-                    <div class="menu-item">
-                        <img src="${course.image}" alt="${course.title}">
-                        <h2>${course.title}</h2>
-                        <p>${course.description}</p>
-                    </div>
-                `;
-                randomCoursesContainer.appendChild(courseElement);
-            });
-        }
-
-        // Appel initial pour afficher trois cours aléatoires
-        displayRandomCourses();
-        window.addEventListener("focus", displayRandomCourses);
+        // Appel initial pour afficher un cours aléatoire
+        changeCourse();
+        window.addEventListener("focus", changeCourse);
     </script>
     
     <footer>

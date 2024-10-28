@@ -178,7 +178,21 @@ converge en croissant vers $f$.
 
 Si $f$ est quelconque, écrivons $f = f^+ - f^-$ avec $f^+ = f \lor 0$ et $f^- = (-f) \lor 0$, et approximons les fonctions positives $f^+$ et $f^-$ par la méthode précédente.
 \epf
-    
+
+Autre formulation :
+\bl[Lemme d'approximation]
+    Soit $f$ une fonction mesurable de $(\Omega,\A)$ dans $(\K, \B(\K))$ avec $\K = \R, \bar{\R}, \C$. Il existe une suite de fonctions étagées $(f_n)_n$ telle que $$f(\omega) = \dessous{n \to \infty}{lim} ~ f_n(\omega), \text{ pour tout } \omega \in \Omega.$$
+    Si $f \geq 0$, $(f_n)_n$ peut être choisie croissante et positive, \ie $0 \leq f_n \leq f_{n+1}$ pour tout $n \in \N^*.$
+\el
+\bn
+Pour prouver une propriété concernant l'intégrale d'une variable aléatoire positive, la recette est toujours la même : 
+\ben
+    \item Commencer par la prouver pour une indicatrice.
+    \item L'obtenir pour les fonctions étagées positives, par linéarité de l'intégrale sur l'ensemble de ces fonctions.
+    \item Utiliser alors le lemme d'approximation pour écrire toute fonction mesurable dans $\bar{\R}_+$ comme limite croissante de fonction étagées.
+    \item Obtenir la propriété souhaitée pour les fonctions mesurables positives grâce au théorème de la convergence monotone.
+\een
+\en
 \subsection{Classes monotones ???}
 à voir
 
@@ -209,10 +223,30 @@ La vérification du fait que $C$ est une mesure est évidente mais utile à fair
 \ed
 
 \subsubsection{Mesure de Lebesgue \emoji{hugs}}
-
+\bd
+La mesure de Lebesgue est l'\textbf{unique} mesure définie sur $(\R, \B(\R))$, stable par \textbf{translation}, et telle que $\lambda([0,1]) = 1$. Elle existe, et la mesure de Lebesgue d'un intervalle correspond à sa \textbf{longueur}.
+\ed
 \bigskip
 
 \subsection{Intégration}
+\subsubsection{Trucs simples}
+\emoji{person-with-veil}
+\subsubsection*{Indicatrice}
+Soit $A \in \A$, nous définissons $$\int_{\Omega} \1_A d\mu =: \mu(A).$$ Pour $\mu$ une mesure positive.
+
+\bigskip
+\subsubsection*{Fonctions étagées}
+Pour rappel une fonction de $(\Omega, \A)$ dans $(\K, \B(\K))$ est dite étagée si elle prend un nombre fini de valeurs notées $(a_i)_i$, les $a_i$ étant supposés tous distincts. Elle s'écrit donc : $$f = \sum_{k=1}^n a_k \1_{A_k},$$
+où $A_k = f^{-1}(\{a_k\})$.
+\bigskip
+
+Dans le cas où $\Omega$ est fini ou dénombrable, nous définissons ainsi : 
+$$\int_{\Omega} f d\mu := \sum_{k=1}^n a_k \int_{\Omega} \1_{A_k} d\mu = \sum_{k=1}^n a_k \mu(A_k)$$
+
+Dans le cas où $\mu$ est une mesure de probabilité notée $\PP$, l'équation précédente se réécrit pour $X = \sum_{k=1}^n a_k \1_{X = a_k}$ $$ \E[X] = \sum_{k=1}^n a_k \PP(\{X = a_k\}) = \sum_{k=1}^n a_k \PP_X(\{a_k\}).$$
+\bn
+L'espérance ne dépend de $X$ qu'au travers de sa loi. Ainsi, deux variables aléatoires ayant la même loi, même potentiellement "très différente" ont même espérance \emoji{bangbang}
+\en
 \subsubsection{Intégrale d'une fonctions positives}
 
 \subsubsection{Intégrale d'une fonctions quelconques}

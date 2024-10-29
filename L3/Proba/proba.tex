@@ -1,8 +1,26 @@
 \input{../../../preambule.tex}
 \usepackage{emoji}
-\title{Probabilités}
+
+\usepackage{calligra} % Pour une jolie calligraphie
+\title{{\Huge $\mathbb{P}\mathbb{R}\mathbb{O}\mathbb{B}\mathbb{A}\mathbb{B}\mathbb{I}\mathbb{L}\mathbb{I}\mathbb{T}\mathbb{E}\mathbb{S}$}}
 \author{Anito Kodama}
 \date{\today}
+
+% Définir le style de la boîte en parchemin
+\tcbset{
+    parchment/.style={
+        colback=yellow!10!white, % Couleur de fond type parchemin
+        colframe=black!50, % Bordure assombrie
+        width=0.9\textwidth, % Largeur de la boîte
+        arc=4mm, % Coins arrondis
+        boxrule=0.8mm, % Épaisseur de la bordure
+        drop shadow, % Ombre portée
+        enhanced, % Pour activer les effets d’ombre et de bordure
+        frame style={opacity=0.8}, % Opacité de la bordure pour un effet vieilli
+        interior style={opacity=0.9} % Opacité du fond
+    }
+}
+
 
 \begin{document}
 \maketitle
@@ -12,9 +30,29 @@
 \begin{minipage}{0.9\textwidth}
 \small\ttfamily
 Ce document PDF n'a pas pour vocation à être vendu ni diffusé à des fins commerciales. Il s'agit de notes personnelles, combinées avec des extraits et des réflexions basés sur des lectures. Toute utilisation ou diffusion doit respecter le caractère privé et non commercial de ces contenus. Les idées présentées ici peuvent ne pas être complètes ni totalement exactes, car elles sont le fruit de notes prises à titre personnel.
-
-Influence : .
 \end{minipage}
+\end{center}
+
+\tableofcontents
+
+\newpage
+% Utilisation de la boîte parcheminée pour le Préambule
+\vspace*{0cm} % Espacement vertical pour centrer sur la page
+\begin{center}
+    \begin{tcolorbox}[parchment] % Application du style parchemin
+        % Titre calligraphié
+        \centering
+        {\Huge \textbf{\textcolor{teal}{\calligra Préambule}}}
+        \bigskip
+
+        % Texte explicatif
+        \begin{minipage}{1\textwidth}
+            Si on considère un ensemble $X$ et une tribu $\mathcal{A}$ sur $X$, on nomme alors la paire $(X, \mathcal{A})$ un \textbf{espace mesurable} ou \textbf{probabilisable} dans notre cas. \\
+            \medskip
+
+            Pour quantifier le « poids » de chaque événement de $\mathcal{A}$, on introduit la notion de \textbf{\large probabilité}.
+        \end{minipage}
+    \end{tcolorbox}
 \end{center}
 
 

@@ -9,3 +9,12 @@ To https://github.com/Casey-math/mathesis.git
 From https://github.com/Casey-math/mathesis
  * branch            main       -> FETCH_HEAD
 Already up to date.
+[main 4919a24] Mise à jour rapide du site
+ 11 files changed, 469 insertions(+), 199 deletions(-)
+ create mode 100644 L3/Proba/proba.toc
+ create mode 100644 test.html
+To https://github.com/Casey-math/mathesis.git
+   20105fd..4919a24  main -> main
+From https://github.com/Casey-math/mathesis
+ * branch            main       -> FETCH_HEAD
+Already up to date.

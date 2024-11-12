@@ -15,29 +15,26 @@
     </header>
 
     <main>
+    <p>Ce site est en construction, certaines pages peuvent ne pas s'ouvrir.</p>
         <div class="menu-grid">
             <!-- Vos cours existants -->
             <a href="L3/L3.html"><div class="menu-item">
                 <img src="images/L3.png" alt="intégral lebesgue">
-                <h2>Licence de mathématiques</h2>
+                <h3>Licence de mathématiques</h3>
             </div></a>
             <a href="L3/Proba/proba.pdf"><div class="menu-item">
                 <img src="images/proba.png" alt="proba">
-                <h2>Douces Probabilités</h2>
+                <h3>Douces Probabilités</h3>
             </div></a>
             <a href="integration.pdf"><div class="menu-item">
                 <img src="images/integration.png" alt="integration">
-                <h2>Intégration</h2>
+                <h3>Intégration</h3>
             </div></a>
             <a href="Analyse complexe.pdf"><div class="menu-item">
                 <img src="images/analyse_complexe.png" alt="complexes">
-                <h2>Analyse complexe</h2>
+                <h3>Analyse complexe</h3>
             </div></a>
         </div>
-
-        <hr>
-        
-        <h2>Cours du jour</h2>
 
         <!-- Bloc pour afficher trois cours du jour aléatoires -->
         <div id="random-courses" class="menu-grid"></div>
@@ -68,46 +65,30 @@
         changeQuote();
         window.addEventListener("focus", changeQuote);
 
-        // Tableau de cours du jour
-        const courses = [
-            { title: "Théorème des résidus", description: "Apprendre à utiliser le théorème des résidus pour les intégrales complexes.", link: "residus.pdf", image: "images/residus_small.png" },
-            { title: "Beppo-Levi en proba", description: "Une preuve expliquée du théorème de convergence monotone.", link: "TCM.pdf", image: "images/tcm_small.png" },
-            { title: "Formule sommation Abel", description: "Les secrets de la sommation d'Abel expliqués en détail.", link: "sommation_abel.pdf", image: "images/sommation_abel.png" },
-            { title: "Théorie de Lebesgue", description: "Introduction à l'intégration de Lebesgue.", link: "lebesgue.pdf", image: "images/lebesgue.png" }
-        ];
-
-        const randomCoursesContainer = document.getElementById("random-courses");
-
-        // Fonction pour sélectionner des éléments aléatoires dans un tableau sans répétitions
-        function getRandomCourses(num) {
-            const shuffledCourses = [...courses].sort(() => 0.5 - Math.random());
-            return shuffledCourses.slice(0, num);
-        }
-
-        // Fonction pour afficher les cours du jour aléatoires
-        function displayRandomCourses() {
-            const randomCourses = getRandomCourses(3); // Sélectionner 3 cours aléatoires
-            randomCoursesContainer.innerHTML = ""; // Nettoyer le conteneur avant d'ajouter
-
-            randomCourses.forEach(course => {
-                const courseElement = document.createElement("a");
-                courseElement.href = course.link;
-                courseElement.innerHTML = `
-                    <div class="menu-item">
-                        <img src="${course.image}" alt="${course.title}">
-                        <h2>${course.title}</h2>
-                        <p>${course.description}</p>
-                    </div>
-                `;
-                randomCoursesContainer.appendChild(courseElement);
-            });
-        }
-
-        // Appel initial pour afficher trois cours aléatoires
-        displayRandomCourses();
-        window.addEventListener("focus", displayRandomCourses);
-    </script>
+            </script>
     
+    
+<hr>
+    
+            <h2>D'autres choses que des maths</h2> 
+            
+        <div class="menu-grid">
+            <!-- Vos cours existants -->
+            <a href="divers/.pdf"><div class="menu-item">
+                <img src="images/terra.png" alt="intégral lebesgue">
+                <h3>Faire un terrarium équilibré</h3>
+            </div></a>
+            <a href="divers/.pdf"><div class="menu-item">
+                <img src="images/syntropie.png" alt="intégral lebesgue">
+                <h3>Syntropie</h3>
+            </div></a>
+            <a href="divers/.pdf"><div class="menu-item">
+                <img src="images/perma.png" alt="intégral lebesgue">
+                <h3>Permaculture</h3>
+            </div></a>
+            
+        </div>       
+            
     <footer>
         <p>Contact : <a href="mailto:anitokodama@gmail.com">e-mail</a></p>
     </footer>

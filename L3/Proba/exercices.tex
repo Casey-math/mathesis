@@ -1,0 +1,50 @@
+\input{../preambule.tex}
+\usepackage{hyperref} % Pour les hyperliens
+
+\title{Exercices de probibilités}
+\author{Anito Kodama}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section*{Variables aléatoires}
+
+\subsection*{Exercice 1}
+\label{exo1}
+Soit $X$ une \va définie sur $(\Omega, \mathcal{F}, \PP)$, à valeurs dans $(\N, \mathcal{P}(\N))$.\\
+Déterminer l'espérance et la variance :
+\ben
+\item Si $X$ suit une loi binomial de paramètre $n \geq 1$, $p \in ]0,1[$. \item Si $X$ suit une loi de poisson de paramètre $\lambda > 0$.
+\een
+
+\noindent
+\textbf{Lien vers la solution :} \hyperref[sol1]{Solution Exercice 1}
+
+\vspace{1em}
+
+\subsection*{Exercice 2}
+\label{exo2}
+Soit $X$ une \va sur $(\Omega, \mathcal{F}, \PP)$, à valeur dans $(\R,\mathcal{\R})$, suivant une loi exponentielle de paramètre $\lambda > 0.$\\
+
+
+\noindent
+\textbf{Lien vers la solution :} \hyperref[sol2]{Solution Exercice 2}
+
+\newpage % Pour séparer les solutions dans une nouvelle page
+
+\section*{Solutions}
+
+\subsection*{Solution \hyperref[exo1]{Exercice 1}}
+\label{sol1}
+Déjà commençons par observer que $X$ est à valeurs dans $\N$. Or les \vas prennant un nombre dénombrable de valeurs sont discrètes. On peut donc dire que $X$ est dicrète. Or l'espérance d'une \va est donnée par la formule : $$\E[X] = \sum x \PP(x)$$
+Cette remarque conclut, car le reste ne consiste qu'en des calculs...
+
+\vspace{1em}
+
+\subsection*{Solution \hyperref[exo2]{Exercice 2}}
+\label{sol2}
+
+
+\end{document}
+

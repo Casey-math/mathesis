@@ -46,3 +46,35 @@ To https://github.com/Casey-math/mathesis.git
 From https://github.com/Casey-math/mathesis
  * branch            main       -> FETCH_HEAD
 Already up to date.
+[main 5b926b8] Mise à jour rapide du site
+ 30 files changed, 6309 insertions(+), 429 deletions(-)
+ create mode 100644 L3/Proba/exercices.aux
+ create mode 100644 L3/Proba/exercices.dvi
+ create mode 100644 L3/Proba/exercices.fdb_latexmk
+ create mode 100644 L3/Proba/exercices.fls
+ create mode 100644 L3/Proba/exercices.log
+ create mode 100644 L3/Proba/exercices.out
+ create mode 100644 L3/Proba/exercices.pdf
+ create mode 100644 L3/Proba/exercices.tex
+ create mode 100644 divers/terrarium/terra.aux
+ create mode 100644 divers/terrarium/terra.fdb_latexmk
+ create mode 100644 divers/terrarium/terra.fls
+ create mode 100644 divers/terrarium/terra.log
+ create mode 100644 divers/terrarium/terra.pdf
+ create mode 100644 divers/terrarium/terra.tex
+ create mode 100644 divers/terrarium/terra_minimal.aux
+ create mode 100644 divers/terrarium/terra_minimal.fdb_latexmk
+ create mode 100644 divers/terrarium/terra_minimal.fls
+ create mode 100644 divers/terrarium/terra_minimal.log
+ create mode 100644 divers/terrarium/terra_minimal.pdf
+ create mode 100644 divers/terrarium/terra_minimal.tex
+ create mode 100644 images/perma.png
+ create mode 100644 images/syntropie.png
+ create mode 100644 images/terra.png
+ delete mode 100644 index (copy).html
+ delete mode 100644 index_prime.html
+ create mode 100644 preambule.tex
+ delete mode 100644 test.html
+To https://github.com/Casey-math/mathesis.git
+   561e9e4..5b926b8  main -> main
+fatal: unable to access 'https://github.com/Casey-math/mathesis.git/': Could not resolve host: github.com

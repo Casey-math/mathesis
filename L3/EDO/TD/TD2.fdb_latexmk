@@ -1,7 +1,7 @@
 # Fdb version 4
-["lualatex"] 1702117272 "TD2.tex" "TD2.pdf" "TD2" 1702117272 0
-  "/home/john/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman12-regular.luc" 1694598981 127652 ea9fc6c83383bb1337b771452cfd801e ""
-  "/home/john/.texlive2022/texmf-var/luatex-cache/generic/names/luaotfload-names.luc.gz" 1694598981 629563 132352e95dfc3cfa197f05fc30920204 ""
+["lualatex"] 1731858674 "TD2.tex" "TD2.pdf" "TD2" 1731858675 0
+  "/home/john/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman12-regular.luc" 1708850681 127652 ea9fc6c83383bb1337b771452cfd801e ""
+  "/home/john/.texlive2022/texmf-var/luatex-cache/generic/names/luaotfload-names.luc.gz" 1729692056 373848 96cf85a6da13b72f0c49ef87b2c75212 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1246382020 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -151,11 +151,11 @@
   "/usr/share/texmf/fonts/type1/public/lm/lmr17.pfb" 1255129361 119752 1bd8d06e4079df624bf59ce3ad7c9aa6 ""
   "/usr/share/texmf/fonts/type1/public/lm/lmri12.pfb" 1255129361 109265 32320cb6133d4d76bf83e27b5eb4009b ""
   "/usr/share/texmf/tex/latex/lm/t1lmr.fd" 1616454256 1867 996fe743d88a01aca041ed22cc10e1bb ""
-  "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1694598972 4623455 fa0568a71dd9a288d6c226ee477506c6 ""
-  "/var/lib/texmf/tex/generic/config/language.dat" 1694598974 5130 0f28030f9dc3951d1e6bb8b0eaba22e7 ""
-  "/var/lib/texmf/web2c/luahbtex/lualatex.fmt" 1694599050 11864701 d2124dbba3315858e6feeb387036d9cf ""
-  "TD2.aux" 1702117272 885 f61e31b0646e6f0d45dd9b0f7e5bcf03 "lualatex"
-  "TD2.tex" 1702117268 16365 c04e23418fbb29933a2abee55ed53622 ""
+  "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1708203513 4623455 fa0568a71dd9a288d6c226ee477506c6 ""
+  "/var/lib/texmf/tex/generic/config/language.dat" 1708203515 5130 0b9cfc7f911d355ff2254b7ae3243242 ""
+  "/var/lib/texmf/web2c/luahbtex/lualatex.fmt" 1708203541 11864701 b097a2e2e99806f8adb0659fa07b82c1 ""
+  "TD2.aux" 1731858675 885 f61e31b0646e6f0d45dd9b0f7e5bcf03 "lualatex"
+  "TD2.tex" 1731858671 16377 733c27ede69a1189ca6090953ebfebd2 ""
   (generated)
   "TD2.aux"
   "TD2.log"

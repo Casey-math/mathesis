@@ -1,4 +1,4 @@
-PWD /home/john/Documents/mathesis/L3/EDO/TD
+PWD /home/john/mathesis/L3/EDOm/TD
 INPUT /var/lib/texmf/web2c/luahbtex/lualatex.fmt
 INPUT ./TD2.tex
 OUTPUT TD2.log

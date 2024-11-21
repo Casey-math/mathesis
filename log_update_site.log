@@ -106,3 +106,11 @@ To https://github.com/Casey-math/mathesis.git
 From https://github.com/Casey-math/mathesis
  * branch            main       -> FETCH_HEAD
 Already up to date.
+[main 162b1ad] Mise à jour rapide du site
+ 3 files changed, 4 insertions(+), 1 deletion(-)
+ rename images/{proba1.png => proba.png} (100%)
+To https://github.com/Casey-math/mathesis.git
+   7ae48a7..162b1ad  main -> main
+From https://github.com/Casey-math/mathesis
+ * branch            main       -> FETCH_HEAD
+Already up to date.

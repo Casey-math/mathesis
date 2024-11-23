@@ -1,9 +1,10 @@
 # Fdb version 4
-["lualatex"] 1730207955 "proba.tex" "proba.pdf" "proba" 1730207956 0
+["lualatex"] 1732382773 "proba.tex" "proba.pdf" "proba" 1732382774 0
   "../../../preambule.tex" 1729967202 5847 55fb6df568dc45b58c00a9b6d9911f3a ""
   "/home/john/.texlive2022/texmf-var/luatex-cache/generic/fonts/hb/:usr:share:texlive:texmf-dist:fonts:truetype:google:noto-emoji:NotoColorEmoji.ttf:1:nil" 1729691975 129978 4b6aa05d9685f5fe81871bb33ddc4205 ""
   "/home/john/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/lmmono10-regular.luc" 1708850689 81819 943de47a424d8006cb945ecfb1acc821 ""
   "/home/john/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-bold.luc" 1708850681 128392 5ccdcd80529671c517f74edd952aa156 ""
+  "/home/john/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-italic.luc" 1727893761 136294 09728fc21177978741a7b8266f6c1d72 ""
   "/home/john/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-regular.luc" 1708850681 127309 2c3a7c325c755353a32b5f3d0c56cb88 ""
   "/home/john/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman12-bold.luc" 1708850681 128281 9d287a5267ef7e46310d2a20eb9d5ccd ""
   "/home/john/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman12-italic.luc" 1729691975 135225 b32211e9f197b4d3efa86a399b1756c8 ""
@@ -13,7 +14,7 @@
   "/home/john/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman7-regular.luc" 1729691975 128357 0d16f9447129ad7063247fec219200ac ""
   "/home/john/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman8-regular.luc" 1725211156 128128 42f49fd77e514db5c6a12370d46af5eb ""
   "/home/john/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/notocoloremoji.luc" 1729691975 386331 86981ea049d67b651edc7e872ceeb886 ""
-  "/home/john/.texlive2022/texmf-var/luatex-cache/generic/names/luaotfload-lookup-cache.luc" 1729692938 564 099815746dfd2e3acc26cca3648e5504 ""
+  "/home/john/.texlive2022/texmf-var/luatex-cache/generic/names/luaotfload-lookup-cache.luc" 1732381941 644 679c1c50411d878278f5e2f1f78d38e6 ""
   "/home/john/.texlive2022/texmf-var/luatex-cache/generic/names/luaotfload-names.luc.gz" 1729692056 373848 96cf85a6da13b72f0c49ef87b2c75212 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/symbol/psyr.tfm" 1136768653 1408 5937f58aa508ea2cea4901c07d10f5fe ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136768653 1528 f853c4d1b4e0550255e02831fdc8496f ""
@@ -293,6 +294,7 @@
   "/usr/share/texlive/texmf-dist/tex/luatex/luaotfload/luaotfload.lua" 1664913378 13565 83bac25a8cf8630acccd6a7f8bb9f791 ""
   "/usr/share/texmf/fonts/opentype/public/lm/lmmono10-regular.otf" 1255129361 64684 15a2082c8e31f411875a86ea2d29a0ee ""
   "/usr/share/texmf/fonts/opentype/public/lm/lmroman10-bold.otf" 1255129361 111240 0af0b64d6d3df41bead3f9de314afbd4 ""
+  "/usr/share/texmf/fonts/opentype/public/lm/lmroman10-italic.otf" 1255129361 118828 4d461c73423fe2666dad2ff0dfc3ca68 ""
   "/usr/share/texmf/fonts/opentype/public/lm/lmroman10-regular.otf" 1255129361 111536 ae9d1b331000d544f47e5223081b7b54 ""
   "/usr/share/texmf/fonts/opentype/public/lm/lmroman12-bold.otf" 1255129361 110496 b9c8767d4cc3bf3f4b21f676bf89aa78 ""
   "/usr/share/texmf/fonts/opentype/public/lm/lmroman12-italic.otf" 1255129361 117732 558aeb4ada25b652cc2e9bcf0771e962 ""
@@ -302,9 +304,9 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1708203513 4623455 fa0568a71dd9a288d6c226ee477506c6 ""
   "/var/lib/texmf/tex/generic/config/language.dat" 1708203515 5130 0b9cfc7f911d355ff2254b7ae3243242 ""
   "/var/lib/texmf/web2c/luahbtex/lualatex.fmt" 1708203541 11864701 b097a2e2e99806f8adb0659fa07b82c1 ""
-  "proba.aux" 1730207956 7989 5ee2194fdc54d069203e06ca3d4c7d81 "lualatex"
-  "proba.tex" 1730207948 14018 5a60d22b2a7d03100a9d767d1cc55576 ""
-  "proba.toc" 1730207956 2417 9624a932bb60b7b0a82a5c8c1263c062 "lualatex"
+  "proba.aux" 1732382774 8421 4ec59c3d421c7768980c05513ec56e35 "lualatex"
+  "proba.tex" 1732382772 15670 829320d10c9b5f4612229e8aa21ec33d ""
+  "proba.toc" 1732382774 2489 aebafbce31d9b344871aa2dcccc15219 "lualatex"
   (generated)
   "proba.aux"
   "proba.log"

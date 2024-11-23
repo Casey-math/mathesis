@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.15.0 (TeX Live 2022/Debian)  (format=lualatex 2024.2.17)  29 OCT 2024 14:19
+This is LuaHBTeX, Version 1.15.0 (TeX Live 2022/Debian)  (format=lualatex 2024.2.17)  23 NOV 2024 18:26
  restricted system commands enabled.
 **proba.tex
 (./proba.tex
@@ -1190,8 +1190,8 @@ talement exactes,
 \openout4 = proba.toc
  [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}</tmp/lua_bAb5hQ></tmp/lua_gv
-P526>]
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}</tmp/lua_OhS3oe></tmp/lua_Cd
+YsTe>] [2]
 
 LaTeX Font Warning: Font shape `T1/calligra/bx/n' undefined
 (Font)              using `T1/calligra/m/n' instead on input line 45.
@@ -1208,59 +1208,59 @@ LaTeX Font Info:    Font shape `U/rsfs/m/n' will be
 (Font)              scaled to size 8.0pt on input line 94.
 LaTeX Font Info:    Font shape `U/rsfs/m/n' will be
 (Font)              scaled to size 6.0pt on input line 94.
-[2</tmp/lua_Yr6jSM>]
+[3</tmp/lua_oaDR85>]
 LaTeX Font Info:    Font shape `U/rsfs/m/n' will be
 (Font)              scaled to size 10.95pt on input line 146.
- [3]
+ [4]
 LaTeX Font Info:    Trying to load font information for U+dsrom on input line 2
 04.
 
 (/usr/share/texlive/texmf-dist/tex/latex/doublestroke/Udsrom.fd
 File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
-) [4</tmp/lua_t1QhpC>] [5] [6</tmp/lua_fPa007></tmp/lua_3RrhiL>] [7</tmp/lua_rK2
-Cn1>] [8</tmp/lua_GvloQZ>] (./proba.aux)
+) [5</tmp/lua_w5Ju5B>] [6] [7</tmp/lua_GPElmE></tmp/lua_vZ90f8>] [8</tmp/lua_9SQ
+rXb>] [9</tmp/lua_vbyZXv></tmp/lua_aDE9c7></tmp/lua_6qgKoV>] (./proba.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 )
 
 Here is how much of LuaTeX's memory you used:
- 32565 strings out of 478382
+ 32569 strings out of 478382
  100000,1977958 words of node,token memory allocated
- 3334 words of node memory still in use:
-   31 hlist, 2 vlist, 14 rule, 61 glue, 4 kern, 1 penalty, 2 glyph, 830 attribut
-e, 57 glue_spec, 131 attribute_list, 2 write, 24 pdf_literal, 24 pdf_colorstack 
+ 3629 words of node memory still in use:
+   31 hlist, 2 vlist, 14 rule, 78 glue, 4 kern, 1 penalty, 2 glyph, 907 attribut
+e, 57 glue_spec, 142 attribute_list, 2 write, 24 pdf_literal, 24 pdf_colorstack 
 nodes
-   avail lists: 1:1,2:3325,3:360,4:166,5:442,6:74,7:5516,8:32,9:500,10:13,11:388
+   avail lists: 1:1,2:3237,3:360,4:166,5:446,6:74,7:5499,8:33,9:500,10:13,11:388
 
- 51501 multiletter control sequences out of 65536+600000
- 119 fonts using 11855319 bytes
- 104i,12n,101p,480b,973s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texmf/fonts/opentype/public/lm/lmroman12-italic.otf></usr/share/texm
-f/fonts/opentype/public/lm/lmroman10-regular.otf></usr/share/texmf/fonts/opentyp
-e/public/lm/lmroman10-bold.otf></usr/share/texmf/fonts/opentype/public/lm/lmroma
-n12-bold.otf></usr/share/texmf/fonts/opentype/public/lm/lmmono10-regular.otf></u
-sr/share/texmf/fonts/opentype/public/lm/lmroman12-regular.otf></usr/share/texliv
-e/texmf-dist/fonts/type1/public/calligra-type1/callig15.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
-12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/doublestroke/dsrom10.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/doublestroke/dsrom12.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/rsfs/rsfs10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/zapfd
-ing/uzdr.pfb>
-Output written on proba.pdf (8 pages, 224130 bytes).
+ 51505 multiletter control sequences out of 65536+600000
+ 122 fonts using 12931815 bytes
+ 104i,12n,101p,529b,973s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texmf/fonts/opentype/public/lm/lmroman10-italic.otf></usr/share/texm
+f/fonts/opentype/public/lm/lmroman12-italic.otf></usr/share/texmf/fonts/opentype
+/public/lm/lmroman10-regular.otf></usr/share/texmf/fonts/opentype/public/lm/lmro
+man10-bold.otf></usr/share/texmf/fonts/opentype/public/lm/lmroman12-bold.otf></u
+sr/share/texmf/fonts/opentype/public/lm/lmmono10-regular.otf></usr/share/texmf/f
+onts/opentype/public/lm/lmroman12-regular.otf></usr/share/texlive/texmf-dist/fon
+ts/type1/public/calligra-type1/callig15.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmm
+i8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/public/doublestroke/dsrom10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/doublestroke/dsrom12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/rsfs
+/rsfs10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/zapfding/uzdr.pfb>
+Output written on proba.pdf (9 pages, 236701 bytes).
 
-PDF statistics: 199 PDF objects out of 1000 (max. 8388607)
- 108 compressed objects within 2 object streams
+PDF statistics: 214 PDF objects out of 1000 (max. 8388607)
+ 114 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 131072)
  256 words of extra memory for PDF output out of 10000 (max. 100000000)
 

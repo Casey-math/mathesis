@@ -1,32 +1,33 @@
 \babel@toc {french}{}\relax 
-\contentsline {section}{\numberline {1}Les outils pour la proba}{2}{}%
-\contentsline {subsection}{\numberline {1.1}Grand $\mathcal {O}$}{2}{}%
-\contentsline {subsection}{\numberline {1.2}Petit $o$}{2}{}%
-\contentsline {subsection}{\numberline {1.3}Les suites}{2}{}%
-\contentsline {subsubsection}{\numberline {1.3.1}Théorème de Cesàro}{2}{}%
-\contentsline {subsection}{\numberline {1.4}Algèbre et tribu \emoji {heart-exclamation}}{2}{}%
-\contentsline {subsubsection}{\numberline {1.4.1}Définitions}{2}{}%
-\contentsline {subsubsection}{\numberline {1.4.2}Eléments générateurs }{2}{}%
-\contentsline {subsubsection}{\numberline {1.4.3}Tribu Borélienne}{3}{}%
-\contentsline {subsubsection}{\numberline {1.4.4}Espace produit}{3}{}%
-\contentsline {subsection}{\numberline {1.5}Mesurabilité}{3}{}%
-\contentsline {subsection}{\numberline {1.6}Ensembles de fonctions mesurables}{4}{}%
-\contentsline {subsection}{\numberline {1.7}Fonction étagée}{4}{}%
-\contentsline {subsection}{\numberline {1.8}Classes monotones ???}{5}{}%
-\contentsline {subsection}{\numberline {1.9}Mesure}{5}{}%
-\contentsline {subsubsection}{\numberline {1.9.1}Mesure de dirac}{6}{}%
-\contentsline {subsubsection}{\numberline {1.9.2}Mesure de comptage}{6}{}%
-\contentsline {subsubsection}{\numberline {1.9.3}Mesure image}{6}{}%
-\contentsline {subsubsection}{\numberline {1.9.4}Mesure de Lebesgue \emoji {hugs}}{6}{}%
-\contentsline {subsection}{\numberline {1.10}Intégration}{6}{}%
-\contentsline {subsubsection}{\numberline {1.10.1}Trucs simples}{6}{}%
-\contentsline {subsubsection}{\numberline {1.10.2}Intégrale d'une fonctions positives}{7}{}%
-\contentsline {subsubsection}{\numberline {1.10.3}Intégrale d'une fonctions quelconques}{7}{}%
-\contentsline {subsubsection}{\numberline {1.10.4}Convergence monotone de Beppo Levi}{7}{}%
-\contentsline {subsubsection}{\numberline {1.10.5}Convergence dominée de Lebesgue}{7}{}%
-\contentsline {subsubsection}{\numberline {1.10.6}Inégalité de Jensen}{7}{}%
-\contentsline {subsubsection}{\numberline {1.10.7}Théorème de Radon-Nikodym}{7}{}%
-\contentsline {subsubsection}{\numberline {1.10.8}Intégration par rapport à une mesure image}{7}{}%
-\contentsline {subsubsection}{\numberline {1.10.9}Théorème de Fubini-Tonelli}{7}{}%
-\contentsline {subsubsection}{\numberline {1.10.10}Espaces L$^p$}{7}{}%
-\contentsline {section}{\numberline {2}Espace probabilisé}{8}{}%
+\contentsline {section}{\numberline {1}Les outils pour la proba}{3}{}%
+\contentsline {subsection}{\numberline {1.1}Grand $\mathcal {O}$}{3}{}%
+\contentsline {subsection}{\numberline {1.2}Petit $o$}{3}{}%
+\contentsline {subsection}{\numberline {1.3}Les suites}{3}{}%
+\contentsline {subsubsection}{\numberline {1.3.1}Théorème de Cesàro}{3}{}%
+\contentsline {subsection}{\numberline {1.4}Algèbre et tribu \emoji {heart-exclamation}}{3}{}%
+\contentsline {subsubsection}{\numberline {1.4.1}Définitions}{3}{}%
+\contentsline {subsubsection}{\numberline {1.4.2}Eléments générateurs }{3}{}%
+\contentsline {subsubsection}{\numberline {1.4.3}Tribu Borélienne}{4}{}%
+\contentsline {subsubsection}{\numberline {1.4.4}Espace produit}{4}{}%
+\contentsline {subsection}{\numberline {1.5}Mesurabilité}{4}{}%
+\contentsline {subsection}{\numberline {1.6}Ensembles de fonctions mesurables}{5}{}%
+\contentsline {subsection}{\numberline {1.7}Fonction étagée}{5}{}%
+\contentsline {subsection}{\numberline {1.8}Classes monotones ???}{6}{}%
+\contentsline {subsection}{\numberline {1.9}Mesure}{6}{}%
+\contentsline {subsubsection}{\numberline {1.9.1}Mesure de dirac}{7}{}%
+\contentsline {subsubsection}{\numberline {1.9.2}Mesure de comptage}{7}{}%
+\contentsline {subsubsection}{\numberline {1.9.3}Mesure image}{7}{}%
+\contentsline {subsubsection}{\numberline {1.9.4}Mesure de Lebesgue \emoji {hugs}}{7}{}%
+\contentsline {subsection}{\numberline {1.10}Intégration}{7}{}%
+\contentsline {subsubsection}{\numberline {1.10.1}Trucs simples}{7}{}%
+\contentsline {subsubsection}{\numberline {1.10.2}Intégrale d'une fonctions positives}{8}{}%
+\contentsline {subsubsection}{\numberline {1.10.3}Intégrale d'une fonctions quelconques}{8}{}%
+\contentsline {subsubsection}{\numberline {1.10.4}Convergence monotone de Beppo Levi}{8}{}%
+\contentsline {subsubsection}{\numberline {1.10.5}Convergence dominée de Lebesgue}{8}{}%
+\contentsline {subsubsection}{\numberline {1.10.6}Inégalité de Jensen}{8}{}%
+\contentsline {subsubsection}{\numberline {1.10.7}Théorème de Radon-Nikodym}{8}{}%
+\contentsline {subsubsection}{\numberline {1.10.8}Intégration par rapport à une mesure image}{8}{}%
+\contentsline {subsubsection}{\numberline {1.10.9}Théorème de Fubini-Tonelli}{8}{}%
+\contentsline {subsubsection}{\numberline {1.10.10}Espaces L$^p$}{8}{}%
+\contentsline {section}{\numberline {2}Espace probabilisé}{9}{}%
+\contentsline {section}{\numberline {3}Espérance conditionnelle}{9}{}%

@@ -338,7 +338,32 @@ Dans le contexte des probabilités, on appelle évènement tout élément de la 
 \en
     
     
-    
+\section{Espérance conditionnelle}
+
+\bd[Espérance conditionnelle]
+L'éspérance conditionnelle de $X$ sachant $\F$ notée $\E[X \mid \F]$ est définie par :
+\ben
+    \item \textbf{$\F$-mesurabilité :} $\E[X\mid \F]$ est $\F$-mesurable ;
+    \item \textbf{Propriété orthogonale :} $\forall Z$ $\F$-mesurable, $\E[(X - \E[X \mid \F])\times Z ] = 0$ \ssi $\E[X\times Z] = \E[\E[X\mid \F] \times Z]$.
+\een
+\ed
+
+\bp
+On a alors les trois propriétés suivantes :
+\ben
+    \item Si $X$ est $\F$-mesurable, $\E[X\mid \F] = X$;
+    \item $\E[\E[X\mid \F]] = \E[\E[X\mid \F]\times 1] = \E[X \times 1] = \E[X]$;
+    \item Si $\F_1 \subset \F_2$, on a $\E[\E[X\mid \F_1]\mid \F_2] = \E[X\mid \F_1]$.
+\een
+\ep
+\bpf[esquisse]
+\ben
+    \item Nous n'avons pour l'heure rien d'autre que la définition précédente donc on la regarde \emoji{eye} ; on a dans un premier temps, par hypothèse, $X$ $\F$-mesurable, donc déjà $X$ satisfait la première condition de l'espérance conditionnelle, ensuite on doit vérifier "l'orthogonalité", \ie vérifier si pour tout $Z$ $\F$-mesurable, on a $\E[(X-X)\times Z] = 0$, cela nous donne $\E[0\times Z] =\E[0] = 0$, donc $X$ satisfait également la deuxième condition de la définition.
+    \bn
+    En fait en y pensant bien, l'espérance conditionnelle $\E[X\mid \F] = X$ peut être vue comme une "approximation" de $X$ en utilisant uniquement les informations contenues dans la tribu $\F$. Donc si $X$ est déjà entièrement déterminé par $\F$ (\ie si $X$ est $\F$-mesurable), alors cette approximation est parfaite, il n'y a aucune perte d'information et donc on a l'égalité ! \emoji{call-me-hand}
+    \en
+\een
+\epf
     
     
     

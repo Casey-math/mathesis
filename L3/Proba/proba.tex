@@ -345,9 +345,12 @@ L'éspérance conditionnelle de $X$ sachant $\F$ notée $\E[X \mid \F]$ est déf
 \ben
     \item \textbf{$\F$-mesurabilité :} $\E[X\mid \F]$ est $\F$-mesurable ;
     \item \textbf{Propriété orthogonale :} $\forall Z$ $\F$-mesurable, $\E[(X - \E[X \mid \F])\times Z ] = 0$ \ssi $\E[X\times Z] = \E[\E[X\mid \F] \times Z]$.
+    \bn
+    Cette deuxième propriété signifie que l'écart entre $X$ et son espérance conditionnelle $\E[X\mid \F]$ est indépendant (par analogie avec l'algèbre linéaire on pourrait dire "orthogonal") à toute information contenue dans la tribu $\F$, \ie que $\E[X\mid \F]$ est la meilleure approximation de $X$ à partir des informations contenues dans $\F$ et ce qui reste de $X$ après avoir enlevé $\E[X\mid \F]$ n'est pas corrélé avec aucune information dans $\F$.
+    \en
 \een
 \ed
-
+\emoji{point-up-2} En fait pour revenir de nouveau sur la deuxième propriété de la définition on peut dire qu'elle découle de l'idée que $X$ peut être décomposé en deux parties : $$X = \E[X\mid \F] + residu$$ où le résidu ($X- \E[X\mid \F]$) est "orthogonal" à tout évènement mesurable dans $\F$. Cela garantit que $\E[X\mid \F]$ capture toute l'information "reliée" à $\F$, et le résidu n'est plus corrélé à $\F$.
 \bp
 On a alors les trois propriétés suivantes :
 \ben
@@ -362,6 +365,7 @@ On a alors les trois propriétés suivantes :
     \bn
     En fait en y pensant bien, l'espérance conditionnelle $\E[X\mid \F] = X$ peut être vue comme une "approximation" de $X$ en utilisant uniquement les informations contenues dans la tribu $\F$. Donc si $X$ est déjà entièrement déterminé par $\F$ (\ie si $X$ est $\F$-mesurable), alors cette approximation est parfaite, il n'y a aucune perte d'information et donc on a l'égalité ! \emoji{call-me-hand}
     \en
+    \item La deuxième propriété exprime que la moyenne globale d'une espé
 \een
 \epf
     

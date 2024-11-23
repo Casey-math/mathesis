@@ -128,3 +128,7 @@ To https://github.com/Casey-math/mathesis.git
 From https://github.com/Casey-math/mathesis
  * branch            main       -> FETCH_HEAD
 Already up to date.
+[main 60b2d21] Mise à jour rapide du site
+ 8 files changed, 197 insertions(+), 153 deletions(-)
+To https://github.com/Casey-math/mathesis.git
+   c6d16a5..60b2d21  main -> main

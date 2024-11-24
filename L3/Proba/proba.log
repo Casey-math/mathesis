@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.15.0 (TeX Live 2022/Debian)  (format=lualatex 2024.2.17)  23 NOV 2024 19:06
+This is LuaHBTeX, Version 1.15.0 (TeX Live 2022/Debian)  (format=lualatex 2024.2.17)  23 NOV 2024 20:33
  restricted system commands enabled.
 **proba.tex
 (./proba.tex
@@ -1190,8 +1190,8 @@ talement exactes,
 \openout4 = proba.toc
  [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}</tmp/lua_vN8VAm></tmp/lua_Kb
-amD0>] [2]
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}</tmp/lua_ttWfQV></tmp/lua_sC
+udD3>] [2]
 
 LaTeX Font Warning: Font shape `T1/calligra/bx/n' undefined
 (Font)              using `T1/calligra/m/n' instead on input line 45.
@@ -1208,7 +1208,7 @@ LaTeX Font Info:    Font shape `U/rsfs/m/n' will be
 (Font)              scaled to size 8.0pt on input line 94.
 LaTeX Font Info:    Font shape `U/rsfs/m/n' will be
 (Font)              scaled to size 6.0pt on input line 94.
-[3</tmp/lua_Md2AvA>]
+[3</tmp/lua_3Z3Hj5>]
 LaTeX Font Info:    Font shape `U/rsfs/m/n' will be
 (Font)              scaled to size 10.95pt on input line 146.
  [4]
@@ -1217,14 +1217,14 @@ LaTeX Font Info:    Trying to load font information for U+dsrom on input line 2
 
 (/usr/share/texlive/texmf-dist/tex/latex/doublestroke/Udsrom.fd
 File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
-) [5</tmp/lua_sVCpZk>] [6] [7</tmp/lua_2Wjzaw></tmp/lua_oDX18N>] [8</tmp/lua_4Cg
-xco>]
+) [5</tmp/lua_BubDHW>] [6] [7</tmp/lua_b07y83></tmp/lua_SnV8yI>] [8</tmp/lua_DWa
+z06>]
 Underfull \hbox (badness 1248) in paragraph at lines 349--350
 \TU/lmr/m/n/12 entre $\OML/cmm/m/it/12 X$ \TU/lmr/m/n/12 et son es-pé-rance con
 di-tion-nelle
  []
 
-[9</tmp/lua_J5nZy9></tmp/lua_DRI2F4>] [10</tmp/lua_TCnD1y></tmp/lua_ieRvlW>]
+[9</tmp/lua_Cr1mQ7></tmp/lua_x01s81>] [10</tmp/lua_nXIcZ2></tmp/lua_ISRheS>]
 (./proba.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -1234,15 +1234,15 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Here is how much of LuaTeX's memory you used:
  32569 strings out of 478382
  100000,1977958 words of node,token memory allocated
- 3675 words of node memory still in use:
-   31 hlist, 2 vlist, 14 rule, 80 glue, 4 kern, 1 penalty, 2 glyph, 921 attribut
-e, 57 glue_spec, 144 attribute_list, 2 write, 24 pdf_literal, 24 pdf_colorstack 
+ 3705 words of node memory still in use:
+   31 hlist, 2 vlist, 14 rule, 82 glue, 4 kern, 1 penalty, 2 glyph, 928 attribut
+e, 57 glue_spec, 145 attribute_list, 2 write, 24 pdf_literal, 24 pdf_colorstack 
 nodes
-   avail lists: 1:1,2:3221,3:360,4:166,5:446,6:74,7:5497,8:33,9:500,10:13,11:388
+   avail lists: 1:1,2:3213,3:360,4:166,5:446,6:74,7:5495,8:33,9:500,10:13,11:388
 
  51505 multiletter control sequences out of 65536+600000
  122 fonts using 12931815 bytes
- 104i,12n,101p,529b,973s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 104i,12n,101p,717b,973s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf/fonts/opentype/public/lm/lmroman10-italic.otf></usr/share/texm
 f/fonts/opentype/public/lm/lmroman12-italic.otf></usr/share/texmf/fonts/opentype
 /public/lm/lmroman10-regular.otf></usr/share/texmf/fonts/opentype/public/lm/lmro
@@ -1264,7 +1264,7 @@ ts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1
 ic/doublestroke/dsrom12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
 sfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/rsfs
 /rsfs10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on proba.pdf (10 pages, 241503 bytes).
+Output written on proba.pdf (10 pages, 243525 bytes).
 
 PDF statistics: 219 PDF objects out of 1000 (max. 8388607)
  116 compressed objects within 2 object streams

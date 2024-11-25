@@ -1,5 +1,5 @@
 # Fdb version 4
-["lualatex"] 1732390424 "proba.tex" "proba.pdf" "proba" 1732390425 0
+["lualatex"] 1732475225 "proba.tex" "proba.pdf" "proba" 1732475227 0
   "../../../preambule.tex" 1729967202 5847 55fb6df568dc45b58c00a9b6d9911f3a ""
   "/home/john/.texlive2022/texmf-var/luatex-cache/generic/fonts/hb/:usr:share:texlive:texmf-dist:fonts:truetype:google:noto-emoji:NotoColorEmoji.ttf:1:nil" 1729691975 129978 4b6aa05d9685f5fe81871bb33ddc4205 ""
   "/home/john/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/lmmono10-regular.luc" 1708850689 81819 943de47a424d8006cb945ecfb1acc821 ""
@@ -58,6 +58,7 @@
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb" 1248133631 35469 70d41d2b9ea31d5d813066df7c99281c ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1248133631 35752 024fb6c41858982481f6968b5fc26508 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1248133631 32722 d7379af29a190c3f453aba36302ff5a9 ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb" 1248133631 32362 179c33bbf43f19adbb3825bb4e36e57a ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb" 1248133631 32734 69e00a6b65cedb993666e42eedb3d48f ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1248133631 32726 0a1aea6fcd6468ee2cf64d891f5c43c8 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
@@ -304,9 +305,9 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1708203513 4623455 fa0568a71dd9a288d6c226ee477506c6 ""
   "/var/lib/texmf/tex/generic/config/language.dat" 1708203515 5130 0b9cfc7f911d355ff2254b7ae3243242 ""
   "/var/lib/texmf/web2c/luahbtex/lualatex.fmt" 1708203541 11864701 b097a2e2e99806f8adb0659fa07b82c1 ""
-  "proba.aux" 1732390425 8423 eb0190bb583e3c3ce8858d19319a0cbd "lualatex"
-  "proba.tex" 1732390423 17814 9589bc0feb82719e5aacd489ab8cabd1 ""
-  "proba.toc" 1732390425 2489 aebafbce31d9b344871aa2dcccc15219 "lualatex"
+  "proba.aux" 1732475227 8425 ad6c0a2e1019e6b67e5ac8eaf2c34f62 "lualatex"
+  "proba.tex" 1732475225 20903 870638aab75d52fa259c977d86e00980 ""
+  "proba.toc" 1732475227 2490 458ab15276bb1fd6415b5bbad3c2c4d6 "lualatex"
   (generated)
   "proba.aux"
   "proba.log"

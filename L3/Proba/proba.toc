@@ -29,5 +29,5 @@
 \contentsline {subsubsection}{\numberline {1.10.8}Intégration par rapport à une mesure image}{8}{}%
 \contentsline {subsubsection}{\numberline {1.10.9}Théorème de Fubini-Tonelli}{8}{}%
 \contentsline {subsubsection}{\numberline {1.10.10}Espaces L$^p$}{8}{}%
-\contentsline {section}{\numberline {2}Espace probabilisé}{9}{}%
-\contentsline {section}{\numberline {3}Espérance conditionnelle}{9}{}%
+\contentsline {section}{\numberline {2}Espace probabilisé}{8}{}%
+\contentsline {section}{\numberline {3}Espérance conditionnelle}{10}{}%

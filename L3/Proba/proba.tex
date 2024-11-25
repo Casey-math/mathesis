@@ -323,6 +323,50 @@ Les choses nouvelles commencent \emoji{hand-over-mouth}
 
 \bigskip
 
+\section*{Introduction}
+
+On doit les choses actuelles à Kolmogorov. Cf turbulences/processus stochastiques qu'il a étudié.
+
+\bigskip
+
+L'axiomatique de Kolmogorov débute par la donnée de trois choses : 
+\ben
+    \item Un espace d'état $\Omega$ ;
+    \item Sur cet espace d'état on considère une tribu $\F$ sur $\Omega$ ;
+    \item On fois qu'on s'est donné une tribu, on cherche à construire une mesure de probabilité $\PP$.
+\een
+Le triplet () est un espace de probabilité.\\
+Quand $\Omega$ est fini ou dénombrable, on prend le plus souvent comme tribu : $\mathcal{P}(\Omega)$. Dans ce cas si je prends un sous ensemble $A \subset \mathcal{P}(\Omega)$ on peut définir la probabilité de la manière suivante : $\PP(A)= \sum_{a\in A} \PP(\{a\})$ (sigma additivité, somme dénombrable) cette égalité définit une mesure de probabilité. Autrement dit, définir une mesure de probabilité sur un espace fini ou dénombrable muni de la tribu $\mathcal{P}(\Omega)$ est équivalent à définir sa valeur sur les singletons (sur les atomes).
+
+\section*{Que se passe-t-il lorsque $\Omega$ n'est plus dénombrable}
+Ce que l'on a définit dasn le paragraphe précédent ne dépend pas de $\Omega$ : tout dépend de la tribu $\F$. Par exemple si l'on se muni de la tribu $\F = \{\emptyset, A, A^c, \Omega\}$, il suffit de donné une valeur à la probabilité de $A$ : $\PP(\emptyset) = 0, \PP(A) = p \in [0,1], \PP(A^c) = 1-p, \PP(\Omega) = 1$. Dans ce cas c'est très simple. Dans le cas ou la tribu contient beaucoup d'élément, on ne peut plus utilisé la sigma additivité.
+
+\subsection*{Comment on fait alors ?}
+On imagine que $\F$ est engendré par une partie qui est plus simple à concevoir, par exemple sur $\R$ la tribu des borélien (plus petite tribu qui contient les ouverts de $\R$, (\ie la tribu qui est engendré par les ouverts/par les fermés par passage au complémentaire) on sait aussi que cette tribu est engendrée par les intervalles ouverts : $\sigma(]a,b[, a,b \in \R)$. \\
+La tribu est engendrée par un ensemble plus simple $\F = \sigma(\mathcal{I})$.
+
+\bigskip
+
+La question est : \textbf{comment définir} une mesure de probabilité sur $\F$ \textbf{à partir} de ces valeurs sur $\mathcal{I}$ : \\ Demandons à Carathéodory :\\ Si $\mathcal{I}$ est \textbf{stable par intersections finies}, alors, si on considère deux mesures de probabilités qui coïncident sur $\mathcal{I}$, alors elles sont égales : $\PP_{\mid\mathcal{I}} = \Q_{\mid\mathcal{I}} \Rightarrow \PP = \Q$.\\
+Autrement dit, une mesure de probabilité est complètement définit par sa valeur sur l'ensemble $\mathcal{I}$ qui engendre la tribu, a la condition que $\mathcal{I}$ soit stable par intersections finies (on l'appelle \textbf{$\pi$-système}).
+
+Autre chose maintenant : si $\mathcal{I}$ est une algèbre de parties stable par unions finies et par passage au complémentaire, alors dans ce cas, si on considère une application $\mu_0 : \mathcal{I} \to \mathbb{R}_+$, $\sigma$-additive, alors $\mu_0$ admet un prolongement à $\sigma(\mathcal{I})$.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+
 On appelle probabilité, ou mesure de probabilité, ou loi sur $(\Omega, \F)$ toute application $$ \PP : \F \to [0,1]$$ vérifiant les propriétés suivantes : 
 \ben
     \item $\PP(\emptyset) = 0, \PP(\Omega) = 1$ ;
@@ -336,6 +380,7 @@ Ce qui fait qu'un espace probabilisé est très exactement un espace mesuré ass
 \bn
 Dans le contexte des probabilités, on appelle évènement tout élément de la tribu $\F$.
 \en
+
     
     
 \section{Espérance conditionnelle}

@@ -136,3 +136,6 @@ fatal: unable to access 'https://github.com/Casey-math/mathesis.git/': Could not
 [main 599fc6b] Mise à jour rapide du site
  6 files changed, 43 insertions(+), 41 deletions(-)
 fatal: unable to access 'https://github.com/Casey-math/mathesis.git/': Could not resolve host: github.com
+From https://github.com/Casey-math/mathesis
+ * branch            main       -> FETCH_HEAD
+Already up to date.

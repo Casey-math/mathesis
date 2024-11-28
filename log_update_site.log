@@ -139,3 +139,8 @@ fatal: unable to access 'https://github.com/Casey-math/mathesis.git/': Could not
 From https://github.com/Casey-math/mathesis
  * branch            main       -> FETCH_HEAD
 Already up to date.
+[main 977220b] Mise à jour rapide du site
+ 2 files changed, 4 insertions(+), 1 deletion(-)
+To https://github.com/Casey-math/mathesis.git
+   19bd210..977220b  main -> main
+fatal: unable to access 'https://github.com/Casey-math/mathesis.git/': Could not resolve host: github.com

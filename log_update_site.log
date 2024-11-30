@@ -147,3 +147,6 @@ fatal: unable to access 'https://github.com/Casey-math/mathesis.git/': Could not
 [main dd21907] Mise à jour rapide du site
  1 file changed, 5 insertions(+)
 fatal: unable to access 'https://github.com/Casey-math/mathesis.git/': Could not resolve host: github.com
+From https://github.com/Casey-math/mathesis
+ * branch            main       -> FETCH_HEAD
+Already up to date.

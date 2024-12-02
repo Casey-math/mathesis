@@ -150,3 +150,10 @@ fatal: unable to access 'https://github.com/Casey-math/mathesis.git/': Could not
 From https://github.com/Casey-math/mathesis
  * branch            main       -> FETCH_HEAD
 Already up to date.
+[main 5899cf0] Mise à jour rapide du site
+ 1 file changed, 3 insertions(+)
+To https://github.com/Casey-math/mathesis.git
+   1f4aab2..5899cf0  main -> main
+From https://github.com/Casey-math/mathesis
+ * branch            main       -> FETCH_HEAD
+Already up to date.
